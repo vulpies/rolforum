@@ -1,0 +1,34 @@
+@media (min-width: 1440px) {
+    * {
+        box-sizing: border-box;
+    }
+
+    header {
+        display: none;
+    }
+
+    .navbar {
+        display: flex;
+        width: 100%;
+        background-color: #fbc972;
+        padding: 15px;
+        position: absolute;
+        left: 0;
+    }
+
+    .navbar-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu-link {
+        width: 100%;
+        position: initial;
+        padding: 0;
+        margin: 0;
+    }
+}

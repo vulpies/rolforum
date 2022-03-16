@@ -1,0 +1,17 @@
+@import "./mainScreen/index.css";
+@import "./width1440/index.css";
+
+html,
+body {
+    box-sizing: border-box;
+    font-family: "AnelizaRegular";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    color: #000;
+    background-color: #fffdbc4a;
+    line-height: 1.2;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,40 @@
+.navbar {
+    display: none;
+}
+
+.menu-link {
+    position: relative;
+    display: block;
+    text-align: left;
+    max-width: 100%;
+    padding: 0 8%;
+    margin: 30px 0;
+    color: #f6e21b;
+    font-size: 30px;
+    line-height: 90%;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px #000;
+    opacity: 0.5;
+}
+
+.menu-link:hover {
+    color: #f6a31b;
+    opacity: 1;
+}
+
+.menu-navbar {
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    outline: currentcolor none medium;
+    max-width: 100%;
+    align-items: center;
+    background-color: #fbc972;
+    color: #a00c0c;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 2px 10px;
+    z-index: 500;
+}

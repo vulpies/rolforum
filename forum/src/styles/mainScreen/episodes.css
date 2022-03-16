@@ -1,0 +1,44 @@
+.epi-wrapper {
+    margin: 15px 0;
+    border: 1px solid #e3a714;
+    padding: 10px 5px;
+    border-radius: 5px;
+}
+
+.epi-title {
+    cursor: pointer;
+}
+
+.epi-fandom {
+    color: #e01b1b;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.epi-name {
+    font-size: 1.1rem;
+}
+
+.epi-name:hover {
+    text-shadow: 0px 0px 20px #e75d0b;
+}
+
+.epi-extra {
+    width: auto;
+    padding-top: 5px;
+    font-size: 0.7rem;
+    color: #edb24c;
+    text-shadow: 0px 0px 2px #bca16d;
+}
+
+.epi-extra:hover {
+    color: red;
+}
+
+.epi-links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
