@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from "react-bootstrap/Modal"
 import { Button } from "react-bootstrap"
-import { useState } from 'react';
 import CommonBtn from './CommonBtn';
 
 const EpiModal = ({ name, text, className, fandom, epiName, members, image }) => {
@@ -11,7 +10,7 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image }) =>
 		setShow(true)
 	}
 
-	let desc = [...text].join('').slice(0, 300) + '...'
+	// let desc = [...text].join('').slice(0, 300) + '...'
 
 
 	return (
@@ -33,10 +32,10 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image }) =>
 
 				<Modal.Body>
 					<div className='modal-img'>
-						<img src={image} className='modal-img__image' />
+						<img src={image} className='modal-img__image' alt='' />
 					</div>
 					<div className='modal-members'><span>Участники</span>: {members}</div>
-					<div className='modal-desc'><span>Описание</span>: {desc}</div>
+					<div className='modal-desc'><span>Описание</span>: {text}</div>
 				</Modal.Body>
 
 
