@@ -7,14 +7,17 @@ const NavLinks = () => {
             <Link to="/" className="menu-link">
                 Главная
             </Link>
+            <Link className="menu-link" to="/">
+                Орг. темы
+            </Link>
             <Link className="menu-link" to="/episodes">
-                Episodes
+                Эпизоды
             </Link>
             <Link className="menu-link" to="/">
-                Line2
+                Вне игровое
             </Link>
             <Link className="menu-link" to="/">
-                Line3
+                Войти / выйти
             </Link>
         </>
     )
