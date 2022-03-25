@@ -13,7 +13,7 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image }) =>
 	// let desc = [...text].join('').slice(0, 300) + '...'
 	let list = []
 
-	for (const [i, member] of members.entries()) {
+	for (const [member] of members.entries()) {
 		if (member.mask) {
 			list.push(member.mask)
 		} else {
