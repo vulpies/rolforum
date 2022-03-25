@@ -10,12 +10,14 @@ const OneEpi = () => {
 		console.log('divdsn')
 	}
 
+
 	const [info, setInfo] = useState([])
 	const url = 'https://api.rolecrossways.com/v1/episode-list-view';
 
-	axios.get(url)
+	useEffect( () => { axios.get(url)
 		.then(res => setInfo(res.data))
 
+		console.log(info); }, [])
 
 	// const getEpiInfo = async () => {
 	// 	const url = 'https://api.rolecrossways.com/v1/episode-list-view';
@@ -26,8 +28,6 @@ const OneEpi = () => {
 	// }
 
 	// useEffect(() => { getEpiInfo() }, [])
-
-	let userList = []
 
 	return (
 		<>

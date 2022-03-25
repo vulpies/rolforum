@@ -14,9 +14,6 @@ const EpisodesPage = () => {
                     <Breadcrumbs name="Эпизоды" />
                 </div>
                 <OneEpi />
-                <OneEpi />
-                <OneEpi />
-                <OneEpi />
             </div>
         </>
     )
