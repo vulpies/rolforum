@@ -42,6 +42,10 @@ a:hover {
     margin-top: 75px;
 }
 
+img {
+    max-width: 100%;
+}
+
 button {
     background: none;
     border: none;
@@ -52,11 +56,13 @@ button {
 .breadcrumb {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-content: center;
-    justify-content: flex-end;
     align-items: center;
     font-size: 0.7rem;
+    justify-content: center;
+    padding-left: 0;
+    text-align: center;
 }
 
 .breadcrumb-item {

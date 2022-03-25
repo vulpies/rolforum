@@ -16,7 +16,7 @@ const Menu = styled.nav`
     padding-top: 64px;
     padding-right: 0px;
     align-items: stretch;
-    background-color: #fffcc6;
+    background-color: #fbf9d8;
     transform: translateX(-100%);
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
