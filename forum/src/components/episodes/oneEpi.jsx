@@ -17,7 +17,7 @@ const OneEpi = () => {
 	useEffect( () => { axios.get(url)
 		.then(res => setInfo(res.data))
 
-		console.log(info); }, [])
+		console.log(info); }, [setInfo])
 
 	// const getEpiInfo = async () => {
 	// 	const url = 'https://api.rolecrossways.com/v1/episode-list-view';
