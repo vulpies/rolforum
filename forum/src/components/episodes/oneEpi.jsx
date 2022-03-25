@@ -2,13 +2,12 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import EpiModal from '../epiModal'
 import axios from "axios"
-// import { useHttp } from '../../hooks/useHttp'
 
 
 const OneEpi = () => {
-	const epiOpen = () => {
-		console.log('divdsn')
-	}
+	// const epiOpen = () => {
+	// 	<Link to={`/episodes/${item.id}`} />
+	// }
 
 
 	const [info, setInfo] = useState([])
@@ -25,9 +24,9 @@ const OneEpi = () => {
 	return (
 		<>
 			{info && info.map((item) => (<div className='epi-wrapper' key={item.id}>
-				<div className='epi-title' onClick={epiOpen}>
+				<a href={`/episodes/${item.id}`} className='epi-title'>
 					<span className='epi-fandom'>[{item.fandoms}]</span> - <span className='epi-name'>{item.title}</span>
-				</div>
+				</a>
 
 				<EpiModal
 					name='Подсмотреть'

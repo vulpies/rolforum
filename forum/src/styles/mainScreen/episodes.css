@@ -7,6 +7,8 @@
 
 .epi-title {
     cursor: pointer;
+    display: block;
+    margin-bottom: 4px;
 }
 
 .epi-fandom {
