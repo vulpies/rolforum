@@ -1,0 +1,42 @@
+.login-wrapper {
+    margin: 10px;
+}
+
+.login {
+    width: 100%;
+    padding-top: 5px;
+}
+
+.login-input {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-input > label {
+    font-size: 1.3rem;
+}
+
+.login-input > input {
+    border: 1px solid #99220b;
+    font-size: 24px;
+    margin-top: 3px;
+    position: relative;
+    padding: 7px 5px;
+    text-align: center;
+    color: #99220b;
+    width: 100%;
+}
+
+.login-error {
+    font-size: 1.2rem;
+    color: #db0f0f;
+    padding-bottom: 5px;
+}
+
+.login-error > p {
+    padding: 5px 0;
+}

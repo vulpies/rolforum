@@ -16,6 +16,9 @@ const NavLinks = () => {
             <Link className="menu-link" to="/">
                 Вне игровое
             </Link>
+            <Link className="menu-link" to="/registration">
+                Регистрация
+            </Link>
             <Link className="menu-link" to="/">
                 Войти / выйти
             </Link>

@@ -11,6 +11,15 @@
     align-content: space-around;
 }
 
+.slider-ghost {
+    margin: 10px 5px;
+    text-align: center;
+}
+
+.slider-ghost__subtitle {
+    padding-top: 5px;
+}
+
 .slider-title {
     text-align: center;
     font-size: 1.3rem;
@@ -25,7 +34,7 @@
     max-height: 200px;
     height: auto;
     border: 6px double #f1ad35;
-    margin: 0 17px;
+    margin: 0 13px;
 }
 
 .slider-main__image {
@@ -39,9 +48,7 @@
     height: 210px;
     overflow-y: scroll;
     padding-right: 10px;
-    margin: 0 17px;
-    /* -ms-overflow-style: none;
-    scrollbar-width: none; */
+    margin: 0 13px;
 }
 
 .slider-others::-webkit-scrollbar {

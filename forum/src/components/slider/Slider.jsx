@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import Login from '../../pages/login'
 
 const Slider = () => {
 
 	const [user, setUser] = useState('гость')
-	const [image, setImage] = useState('https://sun9-69.userapi.com/s/v1/ig2/NQZ7zg3qfAWbIEldsH12QP3WrBX3bwrIhUHYJkFBBVnQbk_0fjs1OdCiUOwR8LnbbZTOiHE2mMEbru8GjpAzUGXI.jpg?size=200x200&quality=96&crop=0,36,200,200&ava=1')
+	const [image, setImage] = useState('https://sun1-16.userapi.com/s/v1/ig1/wLhBikGgAsxrvhrQ_0ZpIadj-0ONkrAGDbB2XVASX8bS_VxxHvKKH_nFm6HaVluDzsAIAkup.jpg?size=200x200&quality=96&crop=44,0,435,435&ava=1')
+	const [hide, isHide] = useState(true)
 
 	const images = [{
 		'_id': 1,
@@ -33,22 +36,38 @@ const Slider = () => {
 		setUser(target.name)
 	}
 
+	const handleLogin = (e) => {
+		e.preventDefault()
+		isHide(prevState => !prevState)
+	}
+
 	return (<>
 		<p className='slider-title'>Привет, <span>{user}</span>!</p>
-		<div className="slider">
 
-			<div className='slider-main'>
-				<img src={image} alt='' className='slider-main__image' />
-			</div>
-
-			<div className='slider-others'>
-				{images.map((item => {
-					return <img src={item.url} id={item._id} key={item._id
-					} name={item.name} alt='' className='slider-others__image' onClick={changeImage} />
-				}))}
-			</div>
-
+		{user === 'гость' ? <div className='slider-ghost'>
+			<img src={image} alt='' />
+			<p className='slider-ghost__subtitle'><a href="/" onClick={handleLogin}>
+				Войдите
+			</a> или <Link to='/registration'>зарегистрируйтесь</Link></p>
+			{hide === true ? '' : <Login />}
 		</div>
+
+			: <div className="slider">
+
+				<div className='slider-main'>
+					<img src={image} alt='' className='slider-main__image' />
+				</div>
+
+				<div className='slider-others'>
+					{images.map((item => {
+						return <img src={item.url} id={item._id} key={item._id
+						} name={item.name} alt='' className='slider-others__image' onClick={changeImage} />
+					}))}
+				</div>
+
+			</div>
+		}
+
 	</>
 	)
 }

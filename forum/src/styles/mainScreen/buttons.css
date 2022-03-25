@@ -11,10 +11,20 @@
     color: #9a6111;
     font-size: 0.6rem;
     outline: none;
+    background-color: #faf4bf;
+    border: 1px solid #d29832;
+    transition: 0.3s linear;
+    box-shadow: 2px 2px 0px rgb(245 171 72 / 54%);
 }
 
+.btns-common:hover,
 .btns-common:focus {
     outline: none;
+    background-color: #ff5722;
+    color: #fff;
+    border: 1px solid #ea6e14;
+    box-shadow: 3px 3px 6px rgb(171 55 11 / 74%),
+        -1px -1px 1px rgb(236 89 15 / 84%);
 }
 
 .btns-common > a {
@@ -25,18 +35,7 @@
     color: #fff;
 }
 
-.btns-open {
-    background-color: #faf4bf;
-    border: 1px solid #d29832;
-    transition: 0.3s linear;
-    box-shadow: 2px 2px 0px rgb(245 171 72 / 54%);
-}
-
-.btns-open:hover,
-.btns-open:focus {
-    background-color: #ff5722;
-    color: #fff;
-    border: 1px solid #ea6e14;
-    box-shadow: 3px 3px 6px rgb(171 55 11 / 74%),
-        -1px -1px 1px rgb(236 89 15 / 84%);
+.btns-log {
+    width: 100%;
+    font-size: 1.4rem;
 }
