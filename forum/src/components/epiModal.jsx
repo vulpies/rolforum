@@ -11,7 +11,11 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image }) =>
 	}
 
 	// let desc = [...text].join('').slice(0, 300) + '...'
+	let list = []
 
+	for (const [i, member] of members.entries()) {
+		list.push(member.name)
+	}
 
 	return (
 		<>
@@ -34,7 +38,7 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image }) =>
 					<div className='modal-img'>
 						<img src={image} className='modal-img__image' alt='' />
 					</div>
-					<div className='modal-members'><span>Участники</span>: {members}</div>
+					<div className='modal-members'><span>Участники</span>: {list.join(' ,')}</div>
 					<div className='modal-desc'><span>Описание</span>: {text}</div>
 				</Modal.Body>
 

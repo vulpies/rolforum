@@ -27,7 +27,7 @@ const OneEpi = () => {
 
 	// useEffect(() => { getEpiInfo() }, [])
 
-	const userList = []
+	let userList = []
 
 	return (
 		<>
@@ -42,14 +42,7 @@ const OneEpi = () => {
 					epiName={item.title}
 					fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
 					image='https://i.pinimg.com/736x/02/bd/c1/02bdc11f4cd3639482319280979c3d1f--blog-manga.jpg'
-					members={item.characters.map(m => {
-						userList.push(m.name)
-
-						// console.log(userList, 'userList')
-
-						return userList.join(', ')
-					})}
-
+					members={ item.characters }
 					text={item.summary} />
 
 			</div>
