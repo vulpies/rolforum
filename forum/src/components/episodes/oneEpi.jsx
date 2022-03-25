@@ -14,20 +14,13 @@ const OneEpi = () => {
 	const [info, setInfo] = useState([])
 	const url = 'https://api.rolecrossways.com/v1/episode-list-view';
 
-	useEffect( () => { axios.get(url)
-		.then(res => setInfo(res.data))
-
-		console.log(info); }, [setInfo])
-
-	// const getEpiInfo = async () => {
-	// 	const url = 'https://api.rolecrossways.com/v1/episode-list-view';
-	// 	let res = await fetch(url)
-	// 	let data = await res.json();
-
-	// 	setInfo(data)
-	// }
-
-	// useEffect(() => { getEpiInfo() }, [])
+	useEffect(() => {
+		axios.get(url)
+			.then(res => setInfo(res.data))
+			.catch(error =>
+				console.log(error)
+			)
+	}, [setInfo])
 
 	return (
 		<>
@@ -42,7 +35,7 @@ const OneEpi = () => {
 					epiName={item.title}
 					fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
 					image='https://i.pinimg.com/736x/02/bd/c1/02bdc11f4cd3639482319280979c3d1f--blog-manga.jpg'
-					members={ item.characters }
+					members={item.characters}
 					text={item.summary} />
 
 			</div>
