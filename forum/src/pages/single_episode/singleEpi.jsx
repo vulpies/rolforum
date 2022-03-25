@@ -18,6 +18,7 @@ const SingleEpi = () => {
 		axios.get(url)
 			.then(res => setEpiData(res.data))
 			.catch(err => console.log(err))
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [setEpiData])
 
 	// console.log(epiData)
