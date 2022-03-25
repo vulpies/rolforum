@@ -1,0 +1,5 @@
+---
+deployment:
+    tasks:
+        - export DEPLOYPATH=/home/fuyxdo18/public_html/frontend
+        - /bin/cp -R forum/* $DEPLOYPATH
