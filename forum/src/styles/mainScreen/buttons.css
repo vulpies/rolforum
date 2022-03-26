@@ -1,6 +1,6 @@
 .btns {
     text-align: center;
-    margin: 5px 0 0 0;
+    margin: 5px 0;
     min-width: 64px;
     width: auto;
 }
@@ -15,6 +15,7 @@
     border: 1px solid #d29832;
     transition: 0.3s linear;
     box-shadow: 2px 2px 0px rgb(245 171 72 / 54%);
+    margin-right: 10px;
 }
 
 .btns-common:hover,
