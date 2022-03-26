@@ -32,6 +32,10 @@
     margin: 15px 0 7px;
 }
 
+.sepi-header-desc__title {
+    margin-bottom: 5px;
+}
+
 .sepi-header-desc__image {
     width: 100%;
     margin: 10px 0;
@@ -39,8 +43,8 @@
 }
 
 .sepi-header-desc__image > img {
-    width: 100%;
     border-radius: 5px;
+    max-height: 300px;
 }
 
 .sepi-header-desc__members {
@@ -98,7 +102,7 @@
 }
 
 .sepi-post-post {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .sepi-post-avatar {
@@ -112,6 +116,7 @@
     display: flex;
     align-content: center;
     align-items: center;
+    border-radius: 3px;
 }
 
 .sepi-post-post__content {
@@ -121,6 +126,7 @@
 .sepi-post-post__content > p {
     text-indent: 20px;
     margin-bottom: 10px;
+    font-size: 1.1rem;
 }
 
 .sepi-post-post__content > p:last-child {
@@ -129,7 +135,7 @@
 
 .sepi-post-post__btns {
     display: flex;
-    margin-top: 20px;
+    margin-top: 30px;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;

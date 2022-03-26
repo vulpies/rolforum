@@ -18,6 +18,7 @@ const Login = () => {
 		const response = await authService.login(info)
 		console.log(response, 'response111')
 		localStorage.setItem('user', info.username)
+		localStorage.setItem('token', response.token)
 
 		return response
 	}
@@ -29,7 +30,7 @@ const Login = () => {
 					<label>Логин </label>
 					<input
 						{...register("username", {
-							required: "Необходимо ввести логин",
+							required: "Без логина не пустим, упс!",
 							onChange: "",
 							pattern: /[A-Za-z]/
 						})}
@@ -40,7 +41,7 @@ const Login = () => {
 					<label>Пароль </label>
 					<input
 						{...register("password", {
-							required: "Необходимо ввести пароль",
+							required: "И пароль для входа тоже нужен!",
 							minLength: {
 								value: 5,
 								message: "Минимальная длина пароля 5 символов",

@@ -5,6 +5,8 @@ const SingleEpiHeader = ({ header }) => {
 
 	const userList = []
 
+	console.log(header, 'header')
+
 	header.characters.map(m => m.mask ? userList.push(m.mask) : userList.push(m.name))
 
 	return (
@@ -12,7 +14,7 @@ const SingleEpiHeader = ({ header }) => {
 
 			<div className='sepi-header-title'>
 				{/* <p className='sepi-header-title__author'>Leto II Atreides</p> */}
-				<p className='sepi-header-title__date'>2020-01-01</p>
+				<p className='sepi-header-title__date'>{header.created_at}</p>
 			</div>
 
 			<div style={{ "borderBottom": "1px solid black" }}></div>
@@ -25,7 +27,7 @@ const SingleEpiHeader = ({ header }) => {
 				</div>
 
 				<div className='sepi-header-desc__image'>
-					<img src='https://i.pinimg.com/736x/02/bd/c1/02bdc11f4cd3639482319280979c3d1f--blog-manga.jpg' alt='картинка эпа' />
+					<img src={header.image} alt='картинка убежала' />
 				</div>
 
 				<div className='sepi-header-desc__members'>

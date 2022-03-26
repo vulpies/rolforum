@@ -43,7 +43,7 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image, link
 
 				<Modal.Body>
 					<div className='modal-img'>
-						<img src={image} className='modal-img__image' alt='' />
+						<img src={image} className='modal-img__image' alt='картинка убежала' />
 					</div>
 					<div className='modal-members'><span>Участники</span>: {list.join(', ')}</div>
 					<div className='modal-desc'><span>Описание</span>: {text}</div>

@@ -4,10 +4,11 @@ import NavLinks from "./NavLinks"
 import { MenuContext } from "./NavState"
 
 const Menu = styled.nav`
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     bottom: 0px;
+    z-index:5;
     display: block;
     width: 425px;
     height: 100%;

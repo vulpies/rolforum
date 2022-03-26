@@ -20,12 +20,15 @@ const SingleEpiPost = ({ posts }) => {
 				<hr />
 
 				<div className='sepi-post-post'>
+
 					<div className='sepi-post-avatar' onClick={openProfile}>
 						<img src={p.character_avatar} alt={p.character_name} />
 					</div>
+
 					<div className='sepi-post-post__content' dangerouslySetInnerHTML={{
 						__html: `${p.content}`
 					}} />
+
 					<div className='sepi-post-post__btns'>
 						<GetLike />
 					</div>
