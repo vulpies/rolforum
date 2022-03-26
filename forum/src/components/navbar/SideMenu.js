@@ -8,14 +8,12 @@ const Menu = styled.nav`
     top: 0px;
     left: 0px;
     bottom: 0px;
-    z-index: 293;
     display: block;
     width: 425px;
+    height: 100%;
     max-width: 100%;
     margin-top: 0px;
     padding-top: 64px;
-    padding-right: 0px;
-    align-items: stretch;
     background-color: #fbf9d8;
     transform: translateX(-100%);
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);

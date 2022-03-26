@@ -26,7 +26,7 @@ const SingleEpi = () => {
 		<NavbarCommon />
 		{epiData ?
 			<div className="wrapper">
-				<div className='sepi-bread-header'>
+				<div className='sepi-bread-header extra'>
 					<Breadcrumbs name={epiData.episode.title} link='/episodes' extraName="Эпизоды" />
 				</div><hr />
 				<SingleEpiHeader header={epiData.episode} />

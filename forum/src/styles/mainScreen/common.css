@@ -38,11 +38,6 @@ a:hover {
     color: #bc1515;
 }
 
-.wrapper {
-    margin-top: 57px;
-    padding-top: 18px;
-}
-
 img {
     max-width: 100%;
 }
@@ -52,6 +47,15 @@ button {
     border: none;
     padding: 0;
     cursor: pointer;
+}
+
+.wrapper {
+    margin-top: 57px;
+    padding-top: 18px;
+}
+
+.extra {
+    margin-top: -18px;
 }
 
 .breadcrumb {
