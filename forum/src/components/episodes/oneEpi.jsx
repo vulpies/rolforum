@@ -21,6 +21,8 @@ const OneEpi = () => {
 			)
 	}, [setInfo])
 
+	console.log(info)
+
 	return (
 		<>
 			{info && info.map((item) => (<div className='epi-wrapper' key={item.id}>
@@ -31,6 +33,7 @@ const OneEpi = () => {
 				<EpiModal
 					name='Подсмотреть'
 					className='btns btns-common'
+					link={`/episodes/${item.id}`}
 					epiName={item.title}
 					fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
 					image='https://i.pinimg.com/736x/02/bd/c1/02bdc11f4cd3639482319280979c3d1f--blog-manga.jpg'

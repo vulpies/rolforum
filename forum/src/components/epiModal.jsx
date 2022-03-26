@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import Modal from "react-bootstrap/Modal"
 import { Button } from "react-bootstrap"
 import CommonBtn from './CommonBtn';
+import { Link } from 'react-router-dom';
 
-const EpiModal = ({ name, text, className, fandom, epiName, members, image }) => {
+const EpiModal = ({ name, text, className, fandom, epiName, members, image, link }) => {
 	const [show, setShow] = useState(false)
 
 	const handleClick = () => {
@@ -21,6 +22,7 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image }) =>
 			list.push(member.name)
 		}
 	}
+
 
 	return (
 		<>
@@ -54,7 +56,9 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image }) =>
 						onClick={() => setShow(false)}
 						name="Скрыть"
 					/>
-
+					<Link to={link}>
+						<button className='btns btns-common'>Перейти</button>
+					</Link>
 				</Modal.Footer>
 			</Modal>
 		</>
