@@ -52,6 +52,15 @@
     text-align: justify;
 }
 
+.modal-desc > span + p {
+    display: inline;
+}
+
+.modal-desc > span ~ p {
+    text-indent: 15px;
+    margin-top: 1px;
+}
+
 .modal-img__image {
     max-height: 150px;
     height: auto;

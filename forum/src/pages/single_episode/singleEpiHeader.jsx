@@ -34,9 +34,9 @@ const SingleEpiHeader = ({ header }) => {
 					{userList.join(', ')}
 				</div>
 
-				<div className='sepi-header-desc__subtitle'>
-					{header.summary}
-				</div>
+				<div className='sepi-header-desc__subtitle' dangerouslySetInnerHTML={{
+					__html: `${header.summary}`
+				}} />
 
 				<GetLike />
 

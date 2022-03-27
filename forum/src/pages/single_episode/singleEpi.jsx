@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import Breadcrumbs from '../../components/breadcrumbs'
 import NavbarCommon from '../../components/navbar/navbar_common'
@@ -28,7 +29,8 @@ const SingleEpi = () => {
 			<div className="wrapper">
 				<div className='sepi-bread-header extra'>
 					<Breadcrumbs name={epiData.episode.title} link='/episodes' extraName="Эпизоды" />
-				</div><hr />
+				</div>
+				<hr />
 				<SingleEpiHeader header={epiData.episode} />
 				<hr />
 				<SingleEpiPost posts={epiData.posts} />

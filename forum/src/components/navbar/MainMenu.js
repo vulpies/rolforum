@@ -3,6 +3,7 @@ import useOnClickOutside from "../../hooks/onClickOutside"
 import { MenuContext } from "./NavState"
 import HamburgerButton from "./HamburgerButton"
 import { SideMenu } from "./SideMenu"
+import Arrows from "../../helpers/arrows"
 
 const MainMenu = () => {
     const node = useRef()
@@ -18,6 +19,7 @@ const MainMenu = () => {
             <div className="menu-navbar">
                 <HamburgerButton />
                 <h2>Forum</h2>
+                <Arrows />
             </div>
             <SideMenu />
         </header>

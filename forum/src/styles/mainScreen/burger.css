@@ -22,6 +22,11 @@
     opacity: 1;
 }
 
+.menu-link selected {
+    color: #f6a31b;
+    opacity: 1;
+}
+
 .menu-navbar {
     display: flex;
     position: fixed;

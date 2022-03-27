@@ -1,4 +1,6 @@
+import axios from 'axios'
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Login from '../../pages/login'
 
@@ -40,6 +42,17 @@ const Slider = () => {
 		e.preventDefault()
 		isHide(prevState => !prevState)
 	}
+
+	useEffect(() => {
+		axios.get('http://api.rolecrossways.com/v1/me', {
+			headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+		})
+			.then(res => {
+				setUser(res.data.user_name)
+				isHide(false)
+			})
+			.catch(err => console.log(err))
+	}, [setUser, isHide])
 
 	return (<>
 		<p className='slider-title'>Привет, <span>{user}</span>!</p>
