@@ -19,7 +19,7 @@ const MainMenu = () => {
             <div className="menu-navbar">
                 <HamburgerButton />
                 <h2>Forum</h2>
-                <Arrows />
+                <Arrows className="arrows-wrapper" />
             </div>
             <SideMenu />
         </header>

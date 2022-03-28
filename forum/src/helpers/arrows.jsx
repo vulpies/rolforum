@@ -2,7 +2,7 @@ import React from 'react'
 import { BsArrowDownCircle, BsArrowUpCircle } from "react-icons/bs";
 
 
-const Arrows = () => {
+const Arrows = ({ className }) => {
 	const scrollToBottom = () => {
 		window.scrollTo(0, document.body.scrollHeight)
 	}
@@ -13,12 +13,12 @@ const Arrows = () => {
 
 	return (<>
 
-		<div className='arrows-wrapper'
+		<div className={className}
 		>
-			<div className='arrows-left' onClick={scrollToBottom}>
+			<div className='arrows-down' onClick={scrollToBottom}>
 				<BsArrowDownCircle />
 			</div>
-			<div className='arrows-right' onClick={scrollToTop}>
+			<div className='arrows-up' onClick={scrollToTop}>
 				<BsArrowUpCircle />
 			</div>
 

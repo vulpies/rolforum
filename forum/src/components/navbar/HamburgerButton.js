@@ -5,7 +5,7 @@ import { MenuContext } from "./NavState"
 const MenuButton = styled.button`
     display: block;
     transform-origin: 16px 11px;
-    margin-right: 29px;
+    margin-right: 20px;
     outline: 0;
     border: 0;
     padding: 12px;
@@ -43,7 +43,7 @@ const MenuButton = styled.button`
 
 const Bar = styled.span`
     display: block;
-    width: 40px;
+    width: 36px;
     height: 5px;
     margin-bottom: 7px;
     background-color: #fff;

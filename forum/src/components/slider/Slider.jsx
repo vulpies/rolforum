@@ -1,14 +1,13 @@
-import axios from 'axios'
+// import axios from 'axios'
 import React, { useState } from 'react'
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import Login from '../../pages/login'
+// import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 const Slider = () => {
+	const user = useSelector((state) => state.usersReducer.user)
+	console.log(user, '4444')
 
-	const [user, setUser] = useState('гость')
 	const [image, setImage] = useState('https://sun1-16.userapi.com/s/v1/ig1/wLhBikGgAsxrvhrQ_0ZpIadj-0ONkrAGDbB2XVASX8bS_VxxHvKKH_nFm6HaVluDzsAIAkup.jpg?size=200x200&quality=96&crop=44,0,435,435&ava=1')
-	const [hide, isHide] = useState(true)
 
 	const images = [{
 		'_id': 1,
@@ -35,52 +34,36 @@ const Slider = () => {
 	const changeImage = (e) => {
 		const target = e.target
 		setImage(target.src)
-		setUser(target.name)
 	}
 
-	const handleLogin = (e) => {
-		e.preventDefault()
-		isHide(prevState => !prevState)
-	}
-
-	useEffect(() => {
-		axios.get('http://api.rolecrossways.com/v1/me', {
-			headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
-		})
-			.then(res => {
-				setUser(res.data.user_name)
-				isHide(false)
-			})
-			.catch(err => console.log(err))
-	}, [setUser, isHide])
+	// useEffect(() => {
+	// 	axios.get('http://api.rolecrossways.com/v1/me', {
+	// 		headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+	// 	})
+	// 		.then(res => {
+	// 			setUpdUser(res.data.user_name)
+	// 			console.log(updUser, 'updUser222')
+	// 		})
+	// 		.catch(err => console.log(err))
+	// }, [updUser])
 
 	return (<>
-		<p className='slider-title'>Привет, <span>{user}</span>!</p>
+		<p className='slider-title'>Привет, <span>{(user && user.username) || 'гость'}</span>!</p>
 
-		{user === 'гость' ? <div className='slider-ghost'>
-			<img src={image} alt='' />
-			<p className='slider-ghost__subtitle'><a href="/" onClick={handleLogin}>
-				Войдите
-			</a> или <Link to='/registration'>зарегистрируйтесь</Link></p>
-			{hide === true ? '' : <Login />}
-		</div>
+		{user !== 'гость' && user !== undefined && user !== null ? <div className="slider">
 
-			: <div className="slider">
-
-				<div className='slider-main'>
-					<img src={image} alt='' className='slider-main__image' />
-				</div>
-
-				<div className='slider-others'>
-					{images.map((item => {
-						return <img src={item.url} id={item._id} key={item._id
-						} name={item.name} alt='' className='slider-others__image' onClick={changeImage} />
-					}))}
-				</div>
-
+			<div className='slider-main'>
+				<img src={image} alt='' className='slider-main__image' />
 			</div>
-		}
 
+			<div className='slider-others'>
+				{images.map((item => {
+					return <img src={item.url} id={item._id} key={item._id
+					} name={item.name} alt='' className='slider-others__image' onClick={changeImage} />
+				}))}
+			</div>
+		</div> : ""
+		}
 	</>
 	)
 }
