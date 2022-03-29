@@ -3,7 +3,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Breadcrumbs from '../../components/breadcrumbs'
-import NavbarCommon from '../../components/navbar/navbar_common'
 import SingleEpiHeader from './singleEpiHeader'
 import SingleEpiPost from './singleEpiPost'
 
@@ -20,10 +19,7 @@ const SingleEpi = () => {
 			.catch(err => console.log(err))
 	}, [setEpiData, url])
 
-	console.log(epiData, 'epiData')
-
 	return (<>
-		<NavbarCommon />
 		{epiData ?
 			<div className="wrapper">
 				<div className='sepi-bread-header extra'>

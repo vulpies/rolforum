@@ -39,6 +39,10 @@
         padding-top: 70px;
     }
 
+    .extra {
+        margin-top: -11px;
+    }
+
     .navbar {
         display: flex;
         width: 100%;

@@ -7,8 +7,6 @@ const SingleEpiPost = ({ posts }) => {
 		console.log('vdsvv')
 	}
 
-
-
 	return (<>
 		{posts && posts.map(p =>
 			<div key={p.id} className='sepi-post-wrapper'>
