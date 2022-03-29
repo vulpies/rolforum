@@ -14,9 +14,7 @@ const OneEpi = () => {
 			.catch(error =>
 				console.log(error)
 			)
-	}, [setInfo])
-
-	console.log(info, 'info')
+	}, [setInfo, url])
 
 	return (
 		<>

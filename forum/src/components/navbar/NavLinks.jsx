@@ -1,9 +1,8 @@
-import React from "react"
-import { useEffect } from "react"
-import { useState } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 
 const NavLinks = () => {
+    const browserWidth = document.documentElement.clientWidth
 
     let activeStyle = {
         color: "#f6a31b",
@@ -15,17 +14,18 @@ const NavLinks = () => {
         opacity: 1
     }
 
-    const [menunav, setMenu] = useState(activeStyle)
+    const ref1 = useRef(activeStyle)
+    const ref2 = useRef(activeStyle2)
 
-    const browserWidth = document.documentElement.clientWidth
+    const [menunav, setMenu] = useState(ref1.current)
 
     useEffect(() => {
         if (browserWidth > 1440) {
-            setMenu(activeStyle2)
+            setMenu(ref2.current)
         } else {
-            setMenu(activeStyle)
+            setMenu(ref1.current)
         }
-    }, [menunav])
+    }, [menunav, browserWidth])
 
     return (
         <>

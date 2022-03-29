@@ -1,14 +1,27 @@
-import React from "react"
-import { useState } from "react"
-import { useSelector } from "react-redux"
+import axios from "axios"
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import NavbarCommon from "../components/navbar/navbar_common"
 import ProfileSlider from "../components/slider/Slider"
+import { getOneUser } from "../store/usersSlice"
 import Login from "./login"
 
 const MainPage = () => {
     const user = useSelector((state) => state.usersReducer.user)
-    console.log(user, '555')
+
+    const dispatch = useDispatch()
+
+    const url = 'http://api.rolecrossways.com/v1/me'
+
+    useEffect(() => {
+        axios.get(url, {
+            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+        })
+            .then(res =>
+                dispatch(getOneUser(res.data.user_name)))
+            .catch(err => console.log(err))
+    }, [user, dispatch])
 
     const [hide, isHide] = useState(true)
 

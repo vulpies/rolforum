@@ -18,7 +18,7 @@ const SingleEpi = () => {
 		axios.get(url)
 			.then(res => setEpiData(res.data))
 			.catch(err => console.log(err))
-	}, [setEpiData])
+	}, [setEpiData, url])
 
 	// console.log(epiData)
 

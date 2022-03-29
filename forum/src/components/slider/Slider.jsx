@@ -1,11 +1,8 @@
-// import axios from 'axios'
 import React, { useState } from 'react'
-// import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 const Slider = () => {
 	const user = useSelector((state) => state.usersReducer.user)
-	console.log(user, '4444')
 
 	const [image, setImage] = useState('https://sun1-16.userapi.com/s/v1/ig1/wLhBikGgAsxrvhrQ_0ZpIadj-0ONkrAGDbB2XVASX8bS_VxxHvKKH_nFm6HaVluDzsAIAkup.jpg?size=200x200&quality=96&crop=44,0,435,435&ava=1')
 
@@ -36,16 +33,6 @@ const Slider = () => {
 		setImage(target.src)
 	}
 
-	// useEffect(() => {
-	// 	axios.get('http://api.rolecrossways.com/v1/me', {
-	// 		headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
-	// 	})
-	// 		.then(res => {
-	// 			setUpdUser(res.data.user_name)
-	// 			console.log(updUser, 'updUser222')
-	// 		})
-	// 		.catch(err => console.log(err))
-	// }, [updUser])
 
 	return (<>
 		<p className='slider-title'>Привет, <span>{(user && user.username) || 'гость'}</span>!</p>
