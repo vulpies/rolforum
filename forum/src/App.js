@@ -1,5 +1,5 @@
 import React from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import EpisodesPage from "./pages/episodes_page"
 import MainPage from "./pages/main_page"
 import Registration from "./pages/registration"
@@ -14,6 +14,8 @@ function App() {
                     <Route path="/registration" element={<Registration />} />
                     <Route path="/episodes/:epiId" element={<SingleEpi />} />
                     <Route path="/episodes" element={<EpisodesPage />} />
+                    <Route path="/exit" element={<Navigate to="/" replace />}
+                    />
                 </Routes>
             </BrowserRouter>
         </>

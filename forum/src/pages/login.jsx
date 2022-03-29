@@ -1,20 +1,11 @@
 import React from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
-import { useSelector } from "react-redux"
-// import { useDispatch } from "react-redux"
 import authService from "../services/auth.service"
 import { getOneUser } from "../store/usersSlice"
-// import { getOneUser } from "../store/usersSlice"
 
 const Login = () => {
-	// const [serverErrors, setServerErrors] = useState("")
-	const users = useSelector((state) => state.usersReducer.user)
-
-	console.log(users, 'users')
 	const dispatch = useDispatch()
-
-
 	const {
 		register,
 		handleSubmit,
@@ -24,15 +15,12 @@ const Login = () => {
 
 	const onSubmit = async () => {
 		const info = getValues()
-		console.log(info, 'info')
-
 		const response = await authService.login(info)
-		console.log(response, 'response111')
 
 		localStorage.setItem('token', response.token)
 		localStorage.setItem('username', info.username)
 
-		dispatch(getOneUser(info.username))
+		dispatch(getOneUser())
 
 		return response
 	}

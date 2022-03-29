@@ -20,7 +20,7 @@ const SingleEpi = () => {
 			.catch(err => console.log(err))
 	}, [setEpiData, url])
 
-	// console.log(epiData)
+	console.log(epiData, 'epiData')
 
 	return (<>
 		<NavbarCommon />

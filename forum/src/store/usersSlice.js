@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-	users: [{ username: 'reader' }],
-	user: null,
+	allUsers: [],
+	user: [],
 	auth: false,
 }
 
@@ -11,19 +11,19 @@ const usersSlice = createSlice({
 	initialState,
 	reducers: {
 		addNewUser: (state, action) => {
-			state.users.push(action.payload)
+			state.allUsers.push(action.payload)
 			state.auth = false
 		},
-		getAllUsers: (state, action) => {
-			state.users = action.payload
+		getUserInfo: (state, action) => {
+			state.user = action.payload
 			state.auth = true
 		},
-		getOneUser: (state, action) => {
-			state.user = state.users.find((u) => u.username === action.payload)
+		getOneUser: (state) => {
+			state.user = [...state.user]
 			state.auth = true
 		},
 		userLogout: (state) => {
-			state.user = null
+			state.user = []
 			state.auth = false
 		},
 	},
@@ -32,6 +32,6 @@ const usersSlice = createSlice({
 const { actions, reducer } = usersSlice
 
 export default reducer
-export const { addNewUser, getAllUsers, getOneUser, userLogout } = actions
+export const { addNewUser, getUserInfo, getOneUser, userLogout } = actions
 
 

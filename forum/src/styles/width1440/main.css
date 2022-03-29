@@ -18,8 +18,8 @@
 
         https://catherineasquithgallery.com/uploads/posts/2021-03/1614625681_2-p-foni-dlya-fotoshopa-teksturi-2.jpg*/
 
-        background: url("https://krot.info/uploads/posts/2021-01/1610148076_34-p-odnotonnii-nezhnii-bezhevii-fon-42.jpg")
-            no-repeat center bottom / cover fixed;
+        background: url("../../images/bcgmain.jpg") no-repeat center bottom /
+            cover fixed;
     }
 
     #root {
@@ -54,13 +54,15 @@
         flex-direction: row;
         flex-wrap: nowrap;
         align-content: center;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
     }
     .menu-link {
-        width: 100%;
+        width: 15%;
         position: initial;
         padding: 0;
-        margin: 0;
+        margin: 0px 5px;
+        display: flex;
+        justify-content: center;
     }
 }
