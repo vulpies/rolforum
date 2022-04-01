@@ -1,11 +1,13 @@
+import axios from "axios"
 import React from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import authService from "../services/auth.service"
-import { getOneUser } from "../store/usersSlice"
+import { addUserInfo } from '../store/usersSlice'
 
 const Login = () => {
 	const dispatch = useDispatch()
+
 	const {
 		register,
 		handleSubmit,
@@ -20,10 +22,18 @@ const Login = () => {
 		localStorage.setItem('token', response.token)
 		localStorage.setItem('username', info.username)
 
-		dispatch(getOneUser())
+
+		axios.get('https://api.rolecrossways.com/v1/me', {
+			headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+		})
+			.then(res => {
+				dispatch(addUserInfo(res.data))
+			})
+			.catch(err => console.log(err))
 
 		return response
 	}
+
 
 	return (
 		<form className='login-wrapper' onSubmit={handleSubmit(onSubmit)}>

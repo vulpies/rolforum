@@ -1,13 +1,13 @@
 import axios from "axios"
 import React, { useEffect } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import NavbarCommon from "./components/navbar/navbar_common"
+import EpiNewCreate from "./pages/epiNewCreate"
 import { MainPage, Profile, Registration, EpisodesPage, SingleEpi, OrgPage, Outgame } from './pages/index'
-import { getUserInfo } from "./store/usersSlice"
+import { addUserInfo } from "./store/usersSlice"
 
 function App() {
-    const userAuth = useSelector((state) => state.usersReducer.auth)
     const dispatch = useDispatch()
     const url = 'https://api.rolecrossways.com/v1/me'
 
@@ -15,7 +15,13 @@ function App() {
         axios.get(url, {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
         })
-            .then(res => dispatch(getUserInfo(res.data)))
+            .then(res => {
+                if (res.data.code === 401) {
+                    localStorage.removeItem('token')
+                } else {
+                    dispatch(addUserInfo(res.data))
+                }
+            })
             .catch(err => console.log(err))
     }, [dispatch])
 
@@ -27,10 +33,11 @@ function App() {
                     <Route path="/" exact element={<MainPage />} />
                     <Route path="/registration" element={<Registration />} />
                     <Route path="/episodes/:epiId" element={<SingleEpi />} />
+                    <Route path="/episodes/template" element={<EpiNewCreate />} />
                     <Route path="/episodes" element={<EpisodesPage />} />
-                    <Route path="/profile" element={userAuth ? <Profile /> : (<Navigate replace to='/' />)} />
-                    <Route path="/org" element={userAuth ? <OrgPage /> : (<Navigate replace to='/' />)} />
-                    <Route path="/outgame" element={userAuth ? <Outgame /> : (<Navigate replace to='/' />)} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/org" element={<OrgPage />} />
+                    <Route path="/outgame" element={<Outgame />} />
                     <Route path="/exit" element={<Navigate to="/" replace />}
                     />
                 </Routes>

@@ -4,7 +4,7 @@
 html,
 body {
     box-sizing: border-box;
-    font-family: "AnelizaRegular";
+    font-family: "AnelizaRegular" !important;
     font-weight: normal;
     font-style: normal;
     font-size: 20px;

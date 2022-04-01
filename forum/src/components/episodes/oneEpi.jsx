@@ -9,7 +9,9 @@ const OneEpi = () => {
 	const url = 'https://api.rolecrossways.com/v1/episode-list-view';
 
 	useEffect(() => {
-		axios.get(url)
+		axios.get(url, {
+			headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+		})
 			.then(res => setInfo(res.data))
 			.catch(error =>
 				console.log(error)

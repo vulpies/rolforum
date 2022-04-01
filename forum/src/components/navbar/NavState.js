@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react"
 
 export const MenuContext = createContext({
     isMenuOpen: true,
-    toggleMenu: () => {},
+    toggleMenu: () => { },
 })
 
 const NavState = ({ children }) => {

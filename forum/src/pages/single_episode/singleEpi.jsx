@@ -14,7 +14,9 @@ const SingleEpi = () => {
 		}`
 
 	useEffect(() => {
-		axios.get(url)
+		axios.get(url, {
+			headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+		})
 			.then(res => setEpiData(res.data))
 			.catch(err => console.log(err))
 	}, [setEpiData, url])
@@ -29,7 +31,7 @@ const SingleEpi = () => {
 				<SingleEpiHeader header={epiData.episode} />
 				<hr />
 				<SingleEpiPost posts={epiData.posts} />
-			</div> : 'Что-то пошло не так'}
+			</div> : <div className="wrapper"><p style={{ 'textAlign': 'center' }}>Что-то пошло не так...</p></div>}
 	</>
 	)
 }

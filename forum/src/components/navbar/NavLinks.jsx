@@ -1,13 +1,21 @@
 import React, { useRef, useEffect, useState } from "react"
+import { useContext } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { NavLink } from "react-router-dom"
 import { userLogout } from "../../store/usersSlice"
+import { MenuContext } from "./NavState"
+import OneLink from "./OneNavLink"
 
 const NavLinks = () => {
     const userAuth = useSelector((state) => state.usersReducer.auth)
     const browserWidth = document.documentElement.clientWidth
     const dispatch = useDispatch()
-    console.log(userAuth, '9999')
+    const { isMenuOpen, toggleMenuMode } = useContext(MenuContext)
+
+    const clickHandler = () => {
+        if (browserWidth < 1440) {
+            toggleMenuMode()
+        }
+    }
 
     let activeStyle = {
         color: "#f6a31b",
@@ -36,54 +44,96 @@ const NavLinks = () => {
         dispatch(userLogout())
         localStorage.removeItem('token')
         localStorage.removeItem('username')
+        toggleMenuMode()
     }
 
     return (
         <>
             {userAuth === true ?
                 (<>
-                    <NavLink className="menu-link" to='/' style={({ isActive }) =>
-                        isActive ? menunav : undefined
-                    }>
-                        Главная
-                    </NavLink>
-                    <NavLink className="menu-link" to="/profile" style={({ isActive }) =>
-                        isActive ? menunav : undefined}>
-                        Профиль
-                    </NavLink>
-                    <NavLink className="menu-link" to="/org" style={({ isActive }) =>
-                        isActive ? menunav : undefined}>
-                        Орг. темы
-                    </NavLink >
-                    <NavLink className="menu-link" to="/episodes" style={({ isActive }) =>
-                        isActive ? menunav : undefined}>
-                        Эпизоды
-                    </NavLink>
-                    <NavLink className="menu-link" to="/outgame" style={({ isActive }) =>
-                        isActive ? menunav : undefined}>
-                        Вне игровое
-                    </NavLink>
-                    <NavLink className="menu-link" to='/exit' style={({ isActive }) =>
-                        isActive ? menunav : undefined} onClick={handleLogout}>
-                        Выйти
-                    </NavLink>
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name="Главная" />
+
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/profile'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name="Профиль" />
+
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/org'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name=" Орг. темы" />
+
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/episodes'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name="Эпизоды" />
+
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/outgame'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name="Вне игровое" />
+
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/exit'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={handleLogout}
+                        name="Выйти" />
+
                 </>)
                 : (<>
-                    <NavLink className="menu-link" to='/' style={({ isActive }) =>
-                        isActive ? menunav : undefined
-                    }>
-                        Главная
-                    </NavLink>
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name="Главная" />
 
-                    <NavLink className="menu-link" to="/episodes" style={({ isActive }) =>
-                        isActive ? menunav : undefined}>
-                        Эпизоды
-                    </NavLink>
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/episodes'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name="Эпизоды" />
 
-                    <NavLink className="menu-link" to="/registration" style={({ isActive }) =>
-                        isActive ? menunav : undefined}>
-                        Регистрация
-                    </NavLink>
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/registration'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name="Регистрация" />
+
                 </>)
             }
         </>

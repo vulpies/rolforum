@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 const Slider = () => {
 	const user = useSelector((state) => state.usersReducer)
+	const userInfo = useSelector((state) => state.usersReducer.user[0])
+
+	console.log(user, 'user')
+	console.log(userInfo, 'userInfo')
+
 
 	const [image, setImage] = useState('https://sun1-16.userapi.com/s/v1/ig1/wLhBikGgAsxrvhrQ_0ZpIadj-0ONkrAGDbB2XVASX8bS_VxxHvKKH_nFm6HaVluDzsAIAkup.jpg?size=200x200&quality=96&crop=44,0,435,435&ava=1')
 
@@ -35,18 +40,16 @@ const Slider = () => {
 
 
 	return (<>
-		<p className='slider-title'>Привет, <span>{(user && user.user.user_name) || 'гость'}</span>!</p>
+		<p className='slider-title'>Привет, <span>{(userInfo && userInfo.current_character.name) || 'гость'}</span>!</p>
 
 		{user.auth !== false ? <div className="slider">
 
 			<div className='slider-main'>
-				<img src={image} alt='' className='slider-main__image' />
+				<img src={(userInfo && userInfo.current_character.avatar) || image} alt='' className='slider-main__image' />
 			</div>
-
 			<div className='slider-others'>
-				{images.map((item => {
-					return <img src={item.url} id={item._id} key={item._id
-					} name={item.name} alt='' className='slider-others__image' onClick={changeImage} />
+				{userInfo && userInfo.characters.map((item => {
+					return <img src={item.avatar} id={item._id} key={item._id} name={item.name} alt={item.name} className='slider-others__image' onClick={changeImage} />
 				}))}
 			</div>
 		</div> : ""
