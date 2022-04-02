@@ -15,14 +15,12 @@ const EpiNewCreate = () => {
 		"value": userInfo?.current_character.fandom_id,
 		"label": userInfo?.current_character.fandom_name
 	}
-	const [postType, setPostType] = useState(1);
+	const [check, setCheck] = useState(true);
 
 	const [cross, setCross] = useState()
 	const [fandomChars, setFandomChars] = useState()
 
 	const [multiListValue, setMultiListValue] = useState([])
-
-	console.log(postType)
 
 
 	useEffect(() => {
@@ -62,7 +60,8 @@ const EpiNewCreate = () => {
 				image,
 				fandom: multiListValue,
 				character_id: multiListValue.map(c => ({ value: c.value, label: c.label })),
-				desc
+				desc,
+				forGuests: check
 			}
 
 			sendPostFetch('https://api.rolecrossways.com/v1/post-create', fandomList)
@@ -76,7 +75,8 @@ const EpiNewCreate = () => {
 				title,
 				image,
 				fandoms_id: multiListValue.map(c => ({ value: c.value, label: c.label })),
-				desc
+				desc,
+				forGuests: check
 			}
 
 			sendPostFetch('https://api.rolecrossways.com/v1/post-create', crossList)
@@ -184,23 +184,19 @@ const EpiNewCreate = () => {
 					<textarea className='create-new-epi__text' placeholder='Описание эпизода...' value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
 				</div>
 
-				{/* <div className='create-new-epi__radio'>
-					<div>
-
-						<label> <input type="radio" id="common" name='post' value="1"
-							checked={postType === '1' ? true : false} onChange={(e) => setPostType(e.target.value)} />для всех</label>
+				<div className='create-new-epi__radio'>
+					<div className="switch-cover">
+						<div className="switch r" id="switch-1">
+							<input type="checkbox" className="checkbox" value={check} onChange={() => setCheck(!check)} />
+							<div className="knobs"></div>
+						</div>
 					</div>
-
-					<div>
-
-						<label><input type="radio" id="private" name='post' value="2"
-							checked={postType === '2' ? true : false} onChange={(e) => setPostType(e.target.value)} /> для игроков </label>
-					</div>
-				</div> */}
+					<p>виден для гостей</p>
+				</div>
 
 				<input type="submit" value="Submit" className='btns btns-create' onClick={handleSubmit} />
-			</form>
-		</div>
+			</form >
+		</div >
 	)
 }
 

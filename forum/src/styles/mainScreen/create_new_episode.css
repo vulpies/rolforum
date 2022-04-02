@@ -71,9 +71,9 @@
     font-style: normal;
 }
 
-/* radio buttons */
 .create-new-epi__radio {
     display: flex;
+    position: relative;
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: center;
@@ -83,31 +83,6 @@
     font-size: 1.3rem;
 }
 
-.create-new-epi__radio input[type="radio"] {
-    display: none;
-}
-
-.create-new-epi__radio label {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    padding-left: 25px;
-    line-height: 19px;
-    user-select: none;
-}
-.create-new-epi__radio label:before {
-    content: "";
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    background-color: #ffc664;
-    border-radius: 50%;
-    box-shadow: 0 0 0 1px black;
-}
-
-.create-new-epi__radio:checked + label:before {
-    background-color: "red";
+.create-new-epi__radio > p {
+    font-size: 1.3rem;
 }
