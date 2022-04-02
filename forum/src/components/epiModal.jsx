@@ -11,23 +11,13 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image, link
 		setShow(true)
 	}
 
+
 	let desc = [...text].join('')
 
 	if (desc.length > 430) {
 		desc = [...text].join('').slice(0, 430) + '...'
 	} else {
 		desc = [...text].join('')
-	}
-
-	let list = []
-
-	for (const [member] of members.entries()) {
-		if (member.mask) {
-			list.push(member.mask)
-		} else {
-
-			list.push(member.name)
-		}
 	}
 
 
@@ -52,7 +42,7 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image, link
 					<div className='modal-img'>
 						<img src={image} className='modal-img__image' alt='картинка убежала' />
 					</div>
-					<div className='modal-members'><span>Участники</span>: {list.join(', ')}</div>
+					<div className='modal-members'><span>Участники</span>: {members.join(', ')}</div>
 
 					<div className='modal-desc' dangerouslySetInnerHTML={{
 						__html: `<span>Описание</span>: ${desc}`

@@ -31,7 +31,7 @@ const SingleEpi = () => {
 				<SingleEpiHeader header={epiData.episode} />
 				<hr />
 				<SingleEpiPost posts={epiData.posts} />
-			</div> : <div className="wrapper"><p style={{ 'textAlign': 'center' }}>Что-то пошло не так...</p></div>}
+			</div> : <div className="wrapper"><p style={{ 'textAlign': 'center' }}>Загрузка данных...</p></div>}
 	</>
 	)
 }

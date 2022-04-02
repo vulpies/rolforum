@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../components/breadcrumbs'
 import CustomSelect from '../components/CustomSelect'
 import { commonFetch, sendPostFetch } from '../helpers/commonFetch'
@@ -44,11 +45,15 @@ const EpiNewCreate = () => {
 		setMultiListValue(cross.map(item => ({ "value": item.value, "label": item.label })))
 	}
 
+	const navigate = useNavigate()
+
 	const options = [
 		{ value: 'fandom', label: 'По фандому' },
 		{ value: 'crossover', label: 'Кроссовер' },
 		{ value: 'au', label: 'AU' },
 	]
+
+	// console.log(fandom, '555')
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -58,6 +63,7 @@ const EpiNewCreate = () => {
 				type: type.value,
 				title,
 				image,
+				fandom_id: [fandom.value],
 				character_id: multiListValue.map(c => ({ value: c.value, label: c.label })),
 				desc,
 				forGuests: check
@@ -65,7 +71,7 @@ const EpiNewCreate = () => {
 
 			sendPostFetch('https://api.rolecrossways.com/v1/episode-create', fandomList)
 
-			console.log(fandomList, 'fandomList')
+			navigate('/episodes')
 
 		} else if (type && type.value === 'crossover') {
 

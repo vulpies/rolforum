@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import EpiModal from '../epiModal'
-import axios from "axios"
+import { commonFetch } from '../../helpers/commonFetch'
 
 
 const OneEpi = () => {
@@ -9,14 +9,10 @@ const OneEpi = () => {
 	const url = 'https://api.rolecrossways.com/v1/episode-list-view';
 
 	useEffect(() => {
-		axios.get(url, {
-			headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
-		})
-			.then(res => setInfo(res.data))
-			.catch(error =>
-				console.log(error)
-			)
+		commonFetch(url, setInfo)
 	}, [setInfo, url])
+
+	console.log(info, 'info')
 
 	return (
 		<>
@@ -32,7 +28,7 @@ const OneEpi = () => {
 					epiName={item.title}
 					fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
 					image={item.image}
-					members={item.characters}
+					members={item.characters.map(c => (c.mask ? c.mask : c.name))}
 					text={item.summary} />
 
 			</div>
