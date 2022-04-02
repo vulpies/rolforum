@@ -1,4 +1,5 @@
 import React from 'react'
+import EditOrRemove from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
 
 const SingleEpiHeader = ({ header }) => {
@@ -38,8 +39,11 @@ const SingleEpiHeader = ({ header }) => {
 					__html: `${header.summary}`
 				}} />
 
-				<GetLike />
+			</div>
 
+			<div className='sepi-header-desc__items' >
+				{header.can_edit ? <EditOrRemove /> : ''}
+				<GetLike />
 			</div>
 
 		</div>

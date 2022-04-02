@@ -1,9 +1,17 @@
 import axios from "axios"
 
+let options = {}
+
+if (localStorage.getItem('token')) {
+	options = {
+		headers: {
+			'Authorization': `Bearer ${localStorage.getItem('token')}`
+		}
+	}
+}
+
 export const commonFetch = (url, setParam) => {
-	axios.get(url, {
-		headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
-	})
+	axios.get(url, options)
 		.then(res => setParam(res.data))
 		.catch(err => console.log(err))
 }

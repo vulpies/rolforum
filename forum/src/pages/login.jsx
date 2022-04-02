@@ -23,11 +23,22 @@ const Login = () => {
 		localStorage.setItem('username', info.username)
 
 
-		axios.get('https://api.rolecrossways.com/v1/me', {
-			headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
-		})
+		let options = {}
+
+		if (localStorage.getItem('token')) {
+			options = {
+				headers: {
+					'Authorization': `Bearer ${localStorage.getItem('token')}`
+				}
+			}
+		}
+
+		axios.get('https://api.rolecrossways.com/v1/me', options)
 			.then(res => {
-				dispatch(addUserInfo(res.data))
+				console.log(res.data)
+				if (res.data.user_id !== null) {
+					dispatch(addUserInfo(res.data))
+				}
 			})
 			.catch(err => console.log(err))
 

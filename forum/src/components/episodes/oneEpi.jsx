@@ -12,7 +12,6 @@ const OneEpi = () => {
 		commonFetch(url, setInfo)
 	}, [setInfo, url])
 
-	console.log(info, 'info')
 
 	return (
 		<>

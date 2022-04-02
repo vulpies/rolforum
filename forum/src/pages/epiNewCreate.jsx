@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../components/breadcrumbs'
@@ -7,16 +7,19 @@ import { commonFetch, sendPostFetch } from '../helpers/commonFetch'
 
 const EpiNewCreate = () => {
 	const userInfo = useSelector((state) => state.usersReducer.user[0])
+	const navigate = useNavigate()
 
 	const [title, setTitle] = useState('')
 	const [desc, setDesc] = useState('')
 	const [image, setImage] = useState('')
 	const [type, setType] = useState()
+
 	const fandom = {
 		"value": userInfo?.current_character.fandom_id,
 		"label": userInfo?.current_character.fandom_name
 	}
 	const [check, setCheck] = useState(true);
+	const [allUsersList, setAllUsersList] = useState()
 
 	const [cross, setCross] = useState()
 	const [fandomChars, setFandomChars] = useState()
@@ -32,28 +35,31 @@ const EpiNewCreate = () => {
 		} else if (type && type.value === 'crossover') {
 			commonFetch('https://api.rolecrossways.com/v1/fandom-list-short-view', setCross)
 
-			commonFetch(`https://api.rolecrossways.com/v1/character-list-short-view?fandom_id=${setMultiListValue.value}`, setFandomChars)
+			commonFetch(`https://api.rolecrossways.com/v1/character-list-short-view?fandom_id=${multiListValue.map(v => (v.value)).join('- ')}`, setFandomChars)
+
 		} else if (type && type.value === 'au') {
-			// здесь ссылка на получение всех пользователей
+			commonFetch('https://api.rolecrossways.com/v1/character-list-short-view', setAllUsersList)
 
 		} else {
 			return ''
 		}
-	}, [setCross, type, fandom.value])
+	}, [setCross, type, fandom.value, multiListValue])
 
-	const getMultiListValue = (cross) => {
+	const getMultiListValue = useCallback((cross) => {
 		setMultiListValue(cross.map(item => ({ "value": item.value, "label": item.label })))
-	}
+	}, [])
 
-	const navigate = useNavigate()
+
+	// function getMultiListValue(cross){
+	// 	setMultiListValue(cross.map(item => ({ "value": item.value, "label": item.label })))
+	// }
+
 
 	const options = [
 		{ value: 'fandom', label: 'По фандому' },
 		{ value: 'crossover', label: 'Кроссовер' },
 		{ value: 'au', label: 'AU' },
 	]
-
-	// console.log(fandom, '555')
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -70,8 +76,7 @@ const EpiNewCreate = () => {
 			}
 
 			sendPostFetch('https://api.rolecrossways.com/v1/episode-create', fandomList)
-
-			navigate('/episodes')
+				.then(data => navigate(`/episodes/${data.episode_id}`))
 
 		} else if (type && type.value === 'crossover') {
 
@@ -79,19 +84,32 @@ const EpiNewCreate = () => {
 				type: type.value,
 				title,
 				image,
+				fandom_id: [],
 				character_id: multiListValue.map(c => ({ value: c.value, label: c.label })),
 				desc,
 				forGuests: check
 			}
 
 			sendPostFetch('https://api.rolecrossways.com/v1/episode-create', crossList)
+				.then(data => navigate(`/episodes/${data.episode_id}`))
 			console.log(crossList)
 
 
 		} else if (type && type.value === 'au') {
-			console.log(type)
-			console.log(title)
-			console.log(desc)
+			const auList = {
+				type: type.value,
+				title,
+				image,
+				fandom_id: [1],
+				character_id: multiListValue.map(c => ({ value: c.value, label: c.label })),
+				desc,
+				forGuests: check
+			}
+
+			sendPostFetch('https://api.rolecrossways.com/v1/episode-create', auList)
+				.then(data => navigate(`/episodes/${data.episode_id}`))
+
+			console.log(auList)
 		} else {
 			return ''
 		}
@@ -166,15 +184,14 @@ const EpiNewCreate = () => {
 					</>
 					: ''}
 
-
 				{type && type.value === 'au' ?
 					<CustomSelect
 						styleDiv='create-new-epi__form'
 						label='Персонажи:'
 						onChange={getMultiListValue}
 						styleSelect='create-new-epi__select'
-						options={fandomChars && fandomChars.map(item => ({ "value": item.id, "label": item.name }))}
-						closeMenuOnSelect={true}
+						options={allUsersList && allUsersList.map(item => ({ "value": item.id, "label": item.name }))}
+						closeMenuOnSelect={false}
 						isMulti={true}
 						placeholder="Выберите игроков"
 					/> : ''}

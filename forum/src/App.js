@@ -11,19 +11,29 @@ function App() {
     const dispatch = useDispatch()
     const url = 'https://api.rolecrossways.com/v1/me'
 
+    let options = {}
+
+    if (localStorage.getItem('token')) {
+        options = {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        }
+    }
+
     useEffect(() => {
-        axios.get(url, {
-            headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
-        })
+        axios.get(url, options)
             .then(res => {
                 if (res.data.code === 401) {
                     localStorage.removeItem('token')
                 } else {
-                    dispatch(addUserInfo(res.data))
+                    if (res.data.user_id !== null) {
+                        dispatch(addUserInfo(res.data))
+                    }
                 }
             })
             .catch(err => console.log(err))
-    }, [dispatch])
+    }, [dispatch, options])
 
     return (
         <>

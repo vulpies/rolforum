@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 
 const Slider = () => {
@@ -9,29 +9,7 @@ const Slider = () => {
 	console.log(userInfo, 'userInfo')
 
 
-	const [image, setImage] = useState('https://sun1-16.userapi.com/s/v1/ig1/wLhBikGgAsxrvhrQ_0ZpIadj-0ONkrAGDbB2XVASX8bS_VxxHvKKH_nFm6HaVluDzsAIAkup.jpg?size=200x200&quality=96&crop=44,0,435,435&ava=1')
-
-	const images = [{
-		'_id': 1,
-		url: 'http://zano.ru/avatar/200/665.jpg',
-		"name": "Dobbi"
-	},
-	{
-		'_id': 2,
-		'url': 'https://www.kfd.pl/uploads/profile/photo-299252.jpeg?_r=1471001120',
-		"name": 'Masya'
-	},
-	{
-		"_id": 3,
-		"url": 'https://a.d-cd.net/x0A7xfBRwioYAzkDhgFSt9285Gc-200.jpg',
-		"name": "Vasya"
-	},
-	{
-		'_id': 4,
-		url: 'https://sun9-69.userapi.com/s/v1/ig2/NQZ7zg3qfAWbIEldsH12QP3WrBX3bwrIhUHYJkFBBVnQbk_0fjs1OdCiUOwR8LnbbZTOiHE2mMEbru8GjpAzUGXI.jpg?size=200x200&quality=96&crop=0,36,200,200&ava=1',
-		"name": "Bred"
-	}
-	]
+	const [image, setImage] = useState("http://forumavatars.ru/img/avatars/001b/2f/0f/461-1646910378.png")
 
 	const changeImage = (e) => {
 		const target = e.target
@@ -40,18 +18,18 @@ const Slider = () => {
 
 
 	return (<>
-		<p className='slider-title'>Привет, <span>{(userInfo && userInfo.current_character.name) || 'гость'}</span>!</p>
+		<p className='slider-title'>Привет, <span>{userInfo?.user_name || 'гость'}</span>!</p>
 
 		{user.auth !== false ? <div className="slider">
 
 			<div className='slider-main'>
-				<img src={(userInfo && userInfo.current_character.avatar) || image} alt='' className='slider-main__image' />
+				<img src={image} alt='' className='slider-main__image' />
 			</div>
-			<div className='slider-others'>
+			{userInfo?.current_character.avatar ? <div className='slider-others'>
 				{userInfo && userInfo.characters.map((item => {
 					return <img src={item.avatar} id={item._id} key={item._id} name={item.name} alt={item.name} className='slider-others__image' onClick={changeImage} />
 				}))}
-			</div>
+			</div> : ""}
 		</div> : ""
 		}
 	</>

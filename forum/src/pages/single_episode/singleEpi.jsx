@@ -1,8 +1,8 @@
-import axios from 'axios'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Breadcrumbs from '../../components/breadcrumbs'
+import { commonFetch } from '../../helpers/commonFetch'
 import SingleEpiHeader from './singleEpiHeader'
 import SingleEpiPost from './singleEpiPost'
 
@@ -13,12 +13,12 @@ const SingleEpi = () => {
 	const url = `https://api.rolecrossways.com/v1/episode-view/${epiId
 		}`
 
+	console.log(epiData, 'epiData')
+
+
 	useEffect(() => {
-		axios.get(url, {
-			headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
-		})
-			.then(res => setEpiData(res.data))
-			.catch(err => console.log(err))
+		commonFetch(url, setEpiData)
+
 	}, [setEpiData, url])
 
 	return (<>

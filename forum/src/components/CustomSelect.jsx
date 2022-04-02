@@ -21,7 +21,8 @@ const colorStyles = {
 			color: state.isSelected ? '#c60000' : '#cc9e00',
 			backgroundColor: state.isFocused ? '#fbc972' : '#feee96b0',
 			padding: '10px 0',
-			height: 50
+			minHeight: 50,
+			height: 'auto'
 
 		};
 	},

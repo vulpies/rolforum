@@ -1,4 +1,5 @@
 import React from 'react'
+import EditOrRemove from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
 
 const SingleEpiPost = ({ posts }) => {
@@ -6,6 +7,8 @@ const SingleEpiPost = ({ posts }) => {
 	function openProfile() {
 		console.log('vdsvv')
 	}
+
+	console.log(posts)
 
 	return (<>
 		{posts && posts.map(p =>
@@ -28,7 +31,11 @@ const SingleEpiPost = ({ posts }) => {
 					}} />
 
 					<div className='sepi-post-post__btns'>
-						<GetLike />
+						<div className='sepi-header-desc__items' >
+							{p.can_edit ? <EditOrRemove /> : ''}
+
+							<GetLike />
+						</div>
 					</div>
 
 				</div>
