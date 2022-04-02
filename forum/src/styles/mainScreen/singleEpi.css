@@ -12,7 +12,7 @@
 
 .sepi-header-title {
     width: 100%;
-    padding-bottom: 13px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #a3a3a3;
     text-align: center;
 }
@@ -32,6 +32,25 @@
     margin: 15px 0 7px;
 }
 
+.sepi-header-desc__title {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.sepi-header-desc__subtitle {
+    text-align: justify;
+    margin-bottom: 15px;
+}
+
+.sepi-header-desc__subtitle > p {
+    text-indent: 20px;
+    margin-bottom: 3px;
+}
+
+.sepi-header-desc__subtitle > p:last-child {
+    margin-bottom: 0;
+}
+
 .sepi-header-desc__image {
     width: 100%;
     margin: 10px 0;
@@ -39,8 +58,8 @@
 }
 
 .sepi-header-desc__image > img {
-    width: 100%;
     border-radius: 5px;
+    max-height: 300px;
 }
 
 .sepi-header-desc__members {
@@ -49,19 +68,32 @@
     color: #d68700;
 }
 
-.sepi-header-desc__subtitle {
-    text-align: center;
-    margin-bottom: 15px;
+.sepi-header-desc__items {
+    align-self: flex-end;
 }
 
-.sepi-header-desc__like {
-    align-self: flex-end;
-    margin-left: 20px;
+.sepi-header-desc__items-trash,
+.sepi-header-desc__items-edit {
+    color: #90723d;
+}
+
+.sepi-header-desc__items-trash:hover,
+.sepi-header-desc__items-edit:hover {
+    color: #f2211c;
+}
+
+.sepi-header-desc__items-like {
     color: #c00a0a;
 }
+.sepi-header-desc__items-like:hover {
+    color: red;
+}
 
-.sepi-header-desc__like > span {
+.sepi-header-desc__items > span {
     font-size: 1.2rem;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
 .sepi-post-title {
@@ -72,19 +104,47 @@
     justify-content: space-between;
     align-items: center;
     font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.sepi-post-title__date {
+    text-align: right;
 }
 
 .sepi-post-post {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.sepi-post-avatar {
+    margin: 0 15px 5px 0;
+    width: 100px;
+    max-height: 100px;
+    height: auto;
+    border: 2px solid #e2950c;
+    float: left;
+    cursor: pointer;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    border-radius: 3px;
 }
 
 .sepi-post-post__content {
     text-align: justify;
 }
 
+.sepi-post-post__content > p {
+    text-indent: 20px;
+    margin-bottom: 10px;
+}
+
+.sepi-post-post__content > p:last-child {
+    margin-bottom: 0;
+}
+
 .sepi-post-post__btns {
     display: flex;
-    margin-top: 20px;
+    margin-top: 30px;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;

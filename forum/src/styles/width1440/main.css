@@ -7,6 +7,42 @@
         display: none;
     }
 
+    body {
+        /* background: url("https://krot.info/uploads/posts/2021-01/1610148076_34-p-odnotonnii-nezhnii-bezhevii-fon-42.jpg")
+            no-repeat center bottom / cover fixed; */
+        /* https://cdn.pixabay.com/photo/2016/10/17/14/31/background-1747790_1280.jpg
+
+        https://catherineasquithgallery.com/uploads/posts/2021-02/1613466106_18-p-fon-dlya-prezentatsii-sovremennii-stil-23.jpg
+
+        https://phonoteka.org/uploads/posts/2021-06/1622844983_13-phonoteka_org-p-akvarel-tekstura-krasivo-19.jpg
+
+        https://catherineasquithgallery.com/uploads/posts/2021-03/1614625681_2-p-foni-dlya-fotoshopa-teksturi-2.jpg*/
+
+        background: url("../../images/bcgmain.jpg") no-repeat center bottom /
+            cover fixed;
+    }
+
+    #root {
+        /* width: 1170px;
+        background-color: #fff9dcd1; */
+        width: 1140px;
+        background-color: #f8f4df;
+        /* border-left: 5px solid #a03101;
+        border-right: 5px solid #a03101; */
+        border-right: 3px solid #92794a;
+        border-left: 3px solid #92794a;
+        padding: 0 15px;
+    }
+
+    .wrapper {
+        margin-top: 0;
+        padding-top: 70px;
+    }
+
+    .extra {
+        margin-top: -11px;
+    }
+
     .navbar {
         display: flex;
         width: 100%;
@@ -22,13 +58,15 @@
         flex-direction: row;
         flex-wrap: nowrap;
         align-content: center;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
     }
     .menu-link {
-        width: 100%;
+        width: 15%;
         position: initial;
         padding: 0;
-        margin: 0;
+        margin: 0px 5px;
+        display: flex;
+        justify-content: center;
     }
 }

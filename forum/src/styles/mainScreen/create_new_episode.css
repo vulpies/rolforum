@@ -1,0 +1,88 @@
+.create-new-epi {
+    text-align: center;
+}
+
+.create-new-epi__title {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #a90101;
+}
+
+.create-new-epi__input {
+    width: 96%;
+    margin: 5px 0 0;
+    padding: 5px 5px;
+    font-size: 1.3rem;
+    text-align: center;
+    outline: 0;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    font-family: "AnelizaRegular" !important;
+}
+
+.create-new-epi__input:focus-visible,
+.create-new-epi__text:focus-visible {
+    border: 1px solid orange;
+    box-shadow: 0 0 0 1px orange;
+}
+
+.create-new-epi__form {
+    margin: 15px 0;
+}
+
+.create-new-epi__form > h4 {
+    font-size: 1.1rem;
+    color: #a90101;
+    padding-bottom: 2px;
+}
+
+.create-new-epi__select {
+    padding-top: 4px;
+    font-size: 1.2rem;
+}
+
+.create-new-epi__desc {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 13px 0px;
+}
+
+.create-new-epi__text {
+    width: 100%;
+    min-height: 160px;
+    resize: vertical;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    outline: 0;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    margin-top: 3px;
+    font-family: "AnelizaRegular";
+    font-weight: normal;
+    font-style: normal;
+}
+
+.create-new-epi__radio {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0 20px;
+    font-size: 1.3rem;
+}
+
+.create-new-epi__radio > p {
+    font-size: 1.3rem;
+}

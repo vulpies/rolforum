@@ -3,7 +3,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Breadcrumbs from '../../components/breadcrumbs'
-import NavbarCommon from '../../components/navbar/navbar_common'
 import SingleEpiHeader from './singleEpiHeader'
 import SingleEpiPost from './singleEpiPost'
 
@@ -15,25 +14,24 @@ const SingleEpi = () => {
 		}`
 
 	useEffect(() => {
-		axios.get(url)
+		axios.get(url, {
+			headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+		})
 			.then(res => setEpiData(res.data))
 			.catch(err => console.log(err))
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [setEpiData])
-
-	// console.log(epiData)
+	}, [setEpiData, url])
 
 	return (<>
-		<NavbarCommon />
 		{epiData ?
 			<div className="wrapper">
-				<div className='sepi-bread-header'>
+				<div className='sepi-bread-header extra'>
 					<Breadcrumbs name={epiData.episode.title} link='/episodes' extraName="Эпизоды" />
-				</div><hr />
+				</div>
+				<hr />
 				<SingleEpiHeader header={epiData.episode} />
 				<hr />
 				<SingleEpiPost posts={epiData.posts} />
-			</div> : 'Что-то пошло не так'}
+			</div> : <div className="wrapper"><p style={{ 'textAlign': 'center' }}>Что-то пошло не так...</p></div>}
 	</>
 	)
 }

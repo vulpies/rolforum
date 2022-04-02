@@ -2,10 +2,20 @@ import React from "react"
 import ReactDOM from "react-dom"
 import "./styles/index.css"
 import App from "./App"
+import { createStore } from "redux"
+import { Provider } from "react-redux"
+import rootReducer from "./store/reducers"
+
+const store = createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 ReactDOM.render(
     <React.StrictMode>
-        <App className="container" />
+        <Provider store={store}>
+            <App className="container" />
+        </Provider>
     </React.StrictMode>,
     document.getElementById("root")
 )

@@ -4,14 +4,12 @@
 html,
 body {
     box-sizing: border-box;
-    font-family: "AnelizaRegular";
+    font-family: "AnelizaRegular" !important;
     font-weight: normal;
     font-style: normal;
     font-size: 20px;
     color: #000;
-    background-color: #fffdbc38;
     line-height: 1.2;
-    width: 100%;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
 }

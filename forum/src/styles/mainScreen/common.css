@@ -1,6 +1,10 @@
+body {
+    background-color: #fffdbc38;
+    width: 100%;
+}
+
 #root {
     box-sizing: border-box;
-    min-width: 375px;
     width: auto;
     height: 100%;
     min-height: 100vh;
@@ -38,11 +42,6 @@ a:hover {
     color: #bc1515;
 }
 
-.wrapper {
-    margin-top: 57px;
-    padding-top: 18px;
-}
-
 img {
     max-width: 100%;
 }
@@ -54,13 +53,22 @@ button {
     cursor: pointer;
 }
 
+.wrapper {
+    margin-top: 57px;
+    padding-top: 18px;
+}
+
+.extra {
+    margin-top: -18px;
+}
+
 .breadcrumb {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     justify-content: center;
     padding-left: 0;
     text-align: center;
@@ -72,4 +80,17 @@ button {
 
 .breadcrumb-item:last-child {
     padding-right: 0;
+}
+
+.arrows-wrapper {
+    position: fixed;
+    top: 13px;
+    right: 10px;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80px;
+    font-size: 1.6rem;
 }

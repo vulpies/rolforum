@@ -11,7 +11,14 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image, link
 		setShow(true)
 	}
 
-	// let desc = [...text].join('').slice(0, 300) + '...'
+	let desc = [...text].join('')
+
+	if (desc.length > 430) {
+		desc = [...text].join('').slice(0, 430) + '...'
+	} else {
+		desc = [...text].join('')
+	}
+
 	let list = []
 
 	for (const [member] of members.entries()) {
@@ -43,10 +50,14 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image, link
 
 				<Modal.Body>
 					<div className='modal-img'>
-						<img src={image} className='modal-img__image' alt='' />
+						<img src={image} className='modal-img__image' alt='картинка убежала' />
 					</div>
 					<div className='modal-members'><span>Участники</span>: {list.join(', ')}</div>
-					<div className='modal-desc'><span>Описание</span>: {text}</div>
+
+					<div className='modal-desc' dangerouslySetInnerHTML={{
+						__html: `<span>Описание</span>: ${desc}`
+					}} />
+
 				</Modal.Body>
 
 

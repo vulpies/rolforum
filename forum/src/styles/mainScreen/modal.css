@@ -27,7 +27,7 @@
 .modal-footer {
     left: 10px;
     position: absolute;
-    bottom: 8px;
+    bottom: 4px;
 }
 
 .modal-body {
@@ -41,11 +41,9 @@
 
 .modal-members > span,
 .modal-desc > span {
-    /* font-style: italic; */
     font-size: 0.79rem;
     color: #c84f0a;
     font-weight: 600;
-    /* text-shadow: 1px 1px 0px black; */
 }
 
 .modal-desc {
@@ -54,8 +52,16 @@
     text-align: justify;
 }
 
+.modal-desc > span + p {
+    display: inline;
+}
+
+.modal-desc > span ~ p {
+    text-indent: 15px;
+    margin-top: 1px;
+}
+
 .modal-img__image {
-    width: 344px;
     max-height: 150px;
     height: auto;
     border-color: blanchedalmond;
