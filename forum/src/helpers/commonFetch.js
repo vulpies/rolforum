@@ -9,12 +9,14 @@ export const commonFetch = (url, setParam) => {
 }
 
 export const sendPostFetch = (url, postInfo) => {
-	axios.post(url, {
-		header: {
-			"Content-Type": "application/json",
-			'Authorization': `Bearer ${localStorage.getItem('token')}`
-		},
-		body: JSON.stringify(postInfo)
-	})
+	axios.post(url,
+		JSON.stringify(postInfo),
+		{
+			headers: {
+				"Content-Type": "application/json",
+				'Authorization': `Bearer ${localStorage.getItem('token')}`
+			}
+		}
+	)
 		.catch(err => console.log(err))
 }

@@ -58,13 +58,12 @@ const EpiNewCreate = () => {
 				type: type.value,
 				title,
 				image,
-				fandom: multiListValue,
 				character_id: multiListValue.map(c => ({ value: c.value, label: c.label })),
 				desc,
 				forGuests: check
 			}
 
-			sendPostFetch('https://api.rolecrossways.com/v1/post-create', fandomList)
+			sendPostFetch('https://api.rolecrossways.com/v1/episode-create', fandomList)
 
 			console.log(fandomList, 'fandomList')
 
@@ -74,12 +73,12 @@ const EpiNewCreate = () => {
 				type: type.value,
 				title,
 				image,
-				fandoms_id: multiListValue.map(c => ({ value: c.value, label: c.label })),
+				character_id: multiListValue.map(c => ({ value: c.value, label: c.label })),
 				desc,
 				forGuests: check
 			}
 
-			sendPostFetch('https://api.rolecrossways.com/v1/post-create', crossList)
+			sendPostFetch('https://api.rolecrossways.com/v1/episode-create', crossList)
 			console.log(crossList)
 
 
