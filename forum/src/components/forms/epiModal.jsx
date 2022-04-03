@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Modal from "react-bootstrap/Modal"
 import { Button } from "react-bootstrap"
-import CommonBtn from './CommonBtn';
 import { Link } from 'react-router-dom';
+import CommonBtn from '../buttons/CommonBtn';
 
 const EpiModal = ({ name, text, className, fandom, epiName, members, image, link }) => {
 	const [show, setShow] = useState(false)

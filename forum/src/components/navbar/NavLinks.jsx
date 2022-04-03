@@ -7,6 +7,8 @@ import OneLink from "./OneNavLink"
 
 const NavLinks = () => {
     const userAuth = useSelector((state) => state.usersReducer.auth)
+
+    console.log('userAuth', userAuth)
     const browserWidth = document.documentElement.clientWidth
     const dispatch = useDispatch()
     const { isMenuOpen, toggleMenuMode } = useContext(MenuContext)

@@ -39,6 +39,7 @@
     .wrapper {
         margin-top: 0;
         padding-top: 70px;
+        position: relative;
     }
 
     .extra {
@@ -52,6 +53,7 @@
         padding: 15px;
         position: absolute;
         left: 0;
+        z-index: 555;
     }
 
     .navbar-wrapper {

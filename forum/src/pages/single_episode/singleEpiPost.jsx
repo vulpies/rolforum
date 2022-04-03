@@ -1,6 +1,7 @@
 import React from 'react'
 import EditOrRemove from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
+import EpiSendPostFrom from '../../components/forms/epiSendPostForm'
 
 const SingleEpiPost = ({ posts }) => {
 
@@ -42,6 +43,7 @@ const SingleEpiPost = ({ posts }) => {
 				<hr />
 			</div>
 		)}
+		<EpiSendPostFrom />
 
 	</>
 	)

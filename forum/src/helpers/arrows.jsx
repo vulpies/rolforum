@@ -13,16 +13,15 @@ const Arrows = ({ className }) => {
 
 	return (<>
 
-		<div className={className}
-		>
+		<div className={className}>
 			<div className='arrows-down' onClick={scrollToBottom}>
 				<BsArrowDownCircle />
 			</div>
 			<div className='arrows-up' onClick={scrollToTop}>
 				<BsArrowUpCircle />
 			</div>
-
 		</div>
+
 	</>
 	)
 }

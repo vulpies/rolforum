@@ -5,10 +5,6 @@ const Slider = () => {
 	const user = useSelector((state) => state.usersReducer)
 	const userInfo = useSelector((state) => state.usersReducer.user[0])
 
-	console.log(user, 'user')
-	console.log(userInfo, 'userInfo')
-
-
 	const [image, setImage] = useState("http://forumavatars.ru/img/avatars/001b/2f/0f/461-1646910378.png")
 
 	const changeImage = (e) => {
@@ -27,7 +23,7 @@ const Slider = () => {
 			</div>
 			{userInfo?.current_character.avatar ? <div className='slider-others'>
 				{userInfo && userInfo.characters.map((item => {
-					return <img src={item.avatar} id={item._id} key={item._id} name={item.name} alt={item.name} className='slider-others__image' onClick={changeImage} />
+					return <img key={item._id} src={item.avatar} id={item._id} name={item.name} alt={item.name} className='slider-others__image' onClick={changeImage} />
 				}))}
 			</div> : ""}
 		</div> : ""

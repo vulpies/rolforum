@@ -2,8 +2,9 @@ import axios from "axios"
 import React, { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import EpiNewCreate from "./components/forms/epiNewCreate"
 import NavbarCommon from "./components/navbar/navbar_common"
-import EpiNewCreate from "./pages/epiNewCreate"
+import Arrows from "./helpers/arrows"
 import { MainPage, Profile, Registration, EpisodesPage, SingleEpi, OrgPage, Outgame } from './pages/index'
 import { addUserInfo } from "./store/usersSlice"
 
@@ -24,6 +25,7 @@ function App() {
     useEffect(() => {
         axios.get(url, options)
             .then(res => {
+                console.log(res)
                 if (res.data.code === 401) {
                     localStorage.removeItem('token')
                 } else {
@@ -51,6 +53,7 @@ function App() {
                     <Route path="/exit" element={<Navigate to="/" replace />}
                     />
                 </Routes>
+                <Arrows className='main-page__arrow' />
             </BrowserRouter>
         </>
     )

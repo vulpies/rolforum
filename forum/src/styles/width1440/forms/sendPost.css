@@ -1,0 +1,37 @@
+@media (min-width: 1440px) {
+    .send-post-form__text {
+        min-height: 220px;
+        font-size: 1rem;
+        background-color: #fffaf2;
+    }
+
+    .send-post-form__btns {
+        justify-content: space-evenly;
+        width: 35%;
+    }
+
+    .send-post-form__text::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .send-post-form__text::-webkit-scrollbar-track {
+        box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+        background-color: #fffdde;
+        border-top-right-radius: 5px;
+    }
+
+    .send-post-form__text::-webkit-scrollbar-thumb {
+        border-top-right-radius: 5px;
+        background-color: #f2bf93;
+        background-image: -webkit-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.25) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.25) 50%,
+            rgba(255, 255, 255, 0.25) 75%,
+            transparent 75%,
+            transparent
+        );
+    }
+}

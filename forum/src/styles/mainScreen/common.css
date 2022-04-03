@@ -95,3 +95,7 @@ button {
     width: 80px;
     font-size: 1.6rem;
 }
+
+.main-page__arrow {
+    display: none;
+}

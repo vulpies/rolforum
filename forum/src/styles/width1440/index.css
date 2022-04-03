@@ -1,2 +1,8 @@
 @import "./main.css";
 @import "./login.css";
+
+@import "./buttons/arrows.css";
+
+@import "./forms/sendPost.css";
+
+@import "./episodes/singleEpi.css";

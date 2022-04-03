@@ -1,10 +1,14 @@
 @import "./common.css";
-@import "./burger.css";
-@import "./episodes.css";
-@import "./modal.css";
-@import "./buttons.css";
 @import "./slider.css";
-@import "./login.css";
-@import "./singleEpi.css";
-@import "./create_new_episode.css";
-@import "./checbox.css";
+
+@import "./buttons/burger.css";
+@import "./buttons/buttons.css";
+@import "./buttons/checbox.css";
+
+@import "./episodes/episodes.css";
+@import "./episodes/singleEpi.css";
+
+@import "./forms/login.css";
+@import "./forms/modal.css";
+@import "./forms/create_new_episode.css";
+@import "./forms/sendPost.css";

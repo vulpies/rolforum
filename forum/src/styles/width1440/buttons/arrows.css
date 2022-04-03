@@ -1,0 +1,28 @@
+@media (min-width: 1440px) {
+    .main-page__arrow {
+        position: fixed;
+        right: 127px;
+        z-index: 2;
+        top: 35%;
+        height: 180px;
+        display: flex;
+        font-size: 2.35rem;
+        /* color: #fcffb8; */
+        color: #b75e07;
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+    }
+
+    .arrows-down,
+    .arrows-up {
+        margin: 10px 0;
+        height: 45px;
+    }
+
+    .arrows-down:hover,
+    .arrows-up:hover {
+        /* color: red; */
+        color: white;
+    }
+}

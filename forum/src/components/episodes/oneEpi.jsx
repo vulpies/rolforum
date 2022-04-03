@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import EpiModal from '../epiModal'
 import { commonFetch } from '../../helpers/commonFetch'
+import EpiModal from '../forms/epiModal'
 
 
 const OneEpi = () => {
