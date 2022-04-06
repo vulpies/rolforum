@@ -89,7 +89,7 @@ button {
     right: 10px;
     z-index: 2;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     width: 80px;

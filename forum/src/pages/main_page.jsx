@@ -6,6 +6,7 @@ import Login from "./login"
 
 const MainPage = () => {
     const userAuth = useSelector((state) => state.usersReducer.auth)
+
     const [hide, isHide] = useState(true)
 
     const handleLogin = (e) => {

@@ -4,4 +4,9 @@
         max-height: 200px;
         width: auto;
     }
+
+    .sepi-post-post {
+        min-height: 205px;
+        margin-bottom: 30px;
+    }
 }

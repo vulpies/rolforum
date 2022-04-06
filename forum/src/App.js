@@ -1,5 +1,6 @@
 import axios from "axios"
 import React, { useEffect } from "react"
+import { useMemo } from "react"
 import { useDispatch } from "react-redux"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import EpiNewCreate from "./components/forms/epiNewCreate"
@@ -12,7 +13,7 @@ function App() {
     const dispatch = useDispatch()
     const url = 'https://api.rolecrossways.com/v1/me'
 
-    let options = {}
+    let options = useMemo(() => { }, [])
 
     if (localStorage.getItem('token')) {
         options = {
@@ -25,7 +26,6 @@ function App() {
     useEffect(() => {
         axios.get(url, options)
             .then(res => {
-                console.log(res)
                 if (res.data.code === 401) {
                     localStorage.removeItem('token')
                 } else {

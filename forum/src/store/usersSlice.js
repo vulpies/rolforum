@@ -30,6 +30,8 @@ const usersSlice = createSlice({
 
 const { actions, reducer } = usersSlice
 
+export const fullSliceState = (state) => state.usersReducer
+
 export default reducer
 export const { addNewUser, getUserInfo, addUserInfo, userLogout } = actions
 

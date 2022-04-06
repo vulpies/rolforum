@@ -112,21 +112,23 @@
 }
 
 .sepi-post-post {
-    margin-bottom: 20px;
+    margin: 10px 0 20px;
+    min-height: 110px;
+    position: relative;
 }
 
 .sepi-post-avatar {
     margin: 0 15px 5px 0;
-    width: 100px;
+    max-width: 100px;
     max-height: 100px;
-    height: auto;
     border: 2px solid #e2950c;
     float: left;
     cursor: pointer;
     display: flex;
     align-content: center;
     align-items: center;
-    border-radius: 3px;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .sepi-post-post__content {
@@ -138,16 +140,16 @@
     margin-bottom: 10px;
 }
 
+.sepi-post-post__content > p:first-child {
+    text-indent: 0;
+}
+
 .sepi-post-post__content > p:last-child {
     margin-bottom: 0;
 }
 
 .sepi-post-post__btns {
-    display: flex;
-    margin-top: 30px;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-items: center;
-    align-content: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }

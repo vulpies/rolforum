@@ -37,7 +37,7 @@
     content: "ДА";
     position: absolute;
     top: 4px;
-    left: 5px;
+    left: 4px;
     width: 30px;
     height: 19px;
     color: #000000;
@@ -55,8 +55,9 @@
 #switch-1 .checkbox:checked + .knobs:before {
     content: "НЕТ";
     left: 51px;
+    top: 3px;
     background-color: #ff1807;
-    width: 33px;
+    width: 32px;
     height: 21px;
     color: #fbf1f1;
     line-height: 1.3;

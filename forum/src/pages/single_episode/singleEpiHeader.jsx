@@ -6,8 +6,6 @@ const SingleEpiHeader = ({ header }) => {
 
 	const userList = []
 
-	console.log(header, 'header')
-
 	header.characters.map(m => m.mask ? userList.push(m.mask) : userList.push(m.name))
 
 	return (
