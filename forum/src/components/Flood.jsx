@@ -4,38 +4,38 @@ import SendOrRemove from './buttons/send_or_remove';
 
 const Flood = () => {
 	const [text, setText] = useState('')
+	const [socket_con, setSocket] = useState(null)
 
 	const floodData = {
 		text,
 		token: localStorage.getItem('token')
 	}
 
-	let socket = null
 
 	function startChat() {
-		socket = new WebSocket("wss://5r9ld0bvs5.execute-api.us-east-1.amazonaws.com/Prod")
+		const socket = new WebSocket("wss://5r9ld0bvs5.execute-api.us-east-1.amazonaws.com/Prod")
 
 		socket.onopen = function () {
 			alert("[open] Connection established");
-			socket.send(JSON.stringify({ action: "sendmessage", data: { token: localStorage.getItem('token') } }));
+			socket.send(JSON.stringify({ action: "sendmessage", data: {updateToken: true, token: localStorage.getItem('token') } }));
 		};
 
 		socket.onmessage = function (event) {
-			console.log(text, '3333')
 			const data = JSON.parse(event.data);
-
 			console.log(data, 'data')
 
+			if (!data.tokenUpdate) {
 
-			document.getElementById('message-area').innerHTML += '<div className="message">' +
-				'<div className="message-header">' +
-				'<span className="user"><a href="#' + data.user_id + '">' + data.user_name + '</a></span>' +
-				'<span className="time">' + data.time + '</span>' +
-				'</div>' +
-				'<div className="content">' + data.content + '</div>' +
-				'</div>';
+				document.getElementById('message-area').innerHTML += '<div className="message">' +
+					'<div className="message-header">' +
+					'<span className="user"><a href="#' + data.user_id + '">' + data.user_name + '</a></span>' +
+					'<span className="time">' + data.time + '</span>' +
+					'</div>' +
+					'<div className="content">' + data.content + '</div>' +
+					'</div>';
+			}
+		}
 
-		};
 
 		socket.onclose = function (event) {
 			if (event.wasClean) {
@@ -48,12 +48,13 @@ const Flood = () => {
 		socket.onerror = function (error) {
 			alert(`[error] ${error.message}`);
 		};
+		setSocket(socket)
 	}
 
 	function sendMessage() {
 		// console.log(text, '7777')
 		// console.log(document.getElementById('message').value, '5555')
-		socket.send(JSON.stringify({ action: "sendmessage", data: { floodData } }));
+		socket_con.send(JSON.stringify({ action: "sendmessage", data: floodData }));
 		setText('')
 	}
 
