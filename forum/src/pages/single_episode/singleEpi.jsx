@@ -13,14 +13,11 @@ const SingleEpi = () => {
 	const [epiData, setEpiData] = useState('')
 	const [postData, setPostData] = useState([])
 
-	console.log(postData, 'postData')
-	console.log(epiData, 'epiData')
-
 	const addNewPost = (value) => {
-		const newData = postData
-		newData.push(value)
-		setPostData([...newData])
+		setPostData([...postData, value])
 	}
+
+	console.log(epiData, 'epiData')
 
 	useEffect(() => {
 		commonFetch(`https://api.rolecrossways.com/v1/episode-view/${epiId
@@ -43,7 +40,7 @@ const SingleEpi = () => {
 					<SingleEpiHeader header={epiData.episode} />
 					<hr />
 					<SingleEpiPost posts={postData} />
-					<EpiSendPostFrom updatePosts={addNewPost} />
+					{epiData.can_reply ? <EpiSendPostFrom updatePosts={addNewPost} /> : ''}
 				</div> : <div className="wrapper"><p style={{ 'textAlign': 'center' }}>Загрузка данных...</p></div>}
 		</>
 	</>

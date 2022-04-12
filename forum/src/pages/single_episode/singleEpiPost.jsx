@@ -28,14 +28,13 @@ const SingleEpiPost = ({ posts }) => {
 						__html: `${p.content}`
 					}} />
 
-					<div className='sepi-post-post__btns'>
-						<div className='sepi-header-desc__items' >
-							{p.can_edit ? <EditOrRemove /> : ''}
+				</div>
+				<div className='sepi-post-post__btns'>
+					<div className='sepi-header-desc__items' >
+						{p.can_edit ? <EditOrRemove /> : ''}
 
-							<GetLike />
-						</div>
+						<GetLike />
 					</div>
-
 				</div>
 				<hr />
 			</div>

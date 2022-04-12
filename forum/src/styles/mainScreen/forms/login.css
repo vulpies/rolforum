@@ -26,10 +26,8 @@
     margin-top: 3px;
     position: relative;
     padding: 7px 5px;
-    text-align: center;
     color: #99220b;
     width: 96%;
-    border-radius: 5px;
 }
 
 .login-error {

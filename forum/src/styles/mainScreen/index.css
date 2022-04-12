@@ -1,6 +1,8 @@
 @import "./common.css";
 @import "./slider.css";
 
+@import "./flood/flood.css";
+
 @import "./buttons/burger.css";
 @import "./buttons/buttons.css";
 @import "./buttons/checbox.css";

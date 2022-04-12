@@ -18,8 +18,7 @@
     margin-right: 10px;
 }
 
-.btns:hover,
-.btns:focus {
+.btns:hover {
     outline: none;
     background-color: #ff5722;
     color: #fff;
@@ -38,7 +37,11 @@
 
 .btns-log {
     width: 100%;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+}
+
+.btns-log__flood {
+    width: 98%;
 }
 
 .btns-create {
@@ -47,5 +50,5 @@
 }
 
 .btns-send {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }

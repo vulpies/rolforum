@@ -1,14 +1,14 @@
 .slider {
     display: flex;
     width: 100%;
-    height: 212px;
+    height: 190px;
     position: relative;
     margin: 18px 0;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    align-content: space-around;
+    align-content: center;
 }
 
 .slider-ghost {
@@ -30,8 +30,8 @@
 }
 
 .slider-main {
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 150px;
+    max-height: 150px;
     height: auto;
     border: 6px double #f1ad35;
     margin: 0 13px;

@@ -1,0 +1,23 @@
+@media (min-width: 1440px) {
+    .slider {
+        height: 220px;
+    }
+
+    .slider-main {
+        max-width: 200px;
+        max-height: 200px;
+    }
+    .slider-others {
+        justify-content: space-around;
+        height: 200px;
+        width: 45%;
+        align-items: flex-start;
+        align-content: flex-start;
+        flex-wrap: wrap;
+    }
+    .slider-others__image {
+        max-width: 120px;
+        max-height: 120px;
+        margin: 5px 10px;
+    }
+}

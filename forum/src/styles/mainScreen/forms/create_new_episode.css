@@ -18,17 +18,7 @@
     margin: 5px 0 0;
     padding: 5px 5px;
     font-size: 1.3rem;
-    text-align: center;
-    outline: 0;
-    border-radius: 4px;
-    border: 1px solid #cccccc;
     font-family: "AnelizaRegular" !important;
-}
-
-.create-new-epi__input:focus-visible,
-.create-new-epi__text:focus-visible {
-    border: 1px solid orange;
-    box-shadow: 0 0 0 1px orange;
 }
 
 .create-new-epi__form {
@@ -58,17 +48,9 @@
 .create-new-epi__text {
     width: 100%;
     min-height: 160px;
-    resize: vertical;
-    padding: 10px;
     box-sizing: border-box;
     font-size: 1.2rem;
-    outline: 0;
-    border-radius: 4px;
-    border: 1px solid #cccccc;
     margin-top: 3px;
-    font-family: "AnelizaRegular";
-    font-weight: normal;
-    font-style: normal;
 }
 
 .create-new-epi__radio {
