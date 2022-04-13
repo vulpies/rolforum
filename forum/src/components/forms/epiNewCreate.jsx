@@ -49,12 +49,6 @@ const EpiNewCreate = () => {
 		setMultiListValue(cross.map(item => ({ "value": item.value, "label": item.label })))
 	}, [])
 
-
-	// function getMultiListValue(cross){
-	// 	setMultiListValue(cross.map(item => ({ "value": item.value, "label": item.label })))
-	// }
-
-
 	const options = [
 		{ value: 'fandom', label: 'По фандому' },
 		{ value: 'crossover', label: 'Кроссовер' },

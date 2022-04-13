@@ -56,7 +56,7 @@ button {
 
 .wrapper {
     margin-top: 57px;
-    padding-top: 18px;
+    padding-top: 14px;
 }
 
 .extra {
@@ -69,7 +69,7 @@ button {
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     justify-content: center;
     padding-left: 0;
     text-align: center;
@@ -126,4 +126,10 @@ textarea {
 textarea:focus-visible {
     border: 1px solid orange;
     box-shadow: 0 0 0 1px orange;
+}
+
+textarea::-webkit-resizer {
+    border: 3px solid #d32b2b;
+    background: #a25006;
+    outline: 6px solid #fce266;
 }

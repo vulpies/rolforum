@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import Breadcrumbs from './breadcrumbs';
 import SendOrRemove from './buttons/send_or_remove';
 
 const Flood = () => {
@@ -17,7 +18,7 @@ const Flood = () => {
 
 		socket.onopen = function () {
 			alert("[open] Connection established");
-			socket.send(JSON.stringify({ action: "sendmessage", data: {updateToken: true, token: localStorage.getItem('token') } }));
+			socket.send(JSON.stringify({ action: "sendmessage", data: { updateToken: true, token: localStorage.getItem('token') } }));
 		};
 
 		socket.onmessage = function (event) {
@@ -26,13 +27,20 @@ const Flood = () => {
 
 			if (!data.tokenUpdate) {
 
-				document.getElementById('message-area').innerHTML += '<div className="message">' +
-					'<div className="message-header">' +
-					'<span className="user"><a href="#' + data.user_id + '">' + data.user_name + '</a></span>' +
-					'<span className="time">' + data.time + '</span>' +
-					'</div>' +
-					'<div className="content">' + data.content + '</div>' +
-					'</div>';
+				document.getElementById('message-area').innerHTML += `
+			<div class="flood-message">
+
+			<div class="flood-message__profile" >
+			<span class="user">
+			<a href="#${data.user_id}">${data.user_name}</a></span>
+			</div>
+
+			<div class="flood-message__text" >
+			<span class="flood-message__text-time">${data.time}</span>
+			<div class="flood-message__text-content">${data.content}</div>
+			</div>
+
+			</div>`
 			}
 		}
 
@@ -52,31 +60,33 @@ const Flood = () => {
 	}
 
 	function sendMessage() {
-		// console.log(text, '7777')
-		// console.log(document.getElementById('message').value, '5555')
 		socket_con.send(JSON.stringify({ action: "sendmessage", data: floodData }));
 		setText('')
 	}
 
-	return (<>
-		<hr />
-		<p className='flood-title'>Приветствуем в чате!</p>
-		<hr />
+	return (
+		<div className="wrapper">
+			<div className='sepi-bread-header extra'>
+				<Breadcrumbs name="Флуд" link='/outgame' extraName="Вне игры" />
+			</div>
+			<hr />
+			<p className='flood-title'>Приветствуем в чате!</p>
+			<hr />
 
-		<button className='btns btns-log' id='start-chat' onClick={startChat}>Начать</button>
+			<button className='btns btns-log' id='start-chat' onClick={startChat}>Начать</button>
 
-		<div id="message-area" className='flood-rcvd-msg'></div>
+			<div id="message-area" className='flood-rcvd-msg'></div>
 
-		<div className='flood-wrapper__send'>
-			<textarea id="message"
-				value={text}
-				onChange={(e) => setText(e.target.value)}
-				className='flood-wrapper__send-msg'></textarea>
+			<div className='flood-wrapper__send'>
+				<textarea id="message"
+					value={text}
+					onChange={(e) => setText(e.target.value)}
+					className='flood-wrapper__send-msg'></textarea>
 
-			<SendOrRemove sendBtn={sendMessage} removeBtn={() => setText('')} />
+				<SendOrRemove sendBtn={sendMessage} removeBtn={() => setText('')} />
 
+			</div>
 		</div>
-	</>
 	)
 }
 

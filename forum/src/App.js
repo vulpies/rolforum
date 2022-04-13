@@ -3,6 +3,7 @@ import React, { useEffect } from "react"
 import { useMemo } from "react"
 import { useDispatch } from "react-redux"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import Flood from "./components/Flood"
 import EpiNewCreate from "./components/forms/epiNewCreate"
 import NavbarCommon from "./components/navbar/navbar_common"
 import Arrows from "./helpers/arrows"
@@ -49,6 +50,7 @@ function App() {
                     <Route path="/episodes" element={<EpisodesPage />} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/org" element={<OrgPage />} />
+                    <Route path="/outgame/chat" element={<Flood />} />
                     <Route path="/outgame" element={<Outgame />} />
                     <Route path="/exit" element={<Navigate to="/" replace />}
                     />

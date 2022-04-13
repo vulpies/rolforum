@@ -28,6 +28,6 @@
 .send-post-form__btns {
     display: flex;
     justify-content: space-around;
-    width: 70%;
+    width: 80%;
     margin: 0 0 10px;
 }

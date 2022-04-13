@@ -94,7 +94,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Вне игровое" />
+                        name="Вне игры" />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}

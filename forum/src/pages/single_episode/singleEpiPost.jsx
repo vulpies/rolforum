@@ -29,6 +29,7 @@ const SingleEpiPost = ({ posts }) => {
 					}} />
 
 				</div>
+
 				<div className='sepi-post-post__btns'>
 					<div className='sepi-header-desc__items' >
 						{p.can_edit ? <EditOrRemove /> : ''}
