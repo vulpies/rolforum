@@ -1,11 +1,19 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react';
+import { commonFetch } from '../helpers/commonFetch';
 import Breadcrumbs from './breadcrumbs';
 import SendOrRemove from './buttons/send_or_remove';
 
 const Flood = () => {
 	const [text, setText] = useState('')
 	const [socket_con, setSocket] = useState(null)
+	const [msg, setMsg] = useState('')
+
+	const url = 'https://api.rolecrossways.com/v1/chat-message-list';
+	useEffect(() => {
+		commonFetch(url, setMsg)
+	}, [setMsg, url])
 
 	const floodData = {
 		text,
@@ -17,7 +25,6 @@ const Flood = () => {
 		const socket = new WebSocket("wss://5r9ld0bvs5.execute-api.us-east-1.amazonaws.com/Prod")
 
 		socket.onopen = function () {
-			alert("[open] Connection established");
 			socket.send(JSON.stringify({ action: "sendmessage", data: { updateToken: true, token: localStorage.getItem('token') } }));
 		};
 
@@ -27,30 +34,51 @@ const Flood = () => {
 
 			if (!data.tokenUpdate) {
 
-				document.getElementById('message-area').innerHTML += `
-			<div class="flood-message">
+				setMsg([...msg, data])
+				console.log(msg)
 
-			<div class="flood-message__profile" >
-			<span class="user">
-			<a href="#${data.user_id}">${data.user_name}</a></span>
-			</div>
+				// 	if (data.user_name === localStorage.getItem('username')) {
+				// 		document.getElementById('message-area').innerHTML += `
+				// <div class="flood-message-owner flood-message">
 
-			<div class="flood-message__text" >
-			<span class="flood-message__text-time">${data.time}</span>
-			<div class="flood-message__text-content">${data.content}</div>
-			</div>
+				// <div class="flood-message__profile-owner flood-message__profile" >
+				// <span class="user">
+				// <a href="#${data.user_id}">${data.user_name}</a></span>
+				// </div>
 
-			</div>`
+				// <div class="flood-message__text" >
+				// <span class="flood-message__text-time-owner flood-message__text-time">${data.time}</span>
+				// <div class="flood-message__text-content-owner flood-message__text-content">${data.content}</div>
+				// </div>
+				// </div>`
+
+				// 	} else {
+				// 		document.getElementById('message-area').innerHTML += `
+				// <div class="flood-message">
+
+				// <div class="flood-message__profile" >
+				// <span class="user">
+				// <a href="#${data.user_id}">${data.user_name}</a></span>
+				// </div>
+
+				// <div class="flood-message__text" >
+				// <span class="flood-message__text-time">${data.time}</span>
+				// <div class="flood-message__text-content">${data.content}</div>
+				// </div>
+
+				// </div>`
+				// 	}
+
 			}
 		}
 
 
 		socket.onclose = function (event) {
-			if (event.wasClean) {
-				alert(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
-			} else {
-				alert('[close] Connection died');
-			}
+			// if (event.wasClean) {
+			// 	alert(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+			// } else {
+			// 	alert('[close] Connection died');
+			// }
 		};
 
 		socket.onerror = function (error) {
@@ -60,8 +88,12 @@ const Flood = () => {
 	}
 
 	function sendMessage() {
-		socket_con.send(JSON.stringify({ action: "sendmessage", data: floodData }));
-		setText('')
+		if (text.trim() !== '') {
+			socket_con.send(JSON.stringify({ action: "sendmessage", data: floodData }));
+			setText('')
+		} else {
+			alert('Пустое сообщение отправить нельзя ~ Упс!')
+		}
 	}
 
 	return (
@@ -75,7 +107,48 @@ const Flood = () => {
 
 			<button className='btns btns-log' id='start-chat' onClick={startChat}>Начать</button>
 
-			<div id="message-area" className='flood-rcvd-msg'></div>
+			<div id="message-area" className='flood-rcvd-msg'>
+				{msg && msg.map((m, index) =>
+					<>
+						{m.user_name === localStorage.getItem('username') ?
+							<div className="flood-message flood-message-owner" key={index}>
+
+								<div className="flood-message__profile flood-message__profile-owner" >
+									<span className="user">
+										<a href={`#{m.user_id}`}>{m.user_name}</a></span>
+									<div className="flood-message__profile-avatar">
+										<img src={m.user_avatar} alt={m.user_name} />
+									</div>
+								</div>
+
+								<div className="flood-message__text" >
+									<span className="flood-message__text-time flood-message__text-time-owner">{m.time}</span>
+									<div className="flood-message__text-content flood-message__text-content-owner">{m.content}</div>
+								</div>
+
+							</div>
+							:
+							<div className="flood-message" key={index} >
+
+								<div className="flood-message__profile" >
+									<span className="user">
+										<a href={`#{m.user_id}`}>{m.user_name}</a></span>
+									<div className="flood-message__profile-avatar">
+										<img src={m.user_avatar} alt={m.user_name} />
+									</div>
+								</div>
+
+								<div className="flood-message__text" >
+									<span className="flood-message__text-time">{m.time}</span>
+									<div className="flood-message__text-content">{m.content}</div>
+								</div>
+
+							</div>
+						}
+					</>
+				)}
+
+			</div>
 
 			<div className='flood-wrapper__send'>
 				<textarea id="message"

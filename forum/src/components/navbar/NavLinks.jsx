@@ -95,6 +95,14 @@ const NavLinks = () => {
                         }
                         onClick={clickHandler}
                         name="Вне игры" />
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/chats'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name="Чаты" />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}

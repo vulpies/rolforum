@@ -7,6 +7,7 @@ import Flood from "./components/Flood"
 import EpiNewCreate from "./components/forms/epiNewCreate"
 import NavbarCommon from "./components/navbar/navbar_common"
 import Arrows from "./helpers/arrows"
+import Chats from "./pages/chats_page"
 import { MainPage, Profile, Registration, EpisodesPage, SingleEpi, OrgPage, Outgame } from './pages/index'
 import { addUserInfo } from "./store/usersSlice"
 
@@ -52,6 +53,7 @@ function App() {
                     <Route path="/org" element={<OrgPage />} />
                     <Route path="/outgame/chat" element={<Flood />} />
                     <Route path="/outgame" element={<Outgame />} />
+                    <Route path="/chats" element={<Chats />} />
                     <Route path="/exit" element={<Navigate to="/" replace />}
                     />
                 </Routes>

@@ -1,0 +1,20 @@
+.flood-message-owner {
+    flex-direction: row-reverse;
+}
+
+.flood-message__profile-owner {
+    margin-right: 0;
+    margin-left: 20px;
+}
+
+.flood-message__text-content-owner {
+    /* background-color: #fffccb; */
+    background-color: #f1ffdc;
+    /* fff7bcba */
+    border-radius: 8px 0 8px 8px;
+}
+
+.flood-message__text-time-owner {
+    align-self: flex-end;
+    color: #b50808;
+}

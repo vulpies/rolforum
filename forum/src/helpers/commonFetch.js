@@ -18,13 +18,7 @@ export const commonFetch = (url, setParam) => {
 
 export const sendEpiFetch = (url, postInfo) => {
 	axios.post(url,
-		JSON.stringify(postInfo),
-		{
-			headers: {
-				"Content-Type": "application/json",
-				'Authorization': `Bearer ${localStorage.getItem('token')}`
-			}
-		}
+		JSON.stringify(postInfo), options
 	)
 		.catch(err => console.log(err))
 }
