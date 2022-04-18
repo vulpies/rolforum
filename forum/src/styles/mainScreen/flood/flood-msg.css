@@ -63,6 +63,12 @@
     padding: 5px 5px;
 }
 
+.flood-message__edit {
+    font-size: 0.84rem;
+    opacity: 0.5;
+}
+
 .flood-message__edit:hover {
-    color: #f30916;
+    /* color: #f30916; */
+    opacity: 1;
 }

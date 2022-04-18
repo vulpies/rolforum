@@ -5,10 +5,10 @@ import { MenuContext } from "./NavState"
 const MenuButton = styled.button`
     display: block;
     transform-origin: 16px 11px;
-    margin-right: 20px;
+    margin-right: 10px;
     outline: 0;
     border: 0;
-    padding: 12px;
+    padding: 5px;
     background: none;
     span {
         transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);

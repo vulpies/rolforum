@@ -17,8 +17,6 @@ const SingleEpi = () => {
 		setPostData([...postData, value])
 	}
 
-	console.log(epiData, 'epiData')
-
 	useEffect(() => {
 		commonFetch(`https://api.rolecrossways.com/v1/episode-view/${epiId
 			}`, (data) => {
