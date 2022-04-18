@@ -1,8 +1,4 @@
 @media (min-width: 1440px) {
-    * {
-        box-sizing: border-box;
-    }
-
     header {
         display: none;
     }

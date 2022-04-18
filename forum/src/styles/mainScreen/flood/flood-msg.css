@@ -40,11 +40,19 @@
     width: 100%;
 }
 
+.flood-message__top-line {
+    color: #700909;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
 .flood-message__text-time {
     margin-bottom: 5px;
     font-weight: 600;
     font-size: 0.8rem;
-    color: #700909;
 }
 
 .flood-message__text-content {
@@ -52,6 +60,9 @@
     border-radius: 0 8px 8px 8px;
     width: 100%;
     border: 1px solid #d4c9c9;
-    box-sizing: border-box;
     padding: 5px 5px;
+}
+
+.flood-message__edit:hover {
+    color: #f30916;
 }

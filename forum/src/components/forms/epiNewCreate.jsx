@@ -118,7 +118,7 @@ const EpiNewCreate = () => {
 			<hr />
 
 			<form className='create-new-epi'>
-				<label className='create-new-epi__title'>Название эпизода: <input type="text" className='create-new-epi__input' placeholder='Эпизод...' value={title} onChange={(e) => setTitle(e.target.value)} /></label>
+				<label className='create-new-epi__title'>Название эпизода: <input type="text" className='create-new-epi__input' placeholder='Эпизод' value={title} onChange={(e) => setTitle(e.target.value)} /></label>
 
 				<CustomSelect
 					styleDiv='create-new-epi__form'
@@ -192,12 +192,12 @@ const EpiNewCreate = () => {
 
 				<div className='create-new-epi__img'>
 					<label className='create-new-epi__title'>Картинка:</label>
-					<input className='create-new-epi__input' placeholder='Вставьте ссылку...' value={image} onChange={(e) => setImage(e.target.value)} />
+					<input className='create-new-epi__input' placeholder='Вставьте ссылку' value={image} onChange={(e) => setImage(e.target.value)} />
 				</div>
 
 				<div className='create-new-epi__desc'>
 					<label className='create-new-epi__title'>Описание:</label>
-					<textarea className='create-new-epi__text' placeholder='Описание эпизода...' value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
+					<textarea className='create-new-epi__text' placeholder='Описание эпизода' value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
 				</div>
 
 				<div className='create-new-epi__radio'>

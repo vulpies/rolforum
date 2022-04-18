@@ -13,11 +13,10 @@
     width: 100%;
     text-align: center;
     border-radius: 5px;
-    margin: 3px 0 -3px 0;
+    margin: 3px 0;
 }
 
 .send-post-form__text {
-    width: 94%;
     min-height: 180px;
     font-size: 1.1rem;
     margin: 10px 0;

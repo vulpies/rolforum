@@ -7,6 +7,10 @@
     margin-left: 20px;
 }
 
+.flood-message__top-line-owner {
+    flex-direction: row-reverse;
+}
+
 .flood-message__text-content-owner {
     /* background-color: #fffccb; */
     background-color: #f1ffdc;

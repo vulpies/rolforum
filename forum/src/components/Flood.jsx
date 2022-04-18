@@ -1,6 +1,5 @@
-import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react'
+import { AiOutlineSetting } from "react-icons/ai";
 import { commonFetch } from '../helpers/commonFetch';
 import Breadcrumbs from './breadcrumbs';
 import SendOrRemove from './buttons/send_or_remove';
@@ -122,7 +121,10 @@ const Flood = () => {
 								</div>
 
 								<div className="flood-message__text" >
-									<span className="flood-message__text-time flood-message__text-time-owner">{m.time}</span>
+									<div className="flood-message__top-line flood-message__top-line-owner">
+										<span className="flood-message__text-time flood-message__text-time-owner">{m.time}</span>
+										<span className='flood-message__edit' onClick={() => console.log(1111)}><AiOutlineSetting /></span>
+									</div>
 									<div className="flood-message__text-content flood-message__text-content-owner">{m.content}</div>
 								</div>
 
@@ -139,7 +141,10 @@ const Flood = () => {
 								</div>
 
 								<div className="flood-message__text" >
-									<span className="flood-message__text-time">{m.time}</span>
+									<div className="flood-message__top-line">
+										<span className="flood-message__text-time">{m.time}</span>
+										<span className='flood-message__edit' onClick={() => console.log(1111)}><AiOutlineSetting /></span>
+									</div>
 									<div className="flood-message__text-content">{m.content}</div>
 								</div>
 
@@ -151,6 +156,7 @@ const Flood = () => {
 			</div>
 
 			<div className='flood-wrapper__send'>
+				<p>Введите ваше сообщение</p>
 				<textarea id="message"
 					value={text}
 					onChange={(e) => setText(e.target.value)}

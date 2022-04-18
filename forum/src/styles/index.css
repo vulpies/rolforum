@@ -1,9 +1,12 @@
 @import "./mainScreen/index.css";
 @import "./width1440/index.css";
 
+* {
+    box-sizing: border-box;
+}
+
 html,
 body {
-    box-sizing: border-box;
     font-family: "AnelizaRegular" !important;
     font-weight: normal;
     font-style: normal;

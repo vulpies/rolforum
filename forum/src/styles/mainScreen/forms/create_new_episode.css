@@ -14,7 +14,6 @@
 }
 
 .create-new-epi__input {
-    width: 96%;
     margin: 5px 0 0;
     padding: 5px 5px;
     font-size: 1.3rem;
@@ -47,8 +46,6 @@
 
 .create-new-epi__text {
     width: 100%;
-    min-height: 160px;
-    box-sizing: border-box;
     font-size: 1.2rem;
     margin-top: 3px;
 }
