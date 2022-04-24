@@ -3,7 +3,7 @@
     margin: 5px 0;
     min-width: 64px;
     width: auto;
-    outline: none;
+    /* outline: none; */
     background-color: #faf4bf;
     border: 1px solid #d29832;
     transition: 0.3s linear;
@@ -19,9 +19,14 @@
 }
 
 .btns:hover {
-    outline: none;
     background-color: #ff5722;
     color: #fff;
+    border: 1px solid #ea6e14;
+    box-shadow: 3px 3px 6px rgb(171 55 11 / 74%),
+        -1px -1px 1px rgb(236 89 15 / 84%);
+}
+
+.btns:active {
     border: 1px solid #ea6e14;
     box-shadow: 3px 3px 6px rgb(171 55 11 / 74%),
         -1px -1px 1px rgb(236 89 15 / 84%);

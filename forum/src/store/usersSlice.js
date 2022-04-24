@@ -19,7 +19,7 @@ const usersSlice = createSlice({
 			state.auth = true
 		},
 		getUserInfo: (state) => {
-			return [...state.user]
+			return state.user
 		},
 		userLogout: (state) => {
 			state.user = []
