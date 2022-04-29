@@ -1,0 +1,33 @@
+@media (min-width: 768px) {
+    .slider {
+        height: 180px;
+    }
+
+    .slider-main {
+        max-width: 170px;
+        max-height: 170px;
+    }
+    .slider-others {
+        justify-content: space-around;
+        height: 170px;
+        width: 50%;
+        align-items: flex-start;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        margin: 0 10px;
+        position: relative;
+    }
+    .slider-others > p {
+        position: absolute;
+        top: 0;
+    }
+    .slider-others::-webkit-scrollbar {
+        width: 0px;
+    }
+    .slider-others__image {
+        max-width: 120px;
+        max-height: 120px;
+        margin: 0px 10px;
+        margin-top: 25px;
+    }
+}

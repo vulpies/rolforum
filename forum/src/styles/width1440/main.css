@@ -69,4 +69,9 @@
         display: flex;
         justify-content: center;
     }
+
+    textarea {
+        border: 1px solid #885353;
+        min-height: 220px;
+    }
 }

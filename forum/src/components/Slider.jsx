@@ -22,6 +22,7 @@ const Slider = () => {
 				<img src={image} alt='' className='slider-main__image' />
 			</div>
 			{userInfo?.current_character.avatar ? <div className='slider-others'>
+				<p>имеющиеся персонажи:</p>
 				{userInfo && userInfo.characters.map((item => {
 					return <img key={item._id} src={item.avatar} id={item._id} name={item.name} alt={item.name} className='slider-others__image' onClick={changeImage} />
 				}))}

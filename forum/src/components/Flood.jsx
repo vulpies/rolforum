@@ -7,15 +7,15 @@ import SendOrRemove from './buttons/send_or_remove';
 
 const Flood = () => {
 	const user = useSelector((state) => state.usersReducer.user)
-	console.log(user, '111')
 	const [text, setText] = useState('')
 	const [socket_con, setSocket] = useState(null)
 	const [msg, setMsg] = useState([])
+	const [loadHis, setloadHis] = useState([])
+	const [count, setCount] = useState(40)
 
 	const url = 'https://api.rolecrossways.com/v1/chat-message-list';
 	useEffect(() => {
 		commonFetch(url, setMsg)
-		console.log(1111)
 	}, [setMsg, url])
 
 	const addMsg = useCallback((data) => {
@@ -75,6 +75,16 @@ const Flood = () => {
 		}
 	}
 
+
+	function loadHistory() {
+		setCount(count => count + 40)
+		const url = `https://api.rolecrossways.com/v1/chat-message-list?offset=${count
+			}`
+		commonFetch(url, setloadHis)
+		setMsg((msg) => [...loadHis, ...msg]);
+	}
+
+
 	return (
 		<div className="wrapper">
 			<div className='sepi-bread-header extra'>
@@ -83,6 +93,10 @@ const Flood = () => {
 			<hr />
 			<p className='flood-title'>Приветствуем в чате!</p>
 			<hr />
+
+			<div className='flood-load-history'>
+				<button className='btns btns-load' onClick={loadHistory}>Загрузить еще</button>
+			</div>
 
 			<div id="message-area" className='flood-rcvd-msg'>
 				{msg && msg.map((m, index) =>

@@ -1,0 +1,12 @@
+@media (min-width: 1440px) {
+    .flood-wrapper__send-msg {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        width: 96%;
+        min-height: 230px;
+        background-color: #f7f4ef96;
+    }
+    .flood-wrapper__send > p {
+        width: 96%;
+    }
+}

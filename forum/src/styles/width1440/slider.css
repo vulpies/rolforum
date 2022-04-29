@@ -8,12 +8,7 @@
         max-height: 200px;
     }
     .slider-others {
-        justify-content: space-around;
         height: 200px;
-        width: 45%;
-        align-items: flex-start;
-        align-content: flex-start;
-        flex-wrap: wrap;
     }
     .slider-others__image {
         max-width: 120px;

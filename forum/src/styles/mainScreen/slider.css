@@ -45,11 +45,17 @@
 .slider-others {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 210px;
     overflow-y: scroll;
     padding-right: 10px;
     margin: 0 13px;
+    width: 160px;
+}
+
+.slider-others > p {
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px #ffb83ce3;
 }
 
 .slider-others::-webkit-scrollbar {
@@ -80,7 +86,9 @@
 .slider-others__image {
     max-width: 100px;
     max-height: 100px;
-    margin-bottom: 12px;
+    width: auto;
+    height: auto;
+    margin-bottom: 10px;
     border-radius: 5px;
 }
 

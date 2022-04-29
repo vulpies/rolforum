@@ -1,4 +1,5 @@
 @import "./mainScreen/index.css";
+@import "./width768/index.css";
 @import "./width1440/index.css";
 
 * {
