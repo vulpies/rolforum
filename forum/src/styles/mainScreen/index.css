@@ -16,3 +16,5 @@
 @import "./forms/modal.css";
 @import "./forms/create_new_episode.css";
 @import "./forms/sendPost.css";
+
+@import "./profile/profile.css";

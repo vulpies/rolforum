@@ -6,7 +6,7 @@ import Breadcrumbs from './breadcrumbs';
 import SendOrRemove from './buttons/send_or_remove';
 
 const Flood = () => {
-	const user = useSelector((state) => state.usersReducer.user)
+	const [user] = useSelector((state) => state.usersReducer.user)
 	const [text, setText] = useState('')
 	const [socket_con, setSocket] = useState(null)
 	const [msg, setMsg] = useState([])
@@ -68,13 +68,12 @@ const Flood = () => {
 	}
 
 	function msgSet(id) {
-		if (id === user[0].user_id) {
+		if (id === user?.user_id) {
 			console.log(1111)
 		} else {
 			console.log(22222)
 		}
 	}
-
 
 	function loadHistory() {
 		setCount(count => count + 40)
@@ -101,7 +100,7 @@ const Flood = () => {
 			<div id="message-area" className='flood-rcvd-msg'>
 				{msg && msg.map((m, index) =>
 					<>
-						{m.user_name === localStorage.getItem('username') ?
+						{m.user_name === user?.user_name ?
 							<div className="flood-message flood-message-owner" key={index}>
 
 								<div className="flood-message__profile flood-message__profile-owner" >

@@ -1,9 +1,9 @@
-@media (min-width: 1440px) {
+@media (min-width: 1300px) {
     .slider {
         height: 220px;
     }
 
-    .slider-main {
+    .slider-main__image {
         max-width: 200px;
         max-height: 200px;
     }

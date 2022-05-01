@@ -1,0 +1,43 @@
+@media (min-width: 768px) {
+    .profile-wrapper__mobile {
+        display: none;
+    }
+
+    .profile-wrapper__tabdesk {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .profile-top {
+        margin: 0px auto 20px auto;
+    }
+
+    .profile-avatar > img {
+        margin-bottom: 15px;
+    }
+
+    .profile-wrapper__common {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: flex-start;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .profile-wrapper__common-left {
+        margin-right: 4%;
+        width: 35%;
+    }
+
+    .profile-common__info {
+        align-items: flex-start;
+        margin-top: 5%;
+    }
+}

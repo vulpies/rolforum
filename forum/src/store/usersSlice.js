@@ -18,9 +18,11 @@ const usersSlice = createSlice({
 			state.user.push(action.payload)
 			state.auth = true
 		},
-		getUserInfo: (state) => {
-			return state.user
-		},
+		// getUserInfo: (state) => {
+		// 	// state.user = state.allUsers.find((n) => n._id !== action.payload)
+		// 	state.auth = true
+		// 	return state.user
+		// },
 		userLogout: (state) => {
 			state.user = []
 			state.auth = false
@@ -33,6 +35,6 @@ const { actions, reducer } = usersSlice
 export const fullSliceState = (state) => state.usersReducer
 
 export default reducer
-export const { addNewUser, getUserInfo, addUserInfo, userLogout } = actions
+export const { addNewUser, addUserInfo, userLogout } = actions
 
 

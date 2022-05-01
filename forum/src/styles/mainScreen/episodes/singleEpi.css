@@ -120,16 +120,18 @@
 
 .sepi-post-avatar {
     margin: 0 15px 5px 0;
-    max-width: 100px;
-    max-height: 100px;
-    border: 2px solid #e2950c;
     float: left;
     cursor: pointer;
     display: flex;
     align-content: center;
     align-items: center;
+}
+
+.sepi-post-avatar > img {
+    /* max-height: 100px; */
+    max-width: 100px;
+    border: 2px solid #e2950c;
     border-radius: 5px;
-    overflow: hidden;
 }
 
 .sepi-post-post__content {
