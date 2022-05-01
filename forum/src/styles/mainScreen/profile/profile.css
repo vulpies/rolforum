@@ -37,14 +37,20 @@
     margin-left: 5px;
 }
 
-.profile-edit {
+.profile-edit,
+.profile-chat {
     font-size: 1.3rem;
     color: #e49e28;
     min-width: initial;
     height: 38px;
 }
 
-.profile-edit:hover {
+.profile-edit {
+    margin-right: 10px;
+}
+
+.profile-edit:hover,
+.profile-chat:hover {
     color: #f94b03;
     background-color: transparent;
     border: 1px solid #ffc849;

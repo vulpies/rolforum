@@ -1,5 +1,5 @@
 import React from 'react'
-import { BsPencilSquare } from 'react-icons/bs'
+import { BsPencilSquare, BsChatText } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 import Breadcrumbs from '../components/breadcrumbs'
 
@@ -19,6 +19,7 @@ const Profile = () => {
 					<div className='profile-top'>
 						<p className='profile-name'>Профиль: <span>{user?.user_name}</span></p>
 						<button className='btns profile-edit'><BsPencilSquare /></button>
+						<button className='btns profile-chat'><BsChatText /></button>
 					</div>
 
 					<div className='profile-avatar'>
@@ -50,6 +51,7 @@ const Profile = () => {
 					<div className='profile-top'>
 						<p className='profile-name'>Профиль: <span>{user?.user_name}</span></p>
 						<button className='btns profile-edit'><BsPencilSquare /></button>
+						<button className='btns profile-chat'><BsChatText /></button>
 					</div>
 
 					<div className='profile-wrapper__common'>
