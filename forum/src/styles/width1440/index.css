@@ -8,5 +8,6 @@
 @import "./forms/create-new-episode.css";
 
 @import "./episodes/singleEpi.css";
+@import "./episodes/singleEpi_card.css";
 
 @import "./flood/flood.css";

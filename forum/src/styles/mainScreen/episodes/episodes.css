@@ -5,6 +5,10 @@
     border-radius: 5px;
 }
 
+.epi-wrapper__desk {
+    display: none;
+}
+
 .epi-title {
     cursor: pointer;
     display: block;

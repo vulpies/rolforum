@@ -7,6 +7,7 @@ import OneLink from "./OneNavLink"
 
 const NavLinks = () => {
     const userAuth = useSelector((state) => state.usersReducer.auth)
+    const [user] = useSelector((state) => state.usersReducer.user)
     const browserWidth = document.documentElement.clientWidth
     const dispatch = useDispatch()
     const { isMenuOpen, toggleMenuMode } = useContext(MenuContext)
@@ -62,7 +63,7 @@ const NavLinks = () => {
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
-                        to='/profile'
+                        to={`/profile/${user.user_id}`}
                         style={({ isActive }) =>
                             isActive ? menunav : undefined
                         }

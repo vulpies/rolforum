@@ -1,6 +1,5 @@
 import axios from "axios"
-import React, { useEffect } from "react"
-import { useMemo } from "react"
+import React, { useEffect, useMemo } from "react"
 import { useDispatch } from "react-redux"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Flood from "./components/Flood"
@@ -49,7 +48,8 @@ function App() {
                     <Route path="/episodes/:epiId" element={<SingleEpi />} />
                     <Route path="/episodes/template" element={<EpiNewCreate />} />
                     <Route path="/episodes" element={<EpisodesPage />} />
-                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/profile/:profId" element={<Profile />} />
+                    {/* <Route path="/profile" element={<Profile />} /> */}
                     <Route path="/org" element={<OrgPage />} />
                     <Route path="/outgame/chat" element={<Flood />} />
                     <Route path="/outgame" element={<Outgame />} />

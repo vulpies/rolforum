@@ -22,3 +22,8 @@
     align-self: flex-end;
     color: #b50808;
 }
+
+.flood-message__edit-options-owner {
+    right: initial;
+    left: 0;
+}

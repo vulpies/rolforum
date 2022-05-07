@@ -12,25 +12,43 @@ const OneEpi = () => {
 		commonFetch(url, setInfo)
 	}, [setInfo, url])
 
+	console.log(info)
+
 
 	return (
 		<>
-			{info && info.map((item) => (<div className='epi-wrapper' key={item.id}>
-				<a href={`/episodes/${item.id}`} className='epi-title'>
-					<span className='epi-fandom'>[{item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}]</span> - <span className='epi-name'>{item.title}</span>
-				</a>
+			{info && info.map((item) => (<>
+				<div className='epi-wrapper' key={item.id}>
+					<a href={`/episodes/${item.id}`} className='epi-title'>
+						<span className='epi-fandom'>[{item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}]</span> - <span className='epi-name'>{item.title}</span>
+					</a>
 
-				<EpiModal
-					name='Подсмотреть'
-					className='btns btns-common'
-					link={`/episodes/${item.id}`}
-					epiName={item.title}
-					fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
-					image={item.image}
-					members={item.characters.map(c => (c.mask ? c.mask : c.name))}
-					text={item.summary} />
+					<EpiModal
+						name='Подсмотреть'
+						className='btns btns-common'
+						link={`/episodes/${item.id}`}
+						epiName={item.title}
+						fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
+						image={item.image}
+						members={item.characters.map(c => (c.mask ? c.mask : c.name))}
+						text={item.summary} />
 
-			</div>
+				</div>
+
+				<div className='epi-wrapper__desk' key={item.id}>
+					<div className='epi-card__common'>
+
+						<a href={`/episodes/${item.id}`} className='epi-title'>
+							<span className='epi-fandom'>[{item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}]</span> - <span className='epi-name'>{item.title}</span>
+						</a>
+
+						<div className='' dangerouslySetInnerHTML={{
+							__html: `${item.summary}`
+						}} />
+
+					</div>
+				</div>
+			</>
 			))}
 		</>
 	)

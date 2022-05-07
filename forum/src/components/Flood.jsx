@@ -10,20 +10,26 @@ const Flood = () => {
 	const [text, setText] = useState('')
 	const [socket_con, setSocket] = useState(null)
 	const [msg, setMsg] = useState([])
-	const [loadHis, setloadHis] = useState([])
 	const [count, setCount] = useState(40)
+	const [isHide, setHide] = useState(true)
+
+
+	function updMsgs(param) {
+		param.forEach(p => p["isHide"] = true)
+		setMsg(param)
+	}
 
 	const url = 'https://api.rolecrossways.com/v1/chat-message-list';
 	useEffect(() => {
-		commonFetch(url, setMsg)
+		commonFetch(url, updMsgs)
 	}, [setMsg, url])
 
 	const addMsg = useCallback((data) => {
 		if (!data.tokenUpdate) {
 			setMsg((msg) => [...msg, data]);
-			console.log(msg, '333')
+			// console.log(msg, '333')
 		}
-	}, [msg]);
+	}, []);
 
 	const floodData = {
 		text,
@@ -68,21 +74,23 @@ const Flood = () => {
 	}
 
 	function msgSet(id) {
-		if (id === user?.user_id) {
-			console.log(1111)
-		} else {
-			console.log(22222)
+		const msgId = msg.find(m => m.id === id)
+		if (msgId.id === id) {
+			msgId.isHide = !msgId.isHide
+			setHide(!isHide)
 		}
 	}
 
-	function loadHistory() {
-		setCount(count => count + 40)
-		const url = `https://api.rolecrossways.com/v1/chat-message-list?offset=${count
-			}`
-		commonFetch(url, setloadHis)
-		setMsg((msg) => [...loadHis, ...msg]);
+	function getAllMsg(param) {
+		param.forEach(p => p["isHide"] = true)
+		setMsg((msg) => param.concat(msg));
 	}
 
+	async function loadHistory() {
+		setCount(count => count + 40)
+		const url = `https://api.rolecrossways.com/v1/chat-message-list?offset=${count}`
+		commonFetch(url, getAllMsg)
+	}
 
 	return (
 		<div className="wrapper">
@@ -105,7 +113,7 @@ const Flood = () => {
 
 								<div className="flood-message__profile flood-message__profile-owner" >
 									<span className="user">
-										<a href={`#{m.user_id}`}>{m.user_name}</a></span>
+										<a href={`/profile/${m.user_id}`}>{m.user_name}</a></span>
 									<div className="flood-message__profile-avatar">
 										<img src={m.user_avatar} alt={m.user_name} />
 									</div>
@@ -114,7 +122,16 @@ const Flood = () => {
 								<div className="flood-message__text" >
 									<div className="flood-message__top-line flood-message__top-line-owner">
 										<span className="flood-message__text-time flood-message__text-time-owner">{m.time}</span>
-										<span className='flood-message__edit' onClick={() => msgSet(m.user_id)}><AiOutlineSetting /></span>
+										<div className='flood-message__edit-block'>
+											<span className='flood-message__edit' onClick={() => msgSet(m.id)}>
+												<AiOutlineSetting />
+											</span>
+											{m.isHide ? '' : <div className='flood-message__edit-options-owner flood-message__edit-options'>
+												<p>Редактировать</p>
+												<p>Цитировать</p>
+												<p>Удалить</p>
+											</div>}
+										</div>
 									</div>
 									<div className="flood-message__text-content flood-message__text-content-owner">{m.content}</div>
 								</div>
@@ -125,7 +142,7 @@ const Flood = () => {
 
 								<div className="flood-message__profile" >
 									<span className="user">
-										<a href={`#{m.user_id}`}>{m.user_name}</a></span>
+										<a href={`/profile/${m.user_id}`}>{m.user_name}</a></span>
 									<div className="flood-message__profile-avatar">
 										<img src={m.user_avatar} alt={m.user_name} />
 									</div>
@@ -134,7 +151,12 @@ const Flood = () => {
 								<div className="flood-message__text" >
 									<div className="flood-message__top-line">
 										<span className="flood-message__text-time">{m.time}</span>
-										<span className='flood-message__edit' onClick={() => msgSet(m.user_id)}><AiOutlineSetting /></span>
+										<div className='flood-message__edit-block'>
+											<span className='flood-message__edit' id={m.id} onClick={() => msgSet(m.id)}><AiOutlineSetting /></span>
+											{m.isHide ? '' : <div className='flood-message__edit-options'>
+												<p>Цитировать</p>
+											</div>}
+										</div>
 									</div>
 									<div className="flood-message__text-content">{m.content}</div>
 								</div>

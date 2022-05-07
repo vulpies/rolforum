@@ -64,6 +64,33 @@
     padding: 5px 5px;
 }
 
+.flood-message__edit-block {
+    position: relative;
+}
+
+.flood-message__edit-options {
+    border-radius: 4px;
+    position: absolute;
+    top: 24px;
+    right: 0;
+    background-color: #fffae1;
+    border: 1px solid #db9110;
+    width: 160px;
+    padding: 2px 5px;
+    text-align: center;
+    z-index: 5;
+}
+
+.flood-message__edit-options p {
+    margin: 3px 0;
+    font-size: 0.85rem;
+}
+
+.flood-message__edit-options p:hover {
+    background-color: #ffd895a8;
+    border-radius: 5px;
+}
+
 .flood-message__edit {
     font-size: 0.84rem;
     opacity: 0.5;

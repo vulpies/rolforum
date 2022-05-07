@@ -1,12 +1,19 @@
 import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
 import { BsPencilSquare, BsChatText } from 'react-icons/bs'
-import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import Breadcrumbs from '../components/breadcrumbs'
+import { commonFetch } from '../helpers/commonFetch'
 
 const Profile = () => {
-	const [user] = useSelector((state) => state.usersReducer.user)
-	console.log(user)
+	const search = useParams();
+	const [info, setInfo] = useState([])
 
+	useEffect(() => {
+		commonFetch(`https://api.rolecrossways.com/v1/profile/${search.profId}`, setInfo)
+	}, [setInfo])
+	console.log(info, 'info')
 
 	return (
 		<div className='wrapper'>
@@ -14,25 +21,27 @@ const Profile = () => {
 				<Breadcrumbs name="Профиль" />
 			</div>
 
-			{user ? <div className='profile-wrapper'>
+			{info ? <div className='profile-wrapper'>
 				<div className='profile-wrapper__mobile'>
 					<div className='profile-top'>
-						<p className='profile-name'>Профиль: <span>{user?.user_name}</span></p>
-						<button className='btns profile-edit'><BsPencilSquare /></button>
+						<p className='profile-name'>Профиль: <span>{info.user_name}</span></p>
+						{info.user_name === localStorage.getItem('username') ? <button className='btns profile-edit'><BsPencilSquare /></button> : ''}
 						<button className='btns profile-chat'><BsChatText /></button>
 					</div>
 
 					<div className='profile-avatar'>
-						<img src={user?.user_avatar} className='profile-avatar-img' alt='' />
+						<img src={info.user_avatar} className='profile-avatar-img' alt='' />
 
-						{user?.characters ? user?.characters.map((c) =>
-							<div className='profile-chars'>
-								<p>Доступные персонажи:</p>
-								<div className='profile-chars-list'>
+						<div className='profile-chars'>
+							<p>Доступные персонажи:</p>
+							<div className='profile-chars-list'>
+								{info.characters ? info.characters.map(c =>
 									<img src={c.avatar} key={c.id} alt={c.name} className='profile-chars-img' />
-								</div>
-							</div>)
-							: 'Нет ни одного игрового персонажа'}
+								) : 'На текущий момент нет'}
+
+							</div>
+						</div>
+
 					</div>
 
 					<div className='profile-common__info'>
@@ -49,8 +58,8 @@ const Profile = () => {
 
 				<div className='profile-wrapper__tabdesk'>
 					<div className='profile-top'>
-						<p className='profile-name'>Профиль: <span>{user?.user_name}</span></p>
-						<button className='btns profile-edit'><BsPencilSquare /></button>
+						<p className='profile-name'>Профиль: <span>{info.user_name}</span></p>
+						{info.user_name === localStorage.getItem('username') ? <button className='btns profile-edit'><BsPencilSquare /></button> : ''}
 						<button className='btns profile-chat'><BsChatText /></button>
 					</div>
 
@@ -58,16 +67,17 @@ const Profile = () => {
 
 						<div className='profile-wrapper__common-left'>
 							<div className='profile-avatar'>
-								<img src={user?.user_avatar} className='profile-avatar-img' alt='' />
+								<img src={info.user_avatar} className='profile-avatar-img' alt='' />
 
-								{user?.characters ? user?.characters.map((c) =>
-									<div className='profile-chars'>
-										<p>Доступные персонажи:</p>
-										<div className='profile-chars-list'>
+								<div className='profile-chars'>
+									<p>Доступные персонажи:</p>
+									<div className='profile-chars-list'>
+										{info.characters ? info.characters.map(c =>
 											<img src={c.avatar} key={c.id} alt={c.name} className='profile-chars-img' />
-										</div>
-									</div>)
-									: 'Нет ни одного игрового персонажа'}
+										) : 'На текущий момент нет'}
+
+									</div>
+								</div>
 							</div>
 						</div>
 
