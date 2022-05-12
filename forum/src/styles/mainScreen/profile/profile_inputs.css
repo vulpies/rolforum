@@ -1,0 +1,40 @@
+.profile-input__wrapper {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+}
+
+.profile-input__wrapper > label {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.profile-input__input,
+.profile-input__pass {
+    font-family: AnelizaRegular;
+    font-size: 1.1rem;
+    padding: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.profile-input__pass {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-input__pass > p {
+    margin-right: 10px;
+}
+
+.profile-input__input > h4 {
+    font-weight: 400;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}

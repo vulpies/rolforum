@@ -17,8 +17,8 @@ const OneEpi = () => {
 
 	return (
 		<>
-			{info && info.map((item) => (<>
-				<div className='epi-wrapper' key={item.id}>
+			{info && info.map((item, index) => (<>
+				<div className='epi-wrapper' key={index}>
 					<a href={`/episodes/${item.id}`} className='epi-title'>
 						<span className='epi-fandom'>[{item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}]</span> - <span className='epi-name'>{item.title}</span>
 					</a>

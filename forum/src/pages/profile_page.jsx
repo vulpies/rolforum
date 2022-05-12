@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { BsPencilSquare, BsChatText } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import Breadcrumbs from '../components/breadcrumbs'
 import { commonFetch } from '../helpers/commonFetch'
@@ -9,11 +10,18 @@ import { commonFetch } from '../helpers/commonFetch'
 const Profile = () => {
 	const search = useParams();
 	const [info, setInfo] = useState([])
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		commonFetch(`https://api.rolecrossways.com/v1/profile/${search.profId}`, setInfo)
 	}, [setInfo])
 	console.log(info, 'info')
+
+	const abc = info?.registered_at?.split(' ')[0]
+
+	// const zxc = abc.split(' ')[0]
+	console.log(abc)
+
 
 	return (
 		<div className='wrapper'>
@@ -25,7 +33,12 @@ const Profile = () => {
 				<div className='profile-wrapper__mobile'>
 					<div className='profile-top'>
 						<p className='profile-name'>Профиль: <span>{info.user_name}</span></p>
-						{info.user_name === localStorage.getItem('username') ? <button className='btns profile-edit'><BsPencilSquare /></button> : ''}
+						{info.user_name === localStorage.getItem('username') ?
+
+							<button className='btns profile-edit' onClick={() => navigate(`/profile/${info.user_id}/edit`)}>
+								<BsPencilSquare />
+							</button>
+							: ''}
 						<button className='btns profile-chat'><BsChatText /></button>
 					</div>
 
@@ -45,12 +58,12 @@ const Profile = () => {
 					</div>
 
 					<div className='profile-common__info'>
-						<p>Зарегистрирован: <span>00/00/0000</span></p>
+						<p>Зарегистрирован: <span>{info?.registered_at?.split(' ')[0]}</span></p>
 						<p>Репутация: <span>999999999</span></p>
 						<p>Сообщений: <span>999999999</span></p>
-						<p>Игровых постов: <span>999999999</span></p>
+						<p>Игровых постов: <span>{info.post_count}</span></p>
 						<p>Активных эпизодов: <span>999999999</span></p>
-						<p>Последний визит: <span>00/00/0000</span></p>
+						<p>Последний визит: <span>{info.last_activity_at}</span></p>
 						<p>Последнее сообщение: <span>00/00/0000</span></p>
 					</div>
 
@@ -59,7 +72,11 @@ const Profile = () => {
 				<div className='profile-wrapper__tabdesk'>
 					<div className='profile-top'>
 						<p className='profile-name'>Профиль: <span>{info.user_name}</span></p>
-						{info.user_name === localStorage.getItem('username') ? <button className='btns profile-edit'><BsPencilSquare /></button> : ''}
+						{info.user_name === localStorage.getItem('username') ?
+							<button className='btns profile-edit' onClick={() => navigate(`/profile/${info.user_id}/edit`)}>
+								<BsPencilSquare />
+							</button>
+							: ''}
 						<button className='btns profile-chat'><BsChatText /></button>
 					</div>
 
@@ -83,12 +100,12 @@ const Profile = () => {
 
 						<div className='profile-wrapper__common-right'>
 							<div className='profile-common__info'>
-								<p>Зарегистрирован: <span>00/00/0000</span></p>
+								<p>Зарегистрирован: <span>{info?.registered_at?.split(' ')[0]}</span></p>
 								<p>Репутация: <span>999999999</span></p>
 								<p>Сообщений: <span>999999999</span></p>
-								<p>Игровых постов: <span>999999999</span></p>
+								<p>Игровых постов: <span>{info.post_count}</span></p>
 								<p>Активных эпизодов: <span>999999999</span></p>
-								<p>Последний визит: <span>00/00/0000</span></p>
+								<p>Последний визит: <span>{info.last_activity_at}</span></p>
 								<p>Последнее сообщение: <span>00/00/0000</span></p>
 							</div>
 						</div>
@@ -101,7 +118,7 @@ const Profile = () => {
 
 
 
-		</div>
+		</div >
 	)
 }
 

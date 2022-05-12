@@ -49,6 +49,8 @@ const EpiNewCreate = () => {
 		setMultiListValue(cross.map(item => ({ "value": item.value, "label": item.label })))
 	}, [])
 
+	// console.log(cross, 'cross')
+
 	const options = [
 		{ value: 'fandom', label: 'По фандому' },
 		{ value: 'crossover', label: 'Кроссовер' },
@@ -118,7 +120,9 @@ const EpiNewCreate = () => {
 			<hr />
 
 			<form className='create-new-epi'>
-				<label className='create-new-epi__title'>Название эпизода: <input type="text" className='create-new-epi__input' placeholder='Эпизод' value={title} onChange={(e) => setTitle(e.target.value)} /></label>
+				<label className='create-new-epi__title'>Название эпизода:
+					<input type="text" className='create-new-epi__input' placeholder='Эпизод' value={title} onChange={(e) => setTitle(e.target.value)} />
+				</label>
 
 				<CustomSelect
 					styleDiv='create-new-epi__form'
@@ -210,7 +214,7 @@ const EpiNewCreate = () => {
 					<p>виден для гостей</p>
 				</div>
 
-				<input type="submit" value="Submit" className='btns btns-create' onClick={handleSubmit} />
+				<input type="submit" value="Создать" className='btns btns-create' onClick={handleSubmit} />
 			</form >
 		</div >
 	)
