@@ -22,12 +22,12 @@
 
 .login-input > input {
     border: 1px solid #99220b;
-    font-size: 24px;
+    font-size: 1.3rem;
     margin-top: 3px;
     position: relative;
     padding: 7px 5px;
     color: #99220b;
-    width: 96%;
+    width: 100%;
 }
 
 .login-error {
@@ -38,4 +38,20 @@
 
 .login-error > p {
     padding: 5px 0;
+}
+
+.login-pass {
+    cursor: pointer;
+    color: #df8807;
+    margin: 5px 0;
+}
+
+.login-pass:hover {
+    text-decoration: underline;
+    color: #c53a0e;
+}
+
+.login-input > input::-webkit-input-placeholder {
+    color: #b1a2a1;
+    font-size: 1rem;
 }

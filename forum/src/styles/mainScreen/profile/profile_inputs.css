@@ -1,11 +1,11 @@
 .profile-input__wrapper {
-    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
     width: 100%;
+    margin: 0 auto 10px auto;
 }
 
 .profile-input__wrapper > label {
@@ -37,4 +37,9 @@
     font-weight: 400;
     margin-bottom: 5px;
     font-size: 1.1rem;
+}
+
+/* css для react-selector */
+.css-b62m3t-container {
+    margin: 0 -5px;
 }

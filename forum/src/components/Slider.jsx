@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { BsPlusSquare } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 
 const Slider = () => {

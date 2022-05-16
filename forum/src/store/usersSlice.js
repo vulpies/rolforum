@@ -12,7 +12,7 @@ const usersSlice = createSlice({
 	reducers: {
 		addNewUser: (state, action) => {
 			state.allUsers.push(action.payload)
-			state.auth = false
+			state.auth = true
 		},
 		addUserInfo: (state, action) => {
 			state.user.push(action.payload)

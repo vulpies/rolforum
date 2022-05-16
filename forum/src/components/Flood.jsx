@@ -138,7 +138,7 @@ const Flood = () => {
 
 							</div>
 							:
-							<div className="flood-message" key={index} >
+							<div className="flood-message" key={index}>
 
 								<div className="flood-message__profile" >
 									<span className="user">
@@ -148,7 +148,7 @@ const Flood = () => {
 									</div>
 								</div>
 
-								<div className="flood-message__text" >
+								<div className="flood-message__text">
 									<div className="flood-message__top-line">
 										<span className="flood-message__text-time">{m.time}</span>
 										<div className='flood-message__edit-block'>

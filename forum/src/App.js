@@ -6,6 +6,7 @@ import Flood from "./components/Flood"
 import EpiNewCreate from "./components/forms/epiNewCreate"
 import NavbarCommon from "./components/navbar/navbar_common"
 import ProfileEdit from "./components/profile/ProfileEdit"
+import ProfileEditPass from "./components/profile/ProfileEditPass"
 import Arrows from "./helpers/arrows"
 import Chats from "./pages/chats_page"
 import { MainPage, Profile, Registration, EpisodesPage, SingleEpi, OrgPage, Outgame } from './pages/index'
@@ -45,16 +46,22 @@ function App() {
                 <NavbarCommon />
                 <Routes>
                     <Route path="/" exact element={<MainPage />} />
-                    <Route path="/registration" element={<Registration />} />
+
                     <Route path="/episodes/:epiId" element={<SingleEpi />} />
                     <Route path="/episodes/template" element={<EpiNewCreate />} />
                     <Route path="/episodes" element={<EpisodesPage />} />
+
+                    <Route path="/profile/:profId/edit/pass" element={<ProfileEditPass />} />
                     <Route path="/profile/:profId/edit" element={<ProfileEdit />} />
                     <Route path="/profile/:profId" element={<Profile />} />
+
                     <Route path="/org" element={<OrgPage />} />
+
                     <Route path="/outgame/chat" element={<Flood />} />
                     <Route path="/outgame" element={<Outgame />} />
+
                     <Route path="/chats" element={<Chats />} />
+
                     <Route path="/exit" element={<Navigate to="/" replace />}
                     />
                 </Routes>

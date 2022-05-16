@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
-import { commonFetch, sendEpiFetch } from '../../helpers/commonFetch'
+import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 
 const EpiNewCreate = () => {
 	const userInfo = useSelector((state) => state.usersReducer.user[0])
@@ -71,7 +71,7 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			sendEpiFetch('https://api.rolecrossways.com/v1/episode-create', fandomList)
+			commonPostReq('https://api.rolecrossways.com/v1/episode-create', fandomList)
 				.then(data => navigate(`/episodes/${data.episode_id}`))
 
 		} else if (type && type.value === 'crossover') {
@@ -86,7 +86,7 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			sendEpiFetch('https://api.rolecrossways.com/v1/episode-create', crossList)
+			commonPostReq('https://api.rolecrossways.com/v1/episode-create', crossList)
 				.then(data => navigate(`/episodes/${data.episode_id}`))
 			console.log(crossList)
 
@@ -102,7 +102,7 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			sendEpiFetch('https://api.rolecrossways.com/v1/episode-create', auList)
+			commonPostReq('https://api.rolecrossways.com/v1/episode-create', auList)
 				.then(data => navigate(`/episodes/${data.episode_id}`))
 
 			console.log(auList)

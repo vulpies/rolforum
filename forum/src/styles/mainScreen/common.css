@@ -141,3 +141,11 @@ textarea:focus-visible {
     border-bottom: 1px solid #b83c10;
     margin: -10px -12px 15px;
 }
+
+.create-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: -10px 0 10px;
+}

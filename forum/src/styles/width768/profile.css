@@ -40,4 +40,8 @@
         align-items: flex-start;
         margin-top: 5%;
     }
+
+    .profile-input__wrapper {
+        width: 70%;
+    }
 }

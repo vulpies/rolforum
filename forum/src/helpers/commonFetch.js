@@ -16,7 +16,7 @@ export const commonFetch = (url, setParam) => {
 		.catch(err => console.log(err))
 }
 
-export const sendEpiFetch = (url, postInfo) => {
+export const commonPostReq = (url, postInfo) => {
 	axios.post(url,
 		JSON.stringify(postInfo), options
 	)

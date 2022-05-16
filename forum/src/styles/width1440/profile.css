@@ -1,0 +1,5 @@
+@media (min-width: 1280px) {
+    .profile-input__wrapper {
+        width: 55%;
+    }
+}

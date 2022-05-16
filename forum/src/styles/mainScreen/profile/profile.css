@@ -93,6 +93,7 @@
     align-items: center;
     align-content: flex-start;
     max-height: 160px;
+    min-height: 25px;
     overflow-y: auto;
 }
 
@@ -141,6 +142,7 @@
 }
 
 .profile-common__info span {
-    color: #d76f0c;
+    /* color: #d76f0c; */
+    color: #d66e0b;
     margin-left: 5px;
 }

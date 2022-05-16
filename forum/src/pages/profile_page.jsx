@@ -17,11 +17,6 @@ const Profile = () => {
 	}, [setInfo])
 	console.log(info, 'info')
 
-	const abc = info?.registered_at?.split(' ')[0]
-
-	// const zxc = abc.split(' ')[0]
-	console.log(abc)
-
 
 	return (
 		<div className='wrapper'>
@@ -60,11 +55,11 @@ const Profile = () => {
 					<div className='profile-common__info'>
 						<p>Зарегистрирован: <span>{info?.registered_at?.split(' ')[0]}</span></p>
 						<p>Репутация: <span>999999999</span></p>
-						<p>Сообщений: <span>999999999</span></p>
-						<p>Игровых постов: <span>{info.post_count}</span></p>
 						<p>Активных эпизодов: <span>999999999</span></p>
-						<p>Последний визит: <span>{info.last_activity_at}</span></p>
-						<p>Последнее сообщение: <span>00/00/0000</span></p>
+						<p>Игровых постов: <span>{info.post_count ? info.post_count : 0}</span></p>
+						<p>Пост был написан: <br /><span>{info.last_post ? info.last_post : 'пока что не был...'}</span></p>
+						<p>Последний визит: <br /><span>{info.last_page_load_at}</span></p>
+						<p>Последняя активность: <br /><span>{info.last_activity_at}</span></p>
 					</div>
 
 				</div>
@@ -102,11 +97,11 @@ const Profile = () => {
 							<div className='profile-common__info'>
 								<p>Зарегистрирован: <span>{info?.registered_at?.split(' ')[0]}</span></p>
 								<p>Репутация: <span>999999999</span></p>
-								<p>Сообщений: <span>999999999</span></p>
-								<p>Игровых постов: <span>{info.post_count}</span></p>
 								<p>Активных эпизодов: <span>999999999</span></p>
-								<p>Последний визит: <span>{info.last_activity_at}</span></p>
-								<p>Последнее сообщение: <span>00/00/0000</span></p>
+								<p>Игровых постов: <span>{info.post_count ? info.post_count : 0}</span></p>
+								<p>Пост был написан: <span>{info.last_post ? info.last_post : 'пока что не был...'}</span></p>
+								<p>Последний визит: <span>{info.last_page_load_at}</span></p>
+								<p>Последняя активность: <span>{info.last_activity_at}</span></p>
 							</div>
 						</div>
 					</div>

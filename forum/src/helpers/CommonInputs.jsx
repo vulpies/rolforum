@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ProfileInputs = ({ inputName, type, disabled, value, className, onChange, placeholder }) => {
+const CommonInputs = ({ inputName, type, disabled, value, className, onChange, placeholder }) => {
 	return (
 		<>
 			<label>{inputName}</label>
@@ -16,4 +16,4 @@ const ProfileInputs = ({ inputName, type, disabled, value, className, onChange, 
 	)
 }
 
-export default ProfileInputs
+export default CommonInputs

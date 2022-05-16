@@ -1,0 +1,6 @@
+@media (min-width: 768px) {
+    .sepi-post-avatar > img {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}

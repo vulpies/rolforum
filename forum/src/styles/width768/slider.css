@@ -27,7 +27,12 @@
     .slider-others__image {
         max-width: 120px;
         max-height: 120px;
-        margin: 0px 10px;
-        margin-top: 25px;
+        margin: 10px;
+    }
+
+    .hr-line {
+        width: 50%;
+        border: none;
+        border-top: 2px solid #d1c5a7;
     }
 }

@@ -61,6 +61,24 @@ const NavLinks = () => {
                         onClick={clickHandler}
                         name="Главная" />
 
+                    {user.status === 'admin' ? <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/admin'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name="Админка" /> : ''}
+
+                    {user.status === 'moder' ? <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/moder'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name="Админка" /> : ''}
+
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
                         to={`/profile/${user.user_id}`}
@@ -133,16 +151,6 @@ const NavLinks = () => {
                         }
                         onClick={clickHandler}
                         name="Эпизоды" />
-
-                    <OneLink
-                        className={`menu-link ${isMenuOpen}`}
-                        to='/registration'
-                        style={({ isActive }) =>
-                            isActive ? menunav : undefined
-                        }
-                        onClick={clickHandler}
-                        name="Регистрация" />
-
                 </>)
             }
         </>

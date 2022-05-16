@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react'
 import { BsPencilSquare } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { commonFetch } from '../../helpers/commonFetch'
+import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
+import CommonInputs from '../../helpers/CommonInputs'
 import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
-import ProfileInputs from './Profile_Inputs'
 
 const ProfileEdit = () => {
 	const [user] = useSelector((state) => state.usersReducer.user)
@@ -17,6 +17,11 @@ const ProfileEdit = () => {
 	const [timeZone, setTimeZone] = useState([])
 	const [getUserTime, setGetUserTime] = useState({})
 
+	const time = {
+		"value": user?.timezone,
+		"label": user?.timezone
+	}
+
 	const navigate = useNavigate()
 
 	useEffect(() => {
@@ -26,15 +31,18 @@ const ProfileEdit = () => {
 	function handleSubmit(e) {
 		e.preventDefault()
 
-		const abc = {
+		const updUserInfo = {
 			id: user.user_id,
 			name,
 			email,
 			avatar,
-			time: getUserTime.value
+			timeZone: getUserTime.value
 		}
-		console.log(abc)
-		//The endpoint to send the form to is: "/v1/profile/edit". It should be a post request
+
+		commonPostReq('https://api.rolecrossways.com/v1/profile/edit', updUserInfo)
+		console.log(updUserInfo)
+		// alert('Информация успешно сохранена!')
+		navigate(`/profile/${user?.user_id}`)
 	}
 
 	return (
@@ -46,7 +54,7 @@ const ProfileEdit = () => {
 
 			{user ?
 				<form className='profile-input__wrapper'>
-					<ProfileInputs
+					<CommonInputs
 						type='text'
 						inputName='Имя пользователя:'
 						className='profile-input__input'
@@ -56,7 +64,7 @@ const ProfileEdit = () => {
 						placeholder={user?.user_name}
 					/>
 
-					<ProfileInputs
+					<CommonInputs
 						type='email'
 						inputName='E-mail:'
 						className='profile-input__input'
@@ -70,10 +78,9 @@ const ProfileEdit = () => {
 						<p>Изменить пароль:</p> <button className='btns profile-edit' onClick={() => navigate(`/profile/${user.user_id}/edit/pass`)}>
 							<BsPencilSquare />
 						</button>
-
 					</div>
 
-					<ProfileInputs
+					<CommonInputs
 						type='text'
 						inputName='Аватар:'
 						className='profile-input__input'
@@ -86,10 +93,10 @@ const ProfileEdit = () => {
 						styleDiv='profile-input__input'
 						label='Часовой пояс:'
 						onChange={(e) => setGetUserTime(e)}
-						// styleSelect='profile-input__input'
 						options={timeZone && timeZone.map((item) => ({ "value": item, "label": item }))}
 						closeMenuOnSelect={true}
 						isMulti={false}
+						defaultValue={time}
 						placeholder="Выберите пояс"
 					/>
 
