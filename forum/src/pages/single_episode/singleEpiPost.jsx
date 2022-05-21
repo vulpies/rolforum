@@ -8,6 +8,9 @@ const SingleEpiPost = ({ posts }) => {
 		console.log('vdsvv')
 	}
 
+	console.log(posts)
+	// { `/profile/${p?.user_id}` }
+
 	return (<>
 		{posts && posts.map(p =>
 			<div key={p.id} className='sepi-post-wrapper'>
@@ -16,7 +19,7 @@ const SingleEpiPost = ({ posts }) => {
 					<div className='sepi-post-title__author'>{p.character_name}</div>
 					<div className='sepi-post-title__date'>{p.created_at}</div>
 				</div>
-				<hr />
+				<hr className='hr-underline' />
 
 				<div className='sepi-post-post'>
 
@@ -37,7 +40,7 @@ const SingleEpiPost = ({ posts }) => {
 						<GetLike />
 					</div>
 				</div>
-				<hr />
+				<hr className='hr-underline' />
 			</div>
 		)}
 

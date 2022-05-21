@@ -5,6 +5,11 @@
         width: auto;
     }
 
+    .sepi-header-title p {
+        border-bottom: 2px solid #c5b696;
+        margin: 0 -16px;
+    }
+
     .sepi-post-post {
         min-height: 205px;
         margin-bottom: 30px;

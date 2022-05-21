@@ -5,5 +5,6 @@ import EpisodesPage from "./episodes_page";
 import SingleEpi from "./single_episode/singleEpi";
 import OrgPage from './organization_page'
 import Outgame from "./outgame";
+import Chats from "./chats_page";
 
-export { MainPage, Profile, Registration, EpisodesPage, SingleEpi, OrgPage, Outgame }
+export { MainPage, Profile, Registration, EpisodesPage, SingleEpi, OrgPage, Outgame, Chats }

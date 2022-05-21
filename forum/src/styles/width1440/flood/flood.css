@@ -1,4 +1,7 @@
 @media (min-width: 1280px) {
+    .flood-rcvd-msg {
+        width: 95%;
+    }
     .flood-wrapper__send-msg {
         font-size: 1rem;
         margin-bottom: 10px;
@@ -8,5 +11,19 @@
     }
     .flood-wrapper__send > p {
         width: 96%;
+    }
+
+    .flood-message__profile-avatar {
+        max-width: 115px;
+        max-height: 115px;
+    }
+    .flood-message__profile-avatar > img {
+        max-width: 115px;
+        max-height: 115px;
+    }
+
+    .flood-message__profile-owner,
+    .flood-message__profile {
+        width: 115px;
     }
 }

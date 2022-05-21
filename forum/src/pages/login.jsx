@@ -1,5 +1,7 @@
 import axios from "axios"
 import React from "react"
+import { useEffect } from "react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import authService from "../services/auth.service"
@@ -7,6 +9,7 @@ import { addUserInfo } from '../store/usersSlice'
 
 const Login = () => {
 	const dispatch = useDispatch()
+	const [serverErr, setServerErr] = useState('')
 
 	const {
 		register,
@@ -14,6 +17,10 @@ const Login = () => {
 		formState: { errors },
 		getValues,
 	} = useForm({ mode: "onBlur" })
+
+	useEffect(() => {
+
+	}, [serverErr])
 
 	const onSubmit = async () => {
 		const info = getValues()
@@ -36,11 +43,18 @@ const Login = () => {
 		axios.get('https://api.rolecrossways.com/v1/me', options)
 			.then(res => {
 				console.log(res.data)
+				console.log(res, '9999')
 				if (res.data.user_id !== null) {
 					dispatch(addUserInfo(res.data))
 				}
 			})
-			.catch(err => console.log(err))
+			.catch(err => {
+				console.log(err.response, '777')
+				if (err.response.data.message === 'Invalid JWT Token') {
+					setServerErr('Проверьте правильность ввода данных!')
+				}
+			})
+
 
 		return response
 	}
@@ -89,7 +103,7 @@ const Login = () => {
 								"Проверьте правильность ввода данных!"}
 						</p>
 					)}
-					{/* {serverErrors?.message} */}
+					{serverErr ? <p>{serverErr}</p> : ''}
 				</div>
 
 

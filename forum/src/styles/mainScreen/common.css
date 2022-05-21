@@ -59,7 +59,12 @@ button {
 }
 
 .extra {
-    margin-top: -14px;
+    margin: -14px -12px 0 -12px;
+    border-bottom: 1px solid #b83c10;
+}
+
+.hr-underline {
+    margin: 10px -12px;
 }
 
 .breadcrumb {

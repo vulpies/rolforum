@@ -117,7 +117,6 @@ const EpiNewCreate = () => {
 			<div className='sepi-bread-header extra'>
 				<Breadcrumbs name='Новая тема' link='/episodes' extraName="Эпизоды" />
 			</div>
-			<hr />
 
 			<form className='create-new-epi'>
 				<label className='create-new-epi__title'>Название эпизода:

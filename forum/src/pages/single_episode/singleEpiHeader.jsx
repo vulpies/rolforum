@@ -16,8 +16,6 @@ const SingleEpiHeader = ({ header }) => {
 				<p className='sepi-header-title__date'>{header.created_at}</p>
 			</div>
 
-			<div style={{ "borderBottom": "1px solid black" }}></div>
-
 			<div className='sepi-header-desc'>
 
 				<div className='sepi-header-desc__title'>

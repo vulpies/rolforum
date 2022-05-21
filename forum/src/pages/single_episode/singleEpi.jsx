@@ -34,9 +34,8 @@ const SingleEpi = () => {
 					<div className='sepi-bread-header extra'>
 						<Breadcrumbs name={epiData.episode.title} link='/episodes' extraName="Эпизоды" />
 					</div>
-					<hr />
 					<SingleEpiHeader header={epiData.episode} />
-					<hr />
+					<hr className='hr-underline' />
 					<SingleEpiPost posts={postData} />
 					{epiData.can_reply ? <EpiSendPostFrom updatePosts={addNewPost} /> : ''}
 				</div> : <div className="wrapper"><p style={{ 'textAlign': 'center' }}>Загрузка данных...</p></div>}

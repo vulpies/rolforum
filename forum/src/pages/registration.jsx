@@ -1,53 +1,58 @@
 import axios from "axios"
 import React from "react"
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
-import authService from "../services/auth.service"
+import { useNavigate } from "react-router-dom"
 import { addUserInfo } from '../store/usersSlice'
 
 const Registration = () => {
 	const dispatch = useDispatch()
+	const navigate = useNavigate()
+	const [serverErrors, setServerErrors] = useState("")
 
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isValid },
 		getValues,
-	} = useForm({ mode: "onBlur" })
+	} = useForm({ mode: "all" })
 
 	const onSubmit = async () => {
 		const info = getValues()
 		console.log(info)
 
-		axios.post('https://api.rolecrossways.com/register')
-			.then(data => console.log(data))
+		if (info.password !== info.passwordTwo) {
+			setServerErrors("Пароли не совпадают!")
+		}
 
-		// const response = await authService.login(info)
+		// try {
+		// 	axios.post('https://api.rolecrossways.com/register', info)
+		// 		.then(data => {
+		// 			localStorage.setItem('token', data.token)
+		// 			localStorage.setItem('username', info.username)
 
-		// localStorage.setItem('token', response.token)
-		// localStorage.setItem('username', info.username)
+		// 		})
 
-
-		// let options = {}
-
-		// if (localStorage.getItem('token')) {
-		// 	options = {
+		// 	axios.get('https://api.rolecrossways.com/v1/me', {
 		// 		headers: {
 		// 			'Authorization': `Bearer ${localStorage.getItem('token')}`
 		// 		}
-		// 	}
+		// 	})
+		// 		.then(res => {
+		// 			console.log(res.data)
+		// 			if (res.data.user_id !== null) {
+		// 				dispatch(addUserInfo(res.data))
+		// 			} else {
+		// 				setServerErrors(111)
+		// 			}
+		// 		})
+		// 		.catch(err => console.log(err))
+		// } catch (err) {
+		// 	console.log(err, '999')
 		// }
 
-		// axios.get('https://api.rolecrossways.com/v1/me', options)
-		// 	.then(res => {
-		// 		console.log(res.data)
-		// 		if (res.data.user_id !== null) {
-		// 			dispatch(addUserInfo(res.data))
-		// 		}
-		// 	})
-		// 	.catch(err => console.log(err))
-
-		// return response
+		// navigate(`/`)
 	}
 
 
@@ -103,6 +108,24 @@ const Registration = () => {
 
 				</div>
 
+				<div className="login-input">
+					<label>Подтвердите пароль</label>
+					<input
+						{...register("passwordTwo", {
+							required: "Подтвердите пароль",
+							minLength: {
+								value: 5,
+								message: "Минимальная длина пароля 5 символов",
+							},
+							maxLength: {
+								value: 20,
+								message: "Максимальная длина пароля 20 символов",
+							},
+						})}
+						type='password'
+					/>
+				</div>
+
 				<div className='login-error'>
 					{errors?.username && (
 						<p>{errors?.username?.message || "Проверьте логин"}</p>
@@ -119,11 +142,11 @@ const Registration = () => {
 								"Уточните пароль"}
 						</p>
 					)}
-					{/* {serverErrors?.message} */}
+					{serverErrors ? serverErrors : ''}
 				</div>
 
-
 				<input
+					disabled={!isValid}
 					type="submit"
 					className='btns btns-common btns-log'
 					value='Войти'

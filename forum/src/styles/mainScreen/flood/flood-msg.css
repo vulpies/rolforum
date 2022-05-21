@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: flex-start;
     align-content: center;
-    margin: 10px 0;
+    margin: 10px auto;
 }
 
 .flood-message {
@@ -26,10 +26,12 @@
 .flood-message__profile-avatar {
     max-width: 70px;
     max-height: 70px;
+    text-align: center;
 }
 
 .flood-message__profile-avatar > img {
     border-radius: 18px;
+    max-height: 70px;
 }
 
 .flood-message__text {

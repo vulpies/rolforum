@@ -30,6 +30,10 @@
         margin: 10px;
     }
 
+    .slider-others__image:last-child {
+        margin-bottom: 5px;
+    }
+
     .hr-line {
         width: 50%;
         border: none;

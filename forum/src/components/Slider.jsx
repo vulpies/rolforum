@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import { BsPlusSquare } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 
 const Slider = () => {
 	const user = useSelector((state) => state.usersReducer)
 	const [userInfo] = useSelector((state) => state.usersReducer.user)
 
-	const [image, setImage] = useState("http://forumavatars.ru/img/avatars/001b/2f/0f/461-1646910378.png")
+	const [image, setImage] = useState("https://yt3.ggpht.com/a-/AAuE7mCUWAR_ZKWNCtfsIQbD811QDQFX0wC-5Fajmg=s400-mo-c-c0xffffffff-rj-k-no")
 
 	const changeImage = (e) => {
 		const target = e.target
@@ -16,17 +15,22 @@ const Slider = () => {
 	return (<>
 		<p className='slider-title'>Привет, <span>{userInfo?.user_name || 'гость'}</span>!</p>
 
-		{user.auth !== false ? <div className="slider">
+		{user && user.auth !== false ? <div className="slider">
 
 			<div className='slider-main'>
-				<img src={userInfo?.user_avatar} alt='' className='slider-main__image' />
+				{userInfo?.current_character?.avatar ?
+					<img src={userInfo?.user_avatar} alt='' className='slider-main__image' />
+					: <img src={image} alt='' className='slider-main__image' />}
 			</div>
-			{userInfo?.current_character.avatar ? <div className='slider-others'>
-				<p>имеющиеся персонажи:</p>
+			<div className='slider-others'>
+				{userInfo && userInfo.characters.length !== 0 ?
+					<p>имеющиеся персонажи:</p>
+					: <p>игровые персонажи отсутствуют</p>
+				}
 				{userInfo && userInfo.characters.map((item => {
 					return <img key={item._id} src={item.avatar} id={item._id} name={item.name} alt={item.name} className='slider-others__image' onClick={changeImage} />
 				}))}
-			</div> : "Загрузка данных..."}
+			</div>
 		</div> : ""
 		}
 	</>

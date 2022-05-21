@@ -9,7 +9,6 @@ const ProfileEditPass = () => {
 			<div className='sepi-bread-header extra'>
 				<Breadcrumbs name='Пароль' link={`/profile/${user?.user_id}`} extraName="Профиль" />
 			</div>
-			<hr />
 			ProfileEditPass</div>
 	)
 }

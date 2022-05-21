@@ -8,15 +8,14 @@ import NavbarCommon from "./components/navbar/navbar_common"
 import ProfileEdit from "./components/profile/ProfileEdit"
 import ProfileEditPass from "./components/profile/ProfileEditPass"
 import Arrows from "./helpers/arrows"
-import Chats from "./pages/chats_page"
-import { MainPage, Profile, Registration, EpisodesPage, SingleEpi, OrgPage, Outgame } from './pages/index'
+import { MainPage, Profile, EpisodesPage, SingleEpi, OrgPage, Outgame, Chats } from './pages/index'
 import { addUserInfo } from "./store/usersSlice"
 
 function App() {
     const dispatch = useDispatch()
     const url = 'https://api.rolecrossways.com/v1/me'
 
-    let options = useMemo(() => { }, [])
+    let options = {}
 
     if (localStorage.getItem('token')) {
         options = {
@@ -38,7 +37,7 @@ function App() {
                 }
             })
             .catch(err => console.log(err))
-    }, [dispatch, options])
+    }, [])
 
     return (
         <>

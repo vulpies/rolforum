@@ -1,32 +1,44 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { BsPencilSquare } from 'react-icons/bs'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 import CommonInputs from '../../helpers/CommonInputs'
 import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
+import { updateUserInfo } from '../../store/usersSlice'
+import Swal from 'sweetalert2'
 
 const ProfileEdit = () => {
 	const [user] = useSelector((state) => state.usersReducer.user)
-	console.log(user)
 	const [name, setName] = useState(user?.user_name)
 	const [email, setEmail] = useState(user?.user_name)
 	const [avatar, setAvatar] = useState(user?.user_avatar)
 	const [timeZone, setTimeZone] = useState([])
 	const [getUserTime, setGetUserTime] = useState({})
 
+	const dispatch = useDispatch()
+
 	const time = {
 		"value": user?.timezone,
 		"label": user?.timezone
 	}
+
+	console.log(user, 'user')
+	console.log(time, 'time')
+
+	// const defaultTime = {
+	// 	"value": "Europe/Moscow",
+	// 	"label": "Europe/Moscow"
+	// }
 
 	const navigate = useNavigate()
 
 	useEffect(() => {
 		commonFetch('https://api.rolecrossways.com/v1/timezones', setTimeZone)
 	}, [])
+
 
 	function handleSubmit(e) {
 		e.preventDefault()
@@ -35,12 +47,24 @@ const ProfileEdit = () => {
 			id: user.user_id,
 			name,
 			email,
-			avatar,
-			timeZone: getUserTime.value
+			avatar: avatar || '',
+			timeZone: getUserTime.value || time.value
 		}
 
-		commonPostReq('https://api.rolecrossways.com/v1/profile/edit', updUserInfo)
+		dispatch(updateUserInfo(updUserInfo))
+
+		try {
+			commonPostReq('https://api.rolecrossways.com/v1/profile/edit', updUserInfo)
+		} catch (err) {
+			console.log(err)
+		}
 		console.log(updUserInfo)
+
+		Swal.fire({
+			text: 'Информация успешно сохранена!',
+			icon: 'success',
+			confirmButtonText: 'Окей'
+		})
 		// alert('Информация успешно сохранена!')
 		navigate(`/profile/${user?.user_id}`)
 	}
@@ -50,7 +74,6 @@ const ProfileEdit = () => {
 			<div className='sepi-bread-header extra'>
 				<Breadcrumbs name='Редактировать' link={`/profile/${user?.user_id}`} extraName="Профиль" />
 			</div>
-			<hr />
 
 			{user ?
 				<form className='profile-input__wrapper'>
@@ -84,7 +107,7 @@ const ProfileEdit = () => {
 						type='text'
 						inputName='Аватар:'
 						className='profile-input__input'
-						value={avatar}
+						value={avatar ?? ''}
 						onChange={(e) => setAvatar(e.target.value)}
 						placeholder='Вставьте ссылку на изображение'
 					/>

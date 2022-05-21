@@ -15,13 +15,17 @@ const usersSlice = createSlice({
 			state.auth = true
 		},
 		addUserInfo: (state, action) => {
-			state.user.push(action.payload)
+			state.user = [...state.user, action.payload]
+			state.auth = true
+		},
+		updateUserInfo: (state, action) => {
+			// const a = state.user.filter((n) => n.user_id === action.payload.id) || []
+			state.user = [...state.user, action.payload]
 			state.auth = true
 		},
 		// getUserInfo: (state) => {
-		// 	// state.user = state.allUsers.find((n) => n._id !== action.payload)
+		// 	state.user = [...state.user]
 		// 	state.auth = true
-		// 	return state.user
 		// },
 		userLogout: (state) => {
 			state.user = []
@@ -35,6 +39,6 @@ const { actions, reducer } = usersSlice
 export const fullSliceState = (state) => state.usersReducer
 
 export default reducer
-export const { addNewUser, addUserInfo, userLogout } = actions
+export const { addNewUser, addUserInfo, updateUserInfo, userLogout } = actions
 
 

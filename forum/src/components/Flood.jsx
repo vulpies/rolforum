@@ -26,6 +26,7 @@ const Flood = () => {
 
 	const addMsg = useCallback((data) => {
 		if (!data.tokenUpdate) {
+			data.isHide = true
 			setMsg((msg) => [...msg, data]);
 			// console.log(msg, '333')
 		}
@@ -77,7 +78,7 @@ const Flood = () => {
 		const msgId = msg.find(m => m.id === id)
 		if (msgId.id === id) {
 			msgId.isHide = !msgId.isHide
-			setHide(!isHide)
+			setHide(prevState => !prevState)
 		}
 	}
 

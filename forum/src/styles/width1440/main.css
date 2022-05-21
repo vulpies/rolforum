@@ -38,7 +38,8 @@
     }
 
     .extra {
-        margin-top: -11px;
+        margin: -11px -16px 0 -16px;
+        border-bottom: 2px solid #c5b696;
     }
 
     .navbar {

@@ -1,22 +1,12 @@
 import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
 import { BsPencilSquare, BsChatText } from 'react-icons/bs'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
 import Breadcrumbs from '../components/breadcrumbs'
-import { commonFetch } from '../helpers/commonFetch'
 
 const Profile = () => {
-	const search = useParams();
-	const [info, setInfo] = useState([])
+	const [user] = useSelector((state) => state.usersReducer.user)
 	const navigate = useNavigate()
-
-	useEffect(() => {
-		commonFetch(`https://api.rolecrossways.com/v1/profile/${search.profId}`, setInfo)
-	}, [setInfo])
-	console.log(info, 'info')
-
 
 	return (
 		<div className='wrapper'>
@@ -24,96 +14,94 @@ const Profile = () => {
 				<Breadcrumbs name="Профиль" />
 			</div>
 
-			{info ? <div className='profile-wrapper'>
-				<div className='profile-wrapper__mobile'>
-					<div className='profile-top'>
-						<p className='profile-name'>Профиль: <span>{info.user_name}</span></p>
-						{info.user_name === localStorage.getItem('username') ?
+			{user ?
+				<div className='profile-wrapper'>
+					<div className='profile-wrapper__mobile'>
+						<div className='profile-top'>
+							<p className='profile-name'>Профиль: <span>{user?.user_name}</span></p>
+							{user?.user_name === localStorage.getItem('username') ?
 
-							<button className='btns profile-edit' onClick={() => navigate(`/profile/${info.user_id}/edit`)}>
-								<BsPencilSquare />
-							</button>
-							: ''}
-						<button className='btns profile-chat'><BsChatText /></button>
-					</div>
+								<button className='btns profile-edit' onClick={() => navigate(`/profile/${user?.user_id}/edit`)}>
+									<BsPencilSquare />
+								</button>
+								: ''}
+							<button className='btns profile-chat'><BsChatText /></button>
+						</div>
 
-					<div className='profile-avatar'>
-						<img src={info.user_avatar} className='profile-avatar-img' alt='' />
+						<div className='profile-avatar'>
+							<img src={user?.user_avatar} className='profile-avatar-img' alt='' />
+							<div className='profile-chars'>
+								<p>Доступные персонажи:</p>
+								<div className='profile-chars-list'>
+									{user?.characters?.length !== 0 ? user?.characters?.map(c =>
+										<img src={c.avatar} key={c.id} alt={c.name} className='profile-chars-img' />
+									) : 'На текущий момент нет'}
 
-						<div className='profile-chars'>
-							<p>Доступные персонажи:</p>
-							<div className='profile-chars-list'>
-								{info.characters ? info.characters.map(c =>
-									<img src={c.avatar} key={c.id} alt={c.name} className='profile-chars-img' />
-								) : 'На текущий момент нет'}
-
+								</div>
 							</div>
+
+						</div>
+
+						<div className='profile-common__info'>
+							<p>Зарегистрирован: <span>{user?.registered_at?.split(' ')[0]}</span></p>
+							<p>Репутация: <span>999999999</span></p>
+							<p>Активных эпизодов: <span>999999999</span></p>
+							<p>Игровых постов: <span>{user?.post_count ?? 0}</span></p>
+							<p>Пост был написан: <br /><span>{user?.last_post ? user?.last_post : 'пока что не был...'}</span></p>
+							<p>Последний визит: <br /><span>{user?.last_page_load_at}</span></p>
+							<p>Последняя активность: <br /><span>{user?.last_activity_at}</span></p>
 						</div>
 
 					</div>
 
-					<div className='profile-common__info'>
-						<p>Зарегистрирован: <span>{info?.registered_at?.split(' ')[0]}</span></p>
-						<p>Репутация: <span>999999999</span></p>
-						<p>Активных эпизодов: <span>999999999</span></p>
-						<p>Игровых постов: <span>{info.post_count ? info.post_count : 0}</span></p>
-						<p>Пост был написан: <br /><span>{info.last_post ? info.last_post : 'пока что не был...'}</span></p>
-						<p>Последний визит: <br /><span>{info.last_page_load_at}</span></p>
-						<p>Последняя активность: <br /><span>{info.last_activity_at}</span></p>
-					</div>
+					<div className='profile-wrapper__tabdesk'>
+						<div className='profile-top'>
+							<p className='profile-name'>Профиль: <span>{user?.user_name}</span></p>
+							{user?.user_name === localStorage.getItem('username') ?
+								<button className='btns profile-edit' onClick={() => navigate(`/profile/${user?.user_id}/edit`)}>
+									<BsPencilSquare />
+								</button>
+								: ''}
+							<button className='btns profile-chat'><BsChatText /></button>
+						</div>
 
-				</div>
+						<div className='profile-wrapper__common'>
 
-				<div className='profile-wrapper__tabdesk'>
-					<div className='profile-top'>
-						<p className='profile-name'>Профиль: <span>{info.user_name}</span></p>
-						{info.user_name === localStorage.getItem('username') ?
-							<button className='btns profile-edit' onClick={() => navigate(`/profile/${info.user_id}/edit`)}>
-								<BsPencilSquare />
-							</button>
-							: ''}
-						<button className='btns profile-chat'><BsChatText /></button>
-					</div>
+							<div className='profile-wrapper__common-left'>
+								<div className='profile-avatar'>
+									<img src={user?.user_avatar} className='profile-avatar-img' alt='' />
 
-					<div className='profile-wrapper__common'>
+									<div className='profile-chars'>
+										<p>Доступные персонажи:</p>
+										<div className='profile-chars-list'>
+											{user?.characters?.length !== 0 ? user?.characters?.map(c =>
+												<img src={c.avatar} key={c.id} alt={c.name} className='profile-chars-img' />
+											) : 'На текущий момент нет'}
 
-						<div className='profile-wrapper__common-left'>
-							<div className='profile-avatar'>
-								<img src={info.user_avatar} className='profile-avatar-img' alt='' />
-
-								<div className='profile-chars'>
-									<p>Доступные персонажи:</p>
-									<div className='profile-chars-list'>
-										{info.characters ? info.characters.map(c =>
-											<img src={c.avatar} key={c.id} alt={c.name} className='profile-chars-img' />
-										) : 'На текущий момент нет'}
-
+										</div>
 									</div>
+								</div>
+							</div>
+
+							<div className='profile-wrapper__common-right'>
+								<div className='profile-common__info'>
+									<p>Зарегистрирован: <span>{user?.registered_at?.split(' ')[0]}</span></p>
+									<p>Репутация: <span>999999999</span></p>
+									<p>Активных эпизодов: <span>999999999</span></p>
+									<p>Игровых постов: <span>{user?.post_count ?? 0}</span></p>
+									<p>Пост был написан: <span>{user?.last_post ? user?.last_post : 'пока что не был...'}</span></p>
+									<p>Последний визит: <span>{user?.last_page_load_at}</span></p>
+									<p>Последняя активность: <span>{user?.last_activity_at}</span></p>
 								</div>
 							</div>
 						</div>
 
-						<div className='profile-wrapper__common-right'>
-							<div className='profile-common__info'>
-								<p>Зарегистрирован: <span>{info?.registered_at?.split(' ')[0]}</span></p>
-								<p>Репутация: <span>999999999</span></p>
-								<p>Активных эпизодов: <span>999999999</span></p>
-								<p>Игровых постов: <span>{info.post_count ? info.post_count : 0}</span></p>
-								<p>Пост был написан: <span>{info.last_post ? info.last_post : 'пока что не был...'}</span></p>
-								<p>Последний визит: <span>{info.last_page_load_at}</span></p>
-								<p>Последняя активность: <span>{info.last_activity_at}</span></p>
-							</div>
-						</div>
 					</div>
-
 				</div>
-			</div>
 				: 'Загрузка данных...'
 			}
 
-
-
-		</div >
+		</div>
 	)
 }
 
