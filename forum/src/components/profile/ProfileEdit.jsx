@@ -18,15 +18,13 @@ const ProfileEdit = () => {
 	const [timeZone, setTimeZone] = useState([])
 	const [getUserTime, setGetUserTime] = useState({})
 
+
 	const dispatch = useDispatch()
 
 	const time = {
 		"value": user?.timezone,
 		"label": user?.timezone
 	}
-
-	console.log(user, 'user')
-	console.log(time, 'time')
 
 	// const defaultTime = {
 	// 	"value": "Europe/Moscow",

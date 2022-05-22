@@ -87,4 +87,9 @@
         margin: -10px -16px 15px;
         border-bottom: 2px solid #c5b696;
     }
+
+    /* css для react-selector */
+    .css-b62m3t-container {
+        margin: 0 -1px;
+    }
 }

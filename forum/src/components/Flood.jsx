@@ -98,9 +98,7 @@ const Flood = () => {
 			<div className='sepi-bread-header extra'>
 				<Breadcrumbs name="Флуд" link='/outgame' extraName="Вне игры" />
 			</div>
-			<hr />
 			<p className='flood-title'>Приветствуем в чате!</p>
-			<hr />
 
 			<div className='flood-load-history'>
 				<button className='btns btns-load' onClick={loadHistory}>Загрузить еще</button>

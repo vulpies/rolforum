@@ -2,6 +2,9 @@
     text-align: center;
     font-size: 1.2rem;
     font-weight: bold;
+    margin: -10px -12px 10px -12px;
+    padding: 10px;
+    border-bottom: 1px solid #b83c10;
 }
 
 .flood-wrapper {

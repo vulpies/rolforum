@@ -19,8 +19,8 @@ const usersSlice = createSlice({
 			state.auth = true
 		},
 		updateUserInfo: (state, action) => {
-			// const a = state.user.filter((n) => n.user_id === action.payload.id) || []
-			state.user = [...state.user, action.payload]
+			const a = state.user.filter((n) => n.user_id === action.payload.id) || []
+			state.user = [...a, action.payload]
 			state.auth = true
 		},
 		// getUserInfo: (state) => {
