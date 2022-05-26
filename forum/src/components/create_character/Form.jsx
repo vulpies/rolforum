@@ -30,7 +30,7 @@ function Form() {
 	return (
 		<div className='create-new-epi'>
 
-			{page === 0 ? <ChooseFandom formData={formData} setFormData={setFormData} /> : page === 1 ? <CharacterInfo formData={formData} setFormData={setFormData} /> : page === 2 ? <PreviewInfo formData={formData} setFormData={setFormData} /> : ''}
+			{page === 0 ? <ChooseFandom formData={formData} setFormData={setFormData} /> : page === 1 ? <CharacterInfo formData={formData} setFormData={setFormData} /> : page === 2 ? <PreviewInfo formData={formData} /> : ''}
 
 			<div className="create-new-epi__buttons">
 				{page !== 0 ?

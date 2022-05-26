@@ -30,11 +30,6 @@
 }
 
 .create-char-desc {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.create-char-desc p {
     text-align: justify;
+    width: inherit;
 }

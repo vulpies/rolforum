@@ -1,6 +1,7 @@
 import React from 'react'
 
-const PreviewInfo = ({ formData, setFormData }) => {
+const PreviewInfo = ({ formData }) => {
+
 	return (
 		<>
 			<div className='create-char-wrapper'>
@@ -13,7 +14,7 @@ const PreviewInfo = ({ formData, setFormData }) => {
 				</div>
 
 				<div className='create-char-desc' dangerouslySetInnerHTML={{
-					__html: `<p>${formData?.description}</p>`
+					__html: `${formData?.description.replace(/\n/g, `</br>`)}`
 				}} />
 
 			</div>
