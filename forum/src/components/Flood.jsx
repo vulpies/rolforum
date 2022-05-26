@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { AiOutlineSetting } from "react-icons/ai";
 import { useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 import { commonFetch } from '../helpers/commonFetch';
 import Breadcrumbs from './breadcrumbs';
 import SendOrRemove from './buttons/send_or_remove';
@@ -70,7 +71,12 @@ const Flood = () => {
 			socket_con.send(JSON.stringify({ action: "sendmessage", data: floodData }));
 			setText('')
 		} else {
-			alert('Пустое сообщение отправить нельзя ~ Упс!')
+			Swal.fire({
+				width: 350,
+				position: 'top',
+				icon: 'error',
+				text: 'Нельзя отправить пустое сообщение!',
+			})
 		}
 	}
 

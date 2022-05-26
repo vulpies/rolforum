@@ -1,5 +1,5 @@
 import axios from "axios"
-import React, { useEffect, useMemo } from "react"
+import React, { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Flood from "./components/Flood"
@@ -8,7 +8,7 @@ import NavbarCommon from "./components/navbar/navbar_common"
 import ProfileEdit from "./components/profile/ProfileEdit"
 import ProfileEditPass from "./components/profile/ProfileEditPass"
 import Arrows from "./helpers/arrows"
-import { MainPage, Profile, EpisodesPage, SingleEpi, OrgPage, Outgame, Chats } from './pages/index'
+import { MainPage, Profile, EpisodesPage, SingleEpi, OrgPage, Outgame, Chats, CreateCharacter } from './pages/index'
 import { addUserInfo } from "./store/usersSlice"
 
 function App() {
@@ -53,6 +53,8 @@ function App() {
                     <Route path="/profile/:profId/edit/pass" element={<ProfileEditPass />} />
                     <Route path="/profile/:profId/edit" element={<ProfileEdit />} />
                     <Route path="/profile/:profId" element={<Profile />} />
+
+                    <Route path="/create" element={<CreateCharacter />} />
 
                     <Route path="/org" element={<OrgPage />} />
 

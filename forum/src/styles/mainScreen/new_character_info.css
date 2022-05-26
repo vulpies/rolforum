@@ -1,0 +1,40 @@
+.create-char-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.create-char-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ca0c08;
+    margin-bottom: 10px;
+}
+
+.create-char-avatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 10px;
+}
+
+.create-char-avatar > img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.create-char-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.create-char-desc p {
+    text-align: justify;
+}

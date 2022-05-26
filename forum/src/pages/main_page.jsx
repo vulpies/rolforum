@@ -2,12 +2,14 @@ import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import ProfileSlider from "../components/Slider"
 import Login from "./login"
+import { useNavigate } from 'react-router-dom'
 import Registration from "./registration"
 import CommonInputs from '../helpers/CommonInputs'
 
 const MainPage = () => {
     const [user] = useSelector((state) => state.usersReducer.user)
     const userAuth = useSelector((state) => state.usersReducer.auth)
+    const navigate = useNavigate()
 
     const [lostPass, setLostPass] = useState(true)
     const [email, setEmail] = useState('')
@@ -67,7 +69,7 @@ const MainPage = () => {
 
             {user ? (
                 <div className="create-player">
-                    <button className='btns btns-create'>Создать персонажа</button>
+                    <button className='btns btns-create' onClick={() => navigate(`/create`)}>Создать персонажа</button >
                 </div>
 
             )

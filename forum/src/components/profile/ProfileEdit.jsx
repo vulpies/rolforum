@@ -59,11 +59,11 @@ const ProfileEdit = () => {
 		console.log(updUserInfo)
 
 		Swal.fire({
+			width: 350,
+			position: 'top',
 			text: 'Информация успешно сохранена!',
-			icon: 'success',
-			confirmButtonText: 'Окей'
+			icon: 'success'
 		})
-		// alert('Информация успешно сохранена!')
 		navigate(`/profile/${user?.user_id}`)
 	}
 

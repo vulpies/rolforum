@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.create-new-epi__character-desc {
+    margin: 10px 0;
+}
+
 .create-new-epi__title {
     display: flex;
     flex-direction: column;
@@ -11,6 +15,18 @@
     font-weight: 600;
     font-size: 1.2rem;
     color: #a90101;
+}
+
+.create-new-epi__title > p {
+    font-size: 0.9rem;
+    color: #000;
+    font-weight: normal;
+    text-align: justify;
+    margin: 5px 0;
+}
+
+.create-new-epi__title > p:first-of-type {
+    margin-top: 10px;
 }
 
 .create-new-epi__input {
@@ -24,10 +40,36 @@
     margin: 15px 0;
 }
 
-.create-new-epi__form > h4 {
+.create-new-epi__form > h4,
+.create-new-epi__form > label {
     font-size: 1.1rem;
     color: #a90101;
     padding-bottom: 2px;
+    font-weight: bold;
+}
+
+.create-new-epi__form > input {
+    margin-top: 6px;
+    font-size: 1.3rem;
+}
+
+.create-new-epi__form > ul {
+    margin-top: 5px;
+}
+
+.create-new-epi__form ul li {
+    margin: 5px 0;
+}
+
+.create-new-epi__form > input::-webkit-input-placeholder,
+.create-new-epi__character-desc > input::-webkit-input-placeholder,
+.create-new-epi__character-desc > textarea::-webkit-input-placeholder {
+    color: #b1a2a1;
+    font-size: 1rem;
+}
+
+.create-new-epi__form > .css-b62m3t-container {
+    margin: 0;
 }
 
 .create-new-epi__select {
@@ -64,4 +106,18 @@
 
 .create-new-epi__radio > p {
     font-size: 1.3rem;
+}
+
+.create-new-epi__buttons {
+    display: flex;
+    width: 100%;
+    margin: 15px auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+}
+
+.create-new-epi__buttons button {
+    margin: 0 15px;
 }

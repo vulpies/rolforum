@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import SendOrRemove from '../buttons/send_or_remove'
+import Swal from 'sweetalert2'
 
 const EpiSendPostFrom = ({ updatePosts }) => {
 	const [text, setText] = useState('')
@@ -35,7 +36,12 @@ const EpiSendPostFrom = ({ updatePosts }) => {
 				})
 			setText('')
 		} else {
-			alert("Нельзя отправить пустое сообщение!")
+			Swal.fire({
+				width: 350,
+				position: 'top',
+				icon: 'error',
+				text: 'Нельзя отправить пустое сообщение!'
+			})
 		}
 	}
 

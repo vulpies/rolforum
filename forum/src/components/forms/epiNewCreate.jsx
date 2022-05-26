@@ -27,6 +27,9 @@ const EpiNewCreate = () => {
 	const [multiListValue, setMultiListValue] = useState([])
 
 
+	console.log(cross, 'cross')
+	console.log(multiListValue, 'multiListValue')
+
 	useEffect(() => {
 		if (type && type.value === 'fandom') {
 
@@ -48,8 +51,6 @@ const EpiNewCreate = () => {
 	const getMultiListValue = useCallback((cross) => {
 		setMultiListValue(cross.map(item => ({ "value": item.value, "label": item.label })))
 	}, [])
-
-	// console.log(cross, 'cross')
 
 	const options = [
 		{ value: 'fandom', label: 'По фандому' },
