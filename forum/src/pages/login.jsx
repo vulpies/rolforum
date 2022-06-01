@@ -6,17 +6,24 @@ import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import authService from "../services/auth.service"
 import { addUserInfo } from '../store/usersSlice'
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
 
 const Login = () => {
 	const dispatch = useDispatch()
 	const [serverErr, setServerErr] = useState('')
+	const [showPass, setShowPass] = useState(false)
+
+	function togglePassVisible(e) {
+		e.preventDefault()
+		setShowPass((prevState) => !prevState)
+	}
 
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isValid },
 		getValues,
-	} = useForm({ mode: "onBlur" })
+	} = useForm({ mode: "all" })
 
 	useEffect(() => {
 
@@ -42,8 +49,6 @@ const Login = () => {
 
 		axios.get('https://api.rolecrossways.com/v1/me', options)
 			.then(res => {
-				console.log(res.data)
-				console.log(res, '9999')
 				if (res.data.user_id !== null) {
 					dispatch(addUserInfo(res.data))
 				}
@@ -74,11 +79,11 @@ const Login = () => {
 					/>
 				</div>
 
-				<div className="login-input">
+				<div className="login-input login-input-pass">
 					<label>Пароль </label>
 					<input
 						{...register("password", {
-							required: "И пароль для входа тоже нужен!",
+							required: "Для входа нужен пароль!",
 							minLength: {
 								value: 5,
 								message: "Минимальная длина пароля 5 символов",
@@ -88,9 +93,11 @@ const Login = () => {
 								message: "Максимальная длина пароля 20 символов",
 							},
 						})}
-						type='password'
+						type={showPass ? "text" : "password"}
 					/>
-
+					<button className='btns-show-pass' onClick={togglePassVisible}>
+						{showPass ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+					</button>
 				</div>
 
 				<div className='login-error'>
@@ -110,6 +117,7 @@ const Login = () => {
 				<input
 					type="submit"
 					className='btns btns-common btns-log'
+					disabled={!isValid}
 					value='Войти'
 				/>
 			</div>

@@ -1,12 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import CommonInputs from '../../helpers/CommonInputs'
-import Breadcrumbs from '../breadcrumbs'
+import Breadcrumbs from '../components/breadcrumbs'
+import CommonInputs from '../helpers/CommonInputs'
 
-const ProfileEditPass = () => {
-	const [user] = useSelector((state) => state.usersReducer.user)
-	const [oldPass, setOldPass] = useState('')
+const ResetPass = () => {
 	const [newPass, setNewPass] = useState('')
 	const [confirmPass, setConfirmPass] = useState('')
 	const [err, setErr] = useState('')
@@ -16,10 +13,6 @@ const ProfileEditPass = () => {
 			setErr('Пароли не совпадают!')
 		} else {
 			setErr('')
-		}
-
-		if ((oldPass !== '' && newPass !== '') && oldPass === newPass) {
-			setErr('Старый и новый пароли совпадают!')
 		}
 
 		if (newPass !== '' && newPass.length < 5) {
@@ -40,22 +33,17 @@ const ProfileEditPass = () => {
 		// 	text: 'Пароль изменен!',
 		// 	icon: 'success'
 		// })
-		// navigate(`/profile/${user?.user_id}`)
+		// navigate(`/`)
 	}
 
 	return (
 		<div className='wrapper'>
-			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name='Пароль' link={`/profile/${user?.user_id}`} extraName="Профиль" />
+
+			<div className='epi-links single-link'>
+				<Breadcrumbs name="Сброс пароля" />
 			</div>
+
 			<div className='profile-input__wrapper'>
-				<CommonInputs
-					type='password'
-					inputName='Старый пароль:'
-					className='profile-input__input'
-					value={oldPass}
-					onChange={(e) => setOldPass(e.target.value)}
-				/>
 				<CommonInputs
 					type='password'
 					inputName='Новый пароль:'
@@ -86,4 +74,4 @@ const ProfileEditPass = () => {
 	)
 }
 
-export default ProfileEditPass
+export default ResetPass

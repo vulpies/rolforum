@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import CharacterInfo from "./CharacterInfo";
-import ChooseFandom from "./ChooseFandom";
-import PreviewInfo from "./PreviewInfo";
+import CharacterInfo from "./CharacterInfo"
+import ChooseFandom from "./ChooseFandom"
+import PreviewInfo from "./PreviewInfo"
 import { useNavigate } from 'react-router-dom'
 import Swal from "sweetalert2";
+import { commonPostReq } from "../../helpers/commonFetch"
 
 function Form() {
 	const [page, setPage] = useState(0);
 	const [formData, setFormData] = useState({
 		fandom_name: "",
+		fandom_id: "",
 		existing_fandom: '',
 		name: "",
 		avatar: "",
@@ -16,7 +18,13 @@ function Form() {
 	})
 
 	const navigate = useNavigate()
+
 	const sendInfo = () => {
+		try {
+			commonPostReq('https://api.rolecrossways.com/v1/profile/character-create', formData)
+		} catch (err) {
+			console.log(err)
+		}
 		console.log(formData)
 		Swal.fire({
 			width: 350,
@@ -24,7 +32,7 @@ function Form() {
 			text: 'Ваша анкета направлена на модерацию! Как только она будет одобрена, иконка персонажа отобразится в профиле!',
 			icon: 'success'
 		})
-		// navigate(`/`)
+		navigate(`/`)
 	}
 
 	return (
@@ -41,7 +49,9 @@ function Form() {
 					<button className="btns btns-create" onClick={() => setPage((currPage) => currPage + 1)}
 					> Вперед </button>
 
-					: <button className="btns btns-create" onClick={sendInfo}
+					: <button className="btns btns-create"
+						onClick={sendInfo}
+						disabled={formData.name === '' || formData.avatar === '' || formData.description === ''}
 					> Отправить </button>
 				}
 			</div>

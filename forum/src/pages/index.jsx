@@ -2,10 +2,12 @@ import MainPage from "./main_page";
 import Profile from "./profile_page";
 import Registration from "./registration";
 import EpisodesPage from "./episodes_page";
-import SingleEpi from "./single_episode/singleEpi";
 import OrgPage from './organization_page'
 import Outgame from "./outgame";
 import Chats from "./chats_page";
 import CreateCharacter from "./create_character";
+import ResetPass from './reset_password';
+import ModerPage from "./moder_page";
+import AdminPage from "./admin_page";
 
-export { MainPage, Profile, Registration, EpisodesPage, SingleEpi, OrgPage, Outgame, Chats, CreateCharacter }
+export { MainPage, Profile, Registration, EpisodesPage, OrgPage, Outgame, Chats, CreateCharacter, ResetPass, ModerPage, AdminPage }

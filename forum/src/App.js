@@ -7,8 +7,9 @@ import EpiNewCreate from "./components/forms/epiNewCreate"
 import NavbarCommon from "./components/navbar/navbar_common"
 import ProfileEdit from "./components/profile/ProfileEdit"
 import ProfileEditPass from "./components/profile/ProfileEditPass"
+import SingleEpi from "./components/single_episode/singleEpi"
 import Arrows from "./helpers/arrows"
-import { MainPage, Profile, EpisodesPage, SingleEpi, OrgPage, Outgame, Chats, CreateCharacter } from './pages/index'
+import { MainPage, Profile, EpisodesPage, OrgPage, Outgame, Chats, CreateCharacter, ResetPass, ModerPage, AdminPage } from './pages/index'
 import { addUserInfo } from "./store/usersSlice"
 
 function App() {
@@ -54,9 +55,14 @@ function App() {
                     <Route path="/profile/:profId/edit" element={<ProfileEdit />} />
                     <Route path="/profile/:profId" element={<Profile />} />
 
+                    <Route path="/resetPass" element={<ResetPass />} />
+
                     <Route path="/create" element={<CreateCharacter />} />
 
                     <Route path="/org" element={<OrgPage />} />
+
+                    <Route path="/admin" element={<AdminPage />} />
+                    <Route path="/moder" element={<ModerPage />} />
 
                     <Route path="/outgame/chat" element={<Flood />} />
                     <Route path="/outgame" element={<Outgame />} />

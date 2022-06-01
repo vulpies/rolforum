@@ -21,15 +21,19 @@
     #root {
         /* width: 1170px;
         background-color: #fff9dcd1; */
-        width: 1050px;
-        background-color: #f8f4df;
         /* border-left: 5px solid #a03101;
         border-right: 5px solid #a03101; */
+        width: 1050px;
+        background-color: #f8f4df;
         border-right: 3px solid #92794a;
         border-left: 3px solid #92794a;
         border-bottom: 3px solid #92794a;
         margin-bottom: 30px;
         padding: 0 15px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
     }
 
     .wrapper {
@@ -51,6 +55,8 @@
         /* border-bottom: 1px solid #b83c10; */
         border-bottom: 2px solid #c5b696;
         border-top: 3px solid #92794a;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
         margin-top: 25px;
     }
 
@@ -63,6 +69,11 @@
         justify-content: center;
         align-items: center;
     }
+
+    .main-page__arrow {
+        left: 93%;
+    }
+
     .menu-link {
         width: 18%;
         position: initial;
@@ -91,5 +102,9 @@
     /* css для react-selector */
     .css-b62m3t-container {
         margin: 0 -5px;
+    }
+
+    .hr-underline {
+        margin: 10px -15.5px;
     }
 }

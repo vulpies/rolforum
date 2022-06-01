@@ -48,6 +48,9 @@ const NavLinks = () => {
         toggleMenuMode()
     }
 
+    const moderRole = user?.roles.find(item => item === "ROLE_MODERATOR")
+    const adminRole = user?.roles.find(item => item === "ROLE_ADMIN")
+
     return (
         <>
             {userAuth === true ?
@@ -61,7 +64,7 @@ const NavLinks = () => {
                         onClick={clickHandler}
                         name="Главная" />
 
-                    {user.status === 'admin' ? <OneLink
+                    {adminRole ? <OneLink
                         className={`menu-link ${isMenuOpen}`}
                         to='/admin'
                         style={({ isActive }) =>
@@ -70,14 +73,14 @@ const NavLinks = () => {
                         onClick={clickHandler}
                         name="Админка" /> : ''}
 
-                    {user.status === 'moder' ? <OneLink
+                    {moderRole ? <OneLink
                         className={`menu-link ${isMenuOpen}`}
                         to='/moder'
                         style={({ isActive }) =>
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Админка" /> : ''}
+                        name="Модерка" /> : ''}
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}

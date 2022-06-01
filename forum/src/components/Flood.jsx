@@ -138,7 +138,9 @@ const Flood = () => {
 											</div>}
 										</div>
 									</div>
-									<div className="flood-message__text-content flood-message__text-content-owner">{m.content}</div>
+									<div className='flood-message__text-content-owner flood-message__text-content' dangerouslySetInnerHTML={{
+										__html: `${m.content.replace(/\n/g, `</br>`)}`
+									}} />
 								</div>
 
 							</div>
@@ -163,7 +165,9 @@ const Flood = () => {
 											</div>}
 										</div>
 									</div>
-									<div className="flood-message__text-content">{m.content}</div>
+									<div className='flood-message__text-content' dangerouslySetInnerHTML={{
+										__html: `${m.content.replace(/\n/g, `</br>`)}`
+									}} />
 								</div>
 
 							</div>

@@ -7,6 +7,7 @@
 
 @import "./forms/sendPost.css";
 @import "./forms/create-new-episode.css";
+@import "./forms/modal.css";
 
 @import "./episodes/singleEpi.css";
 @import "./episodes/singleEpi_card.css";

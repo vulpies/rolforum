@@ -6,6 +6,10 @@
     margin: 10px 0;
 }
 
+.create-new-epi__character-desc > textarea {
+    min-height: 250px;
+}
+
 .create-new-epi__title {
     display: flex;
     flex-direction: column;

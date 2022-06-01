@@ -1,0 +1,23 @@
+@media (min-width: 1440px) {
+    .main-page__arrow {
+        left: 89%;
+    }
+}
+
+@media (min-width: 1600px) {
+    .main-page__arrow {
+        left: 85%;
+    }
+}
+
+@media (min-width: 1800px) {
+    .main-page__arrow {
+        left: 82%;
+    }
+}
+
+@media (min-width: 2000px) {
+    .main-page__arrow {
+        left: 79%;
+    }
+}

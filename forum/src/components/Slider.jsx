@@ -12,6 +12,8 @@ const Slider = () => {
 		setImage(target.src)
 	}
 
+	console.log(userInfo, 'userInfo')
+
 	return (<>
 		<p className='slider-title'>Привет, <span>{userInfo?.user_name || 'гость'}</span>!</p>
 
@@ -28,7 +30,7 @@ const Slider = () => {
 					: <p>игровые персонажи отсутствуют</p>
 				}
 				{userInfo && userInfo.characters.map((item => {
-					return <img key={item._id} src={item.avatar} id={item._id} name={item.name} alt={item.name} className='slider-others__image' onClick={changeImage} />
+					return <img key={item.id} src={item.avatar} alt={item.name} className='slider-others__image' onClick={changeImage} />
 				}))}
 			</div>
 		</div> : ""

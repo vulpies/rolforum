@@ -3,4 +3,21 @@
         max-width: 150px;
         max-height: 150px;
     }
+
+    .epi-user-info {
+        width: 295px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-bottom: 5px;
+    }
+
+    .epi-user-info__avatar {
+        display: flex;
+        max-width: 80px;
+        max-height: 80px;
+    }
+    .epi-user-info__avatar > img {
+        border-radius: 20px;
+    }
 }

@@ -19,9 +19,6 @@ const ChooseFandom = ({ formData, setFormData }) => {
 		{ value: 'fandom', label: 'Выбрать из имеющихся' }
 	]
 
-	// console.log(roles, '3333')
-	// console.log(formData.existing_fandom, 'formData.existing_fandom')
-
 	const oneFandom = [...fandomList]
 
 	const options2 = oneFandom.map(item => ({ "value": item.id, "label": item.name }))
@@ -30,10 +27,10 @@ const ChooseFandom = ({ formData, setFormData }) => {
 		if (type && type.value === 'fandom') {
 			commonFetch('https://api.rolecrossways.com/v1/fandom-list-short-view', setFandomList)
 
-			commonFetch(`https://api.rolecrossways.com/v1/character-list-short-view?fandom_id=${formData.existing_fandom || null}`, setRoles)
+			commonFetch(`https://api.rolecrossways.com/v1/character-list-short-view?fandom_id=${formData.fandom_id || null}`, setRoles)
 		}
 
-	}, [type, setFandomList, formData.existing_fandom])
+	}, [type, setFandomList, formData.fandom_id])
 
 	return (
 		<>
@@ -55,7 +52,7 @@ const ChooseFandom = ({ formData, setFormData }) => {
 						className='profile-input__input'
 						value={formData.fandom_name}
 						onChange={(event) =>
-							setFormData({ ...formData, fandom_name: event.target.value })
+							setFormData({ ...formData, fandom_name: event.target.value, existing_fandom: false })
 						}
 						placeholder={'На английском!'}
 					/>
@@ -69,7 +66,7 @@ const ChooseFandom = ({ formData, setFormData }) => {
 						label='Фандом:'
 						value={formData.fandom_name}
 						onChange={(event) =>
-							setFormData({ ...formData, existing_fandom: event.value, fandom_name: event.label })
+							setFormData({ ...formData, fandom_id: event.value, fandom_name: event.label, existing_fandom: true })
 						}
 						styleSelect='create-new-epi__select'
 						options={options2}

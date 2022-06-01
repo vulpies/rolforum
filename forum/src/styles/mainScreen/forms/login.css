@@ -30,10 +30,22 @@
     width: 100%;
 }
 
+.login-input-pass {
+    position: relative;
+}
+
+.login-input-pass > button,
+.login-input-pass button {
+    position: absolute;
+    top: 44px;
+    right: 6px;
+}
+
 .login-error {
     font-size: 1.2rem;
     color: #db0f0f;
     padding-bottom: 5px;
+    text-align: center;
 }
 
 .login-error > p {

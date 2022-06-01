@@ -13,19 +13,23 @@
     color: #9a6111;
 }
 
+.btns:disabled {
+    background-color: #b1aba4;
+}
+
 .btns-common {
     font-size: 0.7rem;
     margin-right: 10px;
 }
 
-.btns:hover,
-.btns:active {
+.btns:hover:not(.btns:disabled),
+.btns:active:not(.btns:disabled) {
     border: 1px solid #ea6e14;
     box-shadow: 3px 3px 6px rgb(171 55 11 / 74%),
         -1px -1px 1px rgb(236 89 15 / 84%);
 }
 
-.btns:hover {
+.btns:hover:not(.btns:disabled) {
     background-color: #ff5722;
     color: #fff;
 }
@@ -66,4 +70,15 @@
 
 .btns-load {
     font-size: 0.8rem;
+}
+
+.btns-show-pass {
+    font-size: 1.3rem;
+    min-width: initial;
+    height: 24px;
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    color: #9a6111;
+    outline: none;
 }

@@ -6,7 +6,8 @@ const PreviewInfo = ({ formData }) => {
 		<>
 			<div className='create-char-wrapper'>
 				<div className='create-char-name'>
-					{formData?.name}
+					{formData?.fandom_name ? <span>[{formData?.fandom_name}]</span> : ''}
+					<p>{formData?.name}</p>
 				</div>
 
 				<div className='create-char-avatar'>

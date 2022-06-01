@@ -5,11 +5,18 @@ import { useForm } from "react-hook-form"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { addUserInfo } from '../store/usersSlice'
+import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
 
 const Registration = () => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const [serverErrors, setServerErrors] = useState("")
+	const [showPass, setShowPass] = useState(false)
+
+	function togglePassVisible(e) {
+		e.preventDefault()
+		setShowPass((prevState) => !prevState)
+	}
 
 	const {
 		register,
@@ -89,7 +96,7 @@ const Registration = () => {
 					/>
 				</div>
 
-				<div className="login-input">
+				<div className="login-input login-input-pass">
 					<label>Пароль</label>
 					<input
 						{...register("password", {
@@ -103,9 +110,11 @@ const Registration = () => {
 								message: "Максимальная длина пароля 20 символов",
 							},
 						})}
-						type='password'
+						type={showPass ? "text" : "password"}
 					/>
-
+					<button className='btns-show-pass' onClick={togglePassVisible}>
+						{showPass ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+					</button>
 				</div>
 
 				<div className="login-input">

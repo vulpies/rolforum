@@ -3,9 +3,35 @@
     border: 1px solid #e3a714;
     padding: 10px 5px 3px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .epi-wrapper__desk {
+    display: none;
+}
+
+.epi-text-info {
+    margin-right: 10px;
+}
+
+.epi-user-info {
+    width: 43%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.epi-user-info > p {
+    text-align: right;
+}
+
+.epi-user-info__avatar {
     display: none;
 }
 

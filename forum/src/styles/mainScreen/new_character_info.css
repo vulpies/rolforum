@@ -15,6 +15,11 @@
     margin-bottom: 10px;
 }
 
+.create-char-name > span {
+    font-weight: normal;
+    color: #d28d27;
+}
+
 .create-char-avatar {
     display: flex;
     flex-direction: column;

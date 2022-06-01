@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import Breadcrumbs from '../../components/breadcrumbs'
-import EpiSendPostFrom from '../../components/forms/epiSendPostForm'
+import Breadcrumbs from '../breadcrumbs'
+import EpiSendPostFrom from '../forms/epiSendPostForm'
 import { commonFetch } from '../../helpers/commonFetch'
 import SingleEpiHeader from './singleEpiHeader'
 import SingleEpiPost from './singleEpiPost'
