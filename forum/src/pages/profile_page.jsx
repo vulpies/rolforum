@@ -17,6 +17,8 @@ const Profile = () => {
 		commonFetch(`https://api.rolecrossways.com/v1/profile/view/${search.profId}`, setInfo)
 	}, [setInfo])
 
+	console.log(info, 8888)
+
 	return (
 		<div className='wrapper'>
 			<div className='epi-links single-link'>

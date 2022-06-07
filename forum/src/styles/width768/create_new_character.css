@@ -1,0 +1,9 @@
+@media (min-width: 768px) {
+    .create-new-epi__character-desc > textarea {
+        font-size: 1.1rem;
+    }
+
+    .create-new-epi__input {
+        font-size: 1.2rem;
+    }
+}

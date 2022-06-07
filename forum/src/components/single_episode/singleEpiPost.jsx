@@ -3,16 +3,22 @@ import EditOrRemove from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
 
 const SingleEpiPost = ({ posts }) => {
+	let filteredPosts = posts
 
 	function openProfile() {
 		console.log('vdsvv')
 	}
 
-	console.log(posts)
+	function deleteMsg(id) {
+		console.log('grurvnrd', id)
+		filteredPosts = posts.filter(item => item.id !== id)
+		// console.log(filteredPosts)
+	}
+
 	// { `/profile/${p?.user_id}` }
 
 	return (<>
-		{posts && posts.map(p =>
+		{filteredPosts && filteredPosts.map(p =>
 			<div key={p.id} className='sepi-post-wrapper'>
 
 				<div className='sepi-post-title'>
@@ -35,7 +41,7 @@ const SingleEpiPost = ({ posts }) => {
 
 				<div className='sepi-post-post__btns'>
 					<div className='sepi-header-desc__items' >
-						{p.can_edit ? <EditOrRemove /> : ''}
+						{p.can_edit ? <EditOrRemove onDelete={() => deleteMsg(p.id)} /> : ''}
 
 						<GetLike />
 					</div>

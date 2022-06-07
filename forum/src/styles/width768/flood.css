@@ -2,6 +2,7 @@
     .flood-message__profile,
     .flood-message__profile-owner {
         width: 100px;
+        text-align: center;
     }
 
     .flood-message__profile-avatar,

@@ -13,6 +13,7 @@ const Flood = () => {
 	const [msg, setMsg] = useState([])
 	const [count, setCount] = useState(40)
 	const [isHide, setHide] = useState(true)
+	const wrapper = document.querySelector('.wrapper')
 
 
 	function updMsgs(param) {
@@ -86,6 +87,13 @@ const Flood = () => {
 			msgId.isHide = !msgId.isHide
 			setHide(prevState => !prevState)
 		}
+
+		// if (msgId.isHide === false && isHide === false) {
+		// 	wrapper.addEventListener('click', () => {
+		// 		msgId.isHide = !msgId.isHide
+		// 		setHide(prevState => !prevState)
+		// 	})
+		// }
 	}
 
 	function getAllMsg(param) {
@@ -99,6 +107,63 @@ const Flood = () => {
 		commonFetch(url, getAllMsg)
 	}
 
+	function deleteMsg(id) {
+		setMsg(msg.filter(item => item.id !== id))
+		console.log(msg, 'msgmsgmsg')
+	}
+
+	const allMsg = msg?.map(m => {
+
+		const owner = m.user_name === user?.user_name
+		const message = owner ? 'flood-message flood-message-owner' : 'flood-message';
+		const profile = owner ? 'flood-message__profile flood-message__profile-owner' : 'flood-message__profile';
+		const topLine = owner ? 'flood-message__top-line flood-message__top-line-owner' : 'flood-message__top-line';
+		const textTime = owner ? 'flood-message__text-time flood-message__text-time-owner' : 'flood-message__text-time';
+		const textContent = owner ? 'flood-message__text-content-owner flood-message__text-content' : 'flood-message__text-content';
+
+		const setBtn = owner ? <div className={'flood-message__edit-options-owner flood-message__edit-options'}>
+			<p>Редактировать</p>
+			<p>Цитировать</p>
+			<p onClick={() => deleteMsg(m.id)}>Удалить</p>
+		</div>
+			: <div className='flood-message__edit-options'>
+				<p>Цитировать</p>
+			</div>
+
+		return (
+			<div className={message} key={m.id}>
+
+				<div className={profile} >
+					<span className="user">
+						<a href={`/profile/${m.user_id}`}>{m.user_name}</a></span>
+					<div className="flood-message__profile-avatar">
+						<img src={m.user_avatar} alt={m.user_name} />
+					</div>
+				</div>
+
+				<div className="flood-message__text">
+					<div className={topLine}>
+						<span className={textTime}>{m.time}</span>
+
+						<div className='flood-message__edit-block'>
+							<span className='flood-message__edit'
+								id={m.id}
+								onClick={() => msgSet(m.id)}>
+								<AiOutlineSetting />
+							</span>
+							{m.isHide ? '' : setBtn}
+						</div>
+
+						<div className={textContent} dangerouslySetInnerHTML={{
+							__html: `${m.content?.replace(/\n/g, `</br>`)}`
+						}} />
+					</div>
+				</div>
+
+			</div>
+		)
+	})
+
 	return (
 		<div className="wrapper">
 			<div className='sepi-bread-header extra'>
@@ -111,70 +176,7 @@ const Flood = () => {
 			</div>
 
 			<div id="message-area" className='flood-rcvd-msg'>
-				{msg && msg.map((m, index) =>
-					<>
-						{m.user_name === user?.user_name ?
-							<div className="flood-message flood-message-owner" key={index}>
-
-								<div className="flood-message__profile flood-message__profile-owner" >
-									<span className="user">
-										<a href={`/profile/${m.user_id}`}>{m.user_name}</a></span>
-									<div className="flood-message__profile-avatar">
-										<img src={m.user_avatar} alt={m.user_name} />
-									</div>
-								</div>
-
-								<div className="flood-message__text" >
-									<div className="flood-message__top-line flood-message__top-line-owner">
-										<span className="flood-message__text-time flood-message__text-time-owner">{m.time}</span>
-										<div className='flood-message__edit-block'>
-											<span className='flood-message__edit' onClick={() => msgSet(m.id)}>
-												<AiOutlineSetting />
-											</span>
-											{m.isHide ? '' : <div className='flood-message__edit-options-owner flood-message__edit-options'>
-												<p>Редактировать</p>
-												<p>Цитировать</p>
-												<p>Удалить</p>
-											</div>}
-										</div>
-									</div>
-									<div className='flood-message__text-content-owner flood-message__text-content' dangerouslySetInnerHTML={{
-										__html: `${m.content.replace(/\n/g, `</br>`)}`
-									}} />
-								</div>
-
-							</div>
-							:
-							<div className="flood-message" key={index}>
-
-								<div className="flood-message__profile" >
-									<span className="user">
-										<a href={`/profile/${m.user_id}`}>{m.user_name}</a></span>
-									<div className="flood-message__profile-avatar">
-										<img src={m.user_avatar} alt={m.user_name} />
-									</div>
-								</div>
-
-								<div className="flood-message__text">
-									<div className="flood-message__top-line">
-										<span className="flood-message__text-time">{m.time}</span>
-										<div className='flood-message__edit-block'>
-											<span className='flood-message__edit' id={m.id} onClick={() => msgSet(m.id)}><AiOutlineSetting /></span>
-											{m.isHide ? '' : <div className='flood-message__edit-options'>
-												<p>Цитировать</p>
-											</div>}
-										</div>
-									</div>
-									<div className='flood-message__text-content' dangerouslySetInnerHTML={{
-										__html: `${m.content.replace(/\n/g, `</br>`)}`
-									}} />
-								</div>
-
-							</div>
-						}
-					</>
-				)}
-
+				{allMsg}
 			</div>
 
 			<div className='flood-wrapper__send'>
