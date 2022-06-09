@@ -26,7 +26,14 @@
 
 .send-post-form__btns {
     display: flex;
-    justify-content: space-around;
-    width: 80%;
-    margin: 0 0 10px;
+    justify-content: center;
+    margin: 0 auto 10px auto;
+}
+
+.send-post-form__btns > button {
+    margin-right: 20px;
+}
+
+.send-post-form__btns > button:last-child {
+    margin-right: 0;
 }

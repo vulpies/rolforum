@@ -20,4 +20,13 @@
     .epi-user-info__avatar > img {
         border-radius: 20px;
     }
+
+    .send-post-form__btns {
+        justify-content: space-evenly;
+        width: 55%;
+    }
+
+    .send-post-form__btns > button {
+        margin-right: 0;
+    }
 }

@@ -5,10 +5,8 @@
 .menu-link {
     position: relative;
     display: block;
-    text-align: left;
-    max-width: 100%;
-    padding: 0 8%;
-    margin: 30px 0;
+    max-width: 40%;
+    margin: 25px 8%;
     color: #f6e21b;
     font-size: 30px;
     line-height: 90%;
@@ -43,4 +41,53 @@
     justify-content: flex-start;
     padding: 2px 10px;
     z-index: 500;
+}
+
+/*--------------*/
+
+.menu-btn {
+    display: block;
+    transform-origin: 16px 11px;
+    margin-right: 10px;
+    margin-top: 6px;
+    outline-color: #bd4305;
+    border: 0;
+    padding: 5px;
+    background: none;
+}
+
+.menu-span {
+    display: block;
+    width: 36px;
+    height: 5px;
+    margin-bottom: 7px;
+    background-color: #fff;
+}
+
+.menu-btn span {
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.menu-btn:hover span:nth-of-type(1) {
+    width: 33px;
+}
+
+.menu-btn:hover span:nth-of-type(2) {
+    width: 40px;
+}
+.menu-btn:hover span:nth-of-type(3) {
+    width: 30px;
+}
+
+.menu-btn.active span:nth-of-type(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+    width: 40px;
+}
+.menu-btn.active span:nth-of-type(2) {
+    opacity: 0;
+    pointer-events: none;
+}
+.menu-btn.active span:nth-of-type(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+    width: 40px;
 }

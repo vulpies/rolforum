@@ -26,6 +26,7 @@
         width: 1050px;
         background-color: #f8f4df;
         border-right: 3px solid #92794a;
+        /* border-right: 3px solid #cd8a0b; */
         border-left: 3px solid #92794a;
         border-bottom: 3px solid #92794a;
         margin-bottom: 30px;
@@ -39,11 +40,6 @@
     .wrapper {
         margin-top: 0;
         position: relative;
-    }
-
-    .extra {
-        margin: -11px -16px 0 -16px;
-        border-bottom: 2px solid #c5b696;
     }
 
     .navbar {
@@ -87,6 +83,7 @@
         border-radius: 15px;
         justify-content: center;
         font-size: 1.4rem;
+        outline-color: #ac6905;
     }
 
     textarea {
@@ -94,9 +91,15 @@
         min-height: 220px;
     }
 
+    .extra {
+        margin: -11px -16px 0 -16px;
+        border-bottom: 2px solid #c5b696;
+    }
+
     .single-link {
         margin: -10px -16px 15px;
         border-bottom: 2px solid #c5b696;
+        /* border-bottom: 2px solid #c18d1f; */
     }
 
     /* css для react-selector */

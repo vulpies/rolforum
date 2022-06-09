@@ -18,7 +18,7 @@ const MainMenu = () => {
         <header ref={node}>
             <div className="menu-navbar">
                 <HamburgerButton />
-                <h2>Forum</h2>
+                <h2>CrossPosting</h2>
                 <Arrows className="arrows-wrapper" />
             </div>
             <SideMenu />

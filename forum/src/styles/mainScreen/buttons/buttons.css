@@ -3,7 +3,8 @@
     margin: 5px 0;
     min-width: 64px;
     width: auto;
-    outline: none;
+    /* outline: none; */
+    outline-color: #bd4305;
     background-color: #faf4bf;
     border: 1px solid #d29832;
     transition: 0.3s linear;
@@ -52,7 +53,7 @@
 
 .btns-log {
     width: 100%;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 .btns-log__flood {

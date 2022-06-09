@@ -1,8 +1,4 @@
 @media (min-width: 1280px) {
-    .flood-rcvd-msg {
-        width: 95%;
-    }
-
     .flood-title {
         margin: 0px -16px 10px -16px;
         border-bottom: 2px solid #c5b696;

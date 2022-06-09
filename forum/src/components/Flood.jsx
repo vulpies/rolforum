@@ -86,6 +86,7 @@ const Flood = () => {
 		if (msgId.id === id) {
 			msgId.isHide = !msgId.isHide
 			setHide(prevState => !prevState)
+			console.log(isHide)
 		}
 
 		// if (msgId.isHide === false && isHide === false) {
