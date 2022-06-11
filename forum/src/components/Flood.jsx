@@ -21,7 +21,7 @@ const Flood = () => {
 		setMsg(param)
 	}
 
-	const url = 'https://api.rolecrossways.com/v1/chat-message-list';
+	const url = 'https://api.postscriptum.games/v1/chat-message-list';
 	useEffect(() => {
 		commonFetch(url, updMsgs)
 	}, [setMsg, url])
@@ -104,7 +104,7 @@ const Flood = () => {
 
 	async function loadHistory() {
 		setCount(count => count + 40)
-		const url = `https://api.rolecrossways.com/v1/chat-message-list?offset=${count}`
+		const url = `https://api.postscriptum.games/v1/chat-message-list?offset=${count}`
 		commonFetch(url, getAllMsg)
 	}
 

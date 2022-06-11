@@ -6,7 +6,7 @@ const CharacterApplication = () => {
 	const [info, setInfo] = useState()
 
 	useEffect(() => {
-		commonFetch('https://api.rolecrossways.com/v1/moderate/character-application-list', setInfo)
+		commonFetch('https://api.postscriptum.games/v1/moderate/character-application-list', setInfo)
 
 	}, [setInfo])
 

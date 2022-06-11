@@ -21,7 +21,7 @@ function Form() {
 
 	const sendInfo = () => {
 		try {
-			commonPostReq('https://api.rolecrossways.com/v1/profile/character-create', formData)
+			commonPostReq('https://api.postscriptum.games/v1/profile/character-create', formData)
 		} catch (err) {
 			console.log(err)
 		}

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 const OneEpi = () => {
 	const [info, setInfo] = useState([])
-	const url = 'https://api.rolecrossways.com/v1/episode-list-view'
+	const url = 'https://api.postscriptum.games/v1/episode-list-view'
 	const navigate = useNavigate()
 
 	useEffect(() => {

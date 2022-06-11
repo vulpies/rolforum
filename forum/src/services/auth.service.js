@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const url = "https://api.rolecrossways.com/"
+const url = "https://api.postscriptum.games/"
 
 const authService = {
 	registration: async (payload) => {

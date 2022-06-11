@@ -25,9 +25,9 @@ const ChooseFandom = ({ formData, setFormData }) => {
 
 	useEffect(() => {
 		if (type && type.value === 'fandom') {
-			commonFetch('https://api.rolecrossways.com/v1/fandom-list-short-view', setFandomList)
+			commonFetch('https://api.postscriptum.games/v1/fandom-list-short-view', setFandomList)
 
-			commonFetch(`https://api.rolecrossways.com/v1/character-list-short-view?fandom_id=${formData.fandom_id || null}`, setRoles)
+			commonFetch(`https://api.postscriptum.games/v1/character-list-short-view?fandom_id=${formData.fandom_id || null}`, setRoles)
 		}
 
 	}, [type, setFandomList, formData.fandom_id])

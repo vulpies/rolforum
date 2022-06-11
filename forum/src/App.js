@@ -14,7 +14,7 @@ import { addUserInfo } from "./store/usersSlice"
 
 function App() {
     const dispatch = useDispatch()
-    const url = 'https://api.rolecrossways.com/v1/me'
+    const url = 'https://api.postscriptum.games/v1/me'
 
     let options = {}
 
