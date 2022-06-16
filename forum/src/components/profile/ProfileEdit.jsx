@@ -34,7 +34,7 @@ const ProfileEdit = () => {
 	const navigate = useNavigate()
 
 	useEffect(() => {
-		commonFetch('https://api.rolecrossways.com/v1/timezones', setTimeZone)
+		commonFetch('https://api.postscriptum.games/v1/timezones', setTimeZone)
 	}, [])
 
 
@@ -52,7 +52,7 @@ const ProfileEdit = () => {
 		dispatch(updateUserInfo(updUserInfo))
 
 		try {
-			commonPostReq('https://api.rolecrossways.com/v1/profile/edit', updUserInfo)
+			commonPostReq('https://api.postscriptum.games/v1/profile/edit', updUserInfo)
 		} catch (err) {
 			console.log(err)
 		}

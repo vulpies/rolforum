@@ -14,7 +14,7 @@ const Profile = () => {
 	const [info, setInfo] = useState([])
 
 	useEffect(() => {
-		commonFetch(`https://api.rolecrossways.com/v1/profile/view/${search.profId}`, setInfo)
+		commonFetch(`https://api.postscriptum.games/v1/profile/view/${search.profId}`, setInfo)
 	}, [setInfo])
 
 	console.log(info, 8888)

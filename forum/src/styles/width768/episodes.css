@@ -14,11 +14,11 @@
 
     .epi-user-info__avatar {
         display: flex;
-        max-width: 80px;
-        max-height: 80px;
     }
     .epi-user-info__avatar > img {
         border-radius: 20px;
+        max-width: 80px;
+        max-height: 80px;
     }
 
     .send-post-form__btns {

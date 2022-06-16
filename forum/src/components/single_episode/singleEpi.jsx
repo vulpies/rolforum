@@ -18,7 +18,7 @@ const SingleEpi = () => {
 	}
 
 	useEffect(() => {
-		commonFetch(`https://api.rolecrossways.com/v1/episode-view/${epiId
+		commonFetch(`https://api.postscriptum.games/v1/episode-view/${epiId
 			}`, (data) => {
 				setEpiData(data);
 				setPostData(data.posts);

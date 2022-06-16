@@ -47,7 +47,7 @@ const Login = () => {
 			}
 		}
 
-		axios.get('https://api.rolecrossways.com/v1/me', options)
+		axios.get('https://api.postscriptum.games/v1/me', options)
 			.then(res => {
 				if (res.data.user_id !== null) {
 					dispatch(addUserInfo(res.data))

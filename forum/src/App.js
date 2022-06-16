@@ -2,6 +2,8 @@ import axios from "axios"
 import React, { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import CharacterApplication from "./components/character_application/CharacterApplication"
+import SingleApp from "./components/character_application/SingleApp"
 import Flood from "./components/Flood"
 import EpiNewCreate from "./components/forms/epiNewCreate"
 import NavbarCommon from "./components/navbar/navbar_common"
@@ -14,7 +16,7 @@ import { addUserInfo } from "./store/usersSlice"
 
 function App() {
     const dispatch = useDispatch()
-    const url = 'https://api.rolecrossways.com/v1/me'
+    const url = 'https://api.postscriptum.games/v1/me'
 
     let options = {}
 
@@ -58,6 +60,8 @@ function App() {
                     <Route path="/resetPass" element={<ResetPass />} />
 
                     <Route path="/create" element={<CreateCharacter />} />
+                    <Route path="/char_app/:appId" element={<SingleApp />} />
+                    <Route path="/char_app" element={<CharacterApplication />} />
 
                     <Route path="/org" element={<OrgPage />} />
 

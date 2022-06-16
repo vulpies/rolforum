@@ -128,6 +128,15 @@ const NavLinks = () => {
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
+                        to='/piar'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name="Партнеры" />
+
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
                         to='/exit'
                         style={({ isActive }) =>
                             isActive ? menunav : undefined
@@ -154,7 +163,17 @@ const NavLinks = () => {
                         }
                         onClick={clickHandler}
                         name="Эпизоды" />
-                </>)
+
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/piar'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name="Партнеры" />
+                </>
+                )
             }
         </>
     )

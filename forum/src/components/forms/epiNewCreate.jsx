@@ -33,15 +33,15 @@ const EpiNewCreate = () => {
 	useEffect(() => {
 		if (type && type.value === 'fandom') {
 
-			commonFetch(`https://api.rolecrossways.com/v1/character-list-short-view?fandom_id=${fandom.value}`, setFandomChars)
+			commonFetch(`https://api.postscriptum.games/v1/character-list-short-view?fandom_id=${fandom.value}`, setFandomChars)
 
 		} else if (type && type.value === 'crossover') {
-			commonFetch('https://api.rolecrossways.com/v1/fandom-list-short-view', setCross)
+			commonFetch('https://api.postscriptum.games/v1/fandom-list-short-view', setCross)
 
-			commonFetch(`https://api.rolecrossways.com/v1/character-list-short-view?fandom_id=${multiListValue.map(v => (v.value)).join('- ')}`, setFandomChars)
+			commonFetch(`https://api.postscriptum.games/v1/character-list-short-view?fandom_id=${multiListValue.map(v => (v.value)).join('- ')}`, setFandomChars)
 
 		} else if (type && type.value === 'au') {
-			commonFetch('https://api.rolecrossways.com/v1/character-list-short-view', setAllUsersList)
+			commonFetch('https://api.postscriptum.games/v1/character-list-short-view', setAllUsersList)
 
 		} else {
 			return ''
@@ -72,7 +72,7 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			commonPostReq('https://api.rolecrossways.com/v1/episode-create', fandomList)
+			commonPostReq('https://api.postscriptum.games/v1/episode-create', fandomList)
 				.then(data => navigate(`/episodes/${data.episode_id}`))
 
 		} else if (type && type.value === 'crossover') {
@@ -87,7 +87,7 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			commonPostReq('https://api.rolecrossways.com/v1/episode-create', crossList)
+			commonPostReq('https://api.postscriptum.games/v1/episode-create', crossList)
 				.then(data => navigate(`/episodes/${data.episode_id}`))
 			console.log(crossList)
 
@@ -103,7 +103,7 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			commonPostReq('https://api.rolecrossways.com/v1/episode-create', auList)
+			commonPostReq('https://api.postscriptum.games/v1/episode-create', auList)
 				.then(data => navigate(`/episodes/${data.episode_id}`))
 
 			console.log(auList)

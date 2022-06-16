@@ -1,0 +1,10 @@
+@media (min-width: 768px) {
+    .cards-wrapper {
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .cards-common {
+        width: 31%;
+    }
+}

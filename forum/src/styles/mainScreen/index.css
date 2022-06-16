@@ -22,4 +22,6 @@
 
 @import "./new_character_info.css";
 
+@import "./moder_cards/moder_cards.css";
+
 @import "./character_application/character_application.css";

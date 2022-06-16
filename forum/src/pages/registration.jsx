@@ -34,14 +34,14 @@ const Registration = () => {
 		}
 
 		// try {
-		// 	axios.post('https://api.rolecrossways.com/register', info)
+		// 	axios.post('https://api.postscriptum.games/register', info)
 		// 		.then(data => {
 		// 			localStorage.setItem('token', data.token)
 		// 			localStorage.setItem('username', info.username)
 
 		// 		})
 
-		// 	axios.get('https://api.rolecrossways.com/v1/me', {
+		// 	axios.get('https://api.postscriptum.games/v1/me', {
 		// 		headers: {
 		// 			'Authorization': `Bearer ${localStorage.getItem('token')}`
 		// 		}

@@ -25,7 +25,7 @@ const EpiSendPostFrom = ({ updatePosts }) => {
 
 	const sendPost = () => {
 		if (text !== '') {
-			axios.post('https://api.rolecrossways.com/v1/post-create', {
+			axios.post('https://api.postscriptum.games/v1/post-create', {
 				episode_id: location.pathname.slice(10),
 				content: text
 			}, options)

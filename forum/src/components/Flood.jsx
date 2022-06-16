@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { AiOutlineSetting } from "react-icons/ai";
 import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
-import { commonFetch } from '../helpers/commonFetch';
+import { commonDelete, commonFetch } from '../helpers/commonFetch';
 import Breadcrumbs from './breadcrumbs';
 import SendOrRemove from './buttons/send_or_remove';
 
@@ -13,7 +13,6 @@ const Flood = () => {
 	const [msg, setMsg] = useState([])
 	const [count, setCount] = useState(40)
 	const [isHide, setHide] = useState(true)
-	const wrapper = document.querySelector('.wrapper')
 
 
 	function updMsgs(param) {
@@ -21,7 +20,7 @@ const Flood = () => {
 		setMsg(param)
 	}
 
-	const url = 'https://api.rolecrossways.com/v1/chat-message-list';
+	const url = 'https://api.postscriptum.games/v1/chat-message-list';
 	useEffect(() => {
 		commonFetch(url, updMsgs)
 	}, [setMsg, url])
@@ -65,6 +64,24 @@ const Flood = () => {
 
 	useEffect(() => {
 		startChat()
+		// const wrapper = document.querySelector('.wrapper')
+		// wrapper.addEventListener('click', () => {
+		// 	// console.log(1111)
+		// 	// console.log(msg, 777)
+
+		// 	for (let index = 0; index < msg.length; ++index) {
+		// 		msg[index].isHide = true
+		// 	}
+
+		// 	// msg.map(item => {
+		// 	// 	item.isHide = true
+		// 	// 	console.log(item, '9999')
+		// 	// })
+		// 	console.log(isHide, 777)
+		// 	setHide(9)
+		// 	console.log(isHide, 9999)
+		// })
+
 	}, [startChat])
 
 	function sendMessage() {
@@ -82,17 +99,17 @@ const Flood = () => {
 	}
 
 	function msgSet(id) {
+		// const wrapper = document.querySelector('.wrapper')
 		const msgId = msg.find(m => m.id === id)
 		if (msgId.id === id) {
 			msgId.isHide = !msgId.isHide
 			setHide(prevState => !prevState)
-			console.log(isHide)
+			console.log(isHide, 8888)
 		}
 
-		// if (msgId.isHide === false && isHide === false) {
+		// if (msgId.id === id && wrapper) {
 		// 	wrapper.addEventListener('click', () => {
-		// 		msgId.isHide = !msgId.isHide
-		// 		setHide(prevState => !prevState)
+		// 		msgId.isHide = true
 		// 	})
 		// }
 	}
@@ -100,17 +117,18 @@ const Flood = () => {
 	function getAllMsg(param) {
 		param.forEach(p => p["isHide"] = true)
 		setMsg((msg) => param.concat(msg));
+
 	}
 
 	async function loadHistory() {
 		setCount(count => count + 40)
-		const url = `https://api.rolecrossways.com/v1/chat-message-list?offset=${count}`
+		const url = `https://api.postscriptum.games/v1/chat-message-list?offset=${count}`
 		commonFetch(url, getAllMsg)
 	}
 
 	function deleteMsg(id) {
-		setMsg(msg.filter(item => item.id !== id))
-		console.log(msg, 'msgmsgmsg')
+		commonDelete(`https://api.postscriptum.games/v1/chat-message-delete/${id}`,
+			setMsg(msg.filter(item => item.id !== id)))
 	}
 
 	const allMsg = msg?.map(m => {
