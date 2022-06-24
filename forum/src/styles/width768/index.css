@@ -4,5 +4,7 @@
 @import "./modal.css";
 @import "./episodes.css";
 @import "./flood.css";
-@import "./create_new_character.css";
 @import "./moder.css";
+
+@import "./characters.css/create_new_character.css";
+@import "./characters.css/characters.css";

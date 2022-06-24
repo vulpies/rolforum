@@ -1,21 +1,29 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { commonDelete } from '../../helpers/commonFetch'
 import EditOrRemove from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
 
 const SingleEpiPost = ({ posts }) => {
 	let filteredPosts = posts
 
+	console.log(filteredPosts, '8888')
+	console.log(posts, 'msgmsgmsg')
+
 	function openProfile() {
 		console.log('vdsvv')
 	}
 
-	function deleteMsg(id) {
-		console.log('grurvnrd', id)
-		filteredPosts = posts.filter(item => item.id !== id)
-		// console.log(filteredPosts)
-	}
+	const getAllPosts = useCallback((param) => {
+		filteredPosts.filter(item => item.id !== param);
+	}, [filteredPosts])
 
-	// { `/profile/${p?.user_id}` }
+	const deleteMsg = useCallback((id) => {
+		console.log('grurvnrd', id)
+		commonDelete(`https://api.postscriptum.games/v1/post-delete/${id}`,
+			getAllPosts(id))
+	}, [getAllPosts])
+
+
 
 	return (<>
 		{filteredPosts && filteredPosts.map(p =>

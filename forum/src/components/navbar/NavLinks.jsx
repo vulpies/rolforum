@@ -133,7 +133,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Партнеры" />
+                        name="Пиар" />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -171,7 +171,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Партнеры" />
+                        name="Пиар" />
                 </>
                 )
             }

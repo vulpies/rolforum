@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import SendOrRemove from '../buttons/send_or_remove'
 import Swal from 'sweetalert2'
+import TextEditor from '../text_editor/TextEditor'
 
 const EpiSendPostFrom = ({ updatePosts }) => {
 	const [text, setText] = useState('')
@@ -48,7 +49,9 @@ const EpiSendPostFrom = ({ updatePosts }) => {
 	return (
 		<div className='send-post-form'>
 			<p>Введите ваше сообщение</p>
-			<textarea className='send-post-form__text' value={text} onChange={(e) => setText(e.target.value)}></textarea>
+
+			<TextEditor />
+			{/* <textarea className='send-post-form__text' value={text} onChange={(e) => setText(e.target.value)}></textarea> */}
 
 			<SendOrRemove sendBtn={sendPost} removeBtn={handleClear} />
 

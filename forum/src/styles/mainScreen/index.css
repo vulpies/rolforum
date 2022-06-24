@@ -20,8 +20,9 @@
 @import "./profile/profile.css";
 @import "./profile/profile_inputs.css";
 
-@import "./new_character_info.css";
+@import "./characters/create_new_character.css";
+@import "./characters/all_characters.css";
 
 @import "./moder_cards/moder_cards.css";
 
-@import "./character_application/character_application.css";
+@import "./text_editor.css";

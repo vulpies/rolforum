@@ -1,0 +1,25 @@
+@media (min-width: 768px) {
+    .chars-active {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        align-content: flex-start;
+    }
+
+    .chars-wrapper {
+        width: 46%;
+        margin-bottom: 25px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .chars-wrapper {
+        width: 32%;
+        margin-bottom: 15px;
+    }
+
+    .chars-common > p {
+        padding-bottom: 25px;
+    }
+}

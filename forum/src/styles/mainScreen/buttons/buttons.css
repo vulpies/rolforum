@@ -3,8 +3,8 @@
     margin: 5px 0;
     min-width: 64px;
     width: auto;
-    /* outline: none; */
-    outline-color: #bd4305;
+    outline: none;
+    /* outline-color: #bd4305; */
     background-color: #faf4bf;
     border: 1px solid #d29832;
     transition: 0.3s linear;
@@ -41,6 +41,13 @@
 .btns:hover:not(.btns:disabled, .btns:focus) {
     background-color: #ff5722;
     color: #fff;
+}
+
+.btns-editor:hover:not(.btns:disabled, .btns:focus),
+.btns-editor:active:not(.btns:focus, .btns:disabled) {
+    border: 1px solid #b27210;
+    box-shadow: 2px 2px 1px rgb(167 118 98 / 74%),
+        -1px -1px 1px rgb(167 92 53 / 84%);
 }
 
 .btns-common > a {
@@ -82,4 +89,9 @@
     border: none;
     color: #9a6111;
     outline: none;
+}
+
+.btns-char {
+    width: 37%;
+    font-size: 0.8rem;
 }

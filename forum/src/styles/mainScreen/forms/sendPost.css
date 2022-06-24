@@ -21,7 +21,8 @@
     font-size: 1.1rem;
     margin: 10px 0;
     border-color: #8a0b0a;
-    background-color: #fffef6;
+    background-color: #fffffc;
+    border: 1px solid #cccccc;
 }
 
 .send-post-form__btns {

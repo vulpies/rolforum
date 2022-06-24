@@ -8,6 +8,8 @@ const Menu = styled.nav`
     top: 0px;
     left: 0px;
     bottom: 0px;
+    overflow-y: auto;
+    scroll-behavior: auto;
     z-index:5;
     display: block;
     width: 425px;

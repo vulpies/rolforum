@@ -117,7 +117,6 @@ const Flood = () => {
 	function getAllMsg(param) {
 		param.forEach(p => p["isHide"] = true)
 		setMsg((msg) => param.concat(msg));
-
 	}
 
 	async function loadHistory() {

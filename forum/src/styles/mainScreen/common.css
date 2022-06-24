@@ -119,7 +119,8 @@ input:focus-visible {
     box-shadow: 0 0 0 1px orange;
 }
 
-textarea {
+textarea,
+.editor__textarea {
     width: 100%;
     resize: vertical;
     padding: 5px 10px;
@@ -128,11 +129,15 @@ textarea {
     font-style: normal;
     outline: 0;
     border-radius: 5px;
-    border: 1px solid #cccccc;
     min-height: 160px;
 }
 
-textarea:focus-visible {
+textarea {
+    border: 1px solid #cccccc;
+}
+
+textarea:focus-visible,
+.editor__textarea:focus-visible {
     border: 1px solid orange;
     box-shadow: 0 0 0 1px orange;
 }
@@ -147,12 +152,4 @@ textarea:focus-visible {
     justify-content: center !important;
     border-bottom: 1px solid #b83c10;
     margin: -10px -12px 15px;
-}
-
-.create-player {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin: -10px 0 10px;
 }

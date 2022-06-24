@@ -2,11 +2,12 @@ import axios from "axios"
 import React, { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import Characters from "./components/Characters"
 import CharacterApplication from "./components/character_application/CharacterApplication"
 import SingleApp from "./components/character_application/SingleApp"
 import Flood from "./components/Flood"
 import EpiNewCreate from "./components/forms/epiNewCreate"
-import NavbarCommon from "./components/navbar/navbar_common"
+import NavbarCommon from "./components/navbar/Navbar_common"
 import ProfileEdit from "./components/profile/ProfileEdit"
 import ProfileEditPass from "./components/profile/ProfileEditPass"
 import SingleEpi from "./components/single_episode/singleEpi"
@@ -58,6 +59,8 @@ function App() {
                     <Route path="/profile/:profId" element={<Profile />} />
 
                     <Route path="/resetPass" element={<ResetPass />} />
+
+                    <Route path="/my_chars" element={<Characters />} />
 
                     <Route path="/create" element={<CreateCharacter />} />
                     <Route path="/char_app/:appId" element={<SingleApp />} />

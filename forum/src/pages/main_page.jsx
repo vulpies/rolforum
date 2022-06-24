@@ -5,6 +5,7 @@ import Login from "./login"
 import { useNavigate } from 'react-router-dom'
 import Registration from "./registration"
 import CommonInputs from '../helpers/CommonInputs'
+import CommonBigBtn from "../helpers/big_btn"
 
 const MainPage = () => {
     const [user] = useSelector((state) => state.usersReducer.user)
@@ -68,10 +69,12 @@ const MainPage = () => {
             }
 
             {user ? (
-                <div className="create-player">
-                    <button className='btns btns-create' onClick={() => navigate(`/create`)}>Создать персонажа</button >
-                </div>
-
+                <CommonBigBtn
+                    className="chars"
+                    classNameBtn='btns btns-create'
+                    onClick={() => navigate(`/my_chars`)}
+                    name="Все персонажи"
+                />
             )
                 : ""}
         </div>
