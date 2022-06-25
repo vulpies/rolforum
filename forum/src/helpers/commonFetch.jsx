@@ -23,8 +23,6 @@ export const commonPostReq = (url, postInfo) => {
 		.catch(err => console.log(err))
 }
 
-export const commonDelete = (url, setParam) => {
+export const commonDelete = (url) => {
 	axios.delete(url, options)
-		.then(res => setParam(res.data))
-		.catch(err => console.log(err))
 }

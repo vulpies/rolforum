@@ -1,4 +1,27 @@
-.rdw-option-wrapper,
+.editor-line,
+.editor-line__flood {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    border: 1px solid #e4e4e3;
+    padding: 0 3px;
+    border-radius: 5px;
+    background-color: #fff5e8;
+}
+
+.editor-line {
+    margin-top: 5px;
+}
+
+.editor-line__flood {
+    margin-top: -5px;
+    margin-bottom: 8px;
+}
+
+/* .rdw-option-wrapper,
 .rdw-dropdown-wrapper {
     height: 40px !important;
     background: #fff5e5 !important;
@@ -56,4 +79,4 @@
     padding: 10px 5px !important;
     background: #fffffa !important;
     box-shadow: 3px 3px 5px #bfbdbd !important;
-}
+} */

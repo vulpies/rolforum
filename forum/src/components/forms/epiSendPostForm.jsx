@@ -3,7 +3,9 @@ import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import SendOrRemove from '../buttons/send_or_remove'
 import Swal from 'sweetalert2'
-import TextEditor from '../text_editor/TextEditor'
+import { AiOutlineBold } from "react-icons/ai";
+import { GrItalic, GrUnderline } from "react-icons/gr";
+import Editors, { styleEditor } from '../../helpers/editors'
 
 const EpiSendPostFrom = ({ updatePosts }) => {
 	const [text, setText] = useState('')
@@ -22,7 +24,6 @@ const EpiSendPostFrom = ({ updatePosts }) => {
 			}
 		}
 	}
-
 
 	const sendPost = () => {
 		if (text !== '') {
@@ -50,8 +51,9 @@ const EpiSendPostFrom = ({ updatePosts }) => {
 		<div className='send-post-form'>
 			<p>Введите ваше сообщение</p>
 
-			<TextEditor />
-			{/* <textarea className='send-post-form__text' value={text} onChange={(e) => setText(e.target.value)}></textarea> */}
+			<Editors className='editor-line' param={text} setParam={setText} />
+
+			<textarea className='send-post-form__text' value={text} onChange={(e) => setText(e.target.value)}></textarea>
 
 			<SendOrRemove sendBtn={sendPost} removeBtn={handleClear} />
 

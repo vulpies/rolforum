@@ -95,3 +95,17 @@
     width: 37%;
     font-size: 0.8rem;
 }
+
+.btns-editor {
+    font-size: 2rem;
+    width: 35px !important;
+    height: 35px !important;
+    display: flex;
+    align-items: center;
+    min-width: unset;
+    margin-left: 10px;
+}
+
+.btns-editor:first-child {
+    margin-left: 0;
+}

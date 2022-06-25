@@ -3,6 +3,7 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { commonDelete, commonFetch } from '../helpers/commonFetch';
+import Editors, { styleEditor } from '../helpers/editors';
 import Breadcrumbs from './breadcrumbs';
 import SendOrRemove from './buttons/send_or_remove';
 
@@ -199,6 +200,9 @@ const Flood = () => {
 
 			<div className='flood-wrapper__send'>
 				<p>Введите ваше сообщение</p>
+
+				<Editors className='editor-line__flood' param={text} setParam={setText} />
+
 				<textarea id="message"
 					value={text}
 					onChange={(e) => setText(e.target.value)}

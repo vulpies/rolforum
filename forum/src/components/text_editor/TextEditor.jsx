@@ -6,7 +6,7 @@ import draftToHtml from "draftjs-to-html";
 
 export default class TextEditor extends Component {
 	state = {
-		editorState: EditorState.createEmpty(),
+		editorState: this.props.editorState,
 	}
 
 	onEditorStateChange = (editorState) => {
@@ -15,9 +15,15 @@ export default class TextEditor extends Component {
 		})
 	}
 
+	abc = () => {
+		console.log(this.state.editorState, 'editorState')
+	}
+
 	render() {
+
+		this.abc()
 		const { editorState } = this.state;
-		// console.log(6666, draftToHtml(convertToRaw(editorState.getCurrentContent())));
+		console.log(6666, draftToHtml(convertToRaw(editorState.getCurrentContent())));
 		return (
 			<div className="editor__textarea ">
 				<Editor
