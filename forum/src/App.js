@@ -7,7 +7,7 @@ import CharacterApplication from "./components/character_application/CharacterAp
 import SingleApp from "./components/character_application/SingleApp"
 import Flood from "./components/Flood"
 import EpiNewCreate from "./components/forms/epiNewCreate"
-import NavbarCommon from "./components/navbar/Navbar_common"
+import Navigation from "./components/navbar/Navigation"
 import ProfileEdit from "./components/profile/ProfileEdit"
 import ProfileEditPass from "./components/profile/ProfileEditPass"
 import SingleEpi from "./components/single_episode/singleEpi"
@@ -46,7 +46,7 @@ function App() {
     return (
         <>
             <BrowserRouter>
-                <NavbarCommon />
+                <Navigation />
                 <Routes>
                     <Route path="/" exact element={<MainPage />} />
 
