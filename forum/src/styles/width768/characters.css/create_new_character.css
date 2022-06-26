@@ -16,8 +16,4 @@
     .create-char-name > span {
         margin-right: 4px;
     }
-
-    .create-char-desc p {
-        margin-bottom: 12px;
-    }
 }

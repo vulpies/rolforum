@@ -2,10 +2,10 @@ import axios from "axios"
 import React, { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import Characters from "./components/Characters"
+import Characters from "./components/characters/Characters"
+import CharInfo from "./components/characters/CharInfo"
 import CharacterApplication from "./components/character_application/CharacterApplication"
 import SingleApp from "./components/character_application/SingleApp"
-import Flood from "./components/Flood"
 import EpiNewCreate from "./components/forms/epiNewCreate"
 import Navigation from "./components/navbar/Navigation"
 import ProfileEdit from "./components/profile/ProfileEdit"
@@ -49,6 +49,7 @@ function App() {
                 <Navigation />
                 <Routes>
                     <Route path="/" exact element={<MainPage />} />
+                    <Route path="/index" element={<MainPage />} />
 
                     <Route path="/episodes/:epiId" element={<SingleEpi />} />
                     <Route path="/episodes/template" element={<EpiNewCreate />} />
@@ -60,6 +61,7 @@ function App() {
 
                     <Route path="/resetPass" element={<ResetPass />} />
 
+                    <Route path="/my_chars/:charId" element={<CharInfo />} />
                     <Route path="/my_chars" element={<Characters />} />
 
                     <Route path="/create" element={<CreateCharacter />} />
@@ -71,7 +73,7 @@ function App() {
                     <Route path="/admin" element={<AdminPage />} />
                     <Route path="/moder" element={<ModerPage />} />
 
-                    <Route path="/outgame/chat" element={<Flood />} />
+                    {/* <Route path="/outgame/" element={<Flood />} /> */}
                     <Route path="/outgame" element={<Outgame />} />
 
                     <Route path="/chats" element={<Chats />} />

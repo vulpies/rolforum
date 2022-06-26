@@ -11,6 +11,22 @@
         width: 46%;
         margin-bottom: 25px;
     }
+
+    .chars-pending {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .chars-pending__title {
+        width: 103.3%;
+    }
+
+    .chars-pending__wrapper {
+        width: 47%;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -19,7 +35,7 @@
         margin-bottom: 15px;
     }
 
-    .chars-common > p {
-        padding-bottom: 25px;
+    .chars-pending__wrapper {
+        width: 31%;
     }
 }

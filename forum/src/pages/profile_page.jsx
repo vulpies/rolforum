@@ -1,13 +1,11 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { BsPencilSquare, BsChatText } from 'react-icons/bs'
-// import { useSelector } from 'react-redux'
 import { useParams, useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../components/breadcrumbs'
 import { commonFetch } from '../helpers/commonFetch'
 
 const Profile = () => {
-	// const [user] = useSelector((state) => state.usersReducer.user)
 	const navigate = useNavigate()
 
 	const search = useParams();

@@ -3,7 +3,7 @@
     flex-wrap: nowrap;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     align-content: center;
     margin: 0 auto;
 }
@@ -23,6 +23,7 @@
     font-size: 1.3rem;
     color: #ff8c0e;
     text-shadow: 1px 1px 1px #000;
+    font-family: "Satisfy", cursive;
 }
 
 .cards-common a:hover {
@@ -36,8 +37,8 @@
 
 .cards-common span {
     color: red;
-    font-weight: bold;
-    font-size: 1.3rem;
+    font-weight: normal !important;
+    font-family: "Amaranth", sans-serif;
 }
 
 .moder-grey {

@@ -1,0 +1,6 @@
+@media (min-width: 768px) {
+    .editor-line,
+    .editor-line__flood {
+        justify-content: flex-start;
+    }
+}

@@ -8,7 +8,7 @@ const SingleApp = () => {
 	const [appData, setAppData] = useState('')
 
 	useEffect(() => {
-		commonFetch(`https://api.postscriptum.games/v1/moderate/character-application-view/${appId}`, setAppData)
+		commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, setAppData)
 	}, [setAppData])
 
 	console.log(appData, 'appData')
@@ -20,21 +20,31 @@ const SingleApp = () => {
 				<Breadcrumbs name={appData?.name} link='/char_app' extraName="Анкеты" />
 			</div>
 
-			<div className='create-char-wrapper'>
-				<div className='create-char-name'>
-					{appData?.fandom_name ? <span>[{appData?.fandom_name}]</span> : ''}
-					<p>{appData?.name}</p>
-				</div>
+			{appData ?
+				<>
+					<div className='char-app__header'>
+						<p className='char-app__header-date'>{appData?.created_at?.date}</p>
+					</div>
 
-				<div className='create-char-avatar'>
-					<img src={appData?.avatar} className='profile-avatar-img' alt='' />
-				</div>
+					<div className='char-app__wrapper'>
+						<div className='char-app__name'>
+							{appData?.fandom_name ? <span>[{appData?.fandom_name}]</span> : ''}
+							<p>{appData?.name}</p>
+						</div>
 
-				<div className='create-char-desc' dangerouslySetInnerHTML={{
-					__html: `${appData?.description}`
-				}} />
+						<div className='char-app__avatar'>
+							<img src={appData?.avatar} className='profile-avatar-img' alt='' />
+						</div>
 
-			</div>
+						<div className='create-char-desc' dangerouslySetInnerHTML={{
+							__html: `${appData?.description}`
+						}} />
+					</div>
+				</> :
+				<p style={{ textAlign: 'center' }}>Загрузка данных...</p>
+			}
+
+
 		</div>
 	)
 }

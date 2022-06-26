@@ -14,7 +14,7 @@ const CharacterApplication = () => {
 
 	const apps = info?.map(item => (
 		<div className='cards-common' key={item.id}>
-			<a href={`/char_app/${item.id}`}>{item.character_name}</a>
+			<a href={`/char_app/${item.id}`}><span>[{item.fandom_name}]</span> {item.character_name}</a>
 			<p>{item.user_name}</p>
 		</div>
 	))

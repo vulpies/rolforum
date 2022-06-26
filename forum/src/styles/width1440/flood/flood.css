@@ -1,7 +1,7 @@
 @media (min-width: 1280px) {
-    .flood-title {
-        margin: 0px -16px 10px -16px;
-        border-bottom: 2px solid #c5b696;
+    .flood-name__wrapper {
+        border-bottom: 2px solid #cabc9d;
+        margin: -15px -16px 15px -16px;
     }
 
     .flood-wrapper__send-msg {

@@ -1,5 +1,6 @@
 import React from 'react'
 import Breadcrumbs from '../components/breadcrumbs'
+import Flood from '../components/Flood'
 
 const Chats = () => {
 	return (
@@ -7,7 +8,8 @@ const Chats = () => {
 			<div className='epi-links single-link'>
 				<Breadcrumbs name="Чаты" />
 			</div>
-			Chats</div>
+			<Flood />
+		</div>
 	)
 }
 

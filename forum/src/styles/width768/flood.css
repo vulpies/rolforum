@@ -1,4 +1,8 @@
 @media (min-width: 768px) {
+    .flood-name__wrapper {
+        border-bottom: 1px solid #b83c10;
+    }
+
     .flood-message__profile,
     .flood-message__profile-owner {
         width: 100px;

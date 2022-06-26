@@ -5,7 +5,7 @@ const Slider = () => {
 	const user = useSelector((state) => state.usersReducer)
 	const [userInfo] = useSelector((state) => state.usersReducer.user)
 
-	const [image, setImage] = useState("https://yt3.ggpht.com/a-/AAuE7mCUWAR_ZKWNCtfsIQbD811QDQFX0wC-5Fajmg=s400-mo-c-c0xffffffff-rj-k-no")
+	const [image, setImage] = useState("http://playmap.ru/uploads/fotos/foto_17000.gif")
 
 	const changeImage = (e) => {
 		const target = e.target

@@ -1,0 +1,9 @@
+@media (min-width: 1280px) {
+    .char-app__header-date {
+        padding-top: 10px;
+    }
+
+    .chars-pending__title {
+        width: 102.9%;
+    }
+}

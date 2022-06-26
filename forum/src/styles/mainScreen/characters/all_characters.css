@@ -2,7 +2,8 @@
 .chars-active,
 .chars-wrapper,
 .chars-card,
-.char__info {
+.char__info,
+.chars-pending {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -16,27 +17,32 @@
     margin: 0 auto 10px auto;
 }
 
-.chars-common > p {
+.chars-common > p:first-of-type {
     font-size: 1.15rem;
     color: #f82828;
     font-weight: bold;
     text-shadow: 1px 1px 1px #000000;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
 }
 
-.chars-wrapper {
+.chars-wrapper,
+.chars-pending__wrapper {
+    display: flex;
     justify-content: center;
     align-content: flex-start;
-    border: 2px solid #c9700b;
     padding: 10px 8px;
     border-radius: 12px;
     width: 97%;
-    margin: 0 auto 15px;
-    background-color: #c2c0bc;
     /* background-color: #fff7ea; */
     /* background-color: #fcf3e6; */
     /* background-color: #fcdeb4; */
     /* background-color: #ffffdc; */
+}
+
+.chars-wrapper {
+    margin: 0 auto 15px;
+    background-color: #c2c0bc;
+    border: 2px solid #c9700b;
 }
 
 .chars-wrapper:hover {
@@ -70,12 +76,18 @@
     background-color: #f6de0d;
 }
 
+.chars-wrapper:hover .char__stats span {
+    text-shadow: 1px 1px 3px #985304;
+}
+
+/* font-family: 'Amaranth', sans-serif;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Satisfy', cursive; */
+
 .char__info > span {
-    font-family: cursive;
-    font-size: 0.86em;
+    font-family: "Josefin Sans", sans-serif;
     text-align: center;
     padding: 5px 0 10px;
-    /* text-shadow: 1px 1px 6px #ffaa5d; */
     color: #000000;
     text-shadow: 0px 0px 1px #b30000f2;
 }
@@ -91,4 +103,53 @@
     align-items: center;
     align-content: center;
     margin: -10px 0 10px;
+}
+
+.chars-pending {
+    justify-content: center;
+    text-align: center;
+}
+
+.chars-pending__title {
+    width: 107%;
+    text-align: center;
+    display: flex;
+    background-color: #faf0b3;
+    justify-content: center;
+    padding-top: 15px;
+    margin-bottom: 15px;
+}
+
+.chars-pending__title p {
+    font-size: 1rem;
+    color: #520505;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.chars-pending__wrapper {
+    border: 2px solid #da8524;
+    background-color: #fff3db;
+    margin: 0 10px 15px 10px;
+    flex-direction: column;
+}
+
+.chars-pending__wrapper:hover {
+    background-color: #fffbd9;
+    border: 2px solid #bb2626;
+}
+
+.chars-pending__wrapper p {
+    margin-top: 10px;
+}
+
+.chars-pending__wrapper span {
+    margin-right: 3px;
+    color: #ad1414;
+    font-weight: bold;
+}
+
+.chars-pending__wrapper a:hover {
+    color: #f7af43;
+    text-shadow: 1px 1px 1px #000;
 }

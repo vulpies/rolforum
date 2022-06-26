@@ -26,8 +26,10 @@ const SingleEpi = () => {
 
 	}, [setEpiData, setPostData])
 
+	console.log(epiData, 888)
 
-	return (<>
+
+	return (
 		<>
 			{epiData ?
 				<div className="wrapper">
@@ -40,7 +42,6 @@ const SingleEpi = () => {
 					{epiData.can_reply ? <EpiSendPostFrom updatePosts={addNewPost} /> : ''}
 				</div> : <div className="wrapper"><p style={{ 'textAlign': 'center' }}>Загрузка данных...</p></div>}
 		</>
-	</>
 	)
 }
 

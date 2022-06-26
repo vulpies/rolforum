@@ -3,9 +3,9 @@ import { AiOutlineSetting } from "react-icons/ai";
 import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { commonDelete, commonFetch } from '../helpers/commonFetch';
-import Editors, { styleEditor } from '../helpers/editors';
-import Breadcrumbs from './breadcrumbs';
+import Editors from '../helpers/editors';
 import SendOrRemove from './buttons/send_or_remove';
+import { AiOutlineUnorderedList, AiOutlineMore } from "react-icons/ai";
 
 const Flood = () => {
 	const [user] = useSelector((state) => state.usersReducer.user)
@@ -184,11 +184,14 @@ const Flood = () => {
 	})
 
 	return (
-		<div className="wrapper">
-			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name="Флуд" link='/outgame' extraName="Вне игры" />
+		<>
+			<div className='flood-name__wrapper'>
+				<div className='flood-name'>
+					<button className='btns btns-flood'><AiOutlineUnorderedList /></button>
+					<p className='flood-title'>Общий флуд</p>
+					<button className='btns btns-flood'><AiOutlineMore /></button>
+				</div>
 			</div>
-			<p className='flood-title'>Приветствуем в чате!</p>
 
 			<div className='flood-load-history'>
 				<button className='btns btns-load' onClick={loadHistory}>Загрузить еще</button>
@@ -201,7 +204,7 @@ const Flood = () => {
 			<div className='flood-wrapper__send'>
 				<p>Введите ваше сообщение</p>
 
-				<Editors className='editor-line__flood' param={text} setParam={setText} />
+				<Editors className='editor-line__flood' param={text} setParam={setText} id='message' />
 
 				<textarea id="message"
 					value={text}
@@ -211,7 +214,7 @@ const Flood = () => {
 				{socket_con ? <SendOrRemove sendBtn={sendMessage} removeBtn={() => setText('')} /> : ""}
 
 			</div>
-		</div>
+		</>
 	)
 }
 

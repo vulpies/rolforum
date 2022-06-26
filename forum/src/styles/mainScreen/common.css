@@ -119,8 +119,7 @@ input:focus-visible {
     box-shadow: 0 0 0 1px orange;
 }
 
-textarea,
-.editor__textarea {
+textarea {
     width: 100%;
     resize: vertical;
     padding: 5px 10px;
@@ -130,14 +129,10 @@ textarea,
     outline: 0;
     border-radius: 5px;
     min-height: 160px;
-}
-
-textarea {
     border: 1px solid #cccccc;
 }
 
-textarea:focus-visible,
-.editor__textarea:focus-visible {
+textarea:focus-visible {
     border: 1px solid orange;
     box-shadow: 0 0 0 1px orange;
 }

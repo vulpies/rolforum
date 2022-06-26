@@ -2,13 +2,10 @@ import axios from "axios"
 import React from "react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
-import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { addUserInfo } from '../store/usersSlice'
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
 
 const Registration = () => {
-	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const [serverErrors, setServerErrors] = useState("")
 	const [showPass, setShowPass] = useState(false)
@@ -33,33 +30,15 @@ const Registration = () => {
 			setServerErrors("Пароли не совпадают!")
 		}
 
-		// try {
-		// 	axios.post('https://api.postscriptum.games/register', info)
-		// 		.then(data => {
-		// 			localStorage.setItem('token', data.token)
-		// 			localStorage.setItem('username', info.username)
-
-		// 		})
-
-		// 	axios.get('https://api.postscriptum.games/v1/me', {
-		// 		headers: {
-		// 			'Authorization': `Bearer ${localStorage.getItem('token')}`
-		// 		}
-		// 	})
-		// 		.then(res => {
-		// 			console.log(res.data)
-		// 			if (res.data.user_id !== null) {
-		// 				dispatch(addUserInfo(res.data))
-		// 			} else {
-		// 				setServerErrors(111)
-		// 			}
-		// 		})
-		// 		.catch(err => console.log(err))
-		// } catch (err) {
-		// 	console.log(err, '999')
-		// }
-
-		// navigate(`/`)
+		axios.post('https://api.postscriptum.games/register', info)
+			.then(data => {
+				console.log(data)
+				if (data.data.token) {
+					localStorage.setItem('token', data.data.token)
+					localStorage.setItem('username', info.username)
+					navigate(`/index`)
+				}
+			}).catch(err => console.log(err))
 	}
 
 

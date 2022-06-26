@@ -23,6 +23,14 @@
     margin-right: 10px;
 }
 
+.btns-common > a {
+    color: #000;
+}
+
+.btns-common > a:hover {
+    color: #fff;
+}
+
 .btns:focus {
     background-color: #faf4bf;
     border: 1px solid #d29832;
@@ -40,21 +48,6 @@
 
 .btns:hover:not(.btns:disabled, .btns:focus) {
     background-color: #ff5722;
-    color: #fff;
-}
-
-.btns-editor:hover:not(.btns:disabled, .btns:focus),
-.btns-editor:active:not(.btns:focus, .btns:disabled) {
-    border: 1px solid #b27210;
-    box-shadow: 2px 2px 1px rgb(167 118 98 / 74%),
-        -1px -1px 1px rgb(167 92 53 / 84%);
-}
-
-.btns-common > a {
-    color: #000;
-}
-
-.btns-common > a:hover {
     color: #fff;
 }
 
@@ -108,4 +101,11 @@
 
 .btns-editor:first-child {
     margin-left: 0;
+}
+
+.btns-flood {
+    width: 40px;
+    height: 38px;
+    font-size: 1.3em;
+    min-width: unset;
 }

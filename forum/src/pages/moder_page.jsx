@@ -11,6 +11,8 @@ const ModerPage = () => {
 
 	}, [setInfo])
 
+	console.log(info)
+
 	const data = info ? info : ''
 
 

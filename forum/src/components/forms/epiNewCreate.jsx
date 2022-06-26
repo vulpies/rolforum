@@ -7,6 +7,8 @@ import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 
 const EpiNewCreate = () => {
 	const userInfo = useSelector((state) => state.usersReducer.user[0])
+
+	console.log(userInfo, 'userInfouserInfouserInfo')
 	const navigate = useNavigate()
 
 	const [title, setTitle] = useState('')
@@ -15,8 +17,8 @@ const EpiNewCreate = () => {
 	const [type, setType] = useState()
 
 	const fandom = {
-		"value": userInfo?.current_character.fandom_id,
-		"label": userInfo?.current_character.fandom_name
+		"value": userInfo?.current_character?.fandom_id,
+		"label": userInfo?.current_character?.fandom_name
 	}
 	const [check, setCheck] = useState(true);
 	const [allUsersList, setAllUsersList] = useState()
@@ -119,103 +121,105 @@ const EpiNewCreate = () => {
 				<Breadcrumbs name='Новая тема' link='/episodes' extraName="Эпизоды" />
 			</div>
 
-			<form className='create-new-epi'>
-				<label className='create-new-epi__title'>Название эпизода:
-					<input type="text" className='create-new-epi__input' placeholder='Эпизод' value={title} onChange={(e) => setTitle(e.target.value)} />
-				</label>
+			{userInfo?.current_character ?
+				<form className='create-new-epi'>
+					<label className='create-new-epi__title'>Название эпизода:
+						<input type="text" className='create-new-epi__input' placeholder='Эпизод' value={title} onChange={(e) => setTitle(e.target.value)} />
+					</label>
 
-				<CustomSelect
-					styleDiv='create-new-epi__form'
-					label='Формат игры:'
-					onChange={setType}
-					styleSelect='create-new-epi__select'
-					options={options}
-					closeMenuOnSelect={true}
-					placeholder="Выберите тип игры"
-				/>
-
-				{type && type.value === 'fandom' ?
-					<>
-						<CustomSelect
-							styleDiv='create-new-epi__form'
-							label='Фандом'
-							styleSelect='create-new-epi__select'
-							options={fandom}
-							isDisabled={true}
-							defaultValue={fandom}
-						/>
-						<CustomSelect
-							closeMenuOnSelect={false}
-							styleDiv='create-new-epi__form'
-							label='Персонажи:'
-							onChange={getMultiListValue}
-							styleSelect='create-new-epi__select'
-							options={fandomChars && fandomChars.map(item => ({ "value": item.id, "label": item.name }))}
-							isMulti={true}
-							placeholder="Выберите игроков"
-						/>
-
-					</> : ''}
-
-				{type && type.value === 'crossover' ?
-					<>
-						<CustomSelect
-							styleDiv='create-new-epi__form'
-							label='Кроссовер по:'
-							onChange={getMultiListValue}
-							styleSelect='create-new-epi__select'
-							options={cross && cross.map(item => ({ "value": item.id, "label": item.name }))}
-							closeMenuOnSelect={false}
-							isMulti={true}
-							placeholder="Выберите фандомы"
-						/>
-						<CustomSelect
-							styleDiv='create-new-epi__form'
-							label='Персонажи:'
-							onChange={getMultiListValue}
-							styleSelect='create-new-epi__select'
-							options={fandomChars && fandomChars.map(item => ({ "value": item.id, "label": item.name }))}
-							closeMenuOnSelect={false}
-							isMulti={true}
-							placeholder="Выберите игроков"
-						/>
-					</>
-					: ''}
-
-				{type && type.value === 'au' ?
 					<CustomSelect
 						styleDiv='create-new-epi__form'
-						label='Персонажи:'
-						onChange={getMultiListValue}
+						label='Формат игры:'
+						onChange={setType}
 						styleSelect='create-new-epi__select'
-						options={allUsersList && allUsersList.map(item => ({ "value": item.id, "label": item.name }))}
-						closeMenuOnSelect={false}
-						isMulti={true}
-						placeholder="Выберите игроков"
-					/> : ''}
+						options={options}
+						closeMenuOnSelect={true}
+						placeholder="Выберите тип игры"
+					/>
 
-				<div className='create-new-epi__img'>
-					<label className='create-new-epi__title'>Картинка:</label>
-					<input className='create-new-epi__input' placeholder='Вставьте ссылку' value={image} onChange={(e) => setImage(e.target.value)} />
-				</div>
+					{type && type.value === 'fandom' ?
+						<>
+							<CustomSelect
+								styleDiv='create-new-epi__form'
+								label='Фандом'
+								styleSelect='create-new-epi__select'
+								options={fandom}
+								isDisabled={true}
+								defaultValue={fandom}
+							/>
+							<CustomSelect
+								closeMenuOnSelect={false}
+								styleDiv='create-new-epi__form'
+								label='Персонажи:'
+								onChange={getMultiListValue}
+								styleSelect='create-new-epi__select'
+								options={fandomChars && fandomChars.map(item => ({ "value": item.id, "label": item.name }))}
+								isMulti={true}
+								placeholder="Выберите игроков"
+							/>
 
-				<div className='create-new-epi__desc'>
-					<label className='create-new-epi__title'>Описание:</label>
-					<textarea className='create-new-epi__text' placeholder='Описание эпизода' value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
-				</div>
+						</> : ''}
 
-				<div className='create-new-epi__radio'>
-					<div className="switch-cover">
-						<div className="switch r" id="switch-1">
-							<input type="checkbox" className="checkbox" value={check} onChange={() => setCheck(!check)} />
-							<div className="knobs"></div>
-						</div>
+					{type && type.value === 'crossover' ?
+						<>
+							<CustomSelect
+								styleDiv='create-new-epi__form'
+								label='Кроссовер по:'
+								onChange={getMultiListValue}
+								styleSelect='create-new-epi__select'
+								options={cross && cross.map(item => ({ "value": item.id, "label": item.name }))}
+								closeMenuOnSelect={false}
+								isMulti={true}
+								placeholder="Выберите фандомы"
+							/>
+							<CustomSelect
+								styleDiv='create-new-epi__form'
+								label='Персонажи:'
+								onChange={getMultiListValue}
+								styleSelect='create-new-epi__select'
+								options={fandomChars && fandomChars.map(item => ({ "value": item.id, "label": item.name }))}
+								closeMenuOnSelect={false}
+								isMulti={true}
+								placeholder="Выберите игроков"
+							/>
+						</>
+						: ''}
+
+					{type && type.value === 'au' ?
+						<CustomSelect
+							styleDiv='create-new-epi__form'
+							label='Персонажи:'
+							onChange={getMultiListValue}
+							styleSelect='create-new-epi__select'
+							options={allUsersList && allUsersList.map(item => ({ "value": item.id, "label": item.name }))}
+							closeMenuOnSelect={false}
+							isMulti={true}
+							placeholder="Выберите игроков"
+						/> : ''}
+
+					<div className='create-new-epi__img'>
+						<label className='create-new-epi__title'>Картинка:</label>
+						<input className='create-new-epi__input' placeholder='Вставьте ссылку' value={image} onChange={(e) => setImage(e.target.value)} />
 					</div>
-					<p>виден для гостей</p>
-				</div>
 
-				<input type="submit" value="Создать" className='btns btns-create' onClick={handleSubmit} />
-			</form >
+					<div className='create-new-epi__desc'>
+						<label className='create-new-epi__title'>Описание:</label>
+						<textarea className='create-new-epi__text' placeholder='Описание эпизода' value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
+					</div>
+
+					<div className='create-new-epi__radio'>
+						<div className="switch-cover">
+							<div className="switch r" id="switch-1">
+								<input type="checkbox" className="checkbox" value={check} onChange={() => setCheck(!check)} />
+								<div className="knobs"></div>
+							</div>
+						</div>
+						<p>виден для гостей</p>
+					</div>
+
+					<input type="submit" value="Создать" className='btns btns-create' onClick={handleSubmit} />
+				</form> : <p style={{ textAlign: 'center' }}>Вы не можете создать эпизод, не имея ни одного персонажа!</p>}
+
 		</div >
 	)
 }

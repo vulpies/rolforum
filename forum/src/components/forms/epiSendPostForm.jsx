@@ -3,13 +3,15 @@ import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import SendOrRemove from '../buttons/send_or_remove'
 import Swal from 'sweetalert2'
-import { AiOutlineBold } from "react-icons/ai";
-import { GrItalic, GrUnderline } from "react-icons/gr";
-import Editors, { styleEditor } from '../../helpers/editors'
+import Editors from '../../helpers/editors'
+import { useSelector } from 'react-redux'
 
 const EpiSendPostFrom = ({ updatePosts }) => {
+	const [user] = useSelector((state) => state.usersReducer.user)
 	const [text, setText] = useState('')
 	const location = useLocation()
+
+	console.log(user, '555')
 
 	const handleClear = () => {
 		setText('')
@@ -49,11 +51,11 @@ const EpiSendPostFrom = ({ updatePosts }) => {
 
 	return (
 		<div className='send-post-form'>
-			<p>Введите ваше сообщение</p>
+			<p>{user?.current_character?.name}, введите ваше сообщение</p>
 
-			<Editors className='editor-line' param={text} setParam={setText} />
+			<Editors className='editor-line' param={text} setParam={setText} id='epi_textarea' />
 
-			<textarea className='send-post-form__text' value={text} onChange={(e) => setText(e.target.value)}></textarea>
+			<textarea id='epi_textarea' className='send-post-form__text' value={text} onChange={(e) => setText(e.target.value)}></textarea>
 
 			<SendOrRemove sendBtn={sendPost} removeBtn={handleClear} />
 
