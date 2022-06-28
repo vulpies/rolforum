@@ -100,6 +100,13 @@ const Flood = () => {
 		}
 	}
 
+
+	const onKeyDown = event => {
+		if ((event.keyCode === 13) && (event.ctrlKey)) {
+			sendMessage()
+		}
+	}
+
 	function msgSet(id) {
 		// const wrapper = document.querySelector('.wrapper')
 		const msgId = msg.find(m => m.id === id)
@@ -152,7 +159,6 @@ const Flood = () => {
 
 		return (
 			<div className={message} key={m.id}>
-
 				<div className={profile} >
 					<span className="user">
 						<a href={`/profile/${m.user_id}`}>{m.user_name}</a></span>
@@ -209,9 +215,10 @@ const Flood = () => {
 				<textarea id="message"
 					value={text}
 					onChange={(e) => setText(e.target.value)}
+					onKeyDown={onKeyDown}
 					className='flood-wrapper__send-msg'></textarea>
 
-				{socket_con ? <SendOrRemove sendBtn={sendMessage} removeBtn={() => setText('')} /> : ""}
+				{socket_con ? <SendOrRemove sendBtn={(e) => sendMessage} removeBtn={() => setText('')} /> : ""}
 
 			</div>
 		</>

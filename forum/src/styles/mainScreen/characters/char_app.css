@@ -158,7 +158,9 @@
     margin-right: 10px;
 }
 
-.char-app__profile-avatar {
+.char-app__profile a:hover {
+    color: #ffaaaa;
+    text-shadow: 1px 1px 1px #000;
 }
 
 .char-app__profile-avatar img {
@@ -196,6 +198,6 @@
     border-radius: 0 8px 8px 8px;
     width: 100%;
     border: 1px solid #d4c9c9;
-    padding: 5px 5px;
+    padding: 5px 8px;
     color: #2e0202;
 }

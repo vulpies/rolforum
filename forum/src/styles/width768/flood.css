@@ -15,9 +15,30 @@
         max-height: 85px;
     }
 
+    .flood-message__profile a,
+    .flood-message__profile-owner a {
+        font-size: 1.2rem;
+    }
+
+    .flood-message__text-content {
+        font-size: 1.1rem;
+    }
+
+    .flood-message__profile span,
+    .flood-message__profile-owner span {
+        margin-bottom: 3px;
+    }
+
+    .flood-message__profile-avatar {
+        margin-top: 2px;
+    }
+
     .flood-message__profile-avatar > img {
         border-radius: 50px;
-        border: 1px solid#c27608;
+    }
+
+    .flood-message__text-time {
+        font-size: 0.9rem;
     }
 
     .flood-rcvd-msg {
