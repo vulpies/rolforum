@@ -51,14 +51,13 @@ const EpiSendPostFrom = ({ updatePosts }) => {
 
 	return (
 		<div className='send-post-form'>
-			<p>{user?.current_character?.name}, введите ваше сообщение</p>
+			<p><b>{user?.current_character?.name}</b>, введите ваше сообщение</p>
 
 			<Editors className='editor-line' param={text} setParam={setText} id='epi_textarea' />
 
-			<textarea id='epi_textarea' className='send-post-form__text' value={text} onChange={(e) => setText(e.target.value)}></textarea>
+			<textarea id='epi_textarea' className='send-post-form__text' value={text.trim()} onChange={(e) => setText(e.target.value)}></textarea>
 
 			<SendOrRemove sendBtn={sendPost} removeBtn={handleClear} />
-
 		</div>
 	)
 }

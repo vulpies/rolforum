@@ -5,14 +5,19 @@
 
     .flood-message__profile,
     .flood-message__profile-owner {
-        width: 100px;
+        width: 90px;
         text-align: center;
     }
 
     .flood-message__profile-avatar,
     .flood-message__profile-avatar > img {
-        max-width: 100px;
-        max-height: 100px;
+        max-width: 85px;
+        max-height: 85px;
+    }
+
+    .flood-message__profile-avatar > img {
+        border-radius: 50px;
+        border: 1px solid#c27608;
     }
 
     .flood-rcvd-msg {

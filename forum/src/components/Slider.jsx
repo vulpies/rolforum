@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import mainPic from '../images/pic.jpg'
 
 const Slider = () => {
 	const user = useSelector((state) => state.usersReducer)
@@ -22,7 +23,7 @@ const Slider = () => {
 			<div className='slider-main'>
 				{userInfo?.current_character?.avatar ?
 					<img src={userInfo?.user_avatar} alt='' className='slider-main__image' />
-					: <img src={image} alt='' className='slider-main__image' />}
+					: <img src={mainPic} alt='' className='slider-main__image' />}
 			</div>
 			<div className='slider-others'>
 				{userInfo && userInfo.characters.length !== 0 ?

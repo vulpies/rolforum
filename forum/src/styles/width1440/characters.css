@@ -3,7 +3,15 @@
         padding-top: 10px;
     }
 
+    .chars-active__title,
     .chars-pending__title {
-        width: 102.9%;
+        width: 103.1%;
+    }
+
+    .char-app__profile-avatar img {
+        max-width: 110px;
+        max-height: 110px;
+        border-radius: 63px;
+        border: 1px dashed #c27608;
     }
 }

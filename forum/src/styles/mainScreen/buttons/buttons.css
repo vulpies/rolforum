@@ -41,14 +41,19 @@
 
 .btns:hover:not(.btns:disabled, .btns:focus),
 .btns:active:not(.btns:focus, .btns:disabled) {
-    border: 1px solid #ea6e14;
+    /* border: 1px solid #ea6e14;
     box-shadow: 3px 3px 6px rgb(171 55 11 / 74%),
-        -1px -1px 1px rgb(236 89 15 / 84%);
+        -1px -1px 1px rgb(236 89 15 / 84%); */
+    border: 1px solid #ea6e14;
+    box-shadow: 2px 2px 2px #5a210bbd, -1px -1px 1px rgb(236 89 15 / 84%);
 }
 
 .btns:hover:not(.btns:disabled, .btns:focus) {
-    background-color: #ff5722;
-    color: #fff;
+    /* background-color: #ff5722;
+    color: #fff; */
+    background-color: #fe9775;
+    color: #fdfdfd;
+    text-shadow: 1px 1px 2px #2f0000;
 }
 
 .btns-log {
@@ -108,4 +113,20 @@
     height: 38px;
     font-size: 1.3em;
     min-width: unset;
+}
+
+.btns-approve {
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 140px;
+}
+
+.btns-approve:hover {
+    background-color: #ffe48a !important;
+    color: #fffefc !important;
+    border: 1px solid #c97908 !important;
+    box-shadow: 3px 3px 1px rgb(252 164 21 / 74%),
+        -1px -1px 3px rgb(240 204 46 / 84%) !important;
 }

@@ -51,10 +51,10 @@
 
 .profile-edit:hover,
 .profile-chat:hover {
-    color: #f94b03;
-    background-color: transparent;
-    border: 1px solid #ffc849;
-    box-shadow: 2px 2px 0px rgb(255 192 68 / 74%), -1px -1px 1px rgb(255 203 89);
+    color: #af3604 !important;
+    background-color: #fff4df !important;
+    border: 1px solid #ffb305 !important;
+    box-shadow: 2px 2px 0px rgb(238 163 16 / 74%), -1px -1px 1px rgb(255 203 89) !important;
 }
 
 .profile-avatar {

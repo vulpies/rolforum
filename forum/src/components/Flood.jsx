@@ -6,6 +6,7 @@ import { commonDelete, commonFetch } from '../helpers/commonFetch';
 import Editors from '../helpers/editors';
 import SendOrRemove from './buttons/send_or_remove';
 import { AiOutlineUnorderedList, AiOutlineMore } from "react-icons/ai";
+import mainPic from '../images/static.gif'
 
 const Flood = () => {
 	const [user] = useSelector((state) => state.usersReducer.user)
@@ -156,7 +157,7 @@ const Flood = () => {
 					<span className="user">
 						<a href={`/profile/${m.user_id}`}>{m.user_name}</a></span>
 					<div className="flood-message__profile-avatar">
-						<img src={m.user_avatar} alt={m.user_name} />
+						{m.user_avatar ? <img src={m.user_avatar} alt={m.user_name} /> : <img src={mainPic} alt={m.user_name} />}
 					</div>
 				</div>
 
@@ -178,7 +179,6 @@ const Flood = () => {
 						}} />
 					</div>
 				</div>
-
 			</div>
 		)
 	})
@@ -204,7 +204,7 @@ const Flood = () => {
 			<div className='flood-wrapper__send'>
 				<p>Введите ваше сообщение</p>
 
-				<Editors className='editor-line__flood' param={text} setParam={setText} id='message' />
+				<Editors className='editor-line__flood' param={text.trim()} setParam={setText} id='message' />
 
 				<textarea id="message"
 					value={text}

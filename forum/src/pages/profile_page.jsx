@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { BsPencilSquare, BsChatText } from 'react-icons/bs'
+import { BsPencil, BsChatText } from 'react-icons/bs'
 import { useParams, useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../components/breadcrumbs'
 import { commonFetch } from '../helpers/commonFetch'
@@ -13,7 +13,7 @@ const Profile = () => {
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/profile/view/${search.profId}`, setInfo)
-	}, [setInfo])
+	}, [setInfo, search.profId])
 
 	console.log(info, 8888)
 
@@ -31,7 +31,7 @@ const Profile = () => {
 							{info?.user_name === localStorage.getItem('username') ?
 
 								<button className='btns profile-edit' onClick={() => navigate(`/profile/${info?.user_id}/edit`)}>
-									<BsPencilSquare />
+									<BsPencil />
 								</button>
 								: ''}
 							<button className='btns profile-chat'><BsChatText /></button>
@@ -40,13 +40,18 @@ const Profile = () => {
 						<div className='profile-avatar'>
 							<img src={info?.user_avatar} className='profile-avatar-img' alt='' />
 							<div className='profile-chars'>
-								<p>Доступные персонажи:</p>
-								<div className='profile-chars-list'>
-									{info?.characters?.length !== 0 ? info?.characters?.map(c =>
-										<img src={c.avatar} key={c.id} alt={c.name} className='profile-chars-img' />
-									) : 'На текущий момент нет'}
+								{info?.characters ?
+									<>
+										<p>Доступные персонажи:</p>
+										<div className='profile-chars-list'>
 
-								</div>
+											{info?.characters?.length !== 0 ? info?.characters?.map(c =>
+												<img src={c.avatar} key={c.id} alt={c.name} className='profile-chars-img' />
+											) : 'На текущий момент нет'}
+
+										</div>
+									</> : <p>Нет ни одного персонажа</p>}
+
 							</div>
 
 						</div>
@@ -68,7 +73,7 @@ const Profile = () => {
 							<p className='profile-name'>Профиль: <span>{info?.user_name}</span></p>
 							{info?.user_name === localStorage.getItem('username') ?
 								<button className='btns profile-edit' onClick={() => navigate(`/profile/${info?.user_id}/edit`)}>
-									<BsPencilSquare />
+									<BsPencil />
 								</button>
 								: ''}
 							<button className='btns profile-chat'><BsChatText /></button>

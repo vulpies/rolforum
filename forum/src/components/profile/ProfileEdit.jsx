@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { BsPencilSquare } from 'react-icons/bs'
+import { BsPencil } from 'react-icons/bs'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
@@ -97,7 +97,7 @@ const ProfileEdit = () => {
 
 					<div className='profile-input__pass'>
 						<p>Изменить пароль:</p> <button className='btns profile-edit' onClick={() => navigate(`/profile/${user.user_id}/edit/pass`)}>
-							<BsPencilSquare />
+							<BsPencil />
 						</button>
 					</div>
 

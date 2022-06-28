@@ -55,7 +55,7 @@ const Editors = ({ className, param, setParam, id }) => {
 		const start = param.slice(0, area.selectionStart)
 		const end = param.slice(area.selectionEnd)
 
-		setParam(`${start} [${sign}]${setectedText}[/${sign}] ${end}`)
+		setParam(`${start}[${sign}]${setectedText}[/${sign}]${end}`).trim()
 	}
 
 	function styleEditor(param, setParam, sign) {

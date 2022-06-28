@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import { commonFetch } from '../../helpers/commonFetch'
 
 const CharInfo = () => {
+	const [char, setChar] = useState()
+	const search = useParams();
+
+	useEffect(() => {
+		commonFetch(`https://api.postscriptum.games/v1/profile/character-list/${search.charId}`, setChar)
+	}, [setChar, search.charId])
+
+	console.log(char, 'char')
 	return (
 		<div className='wrapper'>CharInfo</div>
 	)

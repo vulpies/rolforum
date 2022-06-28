@@ -20,12 +20,18 @@
         width: 100%;
     }
 
+    .chars-active__title,
     .chars-pending__title {
-        width: 103.3%;
+        width: 103.2%;
     }
 
     .chars-pending__wrapper {
         width: 47%;
+    }
+
+    .char-app__profile-avatar img {
+        max-width: 100px;
+        max-height: 100px;
     }
 }
 

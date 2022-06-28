@@ -15,6 +15,7 @@ const Characters = () => {
 	}, [setInfo, user])
 
 	console.log(info, 99999)
+	console.log(user, 'user')
 
 	return (
 		<div className='wrapper'>
@@ -31,32 +32,41 @@ const Characters = () => {
 			/>
 
 			<div className='chars-common'>
-				<p>Активные персонажи:</p>
-				<div className="chars-active">
-					{info ? info?.characters?.map(char => {
-						return <div className='chars-wrapper' key={char.id}>
-							<div className='chars-card'>
-								<div className='char__info'>
-									<p>{char.name}</p>
-									<img src={char.avatar} alt='' />
-									<span>[{char.fandom_name}]</span>
-								</div>
-								<div className='char__stats'>
-									<p><span>Постов:</span> {char?.total_posts}</p>
-									<p><span>Появлялся:</span><br /> {char?.last_post}</p>
-								</div>
-								<button className='btns btns-char' onClick={() => navigate(`/my_chars/:${char.id}`)}>Открыть</button>
-							</div>
+
+				{info?.characters ?
+					(<>
+						<div className="chars-active__title">
+							<p>Активные персонажи:</p>
 						</div>
-					}) : 'На данный момент нет'}
-				</div>
+
+						<div className="chars-active">
+
+							{info?.characters?.map(char => {
+								return <div className='chars-wrapper' key={char.id}>
+									<div className='chars-card'>
+										<div className='char__info'>
+											<p>{char.name}</p>
+											<img src={char.avatar} alt='' />
+											<span>[{char.fandom_name}]</span>
+										</div>
+										<div className='char__stats'>
+											<p><span>Постов:</span> {char?.total_posts}</p>
+											<p><span>Появлялся:</span><br /> {char?.last_post}</p>
+										</div>
+										<button className='btns btns-char' onClick={() => navigate(`/my_chars/${char.id}`)}>Открыть</button>
+									</div>
+								</div>
+							})}
+						</div>
+					</>) : ''
+				}
 
 				{info?.applications ?
 					<>
 						<div className="chars-pending__title">
-
 							<p>На проверке:</p>
 						</div>
+
 						<div className="chars-pending">
 							{info?.applications.map(app => {
 								return <div className='chars-pending__wrapper' key={app.id}>
