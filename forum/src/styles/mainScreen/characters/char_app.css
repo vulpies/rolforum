@@ -80,8 +80,8 @@
 
 .char-app-edit__user {
     display: flex;
-    width: 80px;
-    font-size: 1.5rem;
+    width: 75px;
+    font-size: 1.7rem;
     align-items: center;
     justify-content: space-between;
     margin-top: 9px;
@@ -137,7 +137,6 @@
     flex-direction: row;
     margin: 0 0 10px;
     align-items: baseline;
-    padding-bottom: 10px;
     border-bottom: 1px solid #d9c3bf;
 }
 
@@ -200,4 +199,25 @@
     border: 1px solid #d4c9c9;
     padding: 5px 8px;
     color: #2e0202;
+}
+
+.char-app__edits {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin-top: 12px;
+    margin-bottom: 2px;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.char-app__edits span {
+    font-size: 1.25rem;
+    margin-left: 15px;
+}
+
+.char-app__edits span:first-child {
+    margin-left: 0;
 }

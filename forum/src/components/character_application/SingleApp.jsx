@@ -1,21 +1,59 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { commonFetch } from '../../helpers/commonFetch'
+import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 import EditOrRemove from '../../helpers/editOrRemove'
 import Breadcrumbs from '../breadcrumbs'
 import { FcApproval } from "react-icons/fc";
 import Editors from '../../helpers/editors'
+import Swal from 'sweetalert2'
+import SendOrRemove from '../buttons/send_or_remove'
+import { BsPencil, BsTrash } from "react-icons/bs";
 
 const SingleApp = () => {
 	const { appId } = useParams()
 	const [appData, setAppData] = useState('')
 	const [text, setText] = useState('')
 
+	const handleClear = () => {
+		setText('')
+	}
+
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, setAppData)
 	}, [setAppData])
 
 	console.log(appData, 'appData')
+
+	const sendPost = () => {
+		const newComment = {
+			application_id: appData.id,
+			content: text
+		}
+		console.log(newComment)
+
+		if (text !== '') {
+			commonPostReq('https://api.postscriptum.games/v1/profile/character-app-comment-post', newComment)
+			setText('')
+		} else {
+			Swal.fire({
+				width: 350,
+				position: 'top',
+				icon: 'error',
+				text: 'Нельзя отправить пустое сообщение!'
+			})
+		}
+	}
+
+	const onKeyDown = event => {
+		if ((event.keyCode === 13) && (event.ctrlKey)) {
+			sendPost()
+		}
+	}
+
+	const deleteCom = appData?.show_delete_button ? <span className='sepi-header-desc__items-trash'><BsTrash /></span> : ''
+
+	const editCom = appData?.show_edit_button ? <span className='sepi-header-desc__items-edit'> <BsPencil /></span> : ''
+
 
 	return (
 		<div className='wrapper'>
@@ -77,6 +115,11 @@ const SingleApp = () => {
 												<div className='char-app__text-content' dangerouslySetInnerHTML={{
 													__html: `${item.content?.replace(/\n/g, `</br>`)}`
 												}} />
+
+												<div className='char-app__edits'>
+													{deleteCom} {editCom}
+												</div>
+
 											</div>
 										</div>
 									</div>
@@ -91,7 +134,13 @@ const SingleApp = () => {
 
 						<Editors className='editor-line' param={text} setParam={setText} id='epi_textarea' />
 
-						<textarea id='epi_textarea' className='send-post-form__text' value={text.trim()} onChange={(e) => setText(e.target.value)}></textarea>
+						<textarea id='epi_textarea'
+							className='send-post-form__text'
+							value={text}
+							onKeyDown={onKeyDown}
+							onChange={(e) => setText(e.target.value)}></textarea>
+
+						<SendOrRemove sendBtn={sendPost} removeBtn={handleClear} />
 					</div>
 				</div> :
 				<p style={{ textAlign: 'center' }}>Загрузка данных...</p>

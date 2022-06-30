@@ -100,7 +100,6 @@ const Flood = () => {
 		}
 	}
 
-
 	const onKeyDown = event => {
 		if ((event.keyCode === 13) && (event.ctrlKey)) {
 			sendMessage()
@@ -203,8 +202,10 @@ const Flood = () => {
 				<button className='btns btns-load' onClick={loadHistory}>Загрузить еще</button>
 			</div>
 
+
+
 			<div id="message-area" className='flood-rcvd-msg'>
-				{allMsg}
+				{allMsg ? allMsg : "Загрузка данных..."}
 			</div>
 
 			<div className='flood-wrapper__send'>
@@ -218,7 +219,7 @@ const Flood = () => {
 					onKeyDown={onKeyDown}
 					className='flood-wrapper__send-msg'></textarea>
 
-				{socket_con ? <SendOrRemove sendBtn={(e) => sendMessage} removeBtn={() => setText('')} /> : ""}
+				{socket_con ? <SendOrRemove sendBtn={(e) => sendMessage()} removeBtn={() => setText('')} /> : ""}
 
 			</div>
 		</>

@@ -3,10 +3,16 @@ import EditOrRemove from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
 
 const SingleEpiHeader = ({ header }) => {
-
 	const userList = []
 
-	header.characters.map(m => m.mask ? userList.push(m.mask) : userList.push(m.name))
+	header.characters.map(m => m.mask ? userList.push({ name: m.mask, id: m.id }) : userList.push({ name: m.name, id: m.id }))
+
+	const str = ', '
+	const users = userList.map(item => {
+		console.log(item.name.concat(str))
+		return <a href={`/profile/${item.id}`} key={item.id}>{item.name.concat(str)}</a>
+	})
+
 
 	return (
 		<div className='sepi-wrapper'>
@@ -28,7 +34,7 @@ const SingleEpiHeader = ({ header }) => {
 				</div>
 
 				<div className='sepi-header-desc__members'>
-					{userList.join(', ')}
+					{users}
 				</div>
 
 				<div className='sepi-header-desc__subtitle' dangerouslySetInnerHTML={{

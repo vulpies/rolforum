@@ -14,6 +14,7 @@ import SingleEpi from "./components/single_episode/singleEpi"
 import Arrows from "./helpers/arrows"
 import { MainPage, Profile, EpisodesPage, OrgPage, Outgame, Chats, CreateCharacter, ResetPass, ModerPage, AdminPage } from './pages/index'
 import { addUserInfo } from "./store/usersSlice"
+import { RolesList } from './pages/org_pages/org_index'
 
 function App() {
     const dispatch = useDispatch()
@@ -68,7 +69,9 @@ function App() {
                     <Route path="/char_app/:appId" element={<SingleApp />} />
                     <Route path="/char_app" element={<CharacterApplication />} />
 
+                    <Route path='/org/list_of_roles' element={<RolesList />} />
                     <Route path="/org" element={<OrgPage />} />
+
 
                     <Route path="/admin" element={<AdminPage />} />
                     <Route path="/moder" element={<ModerPage />} />

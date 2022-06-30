@@ -1,0 +1,30 @@
+@media (min-width: 768px) {
+    .org-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .org-common {
+        width: 47%;
+        margin: 0 10px 15px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .org-common {
+        width: 31%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .org-common {
+        background-color: #fff6e5;
+    }
+
+    .org-common a {
+        font-size: 1.1rem;
+    }
+}

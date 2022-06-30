@@ -27,6 +27,7 @@
     max-width: 70px;
     max-height: 70px;
     text-align: center;
+    margin-top: 2px;
 }
 
 .flood-message__profile-avatar > img {

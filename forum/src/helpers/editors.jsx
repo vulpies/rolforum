@@ -48,21 +48,15 @@ const alignIcons = [
 
 const Editors = ({ className, param, setParam, id }) => {
 
-	function hignlightText(param, setParam, sign) {
-		const setectedText = window.getSelection().toString();
-		const area = document.getElementById(id)
-
-		const start = param.slice(0, area.selectionStart)
-		const end = param.slice(area.selectionEnd)
-
-		setParam(`${start}[${sign}]${setectedText}[/${sign}]${end}`).trim()
-	}
-
 	function styleEditor(param, setParam, sign) {
 		setParam(param.concat(`[${sign}][/${sign}]`))
 
 		if (window.getSelection()) {
-			hignlightText(param, setParam, sign)
+			const setectedText = window.getSelection().toString();
+			const area = document.getElementById(id)
+			const start = param.slice(0, area.selectionStart)
+			const end = param.slice(area.selectionEnd)
+			setParam(`${start}[${sign}]${setectedText}[/${sign}]${end}`)
 		}
 	}
 
@@ -70,7 +64,11 @@ const Editors = ({ className, param, setParam, id }) => {
 		setParam(param.concat(`[align=${sign}][/align]`))
 
 		if (window.getSelection()) {
-			hignlightText(param, setParam, sign)
+			const setectedText = window.getSelection().toString();
+			const area = document.getElementById(id)
+			const start = param.slice(0, area.selectionStart)
+			const end = param.slice(area.selectionEnd)
+			setParam(`${start}[align=${sign}]${setectedText}[/align]${end}`)
 		}
 	}
 

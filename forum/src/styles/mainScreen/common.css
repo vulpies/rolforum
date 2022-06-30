@@ -41,7 +41,9 @@ a {
 }
 
 a:hover {
-    color: #bc1515;
+    /* color: #bc1515; */
+    color: #d11313;
+    text-shadow: 1px 1px 1px #000;
 }
 
 img {

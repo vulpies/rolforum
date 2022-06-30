@@ -1,0 +1,33 @@
+.org-wrapper,
+.org-common {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.org-wrapper {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+}
+
+.org-common {
+    align-content: center;
+    border-radius: 10px;
+    border: 2px solid #da8524;
+    background-color: #fff9ed;
+    padding: 10px 5px;
+    margin: 0 0 15px;
+}
+
+.org-common:hover {
+    background-color: #ffcece;
+    border: 2px solid #bb2626;
+}
+
+.org-common a:hover {
+    color: #ad1414;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+}

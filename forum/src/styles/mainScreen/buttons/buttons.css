@@ -116,11 +116,11 @@
 }
 
 .btns-approve {
-    font-size: 1.3em;
+    font-size: 1.2em;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 140px;
+    width: 132px;
 }
 
 .btns-approve:hover {

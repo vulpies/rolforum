@@ -55,7 +55,7 @@ const EpiSendPostFrom = ({ updatePosts }) => {
 
 			<Editors className='editor-line' param={text} setParam={setText} id='epi_textarea' />
 
-			<textarea id='epi_textarea' className='send-post-form__text' value={text.trim()} onChange={(e) => setText(e.target.value)}></textarea>
+			<textarea id='epi_textarea' className='send-post-form__text' value={text} onChange={(e) => setText(e.target.value)}></textarea>
 
 			<SendOrRemove sendBtn={sendPost} removeBtn={handleClear} />
 		</div>

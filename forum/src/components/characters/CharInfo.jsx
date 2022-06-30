@@ -5,9 +5,10 @@ import { commonFetch } from '../../helpers/commonFetch'
 const CharInfo = () => {
 	const [char, setChar] = useState()
 	const search = useParams();
+	// /v1/character-view/{id}
 
 	useEffect(() => {
-		commonFetch(`https://api.postscriptum.games/v1/profile/character-list/${search.charId}`, setChar)
+		commonFetch(`https://api.postscriptum.games/v1/character-view/${search.charId}`, setChar)
 	}, [setChar, search.charId])
 
 	console.log(char, 'char')

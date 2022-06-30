@@ -1,0 +1,29 @@
+@media (min-width: 768px) {
+    .roles-wrapper {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        border-radius: 8px;
+        width: 100%;
+        padding: 5px 8px 20px;
+        margin-bottom: 15px;
+        border-bottom: 2px solid #e0dada;
+        border-radius: unset;
+    }
+
+    .roles-fandom {
+        width: 55%;
+        margin-bottom: 0;
+        padding: 13px 5px;
+        border: 2px solid #da8524;
+    }
+
+    .roles-list {
+        width: 42%;
+        margin-bottom: 0;
+        /* border: 2px solid #da8524;
+        background-color: #fff7e6; */
+        border-radius: 13px;
+        padding: 4px 0;
+    }
+}
