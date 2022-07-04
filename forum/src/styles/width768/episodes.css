@@ -19,6 +19,7 @@
         border-radius: 20px;
         max-width: 80px;
         max-height: 80px;
+        cursor: pointer;
     }
 
     .send-post-form__btns {

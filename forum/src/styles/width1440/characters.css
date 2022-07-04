@@ -9,9 +9,26 @@
     }
 
     .char-app__profile-avatar img {
-        max-width: 110px;
-        max-height: 110px;
+        max-width: 100px;
+        max-height: 100px;
         border-radius: 63px;
         border: 1px dashed #c27608;
+    }
+
+    .char-info__wrapper {
+        margin-top: 10px;
+        width: 98%;
+        /* border: unset; */
+        /* background-color: unset; */
+    }
+
+    .char-info__epies {
+        width: 95%;
+        margin-top: 10px;
+    }
+
+    .char-info__btns {
+        width: 90%;
+        margin-bottom: 20px;
     }
 }

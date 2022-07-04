@@ -47,7 +47,7 @@ const Profile = () => {
 										<div className='profile-chars-list'>
 
 											{info?.characters?.length !== 0 ? info?.characters?.map(c =>
-												<img src={c.avatar} key={c.id} alt={c.name} onClick={() => navigate(`/my_chars/${c.id}`)} className='profile-chars-img' />
+												<img src={c.avatar} key={c.id} alt={c.name} onClick={() => navigate(`/characters/${c.id}`)} className='profile-chars-img' />
 											) : 'На текущий момент нет'}
 
 										</div>
@@ -90,7 +90,7 @@ const Profile = () => {
 										<p>Доступные персонажи:</p>
 										<div className='profile-chars-list'>
 											{info?.characters?.length !== 0 ? info?.characters?.map(c =>
-												<img src={c.avatar} key={c.id} alt={c.name} onClick={() => navigate(`/my_chars/${c.id}`)} className='profile-chars-img' />
+												<img src={c.avatar} key={c.id} alt={c.name} onClick={() => navigate(`/characters/${c.id}`)} className='profile-chars-img' />
 											) : 'На текущий момент нет'}
 
 										</div>

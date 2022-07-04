@@ -24,7 +24,7 @@ const SingleEpiPost = ({ posts }) => {
 
 					<div className='sepi-post-title'>
 						<div className='sepi-post-title__author'>{p.character_name}</div>
-						<div className='sepi-post-title__date'>{p.created_at}</div>
+						<div className='sepi-post-title__date' id={p.id}>{p.created_at}</div>
 					</div>
 					<hr className='hr-underline' />
 

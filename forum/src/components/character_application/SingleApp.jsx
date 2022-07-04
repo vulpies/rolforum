@@ -13,16 +13,29 @@ const SingleApp = () => {
 	const { appId } = useParams()
 	const [appData, setAppData] = useState('')
 	const [text, setText] = useState('')
+	const [comments, setComments] = useState([])
+	const [newMsg, setNewMsg] = useState(false)
+
+	useEffect(() => {
+		commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
+		console.log(1111)
+	}, [appId])
+
+	useEffect(() => {
+		// setComments(appData?.comments)
+	}, [newMsg])
+
+
+	function updMsgs(param) {
+		setAppData(param)
+		setComments(param.comments)
+		setNewMsg(true)
+	}
+
 
 	const handleClear = () => {
 		setText('')
 	}
-
-	useEffect(() => {
-		commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, setAppData)
-	}, [setAppData])
-
-	console.log(appData, 'appData')
 
 	const sendPost = () => {
 		const newComment = {
@@ -34,6 +47,7 @@ const SingleApp = () => {
 		if (text !== '') {
 			commonPostReq('https://api.postscriptum.games/v1/profile/character-app-comment-post', newComment)
 			setText('')
+			commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
 		} else {
 			Swal.fire({
 				width: 350,
@@ -96,7 +110,7 @@ const SingleApp = () => {
 							</div>
 
 							<div className='char-app__comments-wrapper'>
-								{appData?.comments?.map(item => {
+								{appData && comments?.map(item => {
 
 									return <div className='char-app__message' key={item.id}>
 

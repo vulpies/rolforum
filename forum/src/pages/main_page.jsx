@@ -72,7 +72,7 @@ const MainPage = () => {
                 <CommonBigBtn
                     className="chars"
                     classNameBtn='btns btns-create'
-                    onClick={() => navigate(`/my_chars`)}
+                    onClick={() => navigate(`/characters`)}
                     name="Все персонажи"
                 />
             )

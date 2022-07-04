@@ -41,9 +41,10 @@
 }
 
 .create-char-desc p {
-    margin-bottom: 15px;
+    margin-bottom: 11px;
     line-height: 1.1rem;
     font-size: 1.1rem;
+    text-indent: 20px;
 }
 
 .create-char-btn {

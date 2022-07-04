@@ -1,0 +1,41 @@
+.char-info__btns {
+    justify-content: flex-end;
+}
+
+.char-info__wrapper {
+    margin-top: 10px;
+}
+
+.char-info__epies {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+}
+
+.char-info__epies p {
+    color: #ff0000;
+    text-shadow: 1px 1px 1px #0a0101;
+    font-size: 1.2rem;
+}
+
+.char-info__epies-list {
+    margin-left: 30px;
+}
+
+.char-info__epies-list li {
+    list-style-type: disc;
+}
+
+.char-info__epies-list a {
+    font-weight: normal;
+    color: #000;
+}
+
+.char-info__epies-list a:hover {
+    color: #ffa408;
+}

@@ -32,8 +32,8 @@
 }
 
 .char-app__wrapper {
-    background-color: #f9f1dd;
-    border: 1px solid #d2c3c3;
+    /* background-color: #f9f1dd; */
+    /* border: 1px solid #d2c3c3; */
     border-radius: 6px;
     padding: 0 10px;
 }
@@ -80,11 +80,15 @@
 
 .char-app-edit__user {
     display: flex;
-    width: 75px;
+    width: 80px;
     font-size: 1.7rem;
     align-items: center;
     justify-content: space-between;
     margin-top: 9px;
+}
+
+.char-app-edit__user span {
+    font-size: 1.4rem;
 }
 
 .char-app__send-form {
@@ -136,6 +140,7 @@
 .char-app__message {
     flex-direction: row;
     margin: 0 0 10px;
+    padding-bottom: 5px;
     align-items: baseline;
     border-bottom: 1px solid #d9c3bf;
 }
@@ -164,8 +169,8 @@
 
 .char-app__profile-avatar img {
     border-radius: 10px;
-    max-width: 85px;
-    max-height: 85px;
+    max-width: 70px;
+    max-height: 70px;
     border: 1px dashed #c27608;
 }
 

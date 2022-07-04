@@ -53,7 +53,7 @@ const Characters = () => {
 											<p><span>Постов:</span> {char?.total_posts}</p>
 											<p><span>Появлялся:</span><br /> {char?.last_post}</p>
 										</div>
-										<button className='btns btns-char' onClick={() => navigate(`/my_chars/${char.id}`)}>Открыть</button>
+										<button className='btns btns-char' onClick={() => navigate(`/characters/${char.id}`)}>Открыть</button>
 									</div>
 								</div>
 							})}

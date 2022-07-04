@@ -19,6 +19,12 @@
     min-height: 89px;
 }
 
+.cards-common:hover {
+    border: 2px solid #ca6d08;
+    padding: 4px;
+    background-color: #ffe3be;
+}
+
 .cards-common a {
     font-size: 1.3rem;
     color: #ff8c0e;

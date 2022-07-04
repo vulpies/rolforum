@@ -29,8 +29,8 @@ const EpiNewCreate = () => {
 	const [multiListValue, setMultiListValue] = useState([])
 
 
-	console.log(cross, 'cross')
-	console.log(multiListValue, 'multiListValue')
+	// console.log(cross, 'cross')
+	// console.log(multiListValue, 'multiListValue')
 
 	useEffect(() => {
 		if (type && type.value === 'fandom') {
@@ -73,9 +73,12 @@ const EpiNewCreate = () => {
 				desc,
 				forGuests: check
 			}
+			console.log(fandomList, '8888')
 
 			commonPostReq('https://api.postscriptum.games/v1/episode-create', fandomList)
-				.then(data => navigate(`/episodes/${data.episode_id}`))
+			navigate(`/episodes/`)
+
+			// navigate(`/episodes/${data.episode_id}`)
 
 		} else if (type && type.value === 'crossover') {
 
@@ -90,8 +93,9 @@ const EpiNewCreate = () => {
 			}
 
 			commonPostReq('https://api.postscriptum.games/v1/episode-create', crossList)
-				.then(data => navigate(`/episodes/${data.episode_id}`))
+			// .then(data => navigate(`/episodes/${data.episode_id}`))
 			console.log(crossList)
+			navigate(`/episodes/`)
 
 
 		} else if (type && type.value === 'au') {
@@ -106,7 +110,8 @@ const EpiNewCreate = () => {
 			}
 
 			commonPostReq('https://api.postscriptum.games/v1/episode-create', auList)
-				.then(data => navigate(`/episodes/${data.episode_id}`))
+			// .then(data => navigate(`/episodes/${data.episode_id}`))
+			navigate(`/episodes/`)
 
 			console.log(auList)
 		} else {

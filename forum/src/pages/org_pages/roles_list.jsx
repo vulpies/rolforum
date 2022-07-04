@@ -17,7 +17,7 @@ const RolesList = () => {
 			<div className='roles-list'>
 				<p>
 					{item.characters.map(char =>
-						<a href={`/my_chars/${char.character_id}`} key={char.character_id}>{char.character_name}</a>
+						<a href={`/characters/${char.character_id}`} key={char.character_id}>{char.character_name}</a>
 					)}
 				</p>
 			</div>

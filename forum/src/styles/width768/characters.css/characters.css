@@ -38,12 +38,21 @@
     }
 
     .char-app__profile-avatar img {
-        max-width: 100px;
-        max-height: 100px;
+        max-width: 85px;
+        max-height: 85px;
     }
 
     .char-app__text-time {
         font-size: 0.9rem;
+    }
+
+    .char-app-edit__user {
+        width: 95px;
+        font-size: 1.5rem;
+    }
+
+    .char-app__edits span {
+        margin-left: 30px;
     }
 }
 

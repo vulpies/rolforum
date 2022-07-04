@@ -62,8 +62,8 @@ function App() {
 
                     <Route path="/resetPass" element={<ResetPass />} />
 
-                    <Route path="/my_chars/:charId" element={<CharInfo />} />
-                    <Route path="/my_chars" element={<Characters />} />
+                    <Route path="/characters/:charId" element={<CharInfo />} />
+                    <Route path="/characters" element={<Characters />} />
 
                     <Route path="/create" element={<CreateCharacter />} />
                     <Route path="/char_app/:appId" element={<SingleApp />} />

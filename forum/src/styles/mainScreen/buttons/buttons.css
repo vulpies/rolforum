@@ -125,6 +125,7 @@
 
 .btns-approve:hover {
     background-color: #ffe48a !important;
+    text-shadow: 1px 1px 2px #804f06 !important;
     color: #fffefc !important;
     border: 1px solid #c97908 !important;
     box-shadow: 3px 3px 1px rgb(252 164 21 / 74%),

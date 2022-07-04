@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import EditOrRemove from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
 
@@ -7,11 +8,16 @@ const SingleEpiHeader = ({ header }) => {
 
 	header.characters.map(m => m.mask ? userList.push({ name: m.mask, id: m.id }) : userList.push({ name: m.name, id: m.id }))
 
-	const str = ', '
-	const users = userList.map(item => {
-		console.log(item.name.concat(str))
-		return <a href={`/profile/${item.id}`} key={item.id}>{item.name.concat(str)}</a>
+	// const str = ', '
+	const users = userList.map((item, i) => {
+		// console.log(item.name.concat(str))
+		return <Link to={`/profile/${item.id}`} key={item.id}>
+			{item.name}
+			{i < (userList.length - 1) && ", "}
+		</Link>
 	})
+
+	console.log(users, 'users')
 
 
 	return (

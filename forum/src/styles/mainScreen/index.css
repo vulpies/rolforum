@@ -23,6 +23,7 @@
 @import "./characters/create_new_character.css";
 @import "./characters/all_characters.css";
 @import "./characters/char_app.css";
+@import "./characters/char_info.css";
 
 @import "./moder_cards/moder_cards.css";
 
