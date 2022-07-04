@@ -32,8 +32,8 @@
 }
 
 .char-app__wrapper {
-    /* background-color: #f9f1dd; */
-    /* border: 1px solid #d2c3c3; */
+    background-color: #f9f1dd;
+    border: 1px solid #d2c3c3;
     border-radius: 6px;
     padding: 0 10px;
 }

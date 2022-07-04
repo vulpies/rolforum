@@ -18,8 +18,8 @@
     .char-info__wrapper {
         margin-top: 10px;
         width: 98%;
-        /* border: unset; */
-        /* background-color: unset; */
+        border: unset;
+        background-color: unset;
     }
 
     .char-info__epies {
