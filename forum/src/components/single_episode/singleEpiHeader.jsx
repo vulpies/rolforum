@@ -8,17 +8,12 @@ const SingleEpiHeader = ({ header }) => {
 
 	header.characters.map(m => m.mask ? userList.push({ name: m.mask, id: m.id }) : userList.push({ name: m.name, id: m.id }))
 
-	// const str = ', '
 	const users = userList.map((item, i) => {
-		// console.log(item.name.concat(str))
-		return <Link to={`/profile/${item.id}`} key={item.id}>
+		return <Link to={`/characters/${item.id}`} key={item.id}>
 			{item.name}
 			{i < (userList.length - 1) && ", "}
 		</Link>
 	})
-
-	console.log(users, 'users')
-
 
 	return (
 		<div className='sepi-wrapper'>

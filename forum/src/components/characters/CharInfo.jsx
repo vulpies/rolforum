@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { commonFetch } from '../../helpers/commonFetch'
 import Breadcrumbs from '../breadcrumbs';
-import { FcApproval } from "react-icons/fc";
-import EditOrRemove from '../../helpers/editOrRemove';
+import { BsPencil } from "react-icons/bs";
 
 const CharInfo = () => {
 	const [char, setChar] = useState()
@@ -12,6 +11,7 @@ const CharInfo = () => {
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/character-view/${search.charId}`, setChar)
 	}, [setChar, search.charId])
+
 
 	console.log(char, 'char')
 	return (
@@ -48,7 +48,7 @@ const CharInfo = () => {
 					</div>
 
 					<div className='char-app-edit__btns char-info__btns'>
-						<div className='char-app-edit__user'><EditOrRemove /></div>
+						<span className='sepi-header-desc__items-edit'> <BsPencil /></span>
 					</div>
 
 				</div> :

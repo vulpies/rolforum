@@ -1,9 +1,12 @@
 .char-info__btns {
     justify-content: flex-end;
+    font-size: 1.4rem;
 }
 
 .char-info__wrapper {
     margin-top: 10px;
+    border: unset;
+    background-color: unset;
 }
 
 .char-info__epies {
