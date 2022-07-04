@@ -10,16 +10,22 @@ if (localStorage.getItem('token')) {
 	}
 }
 
-export const commonFetch = async (url, setParam) => {
+export const commonFetch = (url, setParam) => {
 	axios.get(url, options)
 		.then(res => setParam(res.data))
+		.catch(err => console.log(err))
+}
+
+export const uploadInfoFetch = (url) => {
+	axios.get(url, options)
 		.catch(err => console.log(err))
 }
 
 export const commonPostReq = (url, postInfo) => {
 	axios.post(url,
 		JSON.stringify(postInfo), options
-	).catch(err => console.log(err))
+	)
+		.catch(err => console.log(err))
 }
 
 export const commonDelete = (url) => {

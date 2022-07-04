@@ -7,8 +7,6 @@ import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 
 const EpiNewCreate = () => {
 	const userInfo = useSelector((state) => state.usersReducer.user[0])
-
-	console.log(userInfo, 'userInfouserInfouserInfo')
 	const navigate = useNavigate()
 
 	const [title, setTitle] = useState('')

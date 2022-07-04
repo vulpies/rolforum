@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 import EditOrRemove from '../../helpers/editOrRemove'
 import Breadcrumbs from '../breadcrumbs'
@@ -11,27 +11,31 @@ import { BsPencil, BsTrash } from "react-icons/bs";
 
 const SingleApp = () => {
 	const { appId } = useParams()
+	const navigate = useNavigate()
+
 	const [appData, setAppData] = useState('')
 	const [text, setText] = useState('')
 	const [comments, setComments] = useState([])
 	const [newMsg, setNewMsg] = useState(false)
 
-	useEffect(() => {
+	const uploadInfo = () => {
 		commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
-		console.log(1111)
+	}
+
+	useEffect(() => {
+		uploadInfo()
 	}, [appId])
 
-	useEffect(() => {
-		// setComments(appData?.comments)
-	}, [newMsg])
+	// console.log(appData, 'appData')
 
+	useEffect(() => {
+	}, [newMsg])
 
 	function updMsgs(param) {
 		setAppData(param)
 		setComments(param.comments)
 		setNewMsg(true)
 	}
-
 
 	const handleClear = () => {
 		setText('')
@@ -42,12 +46,12 @@ const SingleApp = () => {
 			application_id: appData.id,
 			content: text
 		}
-		console.log(newComment)
 
 		if (text !== '') {
 			commonPostReq('https://api.postscriptum.games/v1/profile/character-app-comment-post', newComment)
+
 			setText('')
-			commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
+			uploadInfo()
 		} else {
 			Swal.fire({
 				width: 350,
@@ -62,6 +66,14 @@ const SingleApp = () => {
 		if ((event.keyCode === 13) && (event.ctrlKey)) {
 			sendPost()
 		}
+	}
+
+	function approveApp() {
+		commonPostReq('https://api.postscriptum.games/v1/moderate/character-approve',
+			{
+				"id": appData.id
+			})
+		navigate(`/characters/${appData.id}`)
 	}
 
 	const deleteCom = appData?.show_delete_button ? <span className='sepi-header-desc__items-trash'><BsTrash /></span> : ''
@@ -98,7 +110,7 @@ const SingleApp = () => {
 					</div>
 
 					<div className='char-app-edit__btns'>
-						{appData?.show_approve_button ? <button className='btns btns-approve'><FcApproval /> Approve</button> : ''}
+						{appData?.show_approve_button ? <button className='btns btns-approve' onClick={approveApp}><FcApproval /> Approve</button> : ''}
 
 						<div className='char-app-edit__user'><EditOrRemove /></div>
 					</div>

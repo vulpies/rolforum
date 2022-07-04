@@ -37,16 +37,25 @@ const MainPage = () => {
     return (
         <div className="wrapper">
             <ProfileSlider />
-            {userAuth === false ?
+            {!userAuth ?
                 <div className='slider-ghost'>
+
                     <img src='https://sun1-16.userapi.com/s/v1/ig1/wLhBikGgAsxrvhrQ_0ZpIadj-0ONkrAGDbB2XVASX8bS_VxxHvKKH_nFm6HaVluDzsAIAkup.jpg?size=200x200&quality=96&crop=44,0,435,435&ava=1' alt='аватар гостя' />
-                    <p className='slider-ghost__subtitle'><a href="/" onClick={handleLogin}>
-                        Войдите
-                    </a> или <a href='/' onClick={handleRegistration}>зарегистрируйтесь</a></p>
-                    {hide === true ? '' : <Login />}
-                    {hideReg === true ? '' : <Registration />}
+
+                    <p className='slider-ghost__subtitle'><a href="/" onClick={handleLogin}> Войдите </a> или
+                        <a href='/'
+                            onClick={handleRegistration}>
+                            зарегистрируйтесь
+                        </a></p>
+
+                    {hide ? '' : <Login />}
+                    {hideReg ? '' : <Registration />}
+
                     <hr className="hr-line" />
-                    <p className="login-pass" onClick={showHide}>Если забыли пароль</p>
+
+                    <p className="login-pass"
+                        onClick={showHide}>Если забыли пароль</p>
+
                     {lostPass ? ''
                         : <div className="login">
                             <div className="login-input">

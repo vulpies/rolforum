@@ -54,7 +54,6 @@ const Flood = () => {
 			addMsg(data)
 		}
 
-
 		socket.onclose = function (event) {
 		};
 
@@ -201,8 +200,6 @@ const Flood = () => {
 			<div className='flood-load-history'>
 				<button className='btns btns-load' onClick={loadHistory}>Загрузить еще</button>
 			</div>
-
-
 
 			<div id="message-area" className='flood-rcvd-msg'>
 				{allMsg ? allMsg : "Загрузка данных..."}
