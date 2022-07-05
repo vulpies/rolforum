@@ -37,6 +37,10 @@ const CharInfo = () => {
 							__html: `${char?.description}`
 						}} />
 
+						<div className='char-info__user'>
+							<p><span>Играет:</span> <a href={`/profile/${char?.user_id}`}> {char?.user_name}</a></p>
+						</div>
+
 						{char?.episodes.length !== 0 ? <div className='char-info__epies'><p>Эпизоды:</p>
 							<ul className='char-info__epies-list'>
 								{char?.episodes?.map(item => { return <li key={item.id}><a href={`/episodes/${item.id}`}>[{item.fandoms}] {item.name}</a></li> })}

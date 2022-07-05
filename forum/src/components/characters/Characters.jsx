@@ -51,7 +51,7 @@ const Characters = () => {
 										</div>
 										<div className='char__stats'>
 											<p><span>Постов:</span> {char?.total_posts}</p>
-											<p><span>Появлялся:</span><br /> {char?.last_post}</p>
+											<p><span>Пост отправлен:</span><br /> {char?.last_post ? char?.last_post : 'Еще не отправлен'}</p>
 										</div>
 										<button className='btns btns-char' onClick={() => navigate(`/characters/${char.id}`)}>Открыть</button>
 									</div>

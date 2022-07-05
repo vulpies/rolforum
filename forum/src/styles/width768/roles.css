@@ -11,8 +11,12 @@
         border-radius: unset;
     }
 
+    .roles-common {
+        margin-top: 17px;
+    }
+
     .roles-fandom {
-        width: 55%;
+        width: 51%;
         margin-bottom: 0;
         padding: 13px 5px;
         border: 2px solid #da8524;
@@ -27,3 +31,9 @@
         padding: 4px 0;
     }
 }
+
+/* @media (min-width: 1280px) {
+    .roles-wrapper:last-child {
+     border-bottom: unset;
+    }
+} */

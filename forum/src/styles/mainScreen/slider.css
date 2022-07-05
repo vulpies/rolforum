@@ -38,6 +38,11 @@
     max-width: 150px;
     max-height: 150px;
     border: 6px double #f1ad35;
+    cursor: pointer;
+}
+
+.slider-main__image:hover {
+    box-shadow: 0 0 5px #a26d08;
 }
 
 .slider-others {
@@ -85,6 +90,11 @@
     max-width: 85px;
     margin-bottom: 10px;
     border-radius: 20%;
+    cursor: pointer;
+}
+
+.slider-others__image:hover {
+    box-shadow: 0px 0px 7px #933d09;
 }
 
 .slider-others__image:last-child {

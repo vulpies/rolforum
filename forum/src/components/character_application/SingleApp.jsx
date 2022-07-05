@@ -18,12 +18,12 @@ const SingleApp = () => {
 	const [comments, setComments] = useState([])
 	const [newMsg, setNewMsg] = useState(false)
 
-	const uploadInfo = () => {
-		commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
-	}
+	// const uploadInfo = () => {
+	// 	commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
+	// }
 
 	useEffect(() => {
-		uploadInfo()
+		commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
 	}, [appId])
 
 	// console.log(appData, 'appData')
@@ -51,7 +51,7 @@ const SingleApp = () => {
 			commonPostReq('https://api.postscriptum.games/v1/profile/character-app-comment-post', newComment)
 
 			setText('')
-			uploadInfo()
+			commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
 		} else {
 			Swal.fire({
 				width: 350,
@@ -139,7 +139,7 @@ const SingleApp = () => {
 												<span className='char-app__text-time'>{item.created_at}</span>
 
 												<div className='char-app__text-content' dangerouslySetInnerHTML={{
-													__html: `${item.content?.replace(/\n/g, `</br>`)}`
+													__html: `${item.content?.replace(/\n/g, `</br>`).replace(/\s-\s/gm, ' — ')}`
 												}} />
 
 												<div className='char-app__edits'>

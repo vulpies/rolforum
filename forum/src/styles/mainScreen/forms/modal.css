@@ -3,16 +3,20 @@
     position: absolute;
     top: 133px;
     width: 100%;
+    left: 0;
+    right: 0;
     background-color: rgb(251, 201, 114);
-    padding: 0 10px;
+    padding: 10px;
     text-align: center;
+    display: block;
+    overflow: auto;
 }
 
-.modal-open {
+/* .modal-open {
     overflow: initial !important;
-}
+} */
 
-.modal-dialog {
+.epi-modal-content {
     background-color: #faf7d196;
     padding: 5px;
     margin: 10px 0;
@@ -23,44 +27,44 @@
     overflow-y: scroll;
 }
 
-.modal-footer {
+.epi-modal-footer {
     left: 10px;
     position: absolute;
     bottom: 4px;
 }
 
-.modal-body {
+.epi-modal-body {
     margin-top: 7px;
 }
 
-.modal-members {
+.epi-modal-members {
     font-size: 0.8rem;
     margin: 5px 0 7px;
 }
 
-.modal-members > span,
-.modal-desc > span {
-    font-size: 0.79rem;
+.epi-modal-members > span,
+.epi-modal-desc > span {
+    font-size: 0.9rem;
     color: #c84f0a;
     font-weight: 600;
 }
 
-.modal-desc {
-    font-size: 0.73rem;
-    letter-spacing: -0.1px;
+.epi-modal-desc {
+    font-size: 0.9rem;
+    /* letter-spacing: -0.1px; */
     text-align: justify;
 }
 
-.modal-desc > span + p {
+.epi-modal-desc > span + p {
     display: inline;
 }
 
-.modal-desc > span ~ p {
+.epi-modal-desc > span ~ p {
     text-indent: 15px;
     margin-top: 1px;
 }
 
-.modal-img__image {
+.epi-modal-img__image {
     max-height: 150px;
     height: auto;
     border-color: blanchedalmond;

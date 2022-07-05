@@ -48,7 +48,9 @@
 }
 
 .roles-list a:hover {
-    color: #ff0000;
+    /* color: #ff0000; */
+    color: #d40e0e;
     font-weight: 600;
-    text-shadow: 1px 1px 1px #000;
+    /* text-shadow: 1px 1px 1px #000; */
+    text-shadow: unset;
 }

@@ -35,7 +35,7 @@ const SingleEpiPost = ({ posts }) => {
 						</div>
 
 						<div className='sepi-post-post__content' dangerouslySetInnerHTML={{
-							__html: `${p.content}`
+							__html: `${p.content?.replace(/\s-\s/gm, ' — ')}`
 						}} />
 
 					</div>

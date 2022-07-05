@@ -90,7 +90,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     align-content: flex-start;
     max-height: 200px;
     min-height: 25px;
@@ -127,6 +127,7 @@
     min-height: 80px;
     border-radius: 20%;
     margin: 5px;
+    cursor: pointer;
 }
 
 .profile-chars-img:hover {

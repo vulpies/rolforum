@@ -10,6 +10,9 @@
     justify-content: flex-start;
     align-items: center;
     align-content: center;
+}
+
+.chars-common {
     width: 100%;
 }
 
@@ -66,6 +69,7 @@
 }
 
 .chars-wrapper {
+    width: 100%;
     margin: 0 auto 15px;
     background-color: #c2c0bc;
     border: 2px solid #c9700b;
@@ -77,6 +81,7 @@
 }
 
 .chars-card {
+    width: 100%;
     justify-content: center;
 }
 

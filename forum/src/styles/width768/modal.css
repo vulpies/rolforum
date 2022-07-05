@@ -5,19 +5,19 @@
         width: 500px;
     }
 
-    .modal-img__image {
+    .epi-modal-img__image {
         max-height: 250px;
     }
 
-    .modal-members {
+    .epi-modal-members {
         font-size: 0.9rem;
     }
 
-    .modal-desc {
+    .epi-modal-desc {
         font-size: 0.9rem;
     }
-    .modal-members > span,
-    .modal-desc > span {
+    .epi-modal-members > span,
+    .epi-modal-desc > span {
         font-size: 0.8rem;
     }
 }

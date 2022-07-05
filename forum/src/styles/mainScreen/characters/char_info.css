@@ -42,3 +42,16 @@
 .char-info__epies-list a:hover {
     color: #ffa408;
 }
+
+.char-info__user {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-content: center;
+    margin: 6px 0 15px;
+}
+
+.char-info__user span {
+    font-weight: bold;
+    text-decoration: underline;
+}

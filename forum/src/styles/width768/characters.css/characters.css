@@ -1,5 +1,6 @@
 @media (min-width: 768px) {
     .chars-active {
+        width: 100%;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -20,9 +21,14 @@
         width: 100%;
     }
 
+    .chars-active__title {
+        margin-top: 8px;
+    }
+
     .chars-active__title,
     .chars-pending__title {
         width: 103.2%;
+        margin-bottom: 21px;
     }
 
     .chars-pending__wrapper {

@@ -60,7 +60,7 @@ const Profile = () => {
 						<div className='profile-common__info'>
 							<p>Зарегистрирован: <span>{info?.registered_at?.split(' ')[0]}</span></p>
 							<p>Репутация: <span>999999999</span></p>
-							<p>Активных эпизодов: <span>999999999</span></p>
+							<p>Активных эпизодов: <span>{info?.episode_count}</span></p>
 							<p>Игровых постов: <span>{info?.post_count ?? 0}</span></p>
 							<p>Пост был написан: <br /><span>{info?.last_post ? info?.last_post : 'пока что не был...'}</span></p>
 							<p>Последний визит: <br /><span>{info?.last_page_load_at}</span></p>
@@ -102,7 +102,7 @@ const Profile = () => {
 								<div className='profile-common__info'>
 									<p>Зарегистрирован: <span>{info?.registered_at?.split(' ')[0]}</span></p>
 									<p>Репутация: <span>999999999</span></p>
-									<p>Активных эпизодов: <span>999999999</span></p>
+									<p>Активных эпизодов: <span>{info?.episode_count}</span></p>
 									<p>Игровых постов: <span>{info?.post_count ?? 0}</span></p>
 									<p>Пост был написан: <span>{info?.last_post ? info?.last_post : 'пока что не был...'}</span></p>
 									<p>Последний визит: <span>{info?.last_page_load_at}</span></p>

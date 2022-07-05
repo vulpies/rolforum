@@ -20,6 +20,13 @@
         max-width: 80px;
         max-height: 80px;
         cursor: pointer;
+        filter: grayscale(60%);
+    }
+
+    .epi-user-info__avatar > img:hover {
+        filter: grayscale(0);
+        /* box-shadow: -1px 0px 3px #990a00; */
+        border: 2px solid #f6a500;
     }
 
     .send-post-form__btns {
@@ -29,5 +36,9 @@
 
     .send-post-form__btns > button {
         margin-right: 0;
+    }
+
+    .sepi-post-post__content > p {
+        margin-bottom: 15px;
     }
 }

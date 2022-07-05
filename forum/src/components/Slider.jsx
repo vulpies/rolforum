@@ -6,29 +6,43 @@ import { commonFetch, uploadInfoFetch } from '../helpers/commonFetch'
 const Slider = () => {
 	const user = useSelector((state) => state.usersReducer)
 	const [userInfo] = useSelector((state) => state.usersReducer.user)
+	const [activeChar, setActiveChar] = useState('')
+	const [upd, setUpd] = useState(false)
+	const [abc, setAbc] = useState('')
 	// const [smth, setSmth] = useState(false)
-	// const [activeChar, setActiveChar] = useState('')
+	// const current = userInfo?.current_character
 
-	const current = userInfo?.current_character
+	useEffect(() => {
+		if (userInfo) {
+			setActiveChar(userInfo.current_character)
+		}
+	}, [userInfo])
 
-	// useEffect(() => {
 
-	// }, [smth])
+	useEffect(() => {
 
-	// const curChar = userInfo?.current_character
-	console.log(current, 'currentcurrent')
+	}, [upd])
+
+	// const newActive = Object.assign(activeChar)
+	// console.log(Object.isExtensible(newActive), 99999)
+	console.log(abc, 666666666)
+
+	// console.log(current, 'currentcurrent')
 	// console.log(userInfo, 'userInfouserInfouserInfo')
+	// console.log(activeChar, 'activeCharactiveCharactiveChar')
 
 	function changeChar(id) {
 		console.log(id)
 		uploadInfoFetch(`https://api.postscriptum.games/v1/profile/character/set-current/${id}/`)
 
-		// setSmth(true)
-		// commonFetch(`https://api.postscriptum.games/v1/me`, setActiveChar)
-		// console.log(activeChar.current_character, 'VRVUIRND')
+		console.log(11111)
+		setUpd(true)
+		console.log(upd, 77777)
+
+		commonFetch(`https://api.postscriptum.games/v1/me`, setAbc)
 	}
 
-	const allChars = userInfo?.characters?.filter(item => item.id !== current.id)
+	const allChars = userInfo?.characters?.filter(item => item.id !== activeChar.id)
 
 	return (<>
 		<p className='slider-title'>Привет, <span>{userInfo?.user_name || 'гость'}</span>!</p>
@@ -37,21 +51,26 @@ const Slider = () => {
 
 			<div className='slider-main'>
 				{userInfo ?
-					<img src={userInfo?.user_avatar} alt='' className='slider-main__image' />
-					: <img src={mainPic} alt='' className='slider-main__image' />}
+					<a href={`/profile/${userInfo?.user_id}`}>
+						<img src={userInfo?.user_avatar} alt='' className='slider-main__image' />
+					</a>
+					:
+					<a href={`/profile/${userInfo?.user_id}`}>
+						<img src={mainPic} alt='' className='slider-main__image' />
+					</a>}
 			</div>
+
 			<div className='slider-others'>
 				{userInfo && userInfo.characters.length !== 0 ?
 					<p>имеющиеся персонажи:</p>
 					: <p>игровые персонажи отсутствуют</p>
 				}
-				{/* <div> */}
-				{userInfo && current ? <img key={current.id} src={current.avatar} className='slider-others__image slider-active-char' alt={current.name} /> : 'нет актива'}
+
+				{userInfo && activeChar ? <img key={activeChar.id} src={activeChar.avatar} className='slider-others__image slider-active-char' alt={activeChar.name} /> : 'нет актива'}
 
 				{userInfo && allChars.map((item => {
 					return <img key={item?.id} src={item?.avatar} alt={item?.name} className='slider-others__image' onClick={() => changeChar(item?.id)} />
 				}))}
-				{/* </div> */}
 
 			</div>
 		</div> : ""

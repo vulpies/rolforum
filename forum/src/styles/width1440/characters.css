@@ -3,6 +3,10 @@
         padding-top: 10px;
     }
 
+    .chars-active__title {
+        margin-top: 5px;
+    }
+
     .chars-active__title,
     .chars-pending__title {
         width: 103.1%;
@@ -27,5 +31,10 @@
     .char-info__btns {
         width: 90%;
         margin-bottom: 20px;
+    }
+
+    .char-info__user {
+        width: 97%;
+        margin-top: 8px;
     }
 }

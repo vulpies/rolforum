@@ -8,3 +8,9 @@
         width: 31%;
     }
 }
+
+@media (min-width: 1280px) {
+    .cards-wrapper {
+        margin-top: 17px;
+    }
+}

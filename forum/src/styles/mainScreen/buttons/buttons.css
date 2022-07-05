@@ -90,7 +90,8 @@
 }
 
 .btns-char {
-    width: 37%;
+    width: 38%;
+    min-width: 91px;
     font-size: 0.8rem;
 }
 

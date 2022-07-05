@@ -144,13 +144,13 @@
 }
 
 .sepi-post-post__content > p {
-    text-indent: 20px;
+    /* text-indent: 20px; */
     margin-bottom: 10px;
 }
 
-.sepi-post-post__content > p:first-child {
+/* .sepi-post-post__content > p:first-child {
     text-indent: 0;
-}
+} */
 
 /* .sepi-post-post__content > p:last-child {
     margin-bottom: 0;
