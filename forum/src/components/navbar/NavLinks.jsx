@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { userLogout } from "../../store/usersSlice"
 import { MenuContext } from "./NavState"
 import OneLink from "./OneNavLink"
+import {t} from "i18next";
 
 const NavLinks = () => {
     const userAuth = useSelector((state) => state.usersReducer.auth)
@@ -62,7 +63,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Главная" />
+                        name={t("navlinks_index")} />
 
                     {adminRole ? <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -153,7 +154,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Главная" />
+                        name={t("navlinks_index")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
