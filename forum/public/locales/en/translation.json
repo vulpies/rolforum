@@ -77,6 +77,14 @@
 		"epiSendPostForm": {
 			"empty_message": "You cannot post empty message",
 			"type_message": "enter your message"
+		},
+		"send_or_remove": {
+			"submit": "Submit",
+			"clear": "Clear"
+		},
+		"singleEpi": {
+			"episodes": "Episodes",
+			"loading": "Loading..."
 		}
 	},
 	"pages": {

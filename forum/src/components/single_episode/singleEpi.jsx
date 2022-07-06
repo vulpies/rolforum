@@ -6,9 +6,11 @@ import EpiSendPostFrom from '../forms/epiSendPostForm'
 import { commonFetch } from '../../helpers/commonFetch'
 import SingleEpiHeader from './singleEpiHeader'
 import SingleEpiPost from './singleEpiPost'
+import { useTranslation } from "react-i18next";
 
 
 const SingleEpi = () => {
+	const { t } = useTranslation();
 	const { epiId } = useParams()
 	const [epiData, setEpiData] = useState('')
 	const [postData, setPostData] = useState([])
@@ -34,7 +36,7 @@ const SingleEpi = () => {
 			{epiData ?
 				<div className="wrapper">
 					<div className='sepi-bread-header extra'>
-						<Breadcrumbs name={epiData.episode.title} link='/episodes' extraName="Эпизоды" />
+						<Breadcrumbs name={epiData.episode.title} link='/episodes' extraName={t("components.singleEpi.episodes")} />
 					</div>
 
 					<SingleEpiHeader header={epiData.episode} />
@@ -44,7 +46,7 @@ const SingleEpi = () => {
 
 					{epiData.can_reply ? <EpiSendPostFrom updatePosts={addNewPost} /> : ''}
 
-				</div> : <div className="wrapper"><p style={{ 'textAlign': 'center' }}>Загрузка данных...</p></div>}
+				</div> : <div className="wrapper"><p style={{ 'textAlign': 'center' }}>{t("components.singleEpi.loading")}</p></div>}
 		</>
 	)
 }

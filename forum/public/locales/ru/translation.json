@@ -77,6 +77,14 @@
 		"epiSendPostForm": {
 			"empty_message": "Нельзя отправить пустое сообщение!",
 			"type_message": "введите ваше сообщение"
+		},
+		"send_or_remove": {
+			"submit": "Отправить",
+			"clear": "Очистить"
+		},
+		"singleEpi": {
+			"episodes": "Эпизоды",
+			"loading": "Загрузка данных..."
 		}
 	},
 	"pages": {
