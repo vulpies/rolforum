@@ -5,8 +5,10 @@ import SendOrRemove from '../buttons/send_or_remove'
 import Swal from 'sweetalert2'
 import Editors from '../../helpers/editors'
 import { useSelector } from 'react-redux'
+import { useTranslation } from "react-i18next";
 
 const EpiSendPostFrom = ({ updatePosts }) => {
+	const { t } = useTranslation();
 	const [user] = useSelector((state) => state.usersReducer.user)
 	const [text, setText] = useState('')
 	const location = useLocation()
@@ -44,14 +46,14 @@ const EpiSendPostFrom = ({ updatePosts }) => {
 				width: 350,
 				position: 'top',
 				icon: 'error',
-				text: 'Нельзя отправить пустое сообщение!'
+				text: t("components.epiSendPostForm.empty_message")
 			})
 		}
 	}
 
 	return (
 		<div className='send-post-form'>
-			<p><b>{user?.current_character?.name}</b>, введите ваше сообщение</p>
+			<p><b>{user?.current_character?.name}</b>, {t("components.epiSendPostForm.type_message")}</p>
 
 			<Editors className='editor-line' param={text} setParam={setText} id='epi_textarea' />
 

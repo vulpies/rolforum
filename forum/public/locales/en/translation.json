@@ -67,6 +67,16 @@
 			"characters": "Characters",
 			"close": "Close",
 			"open": "Read"
+		},
+		"singleApp": {
+			"empty_message": "You cannot post empty message",
+			"comments": "Comments",
+			"type_message": "Enter your message",
+			"loading": "Loading..."
+		},
+		"epiSendPostForm": {
+			"empty_message": "You cannot post empty message",
+			"type_message": "enter your message"
 		}
 	},
 	"pages": {

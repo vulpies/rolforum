@@ -8,8 +8,10 @@ import Editors from '../../helpers/editors'
 import Swal from 'sweetalert2'
 import SendOrRemove from '../buttons/send_or_remove'
 import { BsPencil, BsTrash } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 
 const SingleApp = () => {
+	const { t } = useTranslation();
 	const { appId } = useParams()
 	const navigate = useNavigate()
 
@@ -57,7 +59,7 @@ const SingleApp = () => {
 				width: 350,
 				position: 'top',
 				icon: 'error',
-				text: 'Нельзя отправить пустое сообщение!'
+				text: t("components.singleApp.empty_message")
 			})
 		}
 	}
@@ -118,7 +120,7 @@ const SingleApp = () => {
 					{appData?.comments.length !== 0 && appData?.show_comments ?
 						<>
 							<div className='char-app__comments'>
-								<p>Комментарии:</p>
+								<p>{t("components.singleApp.comments")}</p>
 							</div>
 
 							<div className='char-app__comments-wrapper'>
@@ -156,7 +158,7 @@ const SingleApp = () => {
 						</> : ''}
 
 					<div className='char-app__send-form'>
-						<p>Введите ваше сообщение</p>
+						<p>{t("components.singleApp.type_message")}</p>
 
 						<Editors className='editor-line' param={text} setParam={setText} id='epi_textarea' />
 
@@ -169,7 +171,7 @@ const SingleApp = () => {
 						<SendOrRemove sendBtn={sendPost} removeBtn={handleClear} />
 					</div>
 				</div> :
-				<p style={{ textAlign: 'center' }}>Загрузка данных...</p>
+				<p style={{ textAlign: 'center' }}>{t("components.singleApp.loading")}</p>
 			}
 
 

@@ -67,6 +67,16 @@
 			"characters": "Участники",
 			"close": "Скрыть",
 			"open": "Перейти"
+		},
+		"singleApp": {
+			"empty_message": "Нельзя отправить пустое сообщение!",
+			"comments": "Комментарии:",
+			"type_message": "Введите ваше сообщение",
+			"loading": "Загрузка данных..."
+		},
+		"epiSendPostForm": {
+			"empty_message": "Нельзя отправить пустое сообщение!",
+			"type_message": "введите ваше сообщение"
 		}
 	},
 	"pages": {
