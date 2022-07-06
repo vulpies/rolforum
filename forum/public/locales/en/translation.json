@@ -35,6 +35,9 @@
 			"episodes": "Episodes:",
 			"player": "Played by:",
 			"loading": "Loading..."
+		},
+		"oneEpi": {
+			"view": "Take a peek"
 		}
 	},
 	"pages": {
