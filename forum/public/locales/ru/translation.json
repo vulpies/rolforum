@@ -1,45 +1,60 @@
 {
-	"navlinks_index": "Главная",
-	"navlinks_admin": "Админка",
-	"navlinks_moder": "Модерка",
-	"navlinks_profile": "Профиль",
-	"navlinks_organization": "Орг. темы",
-	"navlinks_episodes": "Эпизоды",
-	"navlinks_offgame": "Вне игры",
-	"navlinks_chats": "Чаты",
-	"navlinks_partners": "Партнеры",
-	"navlinks_logout": "Выйти",
-
-	"pages_main_password_forgotten": "Если забыли пароль",
-	"pages_main_type_email": "Введите email",
-	"pages_main_submit": "Отправить",
-	"pages_main_login": "Войдите",
-	"pages_main_or": "или",
-	"pages_main_register": "зарегистрируйтесь",
-
-	"slider_hello": "Привет,",
-	"slider_guest": "гость",
-
-	"registration_login": "Логин",
-	"registration_type_login": "Введите логин",
-	"registration_login_minimal_length": "Минимальная длина логина 5 символов",
-	"registration_login_maximal_length": "Максимальная длина логина 20 символов",
-	"registration_email": "E-mail",
-	"registration_type_email": "Введите email",
-	"registration_password": "Пароль",
-	"registration_type_password": "Введите пароль",
-	"registration_password_minimal_length": "Минимальная длина пароля 5 символов",
-	"registration_password_maximal_length": "Максимальная длина пароля 20 символов",
-	"registration_repeat_password": "Подтвердите пароль",
-	"registration_type_repeat_password": "Подтвердите пароль",
-	"registration_submit": "Зарегистрироваться",
-
-	"login_login": "Логин",
-	"login_login_required": "Без логина не пустим, упс!",
-	"login_password": "Пароль",
-	"login_password_required": "Для входа нужен пароль!",
-	"login_password_minimal_length": "Минимальная длина пароля 5 символов",
-	"login_password_maximal_length": "Максимальная длина пароля 20 символов",
-	"login_check_data": "Проверьте правильность ввода данных!",
-	"login_submit": "Войти"
+	"components": {
+		"slider": {
+			"hello": "Привет,",
+			"guest": "гость",
+			"your_characters": "Имеющиеся персонажи:",
+			"no_characters": "Игровые персонажи отсутствуют"
+		},
+		"navlinks": {
+			"index": "Главная",
+			"admin": "Админка",
+			"moder": "Модерка",
+			"profile": "Профиль",
+			"organization": "Орг. темы",
+			"episodes": "Эпизоды",
+			"offgame": "Вне игры",
+			"chats": "Чаты",
+			"partners": "Партнеры",
+			"logout": "Выйти"
+		}
+	},
+	"pages": {
+		"main_page": {
+			"password_forgotten": "Если забыли пароль",
+			"type_email": "Введите email",
+			"submit": "Отправить",
+			"login": "Войдите",
+			"or": "или",
+			"register": "зарегистрируйтесь"
+		},
+		"registration": {
+			"login": "Логин",
+			"type_login": "Введите логин",
+			"login_minimal_length": "Минимальная длина логина 5 символов",
+			"login_maximal_length": "Максимальная длина логина 20 символов",
+			"email": "E-mail",
+			"type_email": "Введите email",
+			"password": "Пароль",
+			"type_password": "Введите пароль",
+			"password_minimal_length": "Минимальная длина пароля 5 символов",
+			"password_maximal_length": "Максимальная длина пароля 20 символов",
+			"repeat_password": "Подтвердите пароль",
+			"type_repeat_password": "Подтвердите пароль",
+			"submit": "Зарегистрироваться"
+		},
+		"login": {
+			"login": "Логин",
+			"login_required": "Без логина не пустим, упс!",
+			"password": "Пароль",
+			"password_required": "Для входа нужен пароль!",
+			"password_minimal_length": "Минимальная длина пароля 5 символов",
+			"password_maximal_length": "Максимальная длина пароля 20 символов",
+			"check_data": "Проверьте правильность ввода данных!",
+			"submit": "Войти"
+		}
+	}
 }
+
+
+

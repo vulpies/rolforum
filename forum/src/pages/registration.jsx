@@ -48,17 +48,17 @@ const Registration = () => {
 		<form className='login-wrapper' onSubmit={handleSubmit(onSubmit)}>
 			<div className='login'>
 				<div className="login-input">
-					<label>{t("registration_login")}</label>
+					<label>{t("pages.registration.login")}</label>
 					<input
 						{...register("username", {
-							required: t("registration_type_login"),
+							required: t("pages.registration.type_login"),
 							minLength: {
 								value: 5,
-								message: t("registration_type_login_minimal_length"),
+								message: t("pages.registration.login_minimal_length"),
 							},
 							maxLength: {
 								value: 20,
-								message: t("registration_type_login_maximal_length"),
+								message: t("pages.registration.login_maximal_length"),
 							},
 							onChange: "",
 							pattern: /[A-Za-z]/
@@ -66,10 +66,10 @@ const Registration = () => {
 					/>
 				</div>
 				<div className="login-input">
-					<label>{t("registration_email")}</label>
+					<label>{t("pages.registration.email")}</label>
 					<input
 						{...register("email", {
-							required: t("registration_type_email"),
+							required: t("pages.registration.type_email"),
 							onChange: "",
 							pattern: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i
 						})}
@@ -78,17 +78,17 @@ const Registration = () => {
 				</div>
 
 				<div className="login-input login-input-pass">
-					<label>{t("registration_password")}</label>
+					<label>{t("pages.registration.password")}</label>
 					<input
 						{...register("password", {
-							required: t("registration_type_password"),
+							required: t("pages.registration.type_password"),
 							minLength: {
 								value: 5,
-								message: t("registration_type_password_minimal_length"),
+								message: t("pages.registration.password_minimal_length"),
 							},
 							maxLength: {
 								value: 20,
-								message: t("registration_type_password_maximal_length"),
+								message: t("pages.registration.password_maximal_length"),
 							},
 						})}
 						type={showPass ? "text" : "password"}
@@ -99,17 +99,17 @@ const Registration = () => {
 				</div>
 
 				<div className="login-input">
-					<label>{t("registration_repeat_password")}</label>
+					<label>{t("pages.registration.repeat_password")}</label>
 					<input
 						{...register("passwordTwo", {
-							required: t("registration_type_repeat_password"),
+							required: t("pages.registration.type_repeat_password"),
 							minLength: {
 								value: 5,
-								message: t("registration_type_password_minimal_length"),
+								message: t("pages.registration.password_minimal_length"),
 							},
 							maxLength: {
 								value: 20,
-								message: t("registration_type_password_maximal_length"),
+								message: t("pages.registration.password_maximal_length"),
 							},
 						})}
 						type='password'
@@ -139,7 +139,7 @@ const Registration = () => {
 					disabled={!isValid}
 					type="submit"
 					className='btns btns-common btns-log'
-					value={t("registration_submit")}
+					value={t("pages.registration.submit")}
 				/>
 			</div>
 		</form>

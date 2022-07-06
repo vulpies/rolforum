@@ -44,10 +44,10 @@ const MainPage = () => {
 
                     <img src='https://sun1-16.userapi.com/s/v1/ig1/wLhBikGgAsxrvhrQ_0ZpIadj-0ONkrAGDbB2XVASX8bS_VxxHvKKH_nFm6HaVluDzsAIAkup.jpg?size=200x200&quality=96&crop=44,0,435,435&ava=1' alt='аватар гостя' />
 
-                    <p className='slider-ghost__subtitle'><a href="/" onClick={handleLogin}> {t("pages_main_login")} </a> {t("pages_main_or")}
+                    <p className='slider-ghost__subtitle'><a href="/" onClick={handleLogin}> {t("pages.main_page.login")} </a> {t("pages.main_page.or")}
                         <a href='/'
                             onClick={handleRegistration}>
-                            {t("pages_main_register")}
+                            {t("pages.main_page.register")}
                         </a></p>
 
                     {hide ? '' : <Login />}
@@ -56,7 +56,7 @@ const MainPage = () => {
                     <hr className="hr-line" />
 
                     <p className="login-pass"
-                        onClick={showHide}>{t("pages_main_password_forgotten")}</p>
+                        onClick={showHide}>{t("pages.main_page.password_forgotten")}</p>
 
                     {lostPass ? ''
                         : <div className="login">
@@ -65,14 +65,14 @@ const MainPage = () => {
                                     type='email'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    placeholder={t("pages_main_type_email")}
+                                    placeholder={t("pages.main_page.type_email")}
                                 />
                             </div>
 
                             <input
                                 type="submit"
                                 className='btns btns-common btns-log'
-                                value={t("pages_main_submit")}
+                                value={t("pages.main_page.submit")}
                             />
                         </div>
                     }

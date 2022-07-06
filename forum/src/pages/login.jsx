@@ -71,10 +71,10 @@ const Login = () => {
 		<form className='login-wrapper' onSubmit={handleSubmit(onSubmit)}>
 			<div className='login'>
 				<div className="login-input">
-					<label>{t("login_login")}</label>
+					<label>{t("pages.login.login")}</label>
 					<input
 						{...register("username", {
-							required: t("login_login_required"),
+							required: t("pages.login.login_required"),
 							onChange: "",
 							pattern: /[A-Za-z]/
 						})}
@@ -82,17 +82,17 @@ const Login = () => {
 				</div>
 
 				<div className="login-input login-input-pass">
-					<label>{t("login_password")}</label>
+					<label>{t("pages.login.password")}</label>
 					<input
 						{...register("password", {
-							required: t("login_password_required"),
+							required: t("pages.login.password_required"),
 							minLength: {
 								value: 5,
-								message: t("login_password_minimal_length"),
+								message: t("pages.login.password_minimal_length"),
 							},
 							maxLength: {
 								value: 20,
-								message: t("login_password_maximal_length"),
+								message: t("pages.login.password_maximal_length"),
 							},
 						})}
 						type={showPass ? "text" : "password"}
@@ -104,12 +104,12 @@ const Login = () => {
 
 				<div className='login-error'>
 					{errors?.username && (
-						<p>{errors?.username?.message || t("login_check_data")}</p>
+						<p>{errors?.username?.message || t("pages.login.check_data")}</p>
 					)}
 					{errors?.password && (
 						<p>
 							{errors?.password?.message ||
-								t("login_check_data")}
+								t("pages.login.check_data")}
 						</p>
 					)}
 					{serverErr ? <p>{serverErr}</p> : ''}
@@ -120,7 +120,7 @@ const Login = () => {
 					type="submit"
 					className='btns btns-common btns-log'
 					disabled={!isValid}
-					value={t("login_submit")}
+					value={t("pages.login.submit")}
 				/>
 			</div>
 		</form>

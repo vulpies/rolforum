@@ -64,7 +64,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("navlinks_index")} />
+                        name={t("components.navlinks.index")} />
 
                     {adminRole ? <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -73,7 +73,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("navlinks_admin")} /> : ''}
+                        name={t("components.navlinks.admin")} /> : ''}
 
                     {moderRole ? <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -82,7 +82,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("navlinks_moder")} /> : ''}
+                        name={t("components.navlinks.moder")} /> : ''}
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -91,7 +91,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("navlinks_profile")} />
+                        name={t("components.navlinks.profile")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -100,7 +100,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("navlinks_organization")} />
+                        name={t("components.navlinks.organization")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -109,7 +109,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("navlinks_episodes")} />
+                        name={t("components.navlinks.episodes")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -118,7 +118,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("navlinks_offgame")} />
+                        name={t("components.navlinks.offgame")} />
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
                         to='/chats'
@@ -126,7 +126,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("navlinks_chats")} />
+                        name={t("components.navlinks.chats")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -135,7 +135,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("navlinks_partners")} />
+                        name={t("components.navlinks.partners")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -144,7 +144,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={handleLogout}
-                        name={t("navlinks_logout")} />
+                        name={t("components.navlinks.logout")} />
 
                 </>)
                 : (<>
@@ -155,7 +155,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("navlinks_index")} />
+                        name={t("components.navlinks.index")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -164,7 +164,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("navlinks_episodes")} />
+                        name={t("components.navlinks.episodes")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -173,7 +173,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("navlinks_partners")} />
+                        name={t("components.navlinks.partners")} />
                 </>
                 )
             }
