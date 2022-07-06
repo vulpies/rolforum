@@ -1,7 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { commonFetch } from '../../helpers/commonFetch'
-// import EpiModal from '../forms/epiModal'
 import { useNavigate } from 'react-router-dom'
 import ModalEpi from '../forms/modalEpi'
 import { useTranslation } from "react-i18next";

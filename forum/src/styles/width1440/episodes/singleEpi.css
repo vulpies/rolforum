@@ -15,8 +15,17 @@
         margin-bottom: 30px;
     }
 
+    .epi-user-info {
+        width: 310px;
+    }
+
     .epi-text-info {
         width: 64%;
+    }
+
+    .epi-user-info__avatar {
+        width: 29%;
+        justify-content: center;
     }
 
     .sepi-post-title {

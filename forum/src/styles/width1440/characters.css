@@ -24,7 +24,7 @@
     }
 
     .char-info__epies {
-        width: 95%;
+        width: 97%;
         margin-top: 10px;
     }
 
@@ -35,6 +35,7 @@
 
     .char-info__user {
         width: 97%;
-        margin-top: 8px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }

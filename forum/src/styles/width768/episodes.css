@@ -5,7 +5,7 @@
     }
 
     .epi-user-info {
-        width: 295px;
+        width: 300px;
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
@@ -30,7 +30,7 @@
     }
 
     .epi-text-info {
-        width: 50%;
+        width: 51%;
     }
 
     .send-post-form__btns {

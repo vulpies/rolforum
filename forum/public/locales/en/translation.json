@@ -1,112 +1,112 @@
 {
-	"components": {
-		"slider": {
-			"hello": "Hello",
-			"guest": "stranger",
-			"your_characters": "Your characters:",
-			"no_characters": "You have no characters"
-		},
-		"navlinks": {
-			"index": "Home",
-			"admin": "Admin",
-			"moder": "Moderate",
-			"profile": "Profile",
-			"organization": "Organization",
-			"episodes": "Episodes",
-			"offgame": "Off Game",
-			"chats": "Chats",
-			"partners": "Partners",
-			"logout": "Log Out"
-		},
-		"characters": {
-			"all_characters": "All Characters",
-			"create_character": "Create character",
-			"active_characters": "Active characters",
-			"post_count": "Post count:",
-			"last_post": "Last post:",
-			"no_last_post": "never",
-			"open": "Open"
-		},
-		"breadcrumbs": {
-			"index": "Home"
-		},
-		"charinfo": {
-			"all_characters": "All characters",
-			"episodes": "Episodes:",
-			"player": "Played by:",
-			"loading": "Loading..."
-		},
-		"oneEpi": {
-			"view": "Take a peek"
-		},
-		"epiNewCreate": {
-			"label_fandom": "Fandom",
-			"label_crossover": "Crossover",
-			"label_au": "AU",
-			"new_episode": "New episode",
-			"episodes": "Episodes",
-			"episode_name": "Episode title",
-			"episode": "Episode",
-			"game_format": "Game format:",
-			"choose_game_type": "Choose game format",
-			"fandom": "Fandom",
-			"characters": "Characters",
-			"choose_characters": "Choose participants",
-			"crossover": "Crossover fandoms",
-			"choose_fandoms": "Choose fandoms",
-			"image": "Image",
-			"enter_link": "Enter image link",
-			"summary": "Summary",
-			"episode_summary": "Enter episode summary",
-			"guest_visible": "Guests can read this episode",
-			"cannot_create_episode": "You cannot create an episode, you do not have any characters",
-			"create": "Create episode"
-		},
-		"modalEpi": {
-			"summary": "Summary",
-			"characters": "Characters",
-			"close": "Close",
-			"open": "Read"
-		}
-	},
-	"pages": {
-		"main_page": {
-			"password_forgotten": "Forgot password",
-			"type_email": "Enter email",
-			"submit": "Submit",
-			"login": "Log in",
-			"or": "or",
-			"register": "register",
-			"all_characters": "All characters"
-		},
-		"episodes_page": {
-			"new_episode": "New episode",
-			"episodes": "Episodes"
-		},
-		"registration": {
-			"login": "User name",
-			"type_login": "Enter user name",
-			"login_minimal_length": "Minimal user name length is 5 symbols",
-			"login_maximal_length": "Maximal user name length is 20 symbols",
-			"email": "Email",
-			"type_email": "Enter email",
-			"password": "Password",
-			"type_password": "Enter password",
-			"password_minimal_length": "Minimal password length is 5 symbols",
-			"password_maximal_length": "Maximal password length is 20 symbols",
-			"repeat_password": "Repeat password",
-			"type_repeat_password": "Repeat password",
-			"submit": "Register"
-		},
-		"login": {
-			"login": "User name",
-			"login_required": "User name is required",
-			"password": "Password",
-			"password_required": "Password is required",
-			"password_minimal_length": "Minimal password length is 5 symbols",
-			"password_maximal_length": "Maximal password length is 20 symbols",
-			"check_data": "Please, check the log in information",
-			"submit": "Log In"
-		}
-	}
+    "components": {
+        "slider": {
+            "hello": "Hello",
+            "guest": "stranger",
+            "your_characters": "Your characters:",
+            "no_characters": "You have no characters"
+        },
+        "navlinks": {
+            "index": "Home",
+            "admin": "Admin",
+            "moder": "Moderate",
+            "profile": "Profile",
+            "organization": "Organization",
+            "episodes": "Episodes",
+            "offgame": "Off Game",
+            "chats": "Chats",
+            "partners": "Partners",
+            "logout": "Log Out"
+        },
+        "characters": {
+            "all_characters": "All Characters",
+            "create_character": "Create character",
+            "active_characters": "Active characters",
+            "post_count": "Post count:",
+            "last_post": "Last post:",
+            "no_last_post": "not yet",
+            "open": "Open"
+        },
+        "breadcrumbs": {
+            "index": "Home"
+        },
+        "charinfo": {
+            "all_characters": "All characters",
+            "episodes": "Episodes:",
+            "player": "Played by:",
+            "loading": "Loading..."
+        },
+        "oneEpi": {
+            "view": "Look"
+        },
+        "epiNewCreate": {
+            "label_fandom": "Fandom",
+            "label_crossover": "Crossover",
+            "label_au": "AU",
+            "new_episode": "New episode",
+            "episodes": "Episodes",
+            "episode_name": "Episode title",
+            "episode": "Episode",
+            "game_format": "Game format:",
+            "choose_game_type": "Choose game format",
+            "fandom": "Fandom",
+            "characters": "Characters",
+            "choose_characters": "Choose participants",
+            "crossover": "Crossover fandoms",
+            "choose_fandoms": "Choose fandoms",
+            "image": "Image",
+            "enter_link": "Enter image link",
+            "summary": "Summary",
+            "episode_summary": "Enter episode summary",
+            "guest_visible": "Guests can read this episode",
+            "cannot_create_episode": "You cannot create an episode, you do not have any characters",
+            "create": "Create episode"
+        },
+        "modalEpi": {
+            "summary": "Summary",
+            "characters": "Characters",
+            "close": "Close",
+            "open": "Read"
+        }
+    },
+    "pages": {
+        "main_page": {
+            "password_forgotten": "Forgot password",
+            "type_email": "Enter email",
+            "submit": "Submit",
+            "login": "Log in",
+            "or": "or",
+            "register": "register",
+            "all_characters": "All characters"
+        },
+        "episodes_page": {
+            "new_episode": "New episode",
+            "episodes": "Episodes"
+        },
+        "registration": {
+            "login": "Username",
+            "type_login": "Enter username",
+            "login_minimal_length": "Minimal username length is 5 symbols",
+            "login_maximal_length": "Maximal username length is 20 symbols",
+            "email": "Email",
+            "type_email": "Enter email",
+            "password": "Password",
+            "type_password": "Enter password",
+            "password_minimal_length": "Minimal password length is 5 symbols",
+            "password_maximal_length": "Maximal password length is 20 symbols",
+            "repeat_password": "Repeat password",
+            "type_repeat_password": "Repeat password",
+            "submit": "Register"
+        },
+        "login": {
+            "login": "Username",
+            "login_required": "Username is required",
+            "password": "Password",
+            "password_required": "Password is required",
+            "password_minimal_length": "Minimal password length is 5 symbols",
+            "password_maximal_length": "Maximal password length is 20 symbols",
+            "check_data": "Please, check the log in information",
+            "submit": "Log In"
+        }
+    }
 }

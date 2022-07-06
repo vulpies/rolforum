@@ -28,4 +28,8 @@
     .flood-message__profile {
         width: 100px;
     }
+
+    .flood-message__text-content p {
+        line-height: 1.2;
+    }
 }
