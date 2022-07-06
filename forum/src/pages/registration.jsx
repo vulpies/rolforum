@@ -4,8 +4,10 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
+import {useTranslation} from "react-i18next";
 
 const Registration = () => {
+	const { t, i18n } = useTranslation();
 	const navigate = useNavigate()
 	const [serverErrors, setServerErrors] = useState("")
 	const [showPass, setShowPass] = useState(false)
@@ -46,17 +48,17 @@ const Registration = () => {
 		<form className='login-wrapper' onSubmit={handleSubmit(onSubmit)}>
 			<div className='login'>
 				<div className="login-input">
-					<label>Логин</label>
+					<label>{t("registration_login")}</label>
 					<input
 						{...register("username", {
-							required: "Введите логин",
+							required: t("registration_type_login"),
 							minLength: {
-								value: 3,
-								message: "Минимальная длина логина 5 символов",
+								value: 5,
+								message: t("registration_type_login_minimal_length"),
 							},
 							maxLength: {
-								value: 30,
-								message: "Максимальная длина логина 20 символов",
+								value: 20,
+								message: t("registration_type_login_maximal_length"),
 							},
 							onChange: "",
 							pattern: /[A-Za-z]/
@@ -64,10 +66,10 @@ const Registration = () => {
 					/>
 				</div>
 				<div className="login-input">
-					<label>E-mail</label>
+					<label>{t("registration_email")}</label>
 					<input
 						{...register("email", {
-							required: "Введите email",
+							required: t("registration_type_email"),
 							onChange: "",
 							pattern: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i
 						})}
@@ -76,17 +78,17 @@ const Registration = () => {
 				</div>
 
 				<div className="login-input login-input-pass">
-					<label>Пароль</label>
+					<label>{t("registration_password")}</label>
 					<input
 						{...register("password", {
-							required: "Введите пароль",
+							required: t("registration_type_password"),
 							minLength: {
 								value: 5,
-								message: "Минимальная длина пароля 5 символов",
+								message: t("registration_type_password_minimal_length"),
 							},
 							maxLength: {
 								value: 20,
-								message: "Максимальная длина пароля 20 символов",
+								message: t("registration_type_password_maximal_length"),
 							},
 						})}
 						type={showPass ? "text" : "password"}
@@ -97,17 +99,17 @@ const Registration = () => {
 				</div>
 
 				<div className="login-input">
-					<label>Подтвердите пароль</label>
+					<label>{t("registration_repeat_password")}</label>
 					<input
 						{...register("passwordTwo", {
-							required: "Подтвердите пароль",
+							required: t("registration_type_repeat_password"),
 							minLength: {
 								value: 5,
-								message: "Минимальная длина пароля 5 символов",
+								message: t("registration_type_password_minimal_length"),
 							},
 							maxLength: {
 								value: 20,
-								message: "Максимальная длина пароля 20 символов",
+								message: t("registration_type_password_maximal_length"),
 							},
 						})}
 						type='password'

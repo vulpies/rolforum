@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import mainPic from '../images/pic.jpg'
 import { commonFetch, uploadInfoFetch } from '../helpers/commonFetch'
+import {t} from "i18next";
 
 const Slider = () => {
 	const user = useSelector((state) => state.usersReducer)
@@ -45,7 +46,7 @@ const Slider = () => {
 	const allChars = userInfo?.characters?.filter(item => item.id !== activeChar.id)
 
 	return (<>
-		<p className='slider-title'>Привет, <span>{userInfo?.user_name || 'гость'}</span>!</p>
+		<p className='slider-title'>{t("slider_hello")} <span>{userInfo?.user_name || t("slider_guest")}</span>!</p>
 
 		{user && user.auth !== false ? <div className="slider">
 

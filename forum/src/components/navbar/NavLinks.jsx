@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { userLogout } from "../../store/usersSlice"
 import { MenuContext } from "./NavState"
 import OneLink from "./OneNavLink"
-import {t} from "i18next";
+import {useTranslation} from "react-i18next";
 
 const NavLinks = () => {
+    const { t, i18n } = useTranslation();
     const userAuth = useSelector((state) => state.usersReducer.auth)
     const [user] = useSelector((state) => state.usersReducer.user)
     const browserWidth = document.documentElement.clientWidth
@@ -72,7 +73,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Админка" /> : ''}
+                        name={t("navlinks_admin")} /> : ''}
 
                     {moderRole ? <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -81,7 +82,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Модерка" /> : ''}
+                        name={t("navlinks_moder")} /> : ''}
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -90,7 +91,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Профиль" />
+                        name={t("navlinks_profile")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -99,7 +100,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name=" Орг. темы" />
+                        name={t("navlinks_organization")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -108,7 +109,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Эпизоды" />
+                        name={t("navlinks_episodes")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -117,7 +118,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Вне игры" />
+                        name={t("navlinks_offgame")} />
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
                         to='/chats'
@@ -125,7 +126,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Чаты" />
+                        name={t("navlinks_chats")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -134,7 +135,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Партнеры" />
+                        name={t("navlinks_partners")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -143,7 +144,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={handleLogout}
-                        name="Выйти" />
+                        name={t("navlinks_logout")} />
 
                 </>)
                 : (<>
@@ -163,7 +164,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Эпизоды" />
+                        name={t("navlinks_episodes")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
@@ -172,7 +173,7 @@ const NavLinks = () => {
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name="Пиар" />
+                        name={t("navlinks_partners")} />
                 </>
                 )
             }
