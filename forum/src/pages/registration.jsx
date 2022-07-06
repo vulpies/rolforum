@@ -4,8 +4,10 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
+import {useTranslation} from "react-i18next";
 
 const Registration = () => {
+	const { t } = useTranslation();
 	const navigate = useNavigate()
 	const [serverErrors, setServerErrors] = useState("")
 	const [showPass, setShowPass] = useState(false)
@@ -46,17 +48,17 @@ const Registration = () => {
 		<form className='login-wrapper' onSubmit={handleSubmit(onSubmit)}>
 			<div className='login'>
 				<div className="login-input">
-					<label>Логин</label>
+					<label>{t("pages.registration.login")}</label>
 					<input
 						{...register("username", {
-							required: "Введите логин",
+							required: t("pages.registration.type_login"),
 							minLength: {
-								value: 3,
-								message: "Минимальная длина логина 5 символов",
+								value: 5,
+								message: t("pages.registration.login_minimal_length"),
 							},
 							maxLength: {
-								value: 30,
-								message: "Максимальная длина логина 20 символов",
+								value: 20,
+								message: t("pages.registration.login_maximal_length"),
 							},
 							onChange: "",
 							pattern: /[A-Za-z]/
@@ -64,10 +66,10 @@ const Registration = () => {
 					/>
 				</div>
 				<div className="login-input">
-					<label>E-mail</label>
+					<label>{t("pages.registration.email")}</label>
 					<input
 						{...register("email", {
-							required: "Введите email",
+							required: t("pages.registration.type_email"),
 							onChange: "",
 							pattern: /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i
 						})}
@@ -76,17 +78,17 @@ const Registration = () => {
 				</div>
 
 				<div className="login-input login-input-pass">
-					<label>Пароль</label>
+					<label>{t("pages.registration.password")}</label>
 					<input
 						{...register("password", {
-							required: "Введите пароль",
+							required: t("pages.registration.type_password"),
 							minLength: {
 								value: 5,
-								message: "Минимальная длина пароля 5 символов",
+								message: t("pages.registration.password_minimal_length"),
 							},
 							maxLength: {
 								value: 20,
-								message: "Максимальная длина пароля 20 символов",
+								message: t("pages.registration.password_maximal_length"),
 							},
 						})}
 						type={showPass ? "text" : "password"}
@@ -97,17 +99,17 @@ const Registration = () => {
 				</div>
 
 				<div className="login-input">
-					<label>Подтвердите пароль</label>
+					<label>{t("pages.registration.repeat_password")}</label>
 					<input
 						{...register("passwordTwo", {
-							required: "Подтвердите пароль",
+							required: t("pages.registration.type_repeat_password"),
 							minLength: {
 								value: 5,
-								message: "Минимальная длина пароля 5 символов",
+								message: t("pages.registration.password_minimal_length"),
 							},
 							maxLength: {
 								value: 20,
-								message: "Максимальная длина пароля 20 символов",
+								message: t("pages.registration.password_maximal_length"),
 							},
 						})}
 						type='password'
@@ -137,7 +139,7 @@ const Registration = () => {
 					disabled={!isValid}
 					type="submit"
 					className='btns btns-common btns-log'
-					value='Войти'
+					value={t("pages.registration.submit")}
 				/>
 			</div>
 		</form>

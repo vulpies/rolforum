@@ -6,8 +6,10 @@ import { useNavigate } from 'react-router-dom'
 import Registration from "./registration"
 import CommonInputs from '../helpers/CommonInputs'
 import CommonBigBtn from "../helpers/big_btn"
+import {useTranslation} from "react-i18next";
 
 const MainPage = () => {
+    const { t } = useTranslation();
     const [user] = useSelector((state) => state.usersReducer.user)
     const userAuth = useSelector((state) => state.usersReducer.auth)
     const navigate = useNavigate()
@@ -42,10 +44,10 @@ const MainPage = () => {
 
                     <img src='https://sun1-16.userapi.com/s/v1/ig1/wLhBikGgAsxrvhrQ_0ZpIadj-0ONkrAGDbB2XVASX8bS_VxxHvKKH_nFm6HaVluDzsAIAkup.jpg?size=200x200&quality=96&crop=44,0,435,435&ava=1' alt='аватар гостя' />
 
-                    <p className='slider-ghost__subtitle'><a href="/" onClick={handleLogin}> Войдите </a> или
+                    <p className='slider-ghost__subtitle'><a href="/" onClick={handleLogin}> {t("pages.main_page.login")} </a> {t("pages.main_page.or")}
                         <a href='/'
                             onClick={handleRegistration}>
-                            зарегистрируйтесь
+                            {t("pages.main_page.register")}
                         </a></p>
 
                     {hide ? '' : <Login />}
@@ -54,7 +56,7 @@ const MainPage = () => {
                     <hr className="hr-line" />
 
                     <p className="login-pass"
-                        onClick={showHide}>Если забыли пароль</p>
+                        onClick={showHide}>{t("pages.main_page.password_forgotten")}</p>
 
                     {lostPass ? ''
                         : <div className="login">
@@ -63,14 +65,14 @@ const MainPage = () => {
                                     type='email'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Введите email"
+                                    placeholder={t("pages.main_page.type_email")}
                                 />
                             </div>
 
                             <input
                                 type="submit"
                                 className='btns btns-common btns-log'
-                                value='Отправить'
+                                value={t("pages.main_page.submit")}
                             />
                         </div>
                     }
@@ -82,7 +84,7 @@ const MainPage = () => {
                     className="chars"
                     classNameBtn='btns btns-create'
                     onClick={() => navigate(`/characters`)}
-                    name="Все персонажи"
+                    name={t("pages.main_page.all_characters")}
                 />
             )
                 : ""}

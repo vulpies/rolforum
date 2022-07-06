@@ -4,8 +4,10 @@ import { commonFetch } from '../../helpers/commonFetch'
 // import EpiModal from '../forms/epiModal'
 import { useNavigate } from 'react-router-dom'
 import ModalEpi from '../forms/modalEpi'
+import {useTranslation} from "react-i18next";
 
 const OneEpi = () => {
+	const { t } = useTranslation();
 	const [info, setInfo] = useState([])
 	const url = 'https://api.postscriptum.games/v1/episode-list-view'
 	const navigate = useNavigate()
@@ -27,8 +29,6 @@ const OneEpi = () => {
 								<span className='epi-fandom'>[{item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}]</span> - <span className='epi-name'>{item.title}</span>
 							</a>
 
-							{/* {console.log(item.title)} */}
-
 							<ModalEpi
 								show={show}
 								link={`/episodes/${item.id}`}
@@ -44,7 +44,7 @@ const OneEpi = () => {
 								className='btns btns-common'
 								onClick={() => setShow(true)}
 							>
-								Подсмотреть
+								{t("components.oneEpi.view")}
 							</button>
 
 							{/* <EpiModal

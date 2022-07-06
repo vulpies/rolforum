@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import mainPic from '../images/pic.jpg'
 import { commonFetch, uploadInfoFetch } from '../helpers/commonFetch'
+import {useTranslation} from "react-i18next";
 
 const Slider = () => {
+	const { t } = useTranslation();
 	const user = useSelector((state) => state.usersReducer)
 	const [userInfo] = useSelector((state) => state.usersReducer.user)
 	const [activeChar, setActiveChar] = useState('')
@@ -25,19 +27,19 @@ const Slider = () => {
 
 	// const newActive = Object.assign(activeChar)
 	// console.log(Object.isExtensible(newActive), 99999)
-	console.log(abc, 666666666)
+	//console.log(abc, 666666666)
 
 	// console.log(current, 'currentcurrent')
 	// console.log(userInfo, 'userInfouserInfouserInfo')
 	// console.log(activeChar, 'activeCharactiveCharactiveChar')
 
 	function changeChar(id) {
-		console.log(id)
+		//console.log(id)
 		uploadInfoFetch(`https://api.postscriptum.games/v1/profile/character/set-current/${id}/`)
 
-		console.log(11111)
+		//console.log(11111)
 		setUpd(true)
-		console.log(upd, 77777)
+		//console.log(upd, 77777)
 
 		commonFetch(`https://api.postscriptum.games/v1/me`, setAbc)
 	}
@@ -45,7 +47,7 @@ const Slider = () => {
 	const allChars = userInfo?.characters?.filter(item => item.id !== activeChar.id)
 
 	return (<>
-		<p className='slider-title'>Привет, <span>{userInfo?.user_name || 'гость'}</span>!</p>
+		<p className='slider-title'>{t("components.slider.hello")} <span>{userInfo?.user_name || t("components.slider.guest")}</span>!</p>
 
 		{user && user.auth !== false ? <div className="slider">
 
@@ -62,8 +64,8 @@ const Slider = () => {
 
 			<div className='slider-others'>
 				{userInfo && userInfo.characters.length !== 0 ?
-					<p>имеющиеся персонажи:</p>
-					: <p>игровые персонажи отсутствуют</p>
+					<p>{t("components.slider.your_characters")}</p>
+					: <p>{t("components.slider.no_characters")}</p>
 				}
 
 				{userInfo && activeChar ? <img key={activeChar.id} src={activeChar.avatar} className='slider-others__image slider-active-char' alt={activeChar.name} /> : 'нет актива'}

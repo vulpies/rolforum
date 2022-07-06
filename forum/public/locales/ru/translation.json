@@ -1,0 +1,86 @@
+{
+	"components": {
+		"slider": {
+			"hello": "Привет,",
+			"guest": "гость",
+			"your_characters": "Имеющиеся персонажи:",
+			"no_characters": "Игровые персонажи отсутствуют",
+		},
+		"navlinks": {
+			"index": "Главная",
+			"admin": "Админка",
+			"moder": "Модерка",
+			"profile": "Профиль",
+			"organization": "Орг. темы",
+			"episodes": "Эпизоды",
+			"offgame": "Вне игры",
+			"chats": "Чаты",
+			"partners": "Партнеры",
+			"logout": "Выйти"
+		},
+		"characters": {
+			"all_characters": "Все персонажи",
+			"create_character": "Создать персонажа",
+			"active_characters": "Активные персонажи:",
+			"post_count": "Постов:",
+			"last_post": "Пост отправлен:",
+			"no_last_post": "Еще не отправлен",
+			"open": "Открыть"
+ 		},
+		"breadcrumbs": {
+			"index": "Главная"
+		},
+		"charinfo": {
+			"all_characters": "Все персонажи",
+			"episodes": "Эпизоды:",
+			"player": "Играет:",
+			"loading": "Загрузка данных..."
+		},
+		"oneEpi": {
+			"view": "Подсмотреть"
+		}
+	},
+	"pages": {
+		"main_page": {
+			"password_forgotten": "Если забыли пароль",
+			"type_email": "Введите email",
+			"submit": "Отправить",
+			"login": "Войдите",
+			"or": "или",
+			"register": "зарегистрируйтесь",
+			"all_characters": "Все персонажи"
+		},
+		"episodes_page": {
+			"new_episode": "Новый эпизод",
+			"episodes": "Эпизоды"
+		},
+		"registration": {
+			"login": "Логин",
+			"type_login": "Введите логин",
+			"login_minimal_length": "Минимальная длина логина 5 символов",
+			"login_maximal_length": "Максимальная длина логина 20 символов",
+			"email": "E-mail",
+			"type_email": "Введите email",
+			"password": "Пароль",
+			"type_password": "Введите пароль",
+			"password_minimal_length": "Минимальная длина пароля 5 символов",
+			"password_maximal_length": "Максимальная длина пароля 20 символов",
+			"repeat_password": "Подтвердите пароль",
+			"type_repeat_password": "Подтвердите пароль",
+			"submit": "Зарегистрироваться"
+		},
+		"login": {
+			"login": "Логин",
+			"login_required": "Без логина не пустим, упс!",
+			"password": "Пароль",
+			"password_required": "Для входа нужен пароль!",
+			"password_minimal_length": "Минимальная длина пароля 5 символов",
+			"password_maximal_length": "Максимальная длина пароля 20 символов",
+			"check_data": "Проверьте правильность ввода данных!",
+			"submit": "Войти"
+		}
+	}
+}
+
+
+
