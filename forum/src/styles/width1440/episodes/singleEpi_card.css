@@ -1,12 +1,4 @@
 @media (min-width: 1280px) {
-    /* .epi-modal {
-        display: none !important;
-    }
-
-    .epi-wrapper {
-        display: none;
-    } */
-
     .epi-wrapper__desk {
         display: none;
         flex-direction: column;

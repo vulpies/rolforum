@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CommonBtn from '../buttons/CommonBtn'
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const ModalEpi = ({ show, onClose, fandom, epiName, image, members, link, text, id }) => {
 	const { t } = useTranslation();
@@ -14,19 +14,10 @@ const ModalEpi = ({ show, onClose, fandom, epiName, image, members, link, text, 
 		desc = [...text].join('')
 	}
 
-	const modalClass = {
-		'left': 0,
-		'right': 0,
-		'bottom': 0,
-		'top': 0,
-		'position': 'fixed'
-	}
-
-	// console.log(epiName)
 	return (
 		<>
 			{(show === id) ?
-				<div style={modalClass} onClick={onClose}>
+				<div className='epi-modal-wrapper' onClick={onClose}>
 					<div className="epi-modal" onClick={(e) => e.stopPropagation()}>
 						<div className="epi-modal-content">
 

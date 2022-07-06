@@ -4,7 +4,7 @@ import { commonFetch } from '../../helpers/commonFetch'
 // import EpiModal from '../forms/epiModal'
 import { useNavigate } from 'react-router-dom'
 import ModalEpi from '../forms/modalEpi'
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const OneEpi = () => {
 	const { t } = useTranslation();
@@ -31,7 +31,7 @@ const OneEpi = () => {
 
 							<ModalEpi
 								show={show}
-								id = {item.id}
+								id={item.id}
 								link={`/episodes/${item.id}`}
 								epiName={item.title}
 								fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
@@ -47,16 +47,6 @@ const OneEpi = () => {
 							>
 								{t("components.oneEpi.view")}
 							</button>
-
-							{/* <EpiModal
-								name='Подсмотреть'
-								className='btns btns-common'
-								link={`/episodes/${item.id}`}
-								epiName={item.title}
-								fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
-								image={item.image}
-								members={item.characters.map(c => (c.mask ? c.mask : c.name))}
-								text={item.summary} /> */}
 
 						</div>
 

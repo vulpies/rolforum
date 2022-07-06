@@ -1,3 +1,9 @@
+.epi-modal-wrapper {
+    inset: 0px;
+    position: fixed;
+    z-index: 5;
+}
+
 .epi-modal {
     height: 422px;
     position: absolute;
@@ -12,10 +18,6 @@
     overflow: auto;
 }
 
-/* .modal-open {
-    overflow: initial !important;
-} */
-
 .epi-modal-content {
     background-color: #faf7d196;
     padding: 5px;
@@ -25,6 +27,11 @@
     height: auto;
     min-height: 170px;
     overflow-y: scroll;
+}
+
+.epi-modal-header {
+    margin-bottom: 8px;
+    margin-top: 4px;
 }
 
 .epi-modal-footer {
