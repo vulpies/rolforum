@@ -65,7 +65,7 @@ const Slider = () => {
 			<div className='slider-others'>
 				{userInfo && userInfo.characters.length !== 0 ?
 					<p>{t("components.slider.your_characters")}</p>
-					: <p>игровые персонажи отсутствуют</p>
+					: <p>{t("components.slider.no_characters")}</p>
 				}
 
 				{userInfo && activeChar ? <img key={activeChar.id} src={activeChar.avatar} className='slider-others__image slider-active-char' alt={activeChar.name} /> : 'нет актива'}

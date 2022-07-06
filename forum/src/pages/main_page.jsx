@@ -84,7 +84,7 @@ const MainPage = () => {
                     className="chars"
                     classNameBtn='btns btns-create'
                     onClick={() => navigate(`/characters`)}
-                    name="Все персонажи"
+                    name={t("pages.main_page.all_characters")}
                 />
             )
                 : ""}

@@ -26,7 +26,8 @@
 			"submit": "Submit",
 			"login": "Log in",
 			"or": "or",
-			"register": "register"
+			"register": "register",
+			"all_characters": "All characters"
 		},
 		"registration": {
 			"login": "User name",
