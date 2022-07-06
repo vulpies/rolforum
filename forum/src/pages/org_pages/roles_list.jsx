@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import Breadcrumbs from '../../components/breadcrumbs'
 import { commonFetch } from '../../helpers/commonFetch'
+import { useTranslation } from "react-i18next";
 
 const RolesList = () => {
+	const { t } = useTranslation();
 	const [roles, setRoles] = useState()
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/character-list`, setRoles)
 	}, [setRoles])
 
-	console.log(roles, 'roles')
+	//console.log(roles, 'roles')
 
 	const listOfRoles = roles?.map(item => {
 		return <div className='roles-wrapper' key={item.fandom.id}>
@@ -28,14 +30,14 @@ const RolesList = () => {
 		<div className='wrapper'>
 
 			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name='Список ролей' link='/org' extraName="Орг. темы" />
+				<Breadcrumbs name={t("pages.roles_list.character_list")} link='/org' extraName={t("pages.roles_list.organization")} />
 			</div>
 
 
 			{roles ? <div className='roles-common'>
 				{listOfRoles}
 			</div> :
-				<p style={{ textAlign: 'center' }}>Загрузка данных...</p>}
+				<p style={{ textAlign: 'center' }}>{t("pages.roles_list.loading")}</p>}
 
 
 		</div>

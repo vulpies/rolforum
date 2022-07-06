@@ -172,6 +172,16 @@
 		},
 		"about_us": {
 			"text": "text"
+		},
+		"organization_page": {
+			"new_episode": "Новый эпизод",
+			"organization": "Орг. темы",
+			"character_list": "Список ролей"
+		},
+		"roles_list": {
+			"organization": "Орг. темы",
+			"character_list": "Список ролей",
+			"loading": "Загрузка данных..."
 		}
 	}
 }
