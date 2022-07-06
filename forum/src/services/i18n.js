@@ -4,9 +4,8 @@ import HttpApi from "i18next-http-backend";
 
 i18next
     .use(initReactI18next)
-    .use(HttpApi) // Registering the back-end plugin
+    .use(HttpApi)
     .init({
-        // Remove resources from here
         lng: "en",
         interpolation: {
             escapeValue: false,

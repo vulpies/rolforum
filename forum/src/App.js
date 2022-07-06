@@ -1,5 +1,5 @@
 import axios from "axios"
-import React, { useEffect } from "react"
+import React, {useEffect, useState} from "react"
 import { useDispatch } from "react-redux"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Characters from "./components/characters/Characters"
@@ -11,16 +11,21 @@ import Navigation from "./components/navbar/Navigation"
 import ProfileEdit from "./components/profile/ProfileEdit"
 import ProfileEditPass from "./components/profile/ProfileEditPass"
 import SingleEpi from "./components/single_episode/singleEpi"
+import LocaleContext from "./components/LocaleContext";
 import Arrows from "./helpers/arrows"
 import { MainPage, Profile, EpisodesPage, OrgPage, Outgame, Chats, CreateCharacter, ResetPass, ModerPage, AdminPage } from './pages/index'
 import { addUserInfo } from "./store/usersSlice"
 import { RolesList } from './pages/org_pages/org_index'
+import i18n from "./services/i18n";
 
 function App() {
+    const [locale, setLocale] = useState(i18n.language);
     const dispatch = useDispatch()
     const url = 'https://api.postscriptum.games/v1/me'
 
     let options = {}
+
+    i18n.on('languageChanged', (lng) => setLocale(i18n.language));
 
     if (localStorage.getItem('token')) {
         options = {
@@ -39,6 +44,7 @@ function App() {
                     if (res.data.user_id !== null) {
                         dispatch(addUserInfo(res.data))
                     }
+                    i18n.changeLanguage(res.data.language)
                 }
             })
             .catch(err => console.log(err))
@@ -46,6 +52,7 @@ function App() {
 
     return (
         <>
+            <LocaleContext.Provider value={{locale, setLocale}}>
             <BrowserRouter>
                 <Navigation />
                 <Routes>
@@ -86,6 +93,7 @@ function App() {
                 </Routes>
                 <Arrows className='main-page__arrow' />
             </BrowserRouter>
+            </LocaleContext.Provider>
         </>
     )
 }

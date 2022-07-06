@@ -44,7 +44,7 @@ const MainPage = () => {
 
                     <img src='https://sun1-16.userapi.com/s/v1/ig1/wLhBikGgAsxrvhrQ_0ZpIadj-0ONkrAGDbB2XVASX8bS_VxxHvKKH_nFm6HaVluDzsAIAkup.jpg?size=200x200&quality=96&crop=44,0,435,435&ava=1' alt='аватар гостя' />
 
-                    <p className='slider-ghost__subtitle'><a href="/" onClick={handleLogin}> {t("pages.main_page.login")} </a> {t("pages.main_page.or")}
+                    <p className='slider-ghost__subtitle'><a href="/" onClick={handleLogin}> {t("pages.main_page.login")} </a> {t("pages.main_page.or")}&nbsp;
                         <a href='/'
                             onClick={handleRegistration}>
                             {t("pages.main_page.register")}

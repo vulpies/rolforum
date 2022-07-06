@@ -8,6 +8,7 @@ import authService from "../services/auth.service"
 import { addUserInfo } from '../store/usersSlice'
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
 import {useTranslation} from "react-i18next";
+import i18n from "../services/i18n";
 
 const Login = () => {
 	const { t } = useTranslation();
@@ -38,7 +39,6 @@ const Login = () => {
 		localStorage.setItem('token', response.token)
 		localStorage.setItem('username', info.username)
 
-
 		let options = {}
 
 		if (localStorage.getItem('token')) {
@@ -53,6 +53,7 @@ const Login = () => {
 			.then(res => {
 				if (res.data.user_id !== null) {
 					dispatch(addUserInfo(res.data))
+					i18n.changeLanguage(res.data.language)
 				}
 			})
 			.catch(err => {
