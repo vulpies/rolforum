@@ -29,6 +29,12 @@
  		},
 		"breadcrumbs": {
 			"index": "Главная"
+		},
+		"charinfo": {
+			"all_characters": "Все персонажи",
+			"episodes": "Эпизоды:",
+			"player": "Играет:",
+			"loading": "Загрузка данных..."
 		}
 	},
 	"pages": {

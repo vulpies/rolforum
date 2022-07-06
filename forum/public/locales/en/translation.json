@@ -29,6 +29,12 @@
 		},
 		"breadcrumbs": {
 			"index": "Home"
+		},
+		"charinfo": {
+			"all_characters": "All characters",
+			"episodes": "Episodes:",
+			"player": "Played by:",
+			"loading": "Loading..."
 		}
 	},
 	"pages": {

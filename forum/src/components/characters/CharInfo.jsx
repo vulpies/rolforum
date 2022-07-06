@@ -3,8 +3,10 @@ import { useParams } from 'react-router-dom';
 import { commonFetch } from '../../helpers/commonFetch'
 import Breadcrumbs from '../breadcrumbs';
 import { BsPencil } from "react-icons/bs";
+import {useTranslation} from "react-i18next";
 
 const CharInfo = () => {
+	const { t } = useTranslation();
 	const [char, setChar] = useState()
 	const search = useParams();
 
@@ -18,7 +20,7 @@ const CharInfo = () => {
 		<div className='wrapper'>
 
 			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name={char?.name} link='/characters' extraName="Все персонажи" />
+				<Breadcrumbs name={char?.name} link='/characters' extraName={t("components.charinfo.all_characters")} />
 			</div>
 
 			{char ?
@@ -38,10 +40,10 @@ const CharInfo = () => {
 						}} />
 
 						<div className='char-info__user'>
-							<p><span>Играет:</span> <a href={`/profile/${char?.user_id}`}> {char?.user_name}</a></p>
+							<p><span>{t("components.charinfo.player")}</span> <a href={`/profile/${char?.user_id}`}> {char?.user_name}</a></p>
 						</div>
 
-						{char?.episodes.length !== 0 ? <div className='char-info__epies'><p>Эпизоды:</p>
+						{char?.episodes.length !== 0 ? <div className='char-info__epies'><p>{t("components.charinfo.episodes")}</p>
 							<ul className='char-info__epies-list'>
 								{char?.episodes?.map(item => { return <li key={item.id}><a href={`/episodes/${item.id}`}>[{item.fandoms}] {item.name}</a></li> })}
 							</ul>
@@ -56,7 +58,7 @@ const CharInfo = () => {
 					</div>
 
 				</div> :
-				<p style={{ textAlign: 'center' }}>Загрузка данных...</p>
+				<p style={{ textAlign: 'center' }}>{t("components.charinfo.loading")}</p>
 			}
 
 
