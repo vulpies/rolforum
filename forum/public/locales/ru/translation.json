@@ -107,6 +107,22 @@
 			"password_maximal_length": "Максимальная длина пароля 20 символов",
 			"check_data": "Проверьте правильность ввода данных!",
 			"submit": "Войти"
+		},
+		"profile_page": {
+			"breadcrumbs_profile": "Профиль",
+			"username": "Профиль:",
+			"characters": "Доступные персонажи:",
+			"no_character_image": "На текущий момент нет",
+			"no_characters": "Нет ни одного персонажа",
+			"registered": "Зарегистрирован:",
+			"reputation": "Репутация:",
+			"episode_count": "Активных эпизодов:",
+			"post_count": "Игровых постов:",
+			"last_post": "Пост был написан:",
+			"no_post": "пока что не был...",
+			"last_visit": "Последний визит:",
+			"last_activity": "Последняя активность:",
+			"loading": "Загрузка данных..."
 		}
 	}
 }

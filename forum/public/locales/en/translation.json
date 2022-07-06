@@ -10,7 +10,7 @@
 			"index": "Home",
 			"admin": "Admin",
 			"moder": "Moderate",
-			"profile": "Profile",
+			"profile": "User profile",
 			"organization": "Organization",
 			"episodes": "Episodes",
 			"offgame": "Off Game",
@@ -107,6 +107,22 @@
 			"password_maximal_length": "Maximal password length is 20 symbols",
 			"check_data": "Please, check the log in information",
 			"submit": "Log In"
+		},
+		"profile_page": {
+			"breadcrumbs_profile": "User profile",
+			"username": "Username:",
+			"characters": "Characters:",
+			"no_character_image": "No character image",
+			"no_characters": "No characters yet",
+			"registered": "Registration date:",
+			"reputation": "Reputation:",
+			"episode_count": "Episode number:",
+			"post_count": "Game post number:",
+			"last_post": "Last post published:",
+			"no_post": "No posts yet",
+			"last_visit": "Last visit date:",
+			"last_activity": "Last activity date:",
+			"loading": "Loading..."
 		}
 	}
 }
