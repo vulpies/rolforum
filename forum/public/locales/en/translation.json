@@ -10,7 +10,7 @@
             "index": "Home",
             "admin": "Admin",
             "moder": "Moderate",
-            "profile": "Profile",
+            "profile": "User profile",
             "organization": "Organization",
             "episodes": "Episodes",
             "offgame": "Off Game",
@@ -24,7 +24,7 @@
             "active_characters": "Active characters",
             "post_count": "Post count:",
             "last_post": "Last post:",
-            "no_last_post": "not yet",
+            "no_last_post": "never",
             "open": "Open"
         },
         "breadcrumbs": {
@@ -37,7 +37,7 @@
             "loading": "Loading..."
         },
         "oneEpi": {
-            "view": "Look"
+            "view": "Take a peek"
         },
         "epiNewCreate": {
             "label_fandom": "Fandom",
@@ -67,6 +67,52 @@
             "characters": "Characters",
             "close": "Close",
             "open": "Read"
+        },
+        "singleApp": {
+            "empty_message": "You cannot post empty message",
+            "comments": "Comments",
+            "type_message": "Enter your message",
+            "loading": "Loading..."
+        },
+        "epiSendPostForm": {
+            "empty_message": "You cannot post empty message",
+            "type_message": "enter your message"
+        },
+        "send_or_remove": {
+            "submit": "Submit",
+            "clear": "Clear"
+        },
+        "singleEpi": {
+            "episodes": "Episodes",
+            "loading": "Loading..."
+        },
+        "profileEdit": {
+            "information_saved": "Information is saved successfully",
+            "edit": "Edit",
+            "profile": "User profile",
+            "username": "Username",
+            "email": "Email",
+            "change_password": "Change password",
+            "avatar": "Avatar image",
+            "enter_image_link": "Enter image link",
+            "timezone": "Timezone",
+            "choose_timezone": "Choose timezone",
+            "language": "Language",
+            "choose_language": "Choose language",
+            "loading": "Loading...",
+            "submit": "Submit"
+        },
+        "profileEditPass": {
+            "passwords_not_match": "Passwords do not match",
+            "old_password_match": "The new password is the same as the previous",
+            "min_password": "Minimum password length is 5 symbols",
+            "max_password": "Maximum password length is 20 symbols",
+            "password": "Password",
+            "old_password": "Old password",
+            "new_password": "New password",
+            "repeat_password": "Repeat password",
+            "check_data": "Please check the correctness of your data",
+            "submit": "Submit"
         }
     },
     "pages": {
@@ -84,10 +130,10 @@
             "episodes": "Episodes"
         },
         "registration": {
-            "login": "Username",
-            "type_login": "Enter username",
-            "login_minimal_length": "Minimal username length is 5 symbols",
-            "login_maximal_length": "Maximal username length is 20 symbols",
+            "login": "User name",
+            "type_login": "Enter user name",
+            "login_minimal_length": "Minimal user name length is 5 symbols",
+            "login_maximal_length": "Maximal user name length is 20 symbols",
             "email": "Email",
             "type_email": "Enter email",
             "password": "Password",
@@ -99,14 +145,30 @@
             "submit": "Register"
         },
         "login": {
-            "login": "Username",
-            "login_required": "Username is required",
+            "login": "User name",
+            "login_required": "User name is required",
             "password": "Password",
             "password_required": "Password is required",
             "password_minimal_length": "Minimal password length is 5 symbols",
             "password_maximal_length": "Maximal password length is 20 symbols",
             "check_data": "Please, check the log in information",
             "submit": "Log In"
+        },
+        "profile_page": {
+            "breadcrumbs_profile": "User profile",
+            "username": "Username:",
+            "characters": "Characters:",
+            "no_character_image": "No character image",
+            "no_characters": "No characters yet",
+            "registered": "Registration date:",
+            "reputation": "Reputation:",
+            "episode_count": "Episode number:",
+            "post_count": "Game post number:",
+            "last_post": "Last post published:",
+            "no_post": "No posts yet",
+            "last_visit": "Last visit date:",
+            "last_activity": "Last activity date:",
+            "loading": "Loading..."
         }
     }
 }

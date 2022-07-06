@@ -4,8 +4,10 @@ import { BsPencil, BsChatText } from 'react-icons/bs'
 import { useParams, useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../components/breadcrumbs'
 import { commonFetch } from '../helpers/commonFetch'
+import { useTranslation } from "react-i18next";
 
 const Profile = () => {
+	const { t } = useTranslation();
 	const navigate = useNavigate()
 
 	const search = useParams();
@@ -21,14 +23,14 @@ const Profile = () => {
 	return (
 		<div className='wrapper'>
 			<div className='epi-links single-link'>
-				<Breadcrumbs name="Профиль" />
+				<Breadcrumbs name={t("pages.profile_page.breadcrumbs_profile")} />
 			</div>
 
 			{info ?
 				<div className='profile-wrapper'>
 					<div className='profile-wrapper__mobile'>
 						<div className='profile-top'>
-							<p className='profile-name'>Профиль: <span>{info?.user_name}</span></p>
+							<p className='profile-name'>{t("pages.profile_page.username")} <span>{info?.user_name}</span></p>
 							{info?.user_name === localStorage.getItem('username') ?
 
 								<button className='btns profile-edit' onClick={() => navigate(`/profile/${info?.user_id}/edit`)}>
@@ -43,35 +45,35 @@ const Profile = () => {
 							<div className='profile-chars'>
 								{info?.characters ?
 									<>
-										<p>Доступные персонажи:</p>
+										<p>{t("pages.profile_page.characters")}</p>
 										<div className='profile-chars-list'>
 
 											{info?.characters?.length !== 0 ? info?.characters?.map(c =>
 												<img src={c.avatar} key={c.id} alt={c.name} onClick={() => navigate(`/characters/${c.id}`)} className='profile-chars-img' />
-											) : 'На текущий момент нет'}
+											) : t("pages.profile_page.no_character_image")}
 
 										</div>
-									</> : <p>Нет ни одного персонажа</p>}
+									</> : <p>{t("pages.profile_page.no_characters")}</p>}
 
 							</div>
 
 						</div>
 
 						<div className='profile-common__info'>
-							<p>Зарегистрирован: <span>{info?.registered_at?.split(' ')[0]}</span></p>
-							<p>Репутация: <span>999999999</span></p>
-							<p>Активных эпизодов: <span>{info?.episode_count}</span></p>
-							<p>Игровых постов: <span>{info?.post_count ?? 0}</span></p>
-							<p>Пост был написан: <br /><span>{info?.last_post ? info?.last_post : 'пока что не был...'}</span></p>
-							<p>Последний визит: <br /><span>{info?.last_page_load_at}</span></p>
-							<p>Последняя активность: <br /><span>{info?.last_activity_at}</span></p>
+							<p>{t("pages.profile_page.registered")} <span>{info?.registered_at?.split(' ')[0]}</span></p>
+							<p>{t("pages.profile_page.reputation")} <span>999999999</span></p>
+							<p>{t("pages.profile_page.episode_count")} <span>{info?.episode_count}</span></p>
+							<p>{t("pages.profile_page.post_count")} <span>{info?.post_count ?? 0}</span></p>
+							<p>{t("pages.profile_page.last_post")} <br /><span>{info?.last_post ? info?.last_post : t("pages.profile_page.no_post")}</span></p>
+							<p>{t("pages.profile_page.last_visit")} <br /><span>{info?.last_page_load_at}</span></p>
+							<p>{t("pages.profile_page.last_activity")} <br /><span>{info?.last_activity_at}</span></p>
 						</div>
 
 					</div>
 
 					<div className='profile-wrapper__tabdesk'>
 						<div className='profile-top'>
-							<p className='profile-name'>Профиль: <span>{info?.user_name}</span></p>
+							<p className='profile-name'>{t("pages.profile_page.username")} <span>{info?.user_name}</span></p>
 							{info?.user_name === localStorage.getItem('username') ?
 								<button className='btns profile-edit' onClick={() => navigate(`/profile/${info?.user_id}/edit`)}>
 									<BsPencil />
@@ -87,11 +89,11 @@ const Profile = () => {
 									<img src={info?.user_avatar} className='profile-avatar-img' alt='' />
 
 									<div className='profile-chars'>
-										<p>Доступные персонажи:</p>
+										<p>{t("pages.profile_page.characters")}</p>
 										<div className='profile-chars-list'>
 											{info?.characters?.length !== 0 ? info?.characters?.map(c =>
 												<img src={c.avatar} key={c.id} alt={c.name} onClick={() => navigate(`/characters/${c.id}`)} className='profile-chars-img' />
-											) : 'На текущий момент нет'}
+											) : t("pages.profile_page.no_character_image")}
 
 										</div>
 									</div>
@@ -100,20 +102,20 @@ const Profile = () => {
 
 							<div className='profile-wrapper__common-right'>
 								<div className='profile-common__info'>
-									<p>Зарегистрирован: <span>{info?.registered_at?.split(' ')[0]}</span></p>
-									<p>Репутация: <span>999999999</span></p>
-									<p>Активных эпизодов: <span>{info?.episode_count}</span></p>
-									<p>Игровых постов: <span>{info?.post_count ?? 0}</span></p>
-									<p>Пост был написан: <span>{info?.last_post ? info?.last_post : 'пока что не был...'}</span></p>
-									<p>Последний визит: <span>{info?.last_page_load_at}</span></p>
-									<p>Последняя активность: <span>{info?.last_activity_at}</span></p>
+									<p>{t("pages.profile_page.registered")} <span>{info?.registered_at?.split(' ')[0]}</span></p>
+									<p>{t("pages.profile_page.reputation")} <span>999999999</span></p>
+									<p>{t("pages.profile_page.episode_count")} <span>{info?.episode_count}</span></p>
+									<p>{t("pages.profile_page.post_count")} <span>{info?.post_count ?? 0}</span></p>
+									<p>{t("pages.profile_page.last_post")} <span>{info?.last_post ? info?.last_post : t("pages.profile_page.no_post")}</span></p>
+									<p>{t("pages.profile_page.last_visit")} <span>{info?.last_page_load_at}</span></p>
+									<p>{t("pages.profile_page.last_activity")} <span>{info?.last_activity_at}</span></p>
 								</div>
 							</div>
 						</div>
 
 					</div>
 				</div>
-				: 'Загрузка данных...'
+				: t("pages.profile_page.loading")
 			}
 
 		</div>

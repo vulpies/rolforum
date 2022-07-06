@@ -67,6 +67,52 @@
 			"characters": "Участники",
 			"close": "Скрыть",
 			"open": "Перейти"
+		},
+		"singleApp": {
+			"empty_message": "Нельзя отправить пустое сообщение!",
+			"comments": "Комментарии:",
+			"type_message": "Введите ваше сообщение",
+			"loading": "Загрузка данных..."
+		},
+		"epiSendPostForm": {
+			"empty_message": "Нельзя отправить пустое сообщение!",
+			"type_message": "введите ваше сообщение"
+		},
+		"send_or_remove": {
+			"submit": "Отправить",
+			"clear": "Очистить"
+		},
+		"singleEpi": {
+			"episodes": "Эпизоды",
+			"loading": "Загрузка данных..."
+		},
+		"profileEdit": {
+			"information_saved": "Информация успешно сохранена!",
+			"edit": "Редактировать",
+			"profile": "Профиль",
+			"username": "Имя пользователя:",
+			"email": "E-mail:",
+			"change_password": "Изменить пароль:",
+			"avatar": "Аватар:",
+			"enter_image_link": "Вставьте ссылку на изображение",
+			"timezone": "Часовой пояс:",
+			"choose_timezone": "Выберите пояс",
+			"language": "Language",
+			"choose_language": "Choose language",
+			"loading": "Загрузка данных...",
+			"submit": "Сохранить"
+		},
+		"profileEditPass": {
+			"passwords_not_match": "Пароли не совпадают!",
+			"old_password_match": "Старый и новый пароли совпадают!",
+			"min_password": "Длина пароля не менее 5 символов!",
+			"max_password": "Длина пароля не более 20 символов!",
+			"password": "Пароль",
+			"old_password": "Старый пароль:",
+			"new_password": "Новый пароль:",
+			"repeat_password": "Подтвердите пароль:",
+			"check_data": "Проверьте правильность ввода данных!",
+			"submit": "Сохранить"
 		}
 	},
 	"pages": {
@@ -107,6 +153,22 @@
 			"password_maximal_length": "Максимальная длина пароля 20 символов",
 			"check_data": "Проверьте правильность ввода данных!",
 			"submit": "Войти"
+		},
+		"profile_page": {
+			"breadcrumbs_profile": "Профиль",
+			"username": "Профиль:",
+			"characters": "Доступные персонажи:",
+			"no_character_image": "На текущий момент нет",
+			"no_characters": "Нет ни одного персонажа",
+			"registered": "Зарегистрирован:",
+			"reputation": "Репутация:",
+			"episode_count": "Активных эпизодов:",
+			"post_count": "Игровых постов:",
+			"last_post": "Пост был написан:",
+			"no_post": "пока что не был...",
+			"last_visit": "Последний визит:",
+			"last_activity": "Последняя активность:",
+			"loading": "Загрузка данных..."
 		}
 	}
 }
