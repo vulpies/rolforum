@@ -9,14 +9,17 @@
 	"navlinks_chats": "Chats",
 	"navlinks_partners": "Partners",
 	"navlinks_logout": "Log Out",
+
 	"pages_main_password_forgotten": "Forgot password",
 	"pages_main_type_email": "Enter email",
 	"pages_main_submit": "Submit",
 	"pages_main_login": "Log in",
 	"pages_main_or": "or",
 	"pages_main_register": "register",
+
 	"slider_hello": "Hello",
 	"slider_guest": "stranger",
+
 	"registration_login": "User name",
 	"registration_type_login": "Enter user name",
 	"registration_login_minimal_length": "Minimal user name length is 5 symbols",
@@ -24,10 +27,19 @@
 	"registration_email": "Email",
 	"registration_type_email": "Enter email",
 	"registration_password": "Password",
-	"registration_type_password": "Enter логин",
+	"registration_type_password": "Enter password",
 	"registration_password_minimal_length": "Minimal password length is 5 symbols",
 	"registration_password_maximal_length": "Maximal password length is 20 symbols",
 	"registration_repeat_password": "Repeat password",
-	"registration_type_repeat_password": "Repeat password"
+	"registration_type_repeat_password": "Repeat password",
+	"registration_submit": "Register",
 
+	"login_login": "User name",
+	"login_login_required": "User name is required",
+	"login_password": "Password",
+	"login_password_required": "Password is required",
+	"login_password_minimal_length": "Minimal password length is 5 symbols",
+	"login_password_maximal_length": "Maximal password length is 20 symbols",
+	"login_check_data": "Please, check the log in information",
+	"login_submit": "Log In"
 }

@@ -7,8 +7,10 @@ import { useDispatch } from "react-redux"
 import authService from "../services/auth.service"
 import { addUserInfo } from '../store/usersSlice'
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
+import {useTranslation} from "react-i18next";
 
 const Login = () => {
+	const { t, i18n } = useTranslation();
 	const dispatch = useDispatch()
 	const [serverErr, setServerErr] = useState('')
 	const [showPass, setShowPass] = useState(false)
@@ -69,10 +71,10 @@ const Login = () => {
 		<form className='login-wrapper' onSubmit={handleSubmit(onSubmit)}>
 			<div className='login'>
 				<div className="login-input">
-					<label>Логин </label>
+					<label>{t("login_login")}</label>
 					<input
 						{...register("username", {
-							required: "Без логина не пустим, упс!",
+							required: t("login_login_required"),
 							onChange: "",
 							pattern: /[A-Za-z]/
 						})}
@@ -80,17 +82,17 @@ const Login = () => {
 				</div>
 
 				<div className="login-input login-input-pass">
-					<label>Пароль </label>
+					<label>{t("login_password")}</label>
 					<input
 						{...register("password", {
-							required: "Для входа нужен пароль!",
+							required: t("login_password_required"),
 							minLength: {
 								value: 5,
-								message: "Минимальная длина пароля 5 символов",
+								message: t("login_password_minimal_length"),
 							},
 							maxLength: {
 								value: 20,
-								message: "Максимальная длина пароля 20 символов",
+								message: t("login_password_maximal_length"),
 							},
 						})}
 						type={showPass ? "text" : "password"}
@@ -102,12 +104,12 @@ const Login = () => {
 
 				<div className='login-error'>
 					{errors?.username && (
-						<p>{errors?.username?.message || "Проверьте правильность ввода данных!"}</p>
+						<p>{errors?.username?.message || t("login_check_data")}</p>
 					)}
 					{errors?.password && (
 						<p>
 							{errors?.password?.message ||
-								"Проверьте правильность ввода данных!"}
+								t("login_check_data")}
 						</p>
 					)}
 					{serverErr ? <p>{serverErr}</p> : ''}
@@ -118,7 +120,7 @@ const Login = () => {
 					type="submit"
 					className='btns btns-common btns-log'
 					disabled={!isValid}
-					value='Войти'
+					value={t("login_submit")}
 				/>
 			</div>
 		</form>

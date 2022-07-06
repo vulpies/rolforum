@@ -139,7 +139,7 @@ const Registration = () => {
 					disabled={!isValid}
 					type="submit"
 					className='btns btns-common btns-log'
-					value='Войти'
+					value={t("registration_submit")}
 				/>
 			</div>
 		</form>
