@@ -61,6 +61,12 @@
 			"guest_visible": "Guests can read this episode",
 			"cannot_create_episode": "You cannot create an episode, you do not have any characters",
 			"create": "Create episode"
+		},
+		"modalEpi": {
+			"summary": "Summary",
+			"characters": "Characters",
+			"close": "Close",
+			"open": "Read"
 		}
 	},
 	"pages": {

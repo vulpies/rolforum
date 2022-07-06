@@ -61,6 +61,12 @@
 			"guest_visible": "Виден для гостей",
 			"cannot_create_episode": "Вы не можете создать эпизод, не имея ни одного персонажа!",
 			"create": "Создать"
+		},
+		"modalEpi": {
+			"summary": "Описание",
+			"characters": "Участники",
+			"close": "Скрыть",
+			"open": "Перейти"
 		}
 	},
 	"pages": {

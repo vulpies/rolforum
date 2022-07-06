@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import CommonBtn from '../buttons/CommonBtn'
+import {useTranslation} from "react-i18next";
 
 const ModalEpi = ({ show, onClose, fandom, epiName, image, members, link, text }) => {
+	const { t } = useTranslation();
 
 	let desc = [...text].join('')
 
@@ -36,10 +38,10 @@ const ModalEpi = ({ show, onClose, fandom, epiName, image, members, link, text }
 								<div className='modal-img'>
 									<img src={image} className='epi-modal-img__image' alt='картинка убежала' />
 								</div>
-								<div className='epi-modal-members'><span>Участники</span>: {members.join(', ')}</div>
+								<div className='epi-modal-members'><span>{t("components.modalEpi.characters")}</span>: {members.join(', ')}</div>
 
 								<div className='epi-modal-desc' dangerouslySetInnerHTML={{
-									__html: `<span>Описание</span>: ${desc}`
+									__html: `<span>${t("components.modalEpi.summary")}</span>: ${desc}`
 								}} />
 							</div>
 
@@ -47,10 +49,10 @@ const ModalEpi = ({ show, onClose, fandom, epiName, image, members, link, text }
 								<CommonBtn
 									className='btns btns-common'
 									onClick={onClose}
-									name="Скрыть"
+									name={t("components.modalEpi.close")}
 								/>
 								<Link to={link}>
-									<button className='btns btns-common'>Перейти</button>
+									<button className='btns btns-common'>{t("components.modalEpi.open")}</button>
 								</Link>
 							</div>
 						</div>
