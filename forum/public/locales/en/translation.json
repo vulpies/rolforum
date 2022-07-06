@@ -169,6 +169,9 @@
             "last_visit": "Last visit date:",
             "last_activity": "Last activity date:",
             "loading": "Loading..."
+        },
+        "about_us": {
+            "text": "<p>\n\t\t\t\tPost Scriptum Games is an online platform for play-by-post role-playing games. There is no one plot line\n\t\t\t\ton this site, the users can play different plot lines, based on the well-known movies, books and TV-shows\n\t\t\t\tas well as designed completely by themeselves.\n\t\t\t</p>\n\t\t\t<p>\n\t\t\t\tEach user can have many characters from different settings and universes (called \"fandoms\" on this site),\n\t\t\t\thowever, in each setting or universe, one character can be played only by one user. That means that, if,\n\t\t\t\ton the site, the users deside to start a game based on \"Romeo and Juliette\", there will be only one player \n\t\t\t\tacross all site playing Romeo. However, the same user can play King Lear in a different game based on another \n\t\t\t\tShakespeare's drama.\n\t\t\t</p>\n\t\t\t<p>\n\t\t\t\tThe game is divided into \"episodes\" - small scenes with logical start and finish, like chapters in the book.\n\t\t\t\tPlayers describe the actions of their characters in turn, one after another, in a form of posts - small \n\t\t\t\tchunks of text together forming a coherent story.\n\t\t\t</p>\n\t\t\t<p>\n\t\t\t\tThe players are not restricted to always play in one setting, they can choose to merge different universes \n\t\t\t\ttogether or to move a character from one story into the reality of another story. Such games are called crossovers.\n\t\t\t\tThey can choose to change the setting drastically, move medieval characters into a modern world or vise versa,\n\t\t\t\tand such a game would be called \"alternative universe\" (AU).\n\t\t\t</p>"
         }
     }
 }
