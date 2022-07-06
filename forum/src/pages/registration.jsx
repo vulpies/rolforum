@@ -7,7 +7,7 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
 import {useTranslation} from "react-i18next";
 
 const Registration = () => {
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 	const navigate = useNavigate()
 	const [serverErrors, setServerErrors] = useState("")
 	const [showPass, setShowPass] = useState(false)

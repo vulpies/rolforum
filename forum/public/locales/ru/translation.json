@@ -26,7 +26,10 @@
 			"last_post": "Пост отправлен:",
 			"no_last_post": "Еще не отправлен",
 			"open": "Открыть"
- 		}
+ 		},
+		"breadcrumbs": {
+			"index": "Главная"
+		}
 	},
 	"pages": {
 		"main_page": {

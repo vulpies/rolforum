@@ -5,7 +5,7 @@ import { commonFetch, uploadInfoFetch } from '../helpers/commonFetch'
 import {useTranslation} from "react-i18next";
 
 const Slider = () => {
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 	const user = useSelector((state) => state.usersReducer)
 	const [userInfo] = useSelector((state) => state.usersReducer.user)
 	const [activeChar, setActiveChar] = useState('')

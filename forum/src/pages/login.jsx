@@ -10,7 +10,7 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
 import {useTranslation} from "react-i18next";
 
 const Login = () => {
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 	const dispatch = useDispatch()
 	const [serverErr, setServerErr] = useState('')
 	const [showPass, setShowPass] = useState(false)

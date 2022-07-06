@@ -9,7 +9,7 @@ import CommonBigBtn from "../helpers/big_btn"
 import {useTranslation} from "react-i18next";
 
 const MainPage = () => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const [user] = useSelector((state) => state.usersReducer.user)
     const userAuth = useSelector((state) => state.usersReducer.auth)
     const navigate = useNavigate()

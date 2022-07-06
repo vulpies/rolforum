@@ -7,7 +7,7 @@ import Breadcrumbs from '../breadcrumbs'
 import {useTranslation} from "react-i18next";
 
 const Characters = () => {
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation();
 	const [user] = useSelector((state) => state.usersReducer.user)
 	const [info, setInfo] = useState()
 	const navigate = useNavigate()

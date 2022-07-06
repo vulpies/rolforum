@@ -7,7 +7,7 @@ import OneLink from "./OneNavLink"
 import {useTranslation} from "react-i18next";
 
 const NavLinks = () => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const userAuth = useSelector((state) => state.usersReducer.auth)
     const [user] = useSelector((state) => state.usersReducer.user)
     const browserWidth = document.documentElement.clientWidth

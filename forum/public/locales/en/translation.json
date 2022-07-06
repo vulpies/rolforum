@@ -26,6 +26,9 @@
 			"last_post": "Last post:",
 			"no_last_post": "never",
 			"open": "Open"
+		},
+		"breadcrumbs": {
+			"index": "Home"
 		}
 	},
 	"pages": {
