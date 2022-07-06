@@ -31,6 +31,7 @@ const OneEpi = () => {
 
 							<ModalEpi
 								show={show}
+								id = {item.id}
 								link={`/episodes/${item.id}`}
 								epiName={item.title}
 								fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
@@ -42,7 +43,7 @@ const OneEpi = () => {
 
 							<button
 								className='btns btns-common'
-								onClick={() => setShow(true)}
+								onClick={() => setShow(item.id)}
 							>
 								{t("components.oneEpi.view")}
 							</button>
