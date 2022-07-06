@@ -17,6 +17,15 @@
 			"chats": "Chats",
 			"partners": "Partners",
 			"logout": "Log Out"
+		},
+		"characters": {
+			"all_characters": "All Characters",
+			"create_character": "Create character",
+			"active_characters": "Active characters",
+			"post_count": "Post count:",
+			"last_post": "Last post:",
+			"no_last_post": "never",
+			"open": "Open"
 		}
 	},
 	"pages": {

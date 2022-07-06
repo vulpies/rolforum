@@ -17,7 +17,16 @@
 			"chats": "Чаты",
 			"partners": "Партнеры",
 			"logout": "Выйти"
-		}
+		},
+		"characters": {
+			"all_characters": "Все персонажи",
+			"create_character": "Создать персонажа",
+			"active_characters": "Активные персонажи:",
+			"post_count": "Постов:",
+			"last_post": "Пост отправлен:",
+			"no_last_post": "Еще не отправлен",
+			"open": "Открыть"
+ 		}
 	},
 	"pages": {
 		"main_page": {

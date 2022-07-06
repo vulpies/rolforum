@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import CommonBigBtn from '../../helpers/big_btn'
 import { commonFetch } from '../../helpers/commonFetch'
 import Breadcrumbs from '../breadcrumbs'
+import {useTranslation} from "react-i18next";
 
 const Characters = () => {
+	const { t, i18n } = useTranslation();
 	const [user] = useSelector((state) => state.usersReducer.user)
 	const [info, setInfo] = useState()
 	const navigate = useNavigate()
@@ -14,21 +16,21 @@ const Characters = () => {
 		commonFetch(`https://api.postscriptum.games/v1/profile/character-list/${user?.user_id}`, setInfo)
 	}, [setInfo, user])
 
-	console.log(info, 99999)
-	console.log(user, 'user')
+	//console.log(info, 99999)
+	//console.log(user, 'user')
 
 	return (
 		<div className='wrapper'>
 
 			<div className='epi-links single-link'>
-				<Breadcrumbs name="Все персонажи" />
+				<Breadcrumbs name={t("components.characters.all_characters")} />
 			</div>
 
 			<CommonBigBtn
 				className="create-char-btn"
 				classNameBtn='btns btns-create'
 				onClick={() => navigate(`/create`)}
-				name="Создать персонажа"
+				name={t("components.characters.create_character")}
 			/>
 
 			<div className='chars-common'>
@@ -36,7 +38,7 @@ const Characters = () => {
 				{info?.characters ?
 					(<>
 						<div className="chars-active__title">
-							<p>Активные персонажи:</p>
+							<p>{t("components.characters.active_characters")}</p>
 						</div>
 
 						<div className="chars-active">
@@ -50,10 +52,10 @@ const Characters = () => {
 											<span>[{char.fandom_name}]</span>
 										</div>
 										<div className='char__stats'>
-											<p><span>Постов:</span> {char?.total_posts}</p>
-											<p><span>Пост отправлен:</span><br /> {char?.last_post ? char?.last_post : 'Еще не отправлен'}</p>
+											<p><span>{t("components.characters.post_count")}</span> {char?.total_posts}</p>
+											<p><span>{t("components.characters.last_post")}</span><br /> {char?.last_post ? char?.last_post : t("components.characters.no_last_post")}</p>
 										</div>
-										<button className='btns btns-char' onClick={() => navigate(`/characters/${char.id}`)}>Открыть</button>
+										<button className='btns btns-char' onClick={() => navigate(`/characters/${char.id}`)}>{t("components.characters.open")}</button>
 									</div>
 								</div>
 							})}
