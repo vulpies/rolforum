@@ -20,6 +20,7 @@ const EpiModal = ({ name, text, className, fandom, epiName, members, image, link
 		desc = [...text].join('')
 	}
 
+	// console.log(epiName)
 
 	return (
 		<>
