@@ -85,6 +85,21 @@
 		"singleEpi": {
 			"episodes": "Эпизоды",
 			"loading": "Загрузка данных..."
+		},
+		"profileEdit": {
+			"information_saved": "Информация успешно сохранена!",
+			"edit": "Редактировать",
+			"profile": "Профиль",
+			"username": "Имя пользователя:",
+			"email": "E-mail:",
+			"change_password": "Изменить пароль:",
+			"avatar": "Аватар:",
+			"enter_image_link": "Вставьте ссылку на изображение",
+			"timezone": "Часовой пояс:",
+			"choose_timezone": "Выберите пояс",
+			"language": "Language",
+			"choose_language": "Choose language",
+			"loading": "Загрузка данных..."
 		}
 	},
 	"pages": {

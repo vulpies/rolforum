@@ -9,14 +9,17 @@ import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
 import { updateUserInfo } from '../../store/usersSlice'
 import Swal from 'sweetalert2'
+import { useTranslation } from "react-i18next";
 
 const ProfileEdit = () => {
+	const { t } = useTranslation();
 	const [user] = useSelector((state) => state.usersReducer.user)
 	const [name, setName] = useState(user?.user_name)
 	const [email, setEmail] = useState(user?.user_name)
 	const [avatar, setAvatar] = useState(user?.user_avatar)
 	const [timeZone, setTimeZone] = useState([])
 	const [getUserTime, setGetUserTime] = useState({})
+	const [language, setLanguage] = useState(user?.language)
 
 
 	const dispatch = useDispatch()
@@ -25,6 +28,11 @@ const ProfileEdit = () => {
 		"value": user?.timezone,
 		"label": user?.timezone
 	}
+
+	const languages = [
+		{"value": "en", "label": "English"},
+		{"value": "ru", "label": "Russian"}
+	]
 
 	// const defaultTime = {
 	// 	"value": "Europe/Moscow",
@@ -46,7 +54,8 @@ const ProfileEdit = () => {
 			name,
 			email,
 			avatar: avatar || '',
-			timeZone: getUserTime.value || time.value
+			timeZone: getUserTime.value || time.value,
+			language: language.value
 		}
 
 		dispatch(updateUserInfo(updUserInfo))
@@ -61,7 +70,7 @@ const ProfileEdit = () => {
 		Swal.fire({
 			width: 350,
 			position: 'top',
-			text: 'Информация успешно сохранена!',
+			text: t("components.profileEdit.information_saved"),
 			icon: 'success'
 		})
 		navigate(`/profile/${user?.user_id}`)
@@ -70,14 +79,14 @@ const ProfileEdit = () => {
 	return (
 		<div className='wrapper'>
 			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name='Редактировать' link={`/profile/${user?.user_id}`} extraName="Профиль" />
+				<Breadcrumbs name={t("components.profileEdit.edit")} link={`/profile/${user?.user_id}`} extraName={t("components.profileEdit.profile")} />
 			</div>
 
 			{user ?
 				<form className='profile-input__wrapper'>
 					<CommonInputs
 						type='text'
-						inputName='Имя пользователя:'
+						inputName={t("components.profileEdit.username")}
 						className='profile-input__input'
 						value={name}
 						disabled
@@ -87,7 +96,7 @@ const ProfileEdit = () => {
 
 					<CommonInputs
 						type='email'
-						inputName='E-mail:'
+						inputName={t("components.profileEdit.email")}
 						className='profile-input__input'
 						value={email}
 						disabled
@@ -96,34 +105,45 @@ const ProfileEdit = () => {
 					/>
 
 					<div className='profile-input__pass'>
-						<p>Изменить пароль:</p> <button className='btns profile-edit' onClick={() => navigate(`/profile/${user.user_id}/edit/pass`)}>
+						<p>{t("components.profileEdit.change_password")}</p> <button className='btns profile-edit' onClick={() => navigate(`/profile/${user.user_id}/edit/pass`)}>
 							<BsPencil />
 						</button>
 					</div>
 
 					<CommonInputs
 						type='text'
-						inputName='Аватар:'
+						inputName={t("components.profileEdit.avatar")}
 						className='profile-input__input'
 						value={avatar ?? ''}
 						onChange={(e) => setAvatar(e.target.value)}
-						placeholder='Вставьте ссылку на изображение'
+						placeholder={t("components.profileEdit.enter_image_link")}
 					/>
 
 					<CustomSelect
 						styleDiv='profile-input__input'
-						label='Часовой пояс:'
+						label={t("components.profileEdit.timezone")}
 						onChange={(e) => setGetUserTime(e)}
 						options={timeZone && timeZone.map((item) => ({ "value": item, "label": item }))}
 						closeMenuOnSelect={true}
 						isMulti={false}
 						defaultValue={time}
-						placeholder="Выберите пояс"
+						placeholder={t("components.profileEdit.choose_timezone")}
+					/>
+
+					<CustomSelect
+						styleDiv='profile-input__input'
+						label={t("components.profileEdit.language")}
+						onChange={(e) => setLanguage(e)}
+						options={[{"value": "en", "label": "English"}, {"value": "ru", "label": "Russian"}]}
+						closeMenuOnSelect={true}
+						isMulti={false}
+						defaultValue={languages.filter( (item) => { return item.value === language })[0]}
+						placeholder={t("components.profileEdit.choose_language")}
 					/>
 
 					<input type="submit" value="Сохранить" className='btns btns-create btns-send' onClick={handleSubmit} />
 				</form>
-				: "Загрузка данных..."
+				: t("components.profileEdit.loading")
 			}
 
 		</div>

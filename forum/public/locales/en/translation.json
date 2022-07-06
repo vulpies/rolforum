@@ -85,6 +85,21 @@
 		"singleEpi": {
 			"episodes": "Episodes",
 			"loading": "Loading..."
+		},
+		"profileEdit": {
+			"information_saved": "Information is saved successfully",
+			"edit": "Edit",
+			"profile": "User profile",
+			"username": "Username",
+			"email": "Email",
+			"change_password": "Change password",
+			"avatar": "Avatar image",
+			"enter_image_link": "Enter image link",
+			"timezone": "Timezone",
+			"choose_timezone": "Choose timezone",
+			"language": "Language",
+			"choose_language": "Choose language",
+			"loading": "Loading..."
 		}
 	},
 	"pages": {
