@@ -10,6 +10,7 @@ import CustomSelect from '../CustomSelect'
 import { updateUserInfo } from '../../store/usersSlice'
 import Swal from 'sweetalert2'
 import { useTranslation } from "react-i18next";
+import i18n from "../../services/i18n";
 
 const ProfileEdit = () => {
 	const { t } = useTranslation();
@@ -62,6 +63,7 @@ const ProfileEdit = () => {
 
 		try {
 			commonPostReq('https://api.postscriptum.games/v1/profile/edit', updUserInfo)
+			i18n.changeLanguage(updUserInfo.language)
 		} catch (err) {
 			console.log(err)
 		}
@@ -141,7 +143,7 @@ const ProfileEdit = () => {
 						placeholder={t("components.profileEdit.choose_language")}
 					/>
 
-					<input type="submit" value="Сохранить" className='btns btns-create btns-send' onClick={handleSubmit} />
+					<input type="submit" value={t("components.profileEdit.submit")} className='btns btns-create btns-send' onClick={handleSubmit} />
 				</form>
 				: t("components.profileEdit.loading")
 			}

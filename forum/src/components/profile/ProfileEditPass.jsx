@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import CommonInputs from '../../helpers/CommonInputs'
 import Breadcrumbs from '../breadcrumbs'
+import { useTranslation } from "react-i18next";
 
 const ProfileEditPass = () => {
+	const { t } = useTranslation();
 	const [user] = useSelector((state) => state.usersReducer.user)
 	const [oldPass, setOldPass] = useState('')
 	const [newPass, setNewPass] = useState('')
@@ -13,21 +15,21 @@ const ProfileEditPass = () => {
 
 	useEffect(() => {
 		if (newPass !== confirmPass && confirmPass !== '') {
-			setErr('Пароли не совпадают!')
+			setErr(t("components.profileEditPass.passwords_not_match"))
 		} else {
 			setErr('')
 		}
 
 		if ((oldPass !== '' && newPass !== '') && oldPass === newPass) {
-			setErr('Старый и новый пароли совпадают!')
+			setErr(t("components.profileEditPass.old_password_match"))
 		}
 
 		if (newPass !== '' && newPass.length < 5) {
-			setErr('Длина пароля не менее 5 символов!')
+			setErr(t("components.profileEditPass.min_password"))
 		}
 
 		if (newPass.length > 20) {
-			setErr('Длина пароля не более 20 символов!')
+			setErr(t("components.profileEditPass.max_password"))
 		}
 	}, [newPass, confirmPass])
 
@@ -46,38 +48,38 @@ const ProfileEditPass = () => {
 	return (
 		<div className='wrapper'>
 			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name='Пароль' link={`/profile/${user?.user_id}`} extraName="Профиль" />
+				<Breadcrumbs name={t("components.profileEditPass.password")} link={`/profile/${user?.user_id}`} extraName="Профиль" />
 			</div>
 			<div className='profile-input__wrapper'>
 				<CommonInputs
 					type='password'
-					inputName='Старый пароль:'
+					inputName={t("components.profileEditPass.old_password")}
 					className='profile-input__input'
 					value={oldPass}
 					onChange={(e) => setOldPass(e.target.value)}
 				/>
 				<CommonInputs
 					type='password'
-					inputName='Новый пароль:'
+					inputName={t("components.profileEditPass.new_password")}
 					className='profile-input__input'
 					value={newPass}
 					onChange={(e) => setNewPass(e.target.value)}
 				/>
 				<CommonInputs
 					type='password'
-					inputName='Подтвердите пароль:'
+					inputName={t("components.profileEditPass.repeat_password")}
 					className='profile-input__input'
 					value={confirmPass}
 					onChange={(e) => setConfirmPass(e.target.value)}
 				/>
 				<div className='login-error'>
 					{err ?
-						<p>{err || "Проверьте правильность ввода данных!"}</p>
+						<p>{err || t("components.profileEditPass.check_data")}</p>
 						: ''}
 				</div>
 
 				<input type="submit"
-					value="Сохранить"
+					value={t("components.profileEditPass.submit")}
 					className='btns btns-create btns-send'
 					disabled={err}
 					onClick={handleSubmit} />

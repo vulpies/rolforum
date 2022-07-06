@@ -99,7 +99,20 @@
 			"choose_timezone": "Выберите пояс",
 			"language": "Language",
 			"choose_language": "Choose language",
-			"loading": "Загрузка данных..."
+			"loading": "Загрузка данных...",
+			"submit": "Сохранить"
+		},
+		"profileEditPass": {
+			"passwords_not_match": "Пароли не совпадают!",
+			"old_password_match": "Старый и новый пароли совпадают!",
+			"min_password": "Длина пароля не менее 5 символов!",
+			"max_password": "Длина пароля не более 20 символов!",
+			"password": "Пароль",
+			"old_password": "Старый пароль:",
+			"new_password": "Новый пароль:",
+			"repeat_password": "Подтвердите пароль:",
+			"check_data": "Проверьте правильность ввода данных!",
+			"submit": "Сохранить"
 		}
 	},
 	"pages": {

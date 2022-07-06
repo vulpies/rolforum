@@ -99,7 +99,20 @@
 			"choose_timezone": "Choose timezone",
 			"language": "Language",
 			"choose_language": "Choose language",
-			"loading": "Loading..."
+			"loading": "Loading...",
+			"submit": "Submit"
+		},
+		"profileEditPass": {
+			"passwords_not_match": "Passwords do not match",
+			"old_password_match": "The new password is the same as the previous",
+			"min_password": "Minimum password length is 5 symbols",
+			"max_password": "Maximum password length is 20 symbols",
+			"password": "Password",
+			"old_password": "Old password",
+			"new_password": "New password",
+			"repeat_password": "Repeat password",
+			"check_data": "Please check the correctness of your data",
+			"submit": "Submit"
 		}
 	},
 	"pages": {
