@@ -38,6 +38,29 @@
 		},
 		"oneEpi": {
 			"view": "Take a peek"
+		},
+		"epiNewCreate": {
+			"label_fandom": "Fandom",
+			"label_crossover": "Crossover",
+			"label_au": "AU",
+			"new_episode": "New episode",
+			"episodes": "Episodes",
+			"episode_name": "Episode title",
+			"episode": "Episode",
+			"game_format": "Game format:",
+			"choose_game_type": "Choose game format",
+			"fandom": "Fandom",
+			"characters": "Characters",
+			"choose_characters": "Choose participants",
+			"crossover": "Crossover fandoms",
+			"choose_fandoms": "Choose fandoms",
+			"image": "Image",
+			"enter_link": "Enter image link",
+			"summary": "Summary",
+			"episode_summary": "Enter episode summary",
+			"guest_visible": "Guests can read this episode",
+			"cannot_create_episode": "You cannot create an episode, you do not have any characters",
+			"create": "Create episode"
 		}
 	},
 	"pages": {

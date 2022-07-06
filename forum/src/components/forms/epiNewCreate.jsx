@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
 import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
+import {useTranslation} from "react-i18next";
 
 const EpiNewCreate = () => {
+	const { t } = useTranslation();
 	const userInfo = useSelector((state) => state.usersReducer.user[0])
 	const navigate = useNavigate()
 
@@ -53,9 +55,9 @@ const EpiNewCreate = () => {
 	}, [])
 
 	const options = [
-		{ value: 'fandom', label: 'По фандому' },
-		{ value: 'crossover', label: 'Кроссовер' },
-		{ value: 'au', label: 'AU' },
+		{ value: 'fandom', label: t("components.epiNewCreate.label_fandom") },
+		{ value: 'crossover', label: t("components.epiNewCreate.label_crossover") },
+		{ value: 'au', label: t("components.epiNewCreate.label_au") },
 	]
 
 	const handleSubmit = (e) => {
@@ -121,23 +123,23 @@ const EpiNewCreate = () => {
 	return (
 		<div className='wrapper'>
 			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name='Новая тема' link='/episodes' extraName="Эпизоды" />
+				<Breadcrumbs name={t("components.epiNewCreate.new_episode")} link='/episodes' extraName={t("components.epiNewCreate.episodes")} />
 			</div>
 
 			{userInfo?.current_character ?
 				<form className='create-new-epi'>
-					<label className='create-new-epi__title'>Название эпизода:
-						<input type="text" className='create-new-epi__input' placeholder='Эпизод' value={title} onChange={(e) => setTitle(e.target.value)} />
+					<label className='create-new-epi__title'>{t("components.epiNewCreate.episode_name")}
+						<input type="text" className='create-new-epi__input' placeholder={t("components.epiNewCreate.episode")} value={title} onChange={(e) => setTitle(e.target.value)} />
 					</label>
 
 					<CustomSelect
 						styleDiv='create-new-epi__form'
-						label='Формат игры:'
+						label={t("components.epiNewCreate.game_format")}
 						onChange={setType}
 						styleSelect='create-new-epi__select'
 						options={options}
 						closeMenuOnSelect={true}
-						placeholder="Выберите тип игры"
+						placeholder={t("components.epiNewCreate.choose_game_type")}
 					/>
 
 					{type && type.value === 'fandom' ?
@@ -153,12 +155,12 @@ const EpiNewCreate = () => {
 							<CustomSelect
 								closeMenuOnSelect={false}
 								styleDiv='create-new-epi__form'
-								label='Персонажи:'
+								label={t("components.epiNewCreate.characters")}
 								onChange={getMultiListValue}
 								styleSelect='create-new-epi__select'
 								options={fandomChars && fandomChars.map(item => ({ "value": item.id, "label": item.name }))}
 								isMulti={true}
-								placeholder="Выберите игроков"
+								placeholder={t("components.epiNewCreate.choose_characters")}
 							/>
 
 						</> : ''}
@@ -167,23 +169,23 @@ const EpiNewCreate = () => {
 						<>
 							<CustomSelect
 								styleDiv='create-new-epi__form'
-								label='Кроссовер по:'
+								label={t("components.epiNewCreate.crossover")}
 								onChange={getMultiListValue}
 								styleSelect='create-new-epi__select'
 								options={cross && cross.map(item => ({ "value": item.id, "label": item.name }))}
 								closeMenuOnSelect={false}
 								isMulti={true}
-								placeholder="Выберите фандомы"
+								placeholder={t("components.epiNewCreate.choose_fandoms")}
 							/>
 							<CustomSelect
 								styleDiv='create-new-epi__form'
-								label='Персонажи:'
+								label={t("components.epiNewCreate.characters")}
 								onChange={getMultiListValue}
 								styleSelect='create-new-epi__select'
 								options={fandomChars && fandomChars.map(item => ({ "value": item.id, "label": item.name }))}
 								closeMenuOnSelect={false}
 								isMulti={true}
-								placeholder="Выберите игроков"
+								placeholder={t("components.epiNewCreate.choose_characters")}
 							/>
 						</>
 						: ''}
@@ -191,23 +193,23 @@ const EpiNewCreate = () => {
 					{type && type.value === 'au' ?
 						<CustomSelect
 							styleDiv='create-new-epi__form'
-							label='Персонажи:'
+							label={t("components.epiNewCreate.characters")}
 							onChange={getMultiListValue}
 							styleSelect='create-new-epi__select'
 							options={allUsersList && allUsersList.map(item => ({ "value": item.id, "label": item.name }))}
 							closeMenuOnSelect={false}
 							isMulti={true}
-							placeholder="Выберите игроков"
+							placeholder={t("components.epiNewCreate.choose_characters")}
 						/> : ''}
 
 					<div className='create-new-epi__img'>
-						<label className='create-new-epi__title'>Картинка:</label>
-						<input className='create-new-epi__input' placeholder='Вставьте ссылку' value={image} onChange={(e) => setImage(e.target.value)} />
+						<label className='create-new-epi__title'>{t("components.epiNewCreate.image")}</label>
+						<input className='create-new-epi__input' placeholder={t("components.epiNewCreate.enter_link")} value={image} onChange={(e) => setImage(e.target.value)} />
 					</div>
 
 					<div className='create-new-epi__desc'>
-						<label className='create-new-epi__title'>Описание:</label>
-						<textarea className='create-new-epi__text' placeholder='Описание эпизода' value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
+						<label className='create-new-epi__title'>{t("components.epiNewCreate.summary")}</label>
+						<textarea className='create-new-epi__text' placeholder={t("components.epiNewCreate.episode_summary")} value={desc} onChange={(e) => setDesc(e.target.value)}></textarea>
 					</div>
 
 					<div className='create-new-epi__radio'>
@@ -217,11 +219,11 @@ const EpiNewCreate = () => {
 								<div className="knobs"></div>
 							</div>
 						</div>
-						<p>виден для гостей</p>
+						<p>{t("components.epiNewCreate.guest_visible")}</p>
 					</div>
 
-					<input type="submit" value="Создать" className='btns btns-create' onClick={handleSubmit} />
-				</form> : <p style={{ textAlign: 'center' }}>Вы не можете создать эпизод, не имея ни одного персонажа!</p>}
+					<input type="submit" value={t("components.epiNewCreate.create")} className='btns btns-create' onClick={handleSubmit} />
+				</form> : <p style={{ textAlign: 'center' }}>{t("components.epiNewCreate.cannot_create_episode")}</p>}
 
 		</div >
 	)

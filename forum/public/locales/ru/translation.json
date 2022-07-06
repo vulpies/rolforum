@@ -38,6 +38,29 @@
 		},
 		"oneEpi": {
 			"view": "Подсмотреть"
+		},
+		"epiNewCreate": {
+			"label_fandom": "По фандому",
+			"label_crossover": "Кроссовер",
+			"label_au": "AU",
+			"new_episode": "Новый эпизод",
+			"episodes": "Эпизоды",
+			"episode_name": "Название эпизода:",
+			"episode": "Эпизод",
+			"game_format": "Формат игры:",
+			"choose_game_type": "Выберите тип игры",
+			"fandom": "Фандом",
+			"characters": "Персонажи:",
+			"choose_characters": "Выберите участников",
+			"crossover": "Кроссовер по:",
+			"choose_fandoms": "Выберите фандомы",
+			"image": "Картинка:",
+			"enter_link": "Вставьте ссылку",
+			"summary": "Описание:",
+			"episode_summary": "Описание эпизода",
+			"guest_visible": "Виден для гостей",
+			"cannot_create_episode": "Вы не можете создать эпизод, не имея ни одного персонажа!",
+			"create": "Создать"
 		}
 	},
 	"pages": {
