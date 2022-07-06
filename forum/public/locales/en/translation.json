@@ -113,6 +113,16 @@
             "repeat_password": "Repeat password",
             "check_data": "Please check the correctness of your data",
             "submit": "Submit"
+        },
+        "flood": {
+            "empty_message": "You cannot post empty message",
+            "edit": "Edit",
+            "quote": "Quote",
+            "delete": "Delete",
+            "general_chat": "General chat",
+            "load_more": "Load more",
+            "loading": "Loading...",
+            "type_message": "Enter your message"
         }
     },
     "pages": {
@@ -182,6 +192,9 @@
             "organization": "Organization",
             "character_list": "Character list",
             "loading": "Loading..."
+        },
+        "chats_page": {
+            "chats": "Chats"
         }
     }
 }
