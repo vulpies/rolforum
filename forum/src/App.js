@@ -1,5 +1,5 @@
 import axios from "axios"
-import React, {useEffect, useState} from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Characters from "./components/characters/Characters"
@@ -17,6 +17,7 @@ import { MainPage, Profile, EpisodesPage, OrgPage, Outgame, Chats, CreateCharact
 import { addUserInfo } from "./store/usersSlice"
 import { RolesList } from './pages/org_pages/org_index'
 import i18n from "./services/i18n";
+import AboutUs from "./pages/about_us"
 
 function App() {
     const [locale, setLocale] = useState(i18n.language);
@@ -52,47 +53,48 @@ function App() {
 
     return (
         <>
-            <LocaleContext.Provider value={{locale, setLocale}}>
-            <BrowserRouter>
-                <Navigation />
-                <Routes>
-                    <Route path="/" exact element={<MainPage />} />
-                    <Route path="/index" element={<MainPage />} />
+            <LocaleContext.Provider value={{ locale, setLocale }}>
+                <BrowserRouter>
+                    <Navigation />
+                    <Routes>
+                        <Route path="/" exact element={<MainPage />} />
+                        <Route path="/index" element={<MainPage />} />
 
-                    <Route path="/episodes/:epiId" element={<SingleEpi />} />
-                    <Route path="/episodes/template" element={<EpiNewCreate />} />
-                    <Route path="/episodes" element={<EpisodesPage />} />
+                        <Route path="/episodes/:epiId" element={<SingleEpi />} />
+                        <Route path="/episodes/template" element={<EpiNewCreate />} />
+                        <Route path="/episodes" element={<EpisodesPage />} />
 
-                    <Route path="/profile/:profId/edit/pass" element={<ProfileEditPass />} />
-                    <Route path="/profile/:profId/edit" element={<ProfileEdit />} />
-                    <Route path="/profile/:profId" element={<Profile />} />
+                        <Route path="/profile/:profId/edit/pass" element={<ProfileEditPass />} />
+                        <Route path="/profile/:profId/edit" element={<ProfileEdit />} />
+                        <Route path="/profile/:profId" element={<Profile />} />
 
-                    <Route path="/resetPass" element={<ResetPass />} />
+                        <Route path="/resetPass" element={<ResetPass />} />
 
-                    <Route path="/characters/:charId" element={<CharInfo />} />
-                    <Route path="/characters" element={<Characters />} />
+                        <Route path="/characters/:charId" element={<CharInfo />} />
+                        <Route path="/characters" element={<Characters />} />
 
-                    <Route path="/create" element={<CreateCharacter />} />
-                    <Route path="/char_app/:appId" element={<SingleApp />} />
-                    <Route path="/char_app" element={<CharacterApplication />} />
+                        <Route path="/create" element={<CreateCharacter />} />
+                        <Route path="/char_app/:appId" element={<SingleApp />} />
+                        <Route path="/char_app" element={<CharacterApplication />} />
 
-                    <Route path='/org/list_of_roles' element={<RolesList />} />
-                    <Route path="/org" element={<OrgPage />} />
+                        <Route path='/org/list_of_roles' element={<RolesList />} />
+                        <Route path="/org" element={<OrgPage />} />
 
+                        <Route path="/about_us" element={<AboutUs />} />
 
-                    <Route path="/admin" element={<AdminPage />} />
-                    <Route path="/moder" element={<ModerPage />} />
+                        <Route path="/admin" element={<AdminPage />} />
+                        <Route path="/moder" element={<ModerPage />} />
 
-                    {/* <Route path="/outgame/" element={<Flood />} /> */}
-                    <Route path="/outgame" element={<Outgame />} />
+                        {/* <Route path="/outgame/" element={<Flood />} /> */}
+                        <Route path="/outgame" element={<Outgame />} />
 
-                    <Route path="/chats" element={<Chats />} />
+                        <Route path="/chats" element={<Chats />} />
 
-                    <Route path="/exit" element={<Navigate to="/" replace />}
-                    />
-                </Routes>
-                <Arrows className='main-page__arrow' />
-            </BrowserRouter>
+                        <Route path="/exit" element={<Navigate to="/" replace />}
+                        />
+                    </Routes>
+                    <Arrows className='main-page__arrow' />
+                </BrowserRouter>
             </LocaleContext.Provider>
         </>
     )

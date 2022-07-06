@@ -24,7 +24,7 @@
             "active_characters": "Active characters",
             "post_count": "Post count:",
             "last_post": "Last post:",
-            "no_last_post": "never",
+            "no_last_post": "not yet",
             "open": "Open"
         },
         "breadcrumbs": {
@@ -37,7 +37,7 @@
             "loading": "Loading..."
         },
         "oneEpi": {
-            "view": "Take a peek"
+            "view": "Look"
         },
         "epiNewCreate": {
             "label_fandom": "Fandom",
@@ -130,10 +130,10 @@
             "episodes": "Episodes"
         },
         "registration": {
-            "login": "User name",
-            "type_login": "Enter user name",
-            "login_minimal_length": "Minimal user name length is 5 symbols",
-            "login_maximal_length": "Maximal user name length is 20 symbols",
+            "login": "Username",
+            "type_login": "Enter username",
+            "login_minimal_length": "Minimal username length is 5 symbols",
+            "login_maximal_length": "Maximal username length is 20 symbols",
             "email": "Email",
             "type_email": "Enter email",
             "password": "Password",
@@ -145,8 +145,8 @@
             "submit": "Register"
         },
         "login": {
-            "login": "User name",
-            "login_required": "User name is required",
+            "login": "Username",
+            "login_required": "Username is required",
             "password": "Password",
             "password_required": "Password is required",
             "password_minimal_length": "Minimal password length is 5 symbols",
