@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import CommonBtn from '../buttons/CommonBtn'
 
-
 const ModalEpi = ({ show, onClose, fandom, epiName, image, members, link, text }) => {
 
 	let desc = [...text].join('')
@@ -21,6 +20,7 @@ const ModalEpi = ({ show, onClose, fandom, epiName, image, members, link, text }
 		'position': 'fixed'
 	}
 
+	// console.log(epiName)
 	return (
 		<>
 			{show ?

@@ -16,54 +16,57 @@ const OneEpi = () => {
 		commonFetch(url, setInfo)
 	}, [setInfo, url])
 
-
 	return (
 		<>
-			{info && info?.map((item) => (
-				<div className='epi-wrapper' key={item.id}>
-					<div className='epi-text-info'>
-						<a href={`/episodes/${item.id}`} className='epi-title'>
-							<span className='epi-fandom'>[{item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}]</span> - <span className='epi-name'>{item.title}</span>
-						</a>
+			{info &&
 
-						<ModalEpi
-							show={show}
-							link={`/episodes/${item.id}`}
-							epiName={item.title}
-							fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
-							image={item.image}
-							members={item.characters.map(c => (c.mask ? c.mask : c.name))}
-							text={item.summary}
-							onClose={() => setShow(false)}
-						/>
+				info?.map((item) => (
+					<div className='epi-wrapper' key={item.id}>
+						<div className='epi-text-info'>
+							<a href={`/episodes/${item.id}`} className='epi-title'>
+								<span className='epi-fandom'>[{item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}]</span> - <span className='epi-name'>{item.title}</span>
+							</a>
 
-						<button
-							className='btns btns-common'
-							onClick={() => setShow(true)}
-						>
-							Подсмотреть
-						</button>
+							{/* {console.log(item.title)} */}
 
-						{/* <EpiModal
-							name='Подсмотреть'
-							className='btns btns-common'
-							link={`/episodes/${item.id}`}
-							epiName={item.title}
-							fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
-							image={item.image}
-							members={item.characters.map(c => (c.mask ? c.mask : c.name))}
-							text={item.summary} /> */}
+							<ModalEpi
+								show={show}
+								link={`/episodes/${item.id}`}
+								epiName={item.title}
+								fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
+								image={item.image}
+								members={item.characters.map(c => (c.mask ? c.mask : c.name))}
+								text={item.summary}
+								onClose={() => setShow(false)}
+							/>
 
-					</div>
+							<button
+								className='btns btns-common'
+								onClick={() => setShow(true)}
+							>
+								Подсмотреть
+							</button>
 
-					<div className='epi-user-info'>
-						<div className='epi-user-info__avatar'>
-							<img src={item?.last_author?.avatar} alt='' onClick={() => navigate(`/characters/${item.last_author.id}`)} />
+							{/* <EpiModal
+								name='Подсмотреть'
+								className='btns btns-common'
+								link={`/episodes/${item.id}`}
+								epiName={item.title}
+								fandom={item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}
+								image={item.image}
+								members={item.characters.map(c => (c.mask ? c.mask : c.name))}
+								text={item.summary} /> */}
+
 						</div>
-						<p>{item?.last_updated_at}</p>
+
+						<div className='epi-user-info'>
+							<div className='epi-user-info__avatar'>
+								<img src={item?.last_author?.avatar} alt='' onClick={() => navigate(`/characters/${item.last_author.id}`)} />
+							</div>
+							<p>{item?.last_updated_at}</p>
+						</div>
 					</div>
-				</div>
-			))}
+				))}
 		</>
 	)
 }

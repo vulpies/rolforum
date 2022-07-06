@@ -29,6 +29,10 @@
         border: 2px solid #f6a500;
     }
 
+    .epi-text-info {
+        width: 50%;
+    }
+
     .send-post-form__btns {
         justify-content: space-evenly;
         width: 55%;
@@ -40,5 +44,6 @@
 
     .sepi-post-post__content > p {
         margin-bottom: 15px;
+        line-height: 1.2;
     }
 }

@@ -68,6 +68,16 @@
     border: 1px solid #d4c9c9;
     padding: 5px 8px;
     color: #2e0202;
+    word-break: break-word;
+}
+
+.flood-message__text-content p {
+    margin-bottom: 13px;
+    line-height: 1.1;
+}
+
+.flood-message__text-content p:last-child {
+    margin-bottom: 0;
 }
 
 .flood-message__edit-block {

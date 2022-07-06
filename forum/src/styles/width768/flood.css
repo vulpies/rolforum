@@ -24,6 +24,10 @@
         font-size: 1.1rem;
     }
 
+    .flood-message__text-content p {
+        margin-bottom: 13px;
+    }
+
     .flood-message__profile span,
     .flood-message__profile-owner span {
         margin-bottom: 3px;

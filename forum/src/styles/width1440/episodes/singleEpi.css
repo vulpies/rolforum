@@ -14,4 +14,16 @@
         min-height: 205px;
         margin-bottom: 30px;
     }
+
+    .epi-text-info {
+        width: 64%;
+    }
+
+    .sepi-post-title {
+        font-size: 0.9rem;
+    }
+
+    .sepi-post-title__author {
+        font-size: 0.95rem;
+    }
 }
