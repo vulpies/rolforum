@@ -47,6 +47,10 @@
 			"register": "зарегистрируйтесь",
 			"all_characters": "Все персонажи"
 		},
+		"episodes_page": {
+			"new_episode": "Новый эпизод",
+			"episodes": "Эпизоды"
+		},
 		"registration": {
 			"login": "Логин",
 			"type_login": "Введите логин",

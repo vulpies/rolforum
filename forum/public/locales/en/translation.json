@@ -47,6 +47,10 @@
 			"register": "register",
 			"all_characters": "All characters"
 		},
+		"episodes_page": {
+			"new_episode": "New episode",
+			"episodes": "Episodes"
+		},
 		"registration": {
 			"login": "User name",
 			"type_login": "Enter user name",
