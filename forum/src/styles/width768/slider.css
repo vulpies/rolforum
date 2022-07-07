@@ -31,6 +31,16 @@
         margin-bottom: 8px;
     }
 
+    .slider-others__dop {
+        max-height: 115px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        align-content: center;
+        flex-direction: row;
+        margin-top: 16px;
+    }
+
     .hr-line {
         width: 50%;
         border: none;

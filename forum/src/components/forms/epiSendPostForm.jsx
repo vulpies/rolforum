@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import SendOrRemove from '../buttons/send_or_remove'
@@ -6,6 +5,7 @@ import Swal from 'sweetalert2'
 import Editors from '../../helpers/editors'
 import { useSelector } from 'react-redux'
 import { useTranslation } from "react-i18next";
+import { commonPostReqThen } from '../../helpers/commonFetch'
 
 const EpiSendPostFrom = ({ updatePosts }) => {
 	const { t } = useTranslation();
@@ -13,34 +13,21 @@ const EpiSendPostFrom = ({ updatePosts }) => {
 	const [text, setText] = useState('')
 	const location = useLocation()
 
-	console.log(user, '555')
-
 	const handleClear = () => {
 		setText('')
 	}
 
-	let options = {}
-
-	if (localStorage.getItem('token')) {
-		options = {
-			headers: {
-				'Authorization': `Bearer ${localStorage.getItem('token')}`
-			}
-		}
-	}
-
 	const sendPost = () => {
 		if (text !== '') {
-			axios.post('https://api.postscriptum.games/v1/post-create', {
+			commonPostReqThen('https://api.postscriptum.games/v1/post-create', {
 				episode_id: location.pathname.slice(10),
 				content: text
-			}, options)
-				.then(data => {
-					console.log(data.data, 'data')
-					setText('')
-					updatePosts(data.data)
-				})
+			}, data => {
+				setText('')
+				updatePosts(data.data)
+			})
 			setText('')
+
 		} else {
 			Swal.fire({
 				width: 350,

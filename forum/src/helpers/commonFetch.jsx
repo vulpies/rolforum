@@ -21,6 +21,14 @@ export const uploadInfoFetch = (url) => {
 		.catch(err => console.log(err))
 }
 
+export const commonPostReqThen = (url, postInfo, callback) => {
+	axios.post(url,
+		JSON.stringify(postInfo), options
+	)
+		.then(res => callback(res))
+		.catch(err => console.log(err))
+}
+
 export const commonPostReq = (url, postInfo) => {
 	axios.post(url,
 		JSON.stringify(postInfo), options

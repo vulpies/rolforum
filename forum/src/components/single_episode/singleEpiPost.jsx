@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { commonDelete } from '../../helpers/commonFetch'
 import EditOrRemove from '../../helpers/editOrRemove'
@@ -11,6 +11,9 @@ const SingleEpiPost = ({ posts }) => {
 	useEffect(() => {
 		setMsg(posts);
 	}, [posts])
+
+	console.log(posts)
+
 
 	function deleteMsg(id) {
 		commonDelete(`https://api.postscriptum.games/v1/post-delete/${id}`)

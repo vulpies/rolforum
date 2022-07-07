@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
+import { commonFetch, commonPostReq, commonPostReqThen } from '../../helpers/commonFetch'
 import EditOrRemove from '../../helpers/editOrRemove'
 import Breadcrumbs from '../breadcrumbs'
 import { FcApproval } from "react-icons/fc";
@@ -9,6 +9,7 @@ import Swal from 'sweetalert2'
 import SendOrRemove from '../buttons/send_or_remove'
 import { BsPencil, BsTrash } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
+import { useCallback } from 'react'
 
 const SingleApp = () => {
 	const { t } = useTranslation();
@@ -20,23 +21,21 @@ const SingleApp = () => {
 	const [comments, setComments] = useState([])
 	const [newMsg, setNewMsg] = useState(false)
 
-	// const uploadInfo = () => {
-	// 	commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
-	// }
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
 	}, [appId])
 
-	// console.log(appData, 'appData')
-
-	useEffect(() => {
-	}, [newMsg])
-
-	function updMsgs(param) {
+	const updMsgs = useCallback((param) => {
+		console.log(param, 'paramparam')
 		setAppData(param)
 		setComments(param.comments)
-		setNewMsg(true)
+		setNewMsg(!newMsg)
+	}, [newMsg])
+
+	const newCom = (res) => {
+		setComments([...comments, res.data.comment[0]])
+		setNewMsg(!newMsg)
 	}
 
 	const handleClear = () => {
@@ -50,10 +49,8 @@ const SingleApp = () => {
 		}
 
 		if (text !== '') {
-			commonPostReq('https://api.postscriptum.games/v1/profile/character-app-comment-post', newComment)
-
-			setText('')
-			commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
+			commonPostReqThen('https://api.postscriptum.games/v1/profile/character-app-comment-post', newComment, newCom)
+			handleClear()
 		} else {
 			Swal.fire({
 				width: 350,

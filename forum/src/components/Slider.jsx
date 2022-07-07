@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import mainPic from '../images/pic.jpg'
 import { commonFetch, uploadInfoFetch } from '../helpers/commonFetch'
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const Slider = () => {
 	const { t } = useTranslation();
@@ -10,9 +10,6 @@ const Slider = () => {
 	const [userInfo] = useSelector((state) => state.usersReducer.user)
 	const [activeChar, setActiveChar] = useState('')
 	const [upd, setUpd] = useState(false)
-	const [abc, setAbc] = useState('')
-	// const [smth, setSmth] = useState(false)
-	// const current = userInfo?.current_character
 
 	useEffect(() => {
 		if (userInfo) {
@@ -22,26 +19,14 @@ const Slider = () => {
 
 
 	useEffect(() => {
-
 	}, [upd])
 
-	// const newActive = Object.assign(activeChar)
-	// console.log(Object.isExtensible(newActive), 99999)
-	//console.log(abc, 666666666)
-
-	// console.log(current, 'currentcurrent')
-	// console.log(userInfo, 'userInfouserInfouserInfo')
-	// console.log(activeChar, 'activeCharactiveCharactiveChar')
-
 	function changeChar(id) {
-		//console.log(id)
 		uploadInfoFetch(`https://api.postscriptum.games/v1/profile/character/set-current/${id}/`)
 
-		//console.log(11111)
-		setUpd(true)
-		//console.log(upd, 77777)
-
-		commonFetch(`https://api.postscriptum.games/v1/me`, setAbc)
+		const oneChar = userInfo?.characters?.filter(item => item.id === id)
+		setActiveChar(oneChar[0])
+		setUpd(!upd)
 	}
 
 	const allChars = userInfo?.characters?.filter(item => item.id !== activeChar.id)
@@ -68,11 +53,13 @@ const Slider = () => {
 					: <p>{t("components.slider.no_characters")}</p>
 				}
 
-				{userInfo && activeChar ? <img key={activeChar.id} src={activeChar.avatar} className='slider-others__image slider-active-char' alt={activeChar.name} /> : 'нет актива'}
+				<div className='slider-others__dop'>
+					{userInfo && activeChar ? <img key={activeChar.id} src={activeChar.avatar} className='slider-others__image slider-active-char' alt={activeChar.name} /> : 'нет актива'}
 
-				{userInfo && allChars.map((item => {
-					return <img key={item?.id} src={item?.avatar} alt={item?.name} className='slider-others__image' onClick={() => changeChar(item?.id)} />
-				}))}
+					{userInfo && allChars.map((item => {
+						return <img key={item?.id} src={item?.avatar} alt={item?.name} className='slider-others__image' onClick={() => changeChar(item?.id)} />
+					}))}
+				</div>
 
 			</div>
 		</div> : ""
