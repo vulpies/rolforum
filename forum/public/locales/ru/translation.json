@@ -97,8 +97,8 @@
             "enter_image_link": "Вставьте ссылку на изображение",
             "timezone": "Часовой пояс:",
             "choose_timezone": "Выберите пояс",
-            "language": "Language",
-            "choose_language": "Choose language",
+            "language": "Язык интерфейса:",
+            "choose_language": "Выберите язык",
             "loading": "Загрузка данных...",
             "submit": "Сохранить"
         },
