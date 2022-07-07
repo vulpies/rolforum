@@ -4,6 +4,12 @@
         max-height: 150px;
     }
 
+    .sepi-post-title__number {
+        margin-left: 10px;
+        color: #b40505;
+        font-size: 0.9rem;
+    }
+
     .epi-user-info {
         width: 300px;
         display: flex;

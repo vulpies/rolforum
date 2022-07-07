@@ -44,6 +44,12 @@
         position: relative;
     }
 
+    .wrapper-profile {
+        height: auto;
+        overflow-y: auto;
+        overflow-x: clip;
+    }
+
     .navbar {
         display: flex;
         background-color: transparent;

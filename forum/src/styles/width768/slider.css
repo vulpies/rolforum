@@ -12,6 +12,7 @@
         flex-wrap: wrap;
         margin: 0 10px;
         position: relative;
+        padding-left: 0;
     }
     .slider-others > p {
         position: absolute;

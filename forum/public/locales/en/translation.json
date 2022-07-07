@@ -1,7 +1,7 @@
 {
     "components": {
         "slider": {
-            "hello": "Hello",
+            "hello": "Hello,",
             "guest": "stranger",
             "your_characters": "Your characters:",
             "no_characters": "You have no characters"
@@ -10,7 +10,7 @@
             "index": "Home",
             "admin": "Admin",
             "moder": "Moderate",
-            "profile": "User profile",
+            "profile": "Profile",
             "organization": "Organization",
             "episodes": "Episodes",
             "offgame": "Off Game",
@@ -21,7 +21,7 @@
         "characters": {
             "all_characters": "All Characters",
             "create_character": "Create character",
-            "active_characters": "Active characters",
+            "active_characters": "Active characters:",
             "post_count": "Post count:",
             "last_post": "Last post:",
             "no_last_post": "not yet",
@@ -89,15 +89,15 @@
         "profileEdit": {
             "information_saved": "Information is saved successfully",
             "edit": "Edit",
-            "profile": "User profile",
-            "username": "Username",
-            "email": "Email",
-            "change_password": "Change password",
-            "avatar": "Avatar image",
+            "profile": "Profile",
+            "username": "Username:",
+            "email": "Email:",
+            "change_password": "Change password:",
+            "avatar": "Avatar image:",
             "enter_image_link": "Enter image link",
-            "timezone": "Timezone",
+            "timezone": "Timezone:",
             "choose_timezone": "Choose timezone",
-            "language": "Language",
+            "language": "Language:",
             "choose_language": "Choose language",
             "loading": "Loading...",
             "submit": "Submit"
@@ -162,8 +162,8 @@
             "no_characters": "No characters yet",
             "registered": "Registration date:",
             "reputation": "Reputation:",
-            "episode_count": "Episode number:",
-            "post_count": "Game post number:",
+            "episode_count": "Episodes:",
+            "post_count": "Game posts:",
             "last_post": "Last post published:",
             "no_post": "No posts yet",
             "last_visit": "Last visit date:",

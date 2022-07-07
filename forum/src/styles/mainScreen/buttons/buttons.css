@@ -72,6 +72,7 @@
 
 .btns-send {
     font-size: 1.1rem;
+    min-width: 120px;
 }
 
 .btns-load {

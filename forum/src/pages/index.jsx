@@ -9,5 +9,6 @@ import CreateCharacter from "./create_character";
 import ResetPass from './reset_password';
 import ModerPage from "./moder_page";
 import AdminPage from "./admin_page";
+import AboutUs from "./about_us";
 
-export { MainPage, Profile, Registration, EpisodesPage, OrgPage, Outgame, Chats, CreateCharacter, ResetPass, ModerPage, AdminPage }
+export { MainPage, Profile, Registration, EpisodesPage, OrgPage, Outgame, Chats, CreateCharacter, ResetPass, ModerPage, AdminPage, AboutUs }

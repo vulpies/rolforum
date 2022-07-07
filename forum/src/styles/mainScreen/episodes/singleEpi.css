@@ -115,10 +115,17 @@
     align-items: center;
     font-weight: 600;
     font-size: 0.85rem;
+    margin: 0 -10px;
 }
 
 .sepi-post-title__date {
     text-align: right;
+}
+
+.sepi-post-title__number {
+    color: #b40505;
+    margin-left: 3px;
+    font-size: 0.8rem;
 }
 
 .sepi-post-post {

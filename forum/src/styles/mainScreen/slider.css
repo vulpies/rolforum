@@ -52,8 +52,9 @@
     height: 200px;
     overflow-y: auto;
     padding-right: 10px;
-    margin: 0 13px;
+    margin: 0px 13px 0px 3px;
     width: 160px;
+    padding-left: 7px;
 }
 
 .slider-others > p {
@@ -98,7 +99,7 @@
 }
 
 .slider-others__image:last-child {
-    margin-bottom: 0;
+    margin-bottom: 5px;
 }
 
 .slider-active-char {

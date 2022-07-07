@@ -19,12 +19,12 @@ const SingleEpiPost = ({ posts }) => {
 
 	return (
 		<>
-			{msg && msg.map(p =>
+			{msg && msg.map((p, i) =>
 				<div key={p.id} className='sepi-post-wrapper'>
 
 					<div className='sepi-post-title'>
 						<div className='sepi-post-title__author'>{p.character_name}</div>
-						<div className='sepi-post-title__date' id={p.id}>{p.created_at}</div>
+						<div className='sepi-post-title__date' id={p.id}>{p.created_at} <span className='sepi-post-title__number'>#{i + 1}</span></div>
 					</div>
 					<hr className='hr-underline' />
 

@@ -13,11 +13,10 @@ import ProfileEditPass from "./components/profile/ProfileEditPass"
 import SingleEpi from "./components/single_episode/singleEpi"
 import LocaleContext from "./components/LocaleContext";
 import Arrows from "./helpers/arrows"
-import { MainPage, Profile, EpisodesPage, OrgPage, Outgame, Chats, CreateCharacter, ResetPass, ModerPage, AdminPage } from './pages/index'
+import { MainPage, Profile, EpisodesPage, OrgPage, Outgame, Chats, CreateCharacter, ResetPass, ModerPage, AdminPage, AboutUs } from './pages/index'
 import { addUserInfo } from "./store/usersSlice"
 import { RolesList } from './pages/org_pages/org_index'
 import i18n from "./services/i18n";
-import AboutUs from "./pages/about_us"
 
 function App() {
     const [locale, setLocale] = useState(i18n.language);
@@ -85,7 +84,6 @@ function App() {
                         <Route path="/admin" element={<AdminPage />} />
                         <Route path="/moder" element={<ModerPage />} />
 
-                        {/* <Route path="/outgame/" element={<Flood />} /> */}
                         <Route path="/outgame" element={<Outgame />} />
 
                         <Route path="/chats" element={<Chats />} />

@@ -31,8 +31,8 @@ const ProfileEdit = () => {
 	}
 
 	const languages = [
-		{"value": "en", "label": "English"},
-		{"value": "ru", "label": "Russian"}
+		{ "value": "en", "label": "English" },
+		{ "value": "ru", "label": "Russian" }
 	]
 
 	// const defaultTime = {
@@ -79,7 +79,7 @@ const ProfileEdit = () => {
 	}
 
 	return (
-		<div className='wrapper'>
+		<div className='wrapper wrapper-profile'>
 			<div className='sepi-bread-header extra'>
 				<Breadcrumbs name={t("components.profileEdit.edit")} link={`/profile/${user?.user_id}`} extraName={t("components.profileEdit.profile")} />
 			</div>
@@ -136,10 +136,10 @@ const ProfileEdit = () => {
 						styleDiv='profile-input__input'
 						label={t("components.profileEdit.language")}
 						onChange={(e) => setLanguage(e)}
-						options={[{"value": "en", "label": "English"}, {"value": "ru", "label": "Russian"}]}
+						options={[{ "value": "en", "label": "English" }, { "value": "ru", "label": "Russian" }]}
 						closeMenuOnSelect={true}
 						isMulti={false}
-						defaultValue={languages.filter( (item) => { return item.value === language })[0]}
+						defaultValue={languages.filter((item) => { return item.value === language })[0]}
 						placeholder={t("components.profileEdit.choose_language")}
 					/>
 
