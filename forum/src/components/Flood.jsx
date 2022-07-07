@@ -7,8 +7,10 @@ import Editors from '../helpers/editors';
 import SendOrRemove from './buttons/send_or_remove';
 import { AiOutlineUnorderedList, AiOutlineMore } from "react-icons/ai";
 import mainPic from '../images/static.gif'
+import { useTranslation } from "react-i18next";
 
 const Flood = () => {
+	const { t } = useTranslation();
 	const [user] = useSelector((state) => state.usersReducer.user)
 	const [text, setText] = useState('')
 	const [socket_con, setSocket] = useState(null)
@@ -94,7 +96,7 @@ const Flood = () => {
 				width: 350,
 				position: 'top',
 				icon: 'error',
-				text: 'Нельзя отправить пустое сообщение!',
+				text: t("components.flood.empty_message"),
 			})
 		}
 	}
@@ -147,12 +149,12 @@ const Flood = () => {
 		const textContent = owner ? 'flood-message__text-content-owner flood-message__text-content' : 'flood-message__text-content';
 
 		const setBtn = owner ? <div className={'flood-message__edit-options-owner flood-message__edit-options'}>
-			<p>Редактировать</p>
-			<p>Цитировать</p>
-			<p onClick={() => deleteMsg(m.id)}>Удалить</p>
+			<p>{t("components.flood.edit")}</p>
+			<p>{t("components.flood.quote")}</p>
+			<p onClick={() => deleteMsg(m.id)}>{t("components.flood.delete")}</p>
 		</div>
 			: <div className='flood-message__edit-options'>
-				<p>Цитировать</p>
+				<p>{t("components.flood.quote")}</p>
 			</div>
 
 		return (
@@ -192,21 +194,21 @@ const Flood = () => {
 			<div className='flood-name__wrapper'>
 				<div className='flood-name'>
 					<button className='btns btns-flood'><AiOutlineUnorderedList /></button>
-					<p className='flood-title'>Общий флуд</p>
+					<p className='flood-title'>{t("components.flood.general_chat")}</p>
 					<button className='btns btns-flood'><AiOutlineMore /></button>
 				</div>
 			</div>
 
 			<div className='flood-load-history'>
-				<button className='btns btns-load' onClick={loadHistory}>Загрузить еще</button>
+				<button className='btns btns-load' onClick={loadHistory}>{t("components.flood.load_more")}</button>
 			</div>
 
 			<div id="message-area" className='flood-rcvd-msg'>
-				{allMsg ? allMsg : "Загрузка данных..."}
+				{allMsg ? allMsg : t("components.flood.loading")}
 			</div>
 
 			<div className='flood-wrapper__send'>
-				<p>Введите ваше сообщение</p>
+				<p>{t("components.flood.type_message")}</p>
 
 				<Editors className='editor-line__flood' param={text.trim()} setParam={setText} id='message' />
 

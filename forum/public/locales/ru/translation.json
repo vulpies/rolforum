@@ -97,8 +97,8 @@
             "enter_image_link": "Вставьте ссылку на изображение",
             "timezone": "Часовой пояс:",
             "choose_timezone": "Выберите пояс",
-            "language": "Язык интерфейса:",
-            "choose_language": "Выбери язык",
+            "language": "Language",
+            "choose_language": "Choose language",
             "loading": "Загрузка данных...",
             "submit": "Сохранить"
         },
@@ -113,6 +113,16 @@
             "repeat_password": "Подтвердите пароль:",
             "check_data": "Проверьте правильность ввода данных!",
             "submit": "Сохранить"
+        },
+        "flood": {
+            "empty_message": "Нельзя отправить пустое сообщение!",
+            "edit": "Редактировать",
+            "quote": "Цитировать",
+            "delete": "Удалить",
+            "general_chat": "Общий флуд",
+            "load_more": "Загрузить еще",
+            "loading": "Загрузка данных...",
+            "type_message": "Введите ваше сообщение"
         }
     },
     "pages": {
@@ -169,6 +179,22 @@
             "last_visit": "Последний визит:",
             "last_activity": "Последняя активность:",
             "loading": "Загрузка данных..."
+        },
+        "about_us": {
+            "text": "text"
+        },
+        "organization_page": {
+            "new_episode": "Новый эпизод",
+            "organization": "Орг. темы",
+            "character_list": "Список ролей"
+        },
+        "roles_list": {
+            "organization": "Орг. темы",
+            "character_list": "Список ролей",
+            "loading": "Загрузка данных..."
+        },
+        "chats_page": {
+            "chats": "Чаты"
         }
     }
 }
