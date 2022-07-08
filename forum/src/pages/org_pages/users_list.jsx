@@ -23,7 +23,7 @@ const UsersList = () => {
 					<a href={`/profile/${item.id}`}><img src={item.avatar ? item.avatar : mainPic} alt='' className='user-avatar' /></a>
 
 					<p className='user-statistics'><span>{t("pages.users_list.registered")}</span> {item.registered_at}</p>
-					<p className='user-statistics'><span>{t("pages.users_list.last_activity")}</span> {item.last_activity_at ? item.last_activity_at : t("pages.users_list.no_activity")}</p>
+					<p className='user-statistics'><span>{t("pages.users_list.last_visit")}</span> {item.last_activity_at ? item.last_activity_at : t("pages.users_list.no_activity")}</p>
 				</div>
 			))}
 		</div> : <p style={{ textAlign: 'center' }}>{t("pages.roles_list.loading")}</p>

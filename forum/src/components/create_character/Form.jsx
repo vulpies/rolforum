@@ -5,8 +5,10 @@ import PreviewInfo from "./PreviewInfo"
 import { useNavigate } from 'react-router-dom'
 import Swal from "sweetalert2";
 import { commonPostReq } from "../../helpers/commonFetch"
+import {useTranslation} from "react-i18next";
 
 function Form() {
+	const { t } = useTranslation();
 	const [page, setPage] = useState(0);
 	const [formData, setFormData] = useState({
 		fandom_name: "",
@@ -29,7 +31,7 @@ function Form() {
 		Swal.fire({
 			width: 350,
 			position: 'top',
-			text: 'Ваша анкета направлена на модерацию! Как только она будет одобрена, иконка персонажа отобразится в профиле!',
+			text: t("components.createCharacter.accepted"),
 			icon: 'success'
 		})
 		navigate(`/index`)
@@ -42,17 +44,17 @@ function Form() {
 
 			<div className="create-new-epi__buttons">
 				{page !== 0 ?
-					<button className="btns btns-create" onClick={() => setPage((currPage) => currPage - 1)}> Назад </button>
+					<button className="btns btns-create" onClick={() => setPage((currPage) => currPage - 1)}> {t("components.createCharacter.back")} </button>
 					: ''}
 
 				{page !== 2 ?
 					<button className="btns btns-create" onClick={() => setPage((currPage) => currPage + 1)}
-					> Вперед </button>
+					> {t("components.createCharacter.forward")} </button>
 
 					: <button className="btns btns-create"
 						onClick={sendInfo}
 						disabled={formData.name === '' || formData.avatar === '' || formData.description === ''}
-					> Отправить </button>
+					> {t("components.createCharacter.submit")} </button>
 				}
 			</div>
 		</div>
