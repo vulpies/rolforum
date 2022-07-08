@@ -6,7 +6,7 @@ const CreateCharacter = () => {
 	return (
 		<div className='wrapper'>
 			<div className='epi-links single-link'>
-				<Breadcrumbs name="Создать персонажа" />
+				<Breadcrumbs name={t("pages.create_character.create_character")} />
 			</div>
 
 			<Form />

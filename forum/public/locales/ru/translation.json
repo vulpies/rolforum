@@ -202,6 +202,9 @@
             "last_visit": "Появлялся:",
             "no_activity": "еще не заходил",
             "user_list": "Список пользователей"
+        },
+        "create_character": {
+            "create_character": "Создать персонажа"
         }
     }
 }

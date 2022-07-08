@@ -202,6 +202,9 @@
             "last_visit": "Last visit:",
             "no_activity": "never",
             "user_list": "User list"
+        },
+        "create_character": {
+            "create_character": "Create character"
         }
     }
 }
