@@ -26,7 +26,7 @@
     max-height: 360px;
     height: auto;
     min-height: 170px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .epi-modal-header {

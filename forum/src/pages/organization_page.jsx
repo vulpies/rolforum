@@ -7,18 +7,22 @@ const OrgPage = () => {
 	return (
 		<div className='wrapper'>
 
-			<div className='epi-links' style={{ marginTop: '-9px' }}>
+			<div className='epi-links extra'>
 				<a href="/episodes/template">{t("pages.organization_page.new_episode")}</a>
 				<Breadcrumbs name={t("pages.organization_page.organization")} />
-			</div >
+			</div>
 
 			<div className='org-wrapper'>
 				<div className='org-common'>
 					<a href='/org/list_of_roles'>{t("pages.organization_page.character_list")}</a>
 				</div>
+
+				<div className='org-common'>
+					<a href='/org/list_of_users'>Список пользователей</a>
+				</div>
 			</div>
 
-		</div >
+		</div>
 	)
 }
 

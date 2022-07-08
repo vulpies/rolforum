@@ -17,14 +17,8 @@
     .org-common {
         width: 31%;
     }
-}
 
-@media (min-width: 1280px) {
-    .org-common {
-        background-color: #fff6e5;
-    }
-
-    .org-common a {
-        font-size: 1.1rem;
+    .org-wrapper {
+        margin-top: 30px;
     }
 }

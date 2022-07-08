@@ -1,0 +1,42 @@
+/* .users-common {
+	margin-top: 28px;
+} */
+
+.users-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto 15px;
+    width: 100%;
+    border-bottom: 1px solid #d9c3bf;
+    padding-bottom: 15px;
+}
+
+.user-title {
+    font-size: 1.2rem;
+    padding-bottom: 6px;
+}
+
+.user-avatar {
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px dashed #c27608;
+    border-radius: 15px;
+    margin-bottom: 8px;
+}
+
+.user-statistics {
+    padding-bottom: 5px;
+}
+
+.user-statistics:last-of-type {
+    padding-bottom: 0;
+}
+
+.user-statistics span {
+    font-weight: bold;
+    color: #ad0808;
+}

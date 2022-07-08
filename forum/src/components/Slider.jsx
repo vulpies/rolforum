@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import mainPic from '../images/pic.jpg'
-import { commonFetch, uploadInfoFetch } from '../helpers/commonFetch'
+import { uploadInfoFetch } from '../helpers/commonFetch'
 import { useTranslation } from "react-i18next";
 
 const Slider = () => {
@@ -37,14 +37,9 @@ const Slider = () => {
 		{user && user.auth !== false ? <div className="slider">
 
 			<div className='slider-main'>
-				{userInfo ?
-					<a href={`/profile/${userInfo?.user_id}`}>
-						<img src={userInfo?.user_avatar} alt='' className='slider-main__image' />
-					</a>
-					:
-					<a href={`/profile/${userInfo?.user_id}`}>
-						<img src={mainPic} alt='' className='slider-main__image' />
-					</a>}
+				<a href={`/profile/${userInfo?.user_id}`}>
+					<img src={userInfo?.user_avatar ? userInfo?.user_avatar : mainPic} alt='' className='slider-main__image' />
+				</a>
 			</div>
 
 			<div className='slider-others'>

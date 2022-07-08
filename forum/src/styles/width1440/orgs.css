@@ -1,0 +1,39 @@
+@media (min-width: 1280px) {
+    .org-common {
+        background-color: #fff6e5;
+    }
+
+    .org-common a {
+        font-size: 1.1rem;
+    }
+
+    .users-common {
+        margin-top: 30px;
+    }
+
+    .users-wrapper {
+        width: 24%;
+        border: 2px solid #c4ab91;
+        border-radius: 13px;
+        margin-bottom: 25px;
+        padding: 0 5px 10px 5px;
+    }
+
+    .users-wrapper:hover {
+        border: 2px solid #7d0505;
+        background-color: #ffeed7;
+    }
+
+    .user-avatar {
+        max-width: 130px;
+        max-height: 130px;
+    }
+
+    .user-statistics span {
+        font-size: 0.9rem;
+    }
+
+    .user-statistics:last-of-type {
+        width: 100%;
+    }
+}

@@ -1,0 +1,42 @@
+@media (min-width: 768px) {
+    .users-common {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: center;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .users-wrapper {
+        width: 32%;
+        text-align: center;
+        border-bottom: unset;
+        margin-bottom: 30px;
+    }
+
+    .user-avatar {
+        max-width: 175px;
+        max-height: 175px;
+    }
+
+    .user-avatar:hover {
+        border: 1px solid #7d0505;
+    }
+
+    .user-statistics {
+        width: 90%;
+    }
+
+    .user-statistics:last-of-type {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .user-statistics:last-of-type {
+        width: 82%;
+    }
+}

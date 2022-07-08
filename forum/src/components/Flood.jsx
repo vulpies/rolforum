@@ -163,7 +163,7 @@ const Flood = () => {
 					<span className="user">
 						<a href={`/profile/${m.user_id}`}>{m.user_name}</a></span>
 					<div className="flood-message__profile-avatar">
-						{m.user_avatar ? <img src={m.user_avatar} alt={m.user_name} /> : <img src={mainPic} alt={m.user_name} />}
+						<img src={m.user_avatar ? m.user_avatar : mainPic} alt={m.user_name} />
 					</div>
 				</div>
 

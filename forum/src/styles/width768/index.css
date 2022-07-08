@@ -6,8 +6,10 @@
 @import "./flood.css";
 @import "./moder.css";
 @import "./common.css";
-@import "./roles";
-@import "./orgs";
+
+@import "./org_pages/orgs.css";
+@import "./org_pages/roles.css";
+@import "./org_pages/users.css";
 
 @import "./characters.css/create_new_character.css";
 @import "./characters.css/characters.css";
