@@ -186,7 +186,8 @@
         "organization_page": {
             "new_episode": "Новый эпизод",
             "organization": "Орг. темы",
-            "character_list": "Список ролей"
+            "character_list": "Список ролей",
+            "user_list": "Список пользователей"
         },
         "roles_list": {
             "organization": "Орг. темы",

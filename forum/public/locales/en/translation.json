@@ -186,7 +186,8 @@
         "organization_page": {
             "new_episode": "New episode",
             "organization": "Organization",
-            "character_list": "Character list"
+            "character_list": "Character list",
+            "user_list": "User list"
         },
         "roles_list": {
             "organization": "Organization",
