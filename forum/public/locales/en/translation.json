@@ -196,6 +196,12 @@
         },
         "chats_page": {
             "chats": "Chats"
+        },
+        "users_list": {
+            "registered": "Registered:",
+            "last_visit": "Last visit:",
+            "no_activity": "never",
+            "user_list": "User list"
         }
     }
 }

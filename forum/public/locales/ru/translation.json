@@ -196,6 +196,12 @@
         },
         "chats_page": {
             "chats": "Чаты"
+        },
+        "users_list": {
+            "registered": "Зарегистрирован:",
+            "last_visit": "Появлялся:",
+            "no_activity": "еще не заходил",
+            "user_list": "Список пользователей"
         }
     }
 }
