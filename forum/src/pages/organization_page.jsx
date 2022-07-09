@@ -17,7 +17,7 @@ const OrgPage = () => {
 				</div>
 
 				<div className='org-common'>
-					<a href='/org/list_of_users'>Список пользователей</a>
+					<a href='/org/list_of_users'>{t("pages.organization_page.user_list")}</a>
 				</div>
 			</div>
 

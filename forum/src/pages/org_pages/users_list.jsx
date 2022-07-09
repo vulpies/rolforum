@@ -22,8 +22,8 @@ const UsersList = () => {
 
 					<a href={`/profile/${item.id}`}><img src={item.avatar ? item.avatar : stranger} alt='' className='user-avatar' /></a>
 
-					<p className='user-statistics'><span>Зарегистрирован:</span> {item.registered_at}</p>
-					<p className='user-statistics'><span>Появлялся:</span> {item.last_activity_at ? item.last_activity_at : 'еще не заходил'}</p>
+					<p className='user-statistics'><span>{t("pages.users_list.registered")}</span> {item.registered_at}</p>
+					<p className='user-statistics'><span>{t("pages.users_list.last_visit")}</span> {item.last_activity_at ? item.last_activity_at : t("pages.users_list.no_activity")}</p>
 				</div>
 			))}
 		</div> : <p style={{ textAlign: 'center' }}>{t("pages.roles_list.loading")}</p>
@@ -32,7 +32,7 @@ const UsersList = () => {
 		<div className='wrapper'>
 
 			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name='Список пользователей' link='/org' extraName={t("pages.roles_list.organization")} />
+				<Breadcrumbs name={t("pages.users_list.user_list")} link='/org' extraName={t("pages.roles_list.organization")} />
 			</div>
 
 			{usersList}

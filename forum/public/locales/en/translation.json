@@ -123,6 +123,34 @@
             "load_more": "Load more",
             "loading": "Loading...",
             "type_message": "Enter your message"
+        },
+        "chooseFandom": {
+            "new_fandom": "Add new fandom",
+            "existing_fandom": "Choose existing fandom",
+            "choose_one": "Choose one",
+            "choose_fandom_type": "Choose fandom type",
+            "fandom_name": "Fandom name",
+            "en_english": "Enter the fandom name in English",
+            "fandom": "Fandom",
+            "choose_fandom": "Choose fandom",
+            "character_list": "Already taken characters"
+        },
+        "createCharacter": {
+            "accepted": "Your character application was submitted. If it is accepted you will see a new character on the character page.",
+            "back": "Previous step",
+            "forward": "Next step",
+            "submit": "Submit"
+        },
+        "characterInfo": {
+            "character_name": "Character name",
+            "en_english": "Enter character name in English",
+            "character_name_description": "<p>Character name in English. Put the full character name if it is known. If not, you can put a short name or a nickname.</p>",
+            "avatar": "Avatar image",
+            "avatar_placeholder": "Enter avatar image url",
+            "avatar_description": "<p>Maximal image size is 200х200 pixels. Otherwise it will be automatically minimized.</p>",
+            "description": "Character description",
+            "description_placeholder": "Enter character description",
+            "description_description": "<p>Please, put any information which is important for the development of your character. Also, try to provide any information which can be useful for other players interacting with your character. It cam be the mental and physical portrait, abilities, facts of biography etc.</p>"
         }
     },
     "pages": {
@@ -181,12 +209,13 @@
             "loading": "Loading..."
         },
         "about_us": {
-            "text": "<p>\n\t\t\t\tPost Scriptum Games is an online platform for play-by-post role-playing games. There is no one plot line\n\t\t\t\ton this site, the users can play different plot lines, based on the well-known movies, books and TV-shows\n\t\t\t\tas well as designed completely by themeselves.\n\t\t\t</p>\n\t\t\t<p>\n\t\t\t\tEach user can have many characters from different settings and universes (called \"fandoms\" on this site),\n\t\t\t\thowever, in each setting or universe, one character can be played only by one user. That means that, if,\n\t\t\t\ton the site, the users deside to start a game based on \"Romeo and Juliette\", there will be only one player \n\t\t\t\tacross all site playing Romeo. However, the same user can play King Lear in a different game based on another \n\t\t\t\tShakespeare's drama.\n\t\t\t</p>\n\t\t\t<p>\n\t\t\t\tThe game is divided into \"episodes\" - small scenes with logical start and finish, like chapters in the book.\n\t\t\t\tPlayers describe the actions of their characters in turn, one after another, in a form of posts - small \n\t\t\t\tchunks of text together forming a coherent story.\n\t\t\t</p>\n\t\t\t<p>\n\t\t\t\tThe players are not restricted to always play in one setting, they can choose to merge different universes \n\t\t\t\ttogether or to move a character from one story into the reality of another story. Such games are called crossovers.\n\t\t\t\tThey can choose to change the setting drastically, move medieval characters into a modern world or vise versa,\n\t\t\t\tand such a game would be called \"alternative universe\" (AU).\n\t\t\t</p>"
+            "text": "<p>Post Scriptum Games is an online platform for play-by-post role-playing games. There is no one plot lineon this site, the users can play different plot lines, based on the well-known movies, books and TV-showsas well as designed completely by themeselves.</p><p>Each user can have many characters from different settings and universes (called \"fandoms\" on this site),however, in each setting or universe, one character can be played only by one user. That means that, if,on the site, the users deside to start a game based on \"Romeo and Juliette\", there will be only one player across all site playing Romeo. However, the same user can play King Lear in a different game based on another Shakespeare's drama.</p><p>The game is divided into \"episodes\" - small scenes with logical start and finish, like chapters in the book.Players describe the actions of their characters in turn, one after another, in a form of posts - small chunks of text together forming a coherent story.</p><p>The players are not restricted to always play in one setting, they can choose to merge different universes together or to move a character from one story into the reality of another story. Such games are called crossovers.They can choose to change the setting drastically, move medieval characters into a modern world or vise versa,and such a game would be called \"alternative universe\" (AU).</p>"
         },
         "organization_page": {
             "new_episode": "New episode",
             "organization": "Organization",
-            "character_list": "Character list"
+            "character_list": "Character list",
+            "user_list": "User list"
         },
         "roles_list": {
             "organization": "Organization",
@@ -195,6 +224,15 @@
         },
         "chats_page": {
             "chats": "Chats"
+        },
+        "users_list": {
+            "registered": "Registered:",
+            "last_visit": "Last visit:",
+            "no_activity": "never",
+            "user_list": "User list"
+        },
+        "create_character": {
+            "create_character": "Create character"
         }
     }
 }
