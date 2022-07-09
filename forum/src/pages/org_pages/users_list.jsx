@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Breadcrumbs from '../../components/breadcrumbs'
 import { commonFetch } from '../../helpers/commonFetch'
 import { useTranslation } from "react-i18next";
-import mainPic from '../../images/pic.jpg'
+import stranger from '../../images/stranger.jpg'
 
 const UsersList = () => {
 	const { t } = useTranslation();
@@ -20,7 +20,7 @@ const UsersList = () => {
 				<div className='users-wrapper' key={item.id}>
 					<p className='user-title'><a href={`/profile/${item.id}`}>{item.user_name}</a></p>
 
-					<a href={`/profile/${item.id}`}><img src={item.avatar ? item.avatar : mainPic} alt='' className='user-avatar' /></a>
+					<a href={`/profile/${item.id}`}><img src={item.avatar ? item.avatar : stranger} alt='' className='user-avatar' /></a>
 
 					<p className='user-statistics'><span>Зарегистрирован:</span> {item.registered_at}</p>
 					<p className='user-statistics'><span>Появлялся:</span> {item.last_activity_at ? item.last_activity_at : 'еще не заходил'}</p>

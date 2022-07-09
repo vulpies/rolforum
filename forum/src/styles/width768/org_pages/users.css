@@ -15,6 +15,7 @@
         text-align: center;
         border-bottom: unset;
         margin-bottom: 30px;
+        margin: 0 4px 15px;
     }
 
     .user-avatar {

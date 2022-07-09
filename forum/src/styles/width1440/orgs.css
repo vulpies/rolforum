@@ -16,7 +16,11 @@
         border: 2px solid #c4ab91;
         border-radius: 13px;
         margin-bottom: 25px;
-        padding: 0 5px 10px 5px;
+        padding: 4px 5px 10px;
+        min-height: 300px;
+        margin: 0 5px 15px;
+        /* justify-content: center; */
+        justify-content: space-evenly;
     }
 
     .users-wrapper:hover {

@@ -106,6 +106,7 @@
     .single-link {
         margin: -10px -16px 15px;
         border-bottom: 2px solid #c5b696;
+        /* border-bottom: 2px solid #dbd8ce; */
         /* border-bottom: 2px solid #c18d1f; */
     }
 

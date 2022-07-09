@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { userLogout } from "../../store/usersSlice"
 import { MenuContext } from "./NavState"
 import OneLink from "./OneNavLink"
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const NavLinks = () => {
     const { t } = useTranslation();
@@ -159,12 +159,12 @@ const NavLinks = () => {
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
-                        to='/episodes'
+                        to='/org'
                         style={({ isActive }) =>
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("components.navlinks.episodes")} />
+                        name={t("components.navlinks.organization")} />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}

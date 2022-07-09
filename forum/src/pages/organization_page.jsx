@@ -7,8 +7,7 @@ const OrgPage = () => {
 	return (
 		<div className='wrapper'>
 
-			<div className='epi-links extra'>
-				<a href="/episodes/template">{t("pages.organization_page.new_episode")}</a>
+			<div className='epi-links single-link'>
 				<Breadcrumbs name={t("pages.organization_page.organization")} />
 			</div>
 

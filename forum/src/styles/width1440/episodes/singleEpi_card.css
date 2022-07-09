@@ -26,4 +26,19 @@
         max-width: 140px;
         border-radius: 20px;
     }
+
+    .epi-search {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .epi-search__input {
+        background-color: #f5f8aa;
+    }
+
+    .epi-search__input::-webkit-input-placeholder {
+        color: rgb(114, 98, 98);
+        font-size: 1rem;
+    }
 }

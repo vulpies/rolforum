@@ -35,11 +35,6 @@ const ProfileEdit = () => {
 		{ "value": "ru", "label": "Russian" }
 	]
 
-	// const defaultTime = {
-	// 	"value": "Europe/Moscow",
-	// 	"label": "Europe/Moscow"
-	// }
-
 	const navigate = useNavigate()
 
 	useEffect(() => {

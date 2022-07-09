@@ -76,3 +76,42 @@
     align-items: center;
     padding: 0 10px;
 }
+
+.epi-search {
+    margin-top: 17px;
+    position: relative;
+}
+
+.epi-search__input {
+    border-radius: 20px;
+    min-height: 40px;
+    padding: 7px 37px;
+    font-size: 1.2rem;
+    color: #770505;
+}
+
+.epi-search__input::-webkit-input-placeholder {
+    color: #b1a2a1;
+    font-size: 1rem;
+}
+
+.epi-search__btn-search {
+    position: absolute;
+    top: 14px;
+    font-size: 0.9rem;
+    left: 15px;
+    color: #772d09;
+}
+
+.epi-search__btn-close {
+    position: absolute;
+    right: 11px;
+    font-size: 1.2rem;
+    top: 10px;
+    color: #644207;
+    height: 23px;
+}
+
+.epi-search__btn-close:hover {
+    color: red;
+}

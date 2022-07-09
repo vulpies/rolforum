@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { commonDelete } from '../../helpers/commonFetch'
 import EditOrRemove from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
+import EditMessage from '../EditMesage'
 
 const SingleEpiPost = ({ posts }) => {
 	const [msg, setMsg] = useState(posts)
@@ -45,7 +46,11 @@ const SingleEpiPost = ({ posts }) => {
 
 					<div className='sepi-post-post__btns'>
 						<div className='sepi-header-desc__items' >
-							{p.can_edit ? <EditOrRemove onDelete={() => deleteMsg(p.id)} /> : ''}
+							{p.can_edit ?
+								<EditOrRemove
+									onDelete={() => deleteMsg(p.id)}
+									onEdit={() => navigate(`/edit_msg`)}
+								/> : ''}
 
 							<GetLike />
 						</div>

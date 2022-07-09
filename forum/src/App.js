@@ -17,6 +17,7 @@ import { MainPage, Profile, EpisodesPage, OrgPage, Outgame, Chats, CreateCharact
 import { addUserInfo } from "./store/usersSlice"
 import { RolesList, UsersList } from './pages/org_pages/org_index'
 import i18n from "./services/i18n";
+import EditMessage from "./components/EditMesage"
 
 function App() {
     const [locale, setLocale] = useState(i18n.language);
@@ -68,6 +69,7 @@ function App() {
                         <Route path="/profile/:profId" element={<Profile />} />
 
                         <Route path="/resetPass" element={<ResetPass />} />
+                        <Route path="/edit_msg" element={<EditMessage />} />
 
                         <Route path="/characters/:charId" element={<CharInfo />} />
                         <Route path="/characters" element={<Characters />} />

@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom'
 import Registration from "./registration"
 import CommonInputs from '../helpers/CommonInputs'
 import CommonBigBtn from "../helpers/big_btn"
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
+import stanger from '../images/stranger.jpg'
 
 const MainPage = () => {
     const { t } = useTranslation();
@@ -42,7 +43,7 @@ const MainPage = () => {
             {!userAuth ?
                 <div className='slider-ghost'>
 
-                    <img src='https://sun1-16.userapi.com/s/v1/ig1/wLhBikGgAsxrvhrQ_0ZpIadj-0ONkrAGDbB2XVASX8bS_VxxHvKKH_nFm6HaVluDzsAIAkup.jpg?size=200x200&quality=96&crop=44,0,435,435&ava=1' alt='аватар гостя' />
+                    <img src={stanger} alt='аватар гостя' />
 
                     <p className='slider-ghost__subtitle'><a href="/" onClick={handleLogin}> {t("pages.main_page.login")} </a> {t("pages.main_page.or")}&nbsp;
                         <a href='/'
