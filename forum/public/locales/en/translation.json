@@ -163,7 +163,11 @@
             "login": "Log in",
             "or": "or",
             "register": "register",
-            "all_characters": "All characters"
+            "all_characters": "All characters",
+            "new_posts": "Something new there:",
+            "written_by": "Written by:",
+            "post_date": "Date:",
+            "no_new_posts": "No new posts..."
         },
         "episodes_page": {
             "new_episode": "New episode",

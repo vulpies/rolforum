@@ -89,16 +89,34 @@ const MainPage = () => {
                 </div> : ''
             }
 
-            {user ? (
+            {user ? (<>
                 <CommonBigBtn
                     className="chars"
                     classNameBtn='btns btns-create'
                     onClick={() => navigate(`/characters`)}
                     name={t("pages.main_page.all_characters")}
                 />
-            )
-                : ""}
-        </div>
+
+                <div className='main-new__wrapper'>
+
+                    {main && main?.posts.length !== 0 ? <div className='main-new__episodes'>
+                        <p>{t("pages.main_page.new_posts")} ({main?.posts.length})</p>
+                        <ul className='main-new__episodes-list'>
+                            {main?.posts?.map((item, i) => {
+                                return <li key={i + 1}>
+                                    <a href={`/episodes/${item.episode_id}`}>{item.episode_title}</a><br />
+                                    <p><span>{t("pages.main_page.written_by")}</span> {item.character_name}</p>
+                                    <p><span>{t("pages.main_page.post_date")}</span> {item.created_at}</p>
+                                </li>
+                            })}
+                        </ul>
+                    </div> : <div className='main-new__no-episodes'>
+                        <p>{t("pages.main_page.no_new_posts")}</p></div>}
+
+                </div>
+            </>) : ""
+            }
+        </div >
 
     )
 }

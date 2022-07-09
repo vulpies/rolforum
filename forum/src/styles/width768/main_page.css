@@ -1,0 +1,21 @@
+@media (min-width: 768px) {
+    .main-new__episodes,
+    .main-new__no-episodes {
+        width: 49%;
+    }
+    .main-new__episodes > p,
+    .main-new__no-episodes > p {
+        width: 96%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .main-new__episodes > p,
+    .main-new__no-episodes > p {
+        width: 71%;
+    }
+
+    .main-new__wrapper {
+        margin-top: 26px;
+    }
+}

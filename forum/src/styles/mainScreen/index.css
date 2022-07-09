@@ -29,6 +29,8 @@
 
 @import "./editors.css";
 
+@import "./main_page.css";
+
 @import "./org_pages/orgs.css";
 @import "./org_pages/roles.css";
 @import "./org_pages/users.css";

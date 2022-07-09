@@ -1,0 +1,62 @@
+.main-new__wrapper {
+    border-top: 2px solid #dcd3cb;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.main-new__episodes,
+.main-new__no-episodes {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+}
+
+.main-new__no-episodes > p {
+    color: #81590f;
+    text-shadow: unset;
+    font-size: 1rem;
+    background-color: #f2e9d8;
+    width: 100%;
+    padding: 5px 0 5px 8px;
+    font-weight: 600;
+    margin: 15px 0px 5px;
+    border-radius: 4px;
+    border: 2px solid #cfbb9a;
+    text-align: center;
+}
+
+.main-new__episodes > p {
+    color: #680606;
+    text-shadow: 1px 1px 1px #ff9696;
+    font-size: 1.2rem;
+    background-color: #fcfbc7;
+    width: 100%;
+    padding: 5px 0 5px 8px;
+    font-weight: 600;
+    margin: 15px 0px 5px;
+    border-radius: 4px;
+    border: 2px solid #880f0f;
+}
+
+.main-new__episodes-list {
+    margin-left: 30px;
+}
+
+.main-new__episodes-list li {
+    list-style-type: disclosure-closed;
+    margin-bottom: 8px;
+}
+
+.main-new__episodes-list li:last-of-type {
+    margin-bottom: 0;
+}
+
+.main-new__episodes-list li span {
+    font-weight: bold;
+    color: #501414;
+}

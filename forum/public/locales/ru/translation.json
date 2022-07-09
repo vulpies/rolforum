@@ -163,7 +163,11 @@
             "login": "Войдите",
             "or": "или",
             "register": "зарегистрируйтесь",
-            "all_characters": "Все персонажи"
+            "all_characters": "Все персонажи",
+            "new_posts": "Обновления в эпизодах:",
+            "written_by": "Пост от:",
+            "post_date": "Дата:",
+            "no_new_posts": "Новых постов нет..."
         },
         "episodes_page": {
             "new_episode": "Новый эпизод",
