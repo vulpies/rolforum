@@ -13,12 +13,17 @@ const OrgPage = () => {
 
 			<div className='org-wrapper'>
 				<div className='org-common'>
+					<a href='/org/news'>{t("pages.organization_page.news")}</a>
+				</div>
+
+				<div className='org-common'>
 					<a href='/org/list_of_roles'>{t("pages.organization_page.character_list")}</a>
 				</div>
 
 				<div className='org-common'>
 					<a href='/org/list_of_users'>{t("pages.organization_page.user_list")}</a>
 				</div>
+
 			</div>
 
 		</div>

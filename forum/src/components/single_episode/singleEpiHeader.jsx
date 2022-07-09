@@ -27,7 +27,7 @@ const SingleEpiHeader = ({ header }) => {
 
 				<div className='sepi-header-desc__title'>
 					<span className='epi-fandom'>[{header.fandoms.length > 1 ? header.fandoms.join(', ') : header.fandoms[0]}] </span>
-					- {header.title}
+					— {header.title}
 				</div>
 
 				<div className='sepi-header-desc__image'>
@@ -39,7 +39,7 @@ const SingleEpiHeader = ({ header }) => {
 				</div>
 
 				<div className='sepi-header-desc__subtitle' dangerouslySetInnerHTML={{
-					__html: `${header.summary}`
+					__html: `${header.summary.replace(/\s-\s/gm, ' — ')}`
 				}} />
 
 			</div>

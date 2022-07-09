@@ -22,10 +22,12 @@
             "all_characters": "Все персонажи",
             "create_character": "Создать персонажа",
             "active_characters": "Активные персонажи:",
+            "waiting for approve": "На проверке:",
             "post_count": "Постов:",
             "last_post": "Пост отправлен:",
             "no_last_post": "Еще не отправлен",
-            "open": "Открыть"
+            "open": "Открыть",
+            "created_at": "Создано:"
         },
         "breadcrumbs": {
             "index": "Главная"
@@ -211,11 +213,17 @@
         "about_us": {
             "text": "text"
         },
+        "moder_page": {
+            "applications": "Анкеты",
+            "new_themes": "Новых тем:",
+            "nothing_new": "Nothing new"
+        },
         "organization_page": {
             "new_episode": "Новый эпизод",
             "organization": "Орг. темы",
             "character_list": "Список ролей",
-            "user_list": "Список пользователей"
+            "user_list": "Список пользователей",
+            "news": "Новости форума"
         },
         "roles_list": {
             "organization": "Орг. темы",

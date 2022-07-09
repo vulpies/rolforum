@@ -15,7 +15,7 @@ import LocaleContext from "./components/LocaleContext";
 import Arrows from "./helpers/arrows"
 import { MainPage, Profile, EpisodesPage, OrgPage, Outgame, Chats, CreateCharacter, ResetPass, ModerPage, AdminPage, AboutUs } from './pages/index'
 import { addUserInfo } from "./store/usersSlice"
-import { RolesList, UsersList } from './pages/org_pages/org_index'
+import { RolesList, UsersList, News } from './pages/org_pages/org_index'
 import i18n from "./services/i18n";
 import EditMessage from "./components/EditMesage"
 
@@ -80,6 +80,7 @@ function App() {
 
                         <Route path='/org/list_of_users' element={<UsersList />} />
                         <Route path='/org/list_of_roles' element={<RolesList />} />
+                        <Route path='/org/news' element={<News />} />
                         <Route path="/org" element={<OrgPage />} />
 
                         <Route path="/about_us" element={<AboutUs />} />

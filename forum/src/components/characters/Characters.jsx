@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import CommonBigBtn from '../../helpers/big_btn'
 import { commonFetch } from '../../helpers/commonFetch'
 import Breadcrumbs from '../breadcrumbs'
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const Characters = () => {
 	const { t } = useTranslation();
@@ -12,12 +12,11 @@ const Characters = () => {
 	const [info, setInfo] = useState()
 	const navigate = useNavigate()
 
+
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/profile/character-list/${user?.user_id}`, setInfo)
 	}, [setInfo, user])
 
-	//console.log(info, 99999)
-	//console.log(user, 'user')
 
 	return (
 		<div className='wrapper'>
@@ -66,14 +65,14 @@ const Characters = () => {
 				{info?.applications ?
 					<>
 						<div className="chars-pending__title">
-							<p>На проверке:</p>
+							<p>{t("components.characters.waiting for approve")}</p>
 						</div>
 
 						<div className="chars-pending">
 							{info?.applications.map(app => {
 								return <div className='chars-pending__wrapper' key={app.id}>
-									<a href={`/char_app/${app.id}`}><span>[{app.fandom_name}]</span> {app.character_name}</a>
-									<p>Создано: {app.created_at.slice(0, 10)}</p>
+									<a href={`/char_app/${app.id}?bc=1`}><span>[{app.fandom_name}]</span> {app.character_name}</a>
+									<p>{t("components.characters.created_at")} {app.created_at.slice(0, 10)}</p>
 								</div>
 							})}
 

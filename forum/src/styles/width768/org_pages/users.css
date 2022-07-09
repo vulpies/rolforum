@@ -16,6 +16,8 @@
         border-bottom: unset;
         margin-bottom: 30px;
         margin: 0 4px 15px;
+        justify-content: space-evenly;
+        min-height: 319px;
     }
 
     .user-avatar {
@@ -28,11 +30,11 @@
     }
 
     .user-statistics {
-        width: 90%;
+        width: 93%;
     }
 
     .user-statistics:last-of-type {
-        width: 60%;
+        width: 96%;
     }
 }
 

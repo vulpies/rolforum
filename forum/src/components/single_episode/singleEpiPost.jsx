@@ -35,7 +35,7 @@ const SingleEpiPost = ({ posts }) => {
 					<div className='sepi-post-post'>
 
 						<div className='sepi-post-avatar'>
-							<img src={p.character_avatar} alt={p.character_name} onClick={() => navigate(`/profile/${p.character_id}`)} />
+							<img src={p.character_avatar} alt={p.character_name} onClick={() => navigate(`/characters/${p.character_id}`)} />
 						</div>
 
 						<div className='sepi-post-post__content' dangerouslySetInnerHTML={{

@@ -19,8 +19,6 @@
         padding: 4px 5px 10px;
         min-height: 300px;
         margin: 0 5px 15px;
-        /* justify-content: center; */
-        justify-content: space-evenly;
     }
 
     .users-wrapper:hover {

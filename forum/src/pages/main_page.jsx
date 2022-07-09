@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import ProfileSlider from "../components/Slider"
 import Login from "./login"
@@ -8,12 +8,14 @@ import CommonInputs from '../helpers/CommonInputs'
 import CommonBigBtn from "../helpers/big_btn"
 import { useTranslation } from "react-i18next";
 import stanger from '../images/stranger.jpg'
+import { commonFetch } from "../helpers/commonFetch"
 
 const MainPage = () => {
     const { t } = useTranslation();
     const [user] = useSelector((state) => state.usersReducer.user)
     const userAuth = useSelector((state) => state.usersReducer.auth)
     const navigate = useNavigate()
+    const [main, setMain] = useState()
 
     const [lostPass, setLostPass] = useState(true)
     const [email, setEmail] = useState('')
@@ -36,6 +38,13 @@ const MainPage = () => {
     const showHide = () => {
         setLostPass(prevState => !prevState)
     }
+
+
+    useEffect(() => {
+        commonFetch('https://api.postscriptum.games/v1/index', setMain)
+    }, [setMain])
+
+    console.log(main, 8888)
 
     return (
         <div className="wrapper">

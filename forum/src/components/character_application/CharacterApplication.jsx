@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next';
 import { commonFetch } from '../../helpers/commonFetch'
 import Breadcrumbs from '../breadcrumbs'
 
 const CharacterApplication = () => {
+	const { t } = useTranslation();
 	const [info, setInfo] = useState()
 
 	useEffect(() => {
 		commonFetch('https://api.postscriptum.games/v1/moderate/character-application-list', setInfo)
 
 	}, [setInfo])
-
-	console.log(info, 'infoinfoinfo')
 
 	const apps = info?.map(item => (
 		<div className='cards-common' key={item.id}>
@@ -24,7 +24,7 @@ const CharacterApplication = () => {
 		<div className='wrapper'>
 
 			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name="Анкеты" link='/moder' extraName="Модерка" />
+				<Breadcrumbs name={t("pages.moder_page.applications")} link='/moder' extraName={t("components.navlinks.moder")} />
 			</div>
 
 			<div className='cards-wrapper'>

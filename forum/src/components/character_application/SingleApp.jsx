@@ -21,6 +21,8 @@ const SingleApp = () => {
 	const [comments, setComments] = useState([])
 	const [newMsg, setNewMsg] = useState(false)
 
+	const searchUrl = window.location.search
+
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
@@ -83,8 +85,9 @@ const SingleApp = () => {
 	return (
 		<div className='wrapper'>
 
+
 			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name={appData?.name} link='/char_app' extraName="Анкеты" />
+				<Breadcrumbs name={appData?.name} link={!searchUrl ? '/char_app' : '/characters'} extraName={!searchUrl ? t("pages.moder_page.applications") : t("components.characters.all_characters")} />
 			</div>
 
 			{appData ?

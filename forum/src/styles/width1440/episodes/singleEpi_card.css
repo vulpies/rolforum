@@ -35,6 +35,7 @@
 
     .epi-search__input {
         background-color: #f5f8aa;
+        font-size: 1.1rem;
     }
 
     .epi-search__input::-webkit-input-placeholder {
