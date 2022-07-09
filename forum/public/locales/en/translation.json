@@ -152,7 +152,7 @@
             "avatar_description": "<p>Maximal image size is 200х200 pixels. Otherwise it will be automatically minimized.</p>",
             "description": "Character description",
             "description_placeholder": "Enter character description",
-            "description_description": "<p>Please, put any information which is important for the development of your character. Also, try to provide any information which can be useful for other players interacting with your character. It cam be the mental and physical portrait, abilities, facts of biography etc.</p>"
+            "description_description": "<p>Please, put any information which is important for the development of your character. Also try to provide any information which can be useful for other players interacting with your character. It can be the mental and physical portrait, abilities, facts of biography, etc.</p>"
         }
     },
     "pages": {

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { commonFetch, commonPostReq, commonPostReqThen } from '../../helpers/commonFetch'
-import EditOrRemove from '../../helpers/editOrRemove'
 import Breadcrumbs from '../breadcrumbs'
 import { FcApproval } from "react-icons/fc";
 import Editors from '../../helpers/editors'
 import Swal from 'sweetalert2'
 import SendOrRemove from '../buttons/send_or_remove'
 import { BsPencil, BsTrash } from "react-icons/bs";
+import { MdModeEditOutline } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { useCallback } from 'react'
 
@@ -22,6 +22,8 @@ const SingleApp = () => {
 	const [newMsg, setNewMsg] = useState(false)
 
 	const searchUrl = window.location.search
+
+	console.log(comments)
 
 
 	useEffect(() => {
@@ -79,7 +81,9 @@ const SingleApp = () => {
 
 	const deleteCom = appData?.show_delete_button ? <span className='sepi-header-desc__items-trash'><BsTrash /></span> : ''
 
-	const editCom = appData?.show_edit_button ? <span className='sepi-header-desc__items-edit'> <BsPencil /></span> : ''
+	const userEdit = appData?.user_name === localStorage.getItem('username') ? <span className='sepi-header-desc__items-edit'> <BsPencil /></span> : ''
+
+	const moderEdit = appData?.show_edit_button ? <span className='sepi-header-desc__items-edit moder-edit-btn' moder-edit-btn> <MdModeEditOutline /></span> : ''
 
 
 	return (
@@ -114,7 +118,7 @@ const SingleApp = () => {
 					<div className='char-app-edit__btns'>
 						{appData?.show_approve_button ? <button className='btns btns-approve' onClick={approveApp}><FcApproval /> Approve</button> : ''}
 
-						<div className='char-app-edit__user'><EditOrRemove /></div>
+						<div className='char-app-edit__user'>{deleteCom} {userEdit} {moderEdit}</div>
 					</div>
 
 					{appData?.comments.length !== 0 && appData?.show_comments ?
@@ -144,9 +148,9 @@ const SingleApp = () => {
 													__html: `${item.content?.replace(/\n/g, `</br>`).replace(/\s-\s/gm, ' — ')}`
 												}} />
 
-												<div className='char-app__edits'>
-													{deleteCom} {editCom}
-												</div>
+												{item.user_name === localStorage.getItem('username') ? <div className='char-app__edits'>
+													{deleteCom} {userEdit}
+												</div> : ''}
 
 											</div>
 										</div>
@@ -169,6 +173,7 @@ const SingleApp = () => {
 							onChange={(e) => setText(e.target.value)}></textarea>
 
 						<SendOrRemove sendBtn={sendPost} removeBtn={handleClear} />
+
 					</div>
 				</div> :
 				<p style={{ textAlign: 'center' }}>{t("components.singleApp.loading")}</p>

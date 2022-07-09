@@ -150,3 +150,7 @@ textarea:focus-visible {
     border-bottom: 1px solid #b83c10;
     margin: -10px -12px 15px;
 }
+
+.moder-edit-btn {
+    font-size: 1.6rem !important;
+}

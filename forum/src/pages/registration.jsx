@@ -4,7 +4,7 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const Registration = () => {
 	const { t } = useTranslation();
@@ -138,7 +138,7 @@ const Registration = () => {
 				<input
 					disabled={!isValid}
 					type="submit"
-					className='btns btns-common btns-log'
+					className='btns btns-common btns-log btns-log-reg'
 					value={t("pages.registration.submit")}
 				/>
 			</div>
