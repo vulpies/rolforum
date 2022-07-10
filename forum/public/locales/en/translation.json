@@ -88,6 +88,12 @@
             "episodes": "Episodes",
             "loading": "Loading..."
         },
+        "singleEpiPost": {
+            "delete_post": "Are you sure you want to delete yous post?",
+            "confirm_delete": "Yes, delete it",
+            "was_deleted": "Deleted",
+            "cancel_btn": "Cancel"
+        },
         "profileEdit": {
             "information_saved": "Information is saved successfully",
             "edit": "Edit",

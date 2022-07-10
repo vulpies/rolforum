@@ -4,6 +4,13 @@
         max-height: 150px;
     }
 
+    .sepi-post-title {
+        font-size: 0.85rem;
+    }
+    .sepi-post-title__author {
+        font-size: 0.9rem;
+    }
+
     .sepi-post-title__number {
         margin-left: 10px;
         color: #b40505;

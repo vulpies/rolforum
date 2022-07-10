@@ -88,6 +88,12 @@
             "episodes": "Эпизоды",
             "loading": "Загрузка данных..."
         },
+        "singleEpiPost": {
+            "delete_post": "Вы точно хотите удалить свой пост?",
+            "confirm_delete": "Удалить",
+            "was_deleted": "Пост удален",
+            "cancel_btn": "Отмена"
+        },
         "profileEdit": {
             "information_saved": "Информация успешно сохранена!",
             "edit": "Редактировать",

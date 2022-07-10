@@ -4,8 +4,11 @@ import { commonDelete } from '../../helpers/commonFetch'
 import EditOrRemove from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
 import EditMessage from '../EditMesage'
+import Swal from 'sweetalert2';
+import { useTranslation } from 'react-i18next'
 
 const SingleEpiPost = ({ posts }) => {
+	const { t } = useTranslation();
 	const [msg, setMsg] = useState(posts)
 	const navigate = useNavigate()
 
@@ -13,12 +16,28 @@ const SingleEpiPost = ({ posts }) => {
 		setMsg(posts);
 	}, [posts])
 
-	console.log(posts)
-
-
 	function deleteMsg(id) {
-		commonDelete(`https://api.postscriptum.games/v1/post-delete/${id}`)
-		setMsg(msg.filter(item => item.id !== id))
+		Swal.fire({
+			title: t("components.singleEpiPost.delete_post"),
+			width: 350,
+			cancelButtonText: t("components.singleEpiPost.cancel_btn"),
+			position: 'top',
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#1aae26',
+			cancelButtonColor: '#d33',
+			confirmButtonText: t("components.singleEpiPost.confirm_delete")
+		}).then((result) => {
+			if (result.isConfirmed) {
+				commonDelete(`https://api.postscriptum.games/v1/post-delete/${id}`)
+				setMsg(msg.filter(item => item.id !== id))
+				Swal.fire({
+					width: 350,
+					title: t("components.singleEpiPost.was_deleted"),
+					icon: 'success'
+				})
+			}
+		})
 	}
 
 	return (

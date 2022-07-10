@@ -28,9 +28,6 @@ const SingleEpi = () => {
 
 	}, [setEpiData, setPostData])
 
-	console.log(epiData, 888)
-
-
 	return (
 		<>
 			{epiData ?
