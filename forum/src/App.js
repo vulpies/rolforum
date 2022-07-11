@@ -18,6 +18,7 @@ import { addUserInfo } from "./store/usersSlice"
 import { RolesList, UsersList, News } from './pages/org_pages/org_index'
 import i18n from "./services/i18n";
 import EditMessage from "./components/EditMesage"
+import Footer from "./components/footer"
 
 function App() {
     const [locale, setLocale] = useState(i18n.language);
@@ -96,6 +97,7 @@ function App() {
                         />
                     </Routes>
                     <Arrows className='main-page__arrow' />
+                    {/* <Footer /> */}
                 </BrowserRouter>
             </LocaleContext.Provider>
         </>

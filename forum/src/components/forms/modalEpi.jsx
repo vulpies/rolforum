@@ -22,7 +22,7 @@ const ModalEpi = ({ show, onClose, fandom, epiName, image, members, link, text, 
 						<div className="epi-modal-content">
 
 							<div className="epi-modal-header">
-								<span className='epi-fandom'>[{fandom}]</span> - <span className='epi-name'>{epiName}</span>
+								<span className='epi-fandom'>[{fandom}]</span> — <span className='epi-name'>{epiName}</span>
 							</div>
 
 							<div className="epi-epi-modal-body">

@@ -11,6 +11,7 @@ import { updateUserInfo } from '../../store/usersSlice'
 import Swal from 'sweetalert2'
 import { useTranslation } from "react-i18next";
 import i18n from "../../services/i18n";
+import Loading from '../../helpers/loading'
 
 const ProfileEdit = () => {
 	const { t } = useTranslation();
@@ -140,7 +141,7 @@ const ProfileEdit = () => {
 
 					<input type="submit" value={t("components.profileEdit.submit")} className='btns btns-create btns-send' onClick={handleSubmit} />
 				</form>
-				: t("components.profileEdit.loading")
+				: <Loading />
 			}
 
 		</div>

@@ -5,6 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../components/breadcrumbs'
 import { commonFetch } from '../helpers/commonFetch'
 import { useTranslation } from "react-i18next";
+import Loading from '../helpers/loading'
 
 const Profile = () => {
 	const { t } = useTranslation();
@@ -114,8 +115,7 @@ const Profile = () => {
 						</div>
 
 					</div>
-				</div>
-				: t("pages.profile_page.loading")
+				</div> : <Loading />
 			}
 
 		</div>

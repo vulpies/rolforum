@@ -44,7 +44,7 @@ const SingleEpi = () => {
 
 					{epiData.can_reply ? <EpiSendPostFrom updatePosts={addNewPost} /> : ''}
 
-				</div> : <div className="wrapper"><Loading /></div>}
+				</div> : <Loading />}
 		</>
 	)
 }

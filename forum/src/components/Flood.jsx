@@ -8,6 +8,7 @@ import SendOrRemove from './buttons/send_or_remove';
 import { AiOutlineUnorderedList, AiOutlineMore } from "react-icons/ai";
 import mainPic from '../images/static.gif'
 import { useTranslation } from "react-i18next";
+import Loading from '../helpers/loading';
 
 const Flood = () => {
 	const { t } = useTranslation();
@@ -204,7 +205,7 @@ const Flood = () => {
 			</div>
 
 			<div id="message-area" className='flood-rcvd-msg'>
-				{allMsg ? allMsg : t("components.flood.loading")}
+				{allMsg ? allMsg : <Loading />}
 			</div>
 
 			<div className='flood-wrapper__send'>
