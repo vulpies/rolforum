@@ -6,6 +6,10 @@
         top: 133px;
     }
 
+    .epi-modal-content {
+        max-height: 360px;
+    }
+
     .epi-modal-content::-webkit-scrollbar {
         width: 7px;
     }

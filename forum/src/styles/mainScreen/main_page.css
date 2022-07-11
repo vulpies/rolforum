@@ -16,6 +16,13 @@
     align-content: flex-start;
 }
 
+.main-new__show-btn {
+    display: flex;
+    width: 100%;
+    margin-bottom: 3px;
+    justify-content: center;
+}
+
 .main-new__no-episodes > p {
     color: #81590f;
     text-shadow: unset;

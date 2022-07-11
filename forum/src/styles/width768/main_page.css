@@ -7,6 +7,18 @@
     .main-new__no-episodes > p {
         width: 96%;
     }
+
+    .main-new__show-btn {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main-new__show-btn {
+        width: 95%;
+    }
 }
 
 @media (min-width: 1280px) {
@@ -17,5 +29,9 @@
 
     .main-new__wrapper {
         margin-top: 26px;
+    }
+
+    .main-new__show-btn {
+        width: 69%;
     }
 }

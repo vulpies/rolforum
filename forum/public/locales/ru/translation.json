@@ -171,7 +171,9 @@
             "new_posts": "Обновления в эпизодах:",
             "written_by": "Пост от:",
             "post_date": "Дата:",
-            "no_new_posts": "Новых постов нет..."
+            "no_new_posts": "Новых постов нет...",
+            "load_episodes": "Показать список",
+            "hide_episodes": "Скрыть список"
         },
         "episodes_page": {
             "new_episode": "Новый эпизод",

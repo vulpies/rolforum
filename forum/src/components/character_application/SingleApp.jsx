@@ -24,9 +24,6 @@ const SingleApp = () => {
 
 	const searchUrl = window.location.search
 
-	console.log(comments)
-
-
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
 	}, [appId])

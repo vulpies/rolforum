@@ -16,6 +16,7 @@ const MainPage = () => {
     const userAuth = useSelector((state) => state.usersReducer.auth)
     const navigate = useNavigate()
     const [main, setMain] = useState()
+    const [showEpi, setShowEpi] = useState(true)
 
     const [lostPass, setLostPass] = useState(true)
     const [email, setEmail] = useState('')
@@ -43,6 +44,10 @@ const MainPage = () => {
     useEffect(() => {
         commonFetch('https://api.postscriptum.games/v1/index', setMain)
     }, [setMain])
+
+    const loadListOfEpies = () => {
+        setShowEpi(!showEpi)
+    }
 
     console.log(main, 8888)
 
@@ -100,8 +105,14 @@ const MainPage = () => {
                 <div className='main-new__wrapper'>
 
                     {main && main?.posts.length !== 0 ? <div className='main-new__episodes'>
+
                         <p>{t("pages.main_page.new_posts")} ({main?.posts.length})</p>
-                        <ul className='main-new__episodes-list'>
+
+                        <div className="main-new__show-btn">
+                            <button className='btns btns-load' onClick={loadListOfEpies}>{showEpi ? t("pages.main_page.hide_episodes") : t("pages.main_page.load_episodes")}</button>
+                        </div>
+
+                        {showEpi ? <ul className='main-new__episodes-list'>
                             {main?.posts?.map((item, i) => {
                                 return <li key={i + 1}>
                                     <a href={`/episodes/${item.episode_id}`}>{item.episode_title}</a><br />
@@ -109,7 +120,8 @@ const MainPage = () => {
                                     <p><span>{t("pages.main_page.post_date")}</span> {item.created_at}</p>
                                 </li>
                             })}
-                        </ul>
+                        </ul> : ''}
+
                     </div> : <div className='main-new__no-episodes'>
                         <p>{t("pages.main_page.no_new_posts")}</p></div>}
 

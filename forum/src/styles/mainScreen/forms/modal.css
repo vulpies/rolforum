@@ -5,7 +5,8 @@
 }
 
 .epi-modal {
-    height: 422px;
+    /* height: 422px; */
+    height: 400px;
     position: absolute;
     top: 99px;
     width: 100%;
@@ -23,9 +24,10 @@
     padding: 5px;
     margin: 10px 0;
     border-radius: 5px;
-    max-height: 360px;
-    height: auto;
+    max-height: 338px;
+    /* max-height: 360px; */
     min-height: 170px;
+    height: auto;
     overflow-y: auto;
 }
 
@@ -37,7 +39,7 @@
 .epi-modal-footer {
     left: 10px;
     position: absolute;
-    bottom: 4px;
+    bottom: 2px;
 }
 
 .epi-modal-body {

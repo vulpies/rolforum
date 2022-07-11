@@ -164,8 +164,10 @@
 }
 
 .char-app__profile a:hover {
-    color: #ffaaaa;
-    text-shadow: 1px 1px 1px #000;
+    /* color: #ffaaaa;
+    text-shadow: 1px 1px 1px #000; */
+    color: #7a1313;
+    text-shadow: 1px 1px 2px #ff9800;
 }
 
 .char-app__profile-avatar img {

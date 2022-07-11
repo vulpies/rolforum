@@ -171,7 +171,9 @@
             "new_posts": "Something new there:",
             "written_by": "Written by:",
             "post_date": "Date:",
-            "no_new_posts": "No new posts..."
+            "no_new_posts": "No new posts...",
+            "load_episodes": "Show episodes",
+            "hide_episodes": "Hide episodes"
         },
         "episodes_page": {
             "new_episode": "New episode",
