@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import { commonFetch } from '../../helpers/commonFetch'
 import Breadcrumbs from '../breadcrumbs';
 import { BsPencil } from "react-icons/bs";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
+import Loading from '../../helpers/loading';
 
 const CharInfo = () => {
 	const { t } = useTranslation();
@@ -54,11 +55,10 @@ const CharInfo = () => {
 					</div>
 
 					<div className='char-app-edit__btns char-info__btns'>
-						<span className='sepi-header-desc__items-edit'> <BsPencil /></span>
+						{char.user_name === localStorage.getItem('username') ? <span className='sepi-header-desc__items-edit'> <BsPencil /></span> : ''}
 					</div>
 
-				</div> :
-				<p style={{ textAlign: 'center' }}>{t("components.charinfo.loading")}</p>
+				</div> : <Loading />
 			}
 
 

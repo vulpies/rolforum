@@ -3,6 +3,7 @@ import Breadcrumbs from '../../components/breadcrumbs'
 import { commonFetch } from '../../helpers/commonFetch'
 import { useTranslation } from "react-i18next";
 import stranger from '../../images/stranger.jpg'
+import Loading from '../../helpers/loading';
 
 const UsersList = () => {
 	const { t } = useTranslation();
@@ -26,7 +27,7 @@ const UsersList = () => {
 					<p className='user-statistics'><span>{t("pages.users_list.last_visit")}</span> {item.last_activity_at ? item.last_activity_at : t("pages.users_list.no_activity")}</p>
 				</div>
 			))}
-		</div> : <p style={{ textAlign: 'center' }}>{t("pages.roles_list.loading")}</p>
+		</div> : <Loading />
 
 	return (
 		<div className='wrapper'>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Breadcrumbs from '../../components/breadcrumbs'
 import { commonFetch } from '../../helpers/commonFetch'
 import { useTranslation } from "react-i18next";
+import Loading from '../../helpers/loading';
 
 const RolesList = () => {
 	const { t } = useTranslation();
@@ -36,8 +37,7 @@ const RolesList = () => {
 
 			{roles ? <div className='roles-common'>
 				{listOfRoles}
-			</div> :
-				<p style={{ textAlign: 'center' }}>{t("pages.roles_list.loading")}</p>}
+			</div> : <Loading />}
 
 
 		</div>

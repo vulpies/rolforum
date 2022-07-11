@@ -7,6 +7,7 @@ import { commonFetch } from '../../helpers/commonFetch'
 import SingleEpiHeader from './singleEpiHeader'
 import SingleEpiPost from './singleEpiPost'
 import { useTranslation } from "react-i18next";
+import Loading from '../../helpers/loading'
 
 
 const SingleEpi = () => {
@@ -43,7 +44,7 @@ const SingleEpi = () => {
 
 					{epiData.can_reply ? <EpiSendPostFrom updatePosts={addNewPost} /> : ''}
 
-				</div> : <div className="wrapper"><p style={{ 'textAlign': 'center' }}>{t("components.singleEpi.loading")}</p></div>}
+				</div> : <div className="wrapper"><Loading /></div>}
 		</>
 	)
 }

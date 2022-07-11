@@ -1,5 +1,8 @@
 {
     "components": {
+        "loading_info": {
+            "loading": "Loading..."
+        },
         "slider": {
             "hello": "Hello,",
             "guest": "stranger",
@@ -35,8 +38,7 @@
         "charinfo": {
             "all_characters": "All characters",
             "episodes": "Episodes:",
-            "player": "Played by:",
-            "loading": "Loading..."
+            "player": "Played by:"
         },
         "oneEpi": {
             "view": "Look"
@@ -73,8 +75,7 @@
         "singleApp": {
             "empty_message": "You cannot post empty message",
             "comments": "Comments",
-            "type_message": "Enter your message",
-            "loading": "Loading..."
+            "type_message": "Enter your message"
         },
         "epiSendPostForm": {
             "empty_message": "You cannot post empty message",
@@ -85,8 +86,7 @@
             "clear": "Clear"
         },
         "singleEpi": {
-            "episodes": "Episodes",
-            "loading": "Loading..."
+            "episodes": "Episodes"
         },
         "singleEpiPost": {
             "delete_post": "Are you sure you want to delete yous post?",
@@ -107,7 +107,6 @@
             "choose_timezone": "Choose timezone",
             "language": "Language:",
             "choose_language": "Choose language",
-            "loading": "Loading...",
             "submit": "Submit"
         },
         "profileEditPass": {
@@ -129,7 +128,6 @@
             "delete": "Delete",
             "general_chat": "General chat",
             "load_more": "Load more",
-            "loading": "Loading...",
             "type_message": "Enter your message"
         },
         "chooseFandom": {
@@ -217,8 +215,7 @@
             "last_post": "Last post published:",
             "no_post": "No posts yet",
             "last_visit": "Last visit date:",
-            "last_activity": "Last activity date:",
-            "loading": "Loading..."
+            "last_activity": "Last activity date:"
         },
         "about_us": {
             "text": "<p>Post Scriptum Games is an online platform for play-by-post role-playing games. There is no one plot lineon this site, the users can play different plot lines, based on the well-known movies, books and TV-showsas well as designed completely by themeselves.</p><p>Each user can have many characters from different settings and universes (called \"fandoms\" on this site),however, in each setting or universe, one character can be played only by one user. That means that, if,on the site, the users deside to start a game based on \"Romeo and Juliette\", there will be only one player across all site playing Romeo. However, the same user can play King Lear in a different game based on another Shakespeare's drama.</p><p>The game is divided into \"episodes\" - small scenes with logical start and finish, like chapters in the book.Players describe the actions of their characters in turn, one after another, in a form of posts - small chunks of text together forming a coherent story.</p><p>The players are not restricted to always play in one setting, they can choose to merge different universes together or to move a character from one story into the reality of another story. Such games are called crossovers.They can choose to change the setting drastically, move medieval characters into a modern world or vise versa,and such a game would be called \"alternative universe\" (AU).</p>"
@@ -237,8 +234,7 @@
         },
         "roles_list": {
             "organization": "Organization",
-            "character_list": "Character list",
-            "loading": "Loading..."
+            "character_list": "Character list"
         },
         "chats_page": {
             "chats": "Chats"

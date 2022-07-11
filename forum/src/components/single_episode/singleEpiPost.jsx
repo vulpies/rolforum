@@ -1,9 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { commonDelete } from '../../helpers/commonFetch'
 import EditOrRemove from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
-import EditMessage from '../EditMesage'
 import Swal from 'sweetalert2';
 import { useTranslation } from 'react-i18next'
 

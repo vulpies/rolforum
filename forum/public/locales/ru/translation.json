@@ -1,5 +1,8 @@
 {
     "components": {
+        "loading_info": {
+            "loading": "Загрузка данных..."
+        },
         "slider": {
             "hello": "Привет,",
             "guest": "гость",
@@ -35,8 +38,7 @@
         "charinfo": {
             "all_characters": "Все персонажи",
             "episodes": "Эпизоды:",
-            "player": "Играет:",
-            "loading": "Загрузка данных..."
+            "player": "Играет:"
         },
         "oneEpi": {
             "view": "Подсмотреть"
@@ -73,8 +75,7 @@
         "singleApp": {
             "empty_message": "Нельзя отправить пустое сообщение!",
             "comments": "Комментарии:",
-            "type_message": "Введите ваше сообщение",
-            "loading": "Загрузка данных..."
+            "type_message": "Введите ваше сообщение"
         },
         "epiSendPostForm": {
             "empty_message": "Нельзя отправить пустое сообщение!",
@@ -85,8 +86,7 @@
             "clear": "Очистить"
         },
         "singleEpi": {
-            "episodes": "Эпизоды",
-            "loading": "Загрузка данных..."
+            "episodes": "Эпизоды"
         },
         "singleEpiPost": {
             "delete_post": "Вы точно хотите удалить свой пост?",
@@ -107,7 +107,6 @@
             "choose_timezone": "Выберите пояс",
             "language": "Язык интерфейса:",
             "choose_language": "Выберите язык",
-            "loading": "Загрузка данных...",
             "submit": "Сохранить"
         },
         "profileEditPass": {
@@ -129,7 +128,6 @@
             "delete": "Удалить",
             "general_chat": "Общий флуд",
             "load_more": "Загрузить еще",
-            "loading": "Загрузка данных...",
             "type_message": "Введите ваше сообщение"
         },
         "chooseFandom": {
@@ -217,8 +215,7 @@
             "last_post": "Пост был написан:",
             "no_post": "пока что не был...",
             "last_visit": "Последний визит:",
-            "last_activity": "Последняя активность:",
-            "loading": "Загрузка данных..."
+            "last_activity": "Последняя активность:"
         },
         "about_us": {
             "text": "text"
@@ -237,8 +234,7 @@
         },
         "roles_list": {
             "organization": "Орг. темы",
-            "character_list": "Список ролей",
-            "loading": "Загрузка данных..."
+            "character_list": "Список ролей"
         },
         "chats_page": {
             "chats": "Чаты"

@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
 import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
+import Loading from '../../helpers/loading'
 
 const EpiNewCreate = () => {
 	const { t } = useTranslation();
@@ -223,7 +224,7 @@ const EpiNewCreate = () => {
 					</div>
 
 					<input type="submit" value={t("components.epiNewCreate.create")} className='btns btns-create' onClick={handleSubmit} />
-				</form> : <p style={{ textAlign: 'center' }}>{t("components.epiNewCreate.cannot_create_episode")}</p>}
+				</form> : <Loading />}
 
 		</div >
 	)

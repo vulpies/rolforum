@@ -10,6 +10,7 @@ import { BsPencil, BsTrash } from "react-icons/bs";
 import { MdModeEditOutline } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { useCallback } from 'react'
+import Loading from '../../helpers/loading';
 
 const SingleApp = () => {
 	const { t } = useTranslation();
@@ -175,8 +176,7 @@ const SingleApp = () => {
 						<SendOrRemove sendBtn={sendPost} removeBtn={handleClear} />
 
 					</div>
-				</div> :
-				<p style={{ textAlign: 'center' }}>{t("components.singleApp.loading")}</p>
+				</div> : <Loading />
 			}
 
 
