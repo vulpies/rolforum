@@ -11,11 +11,12 @@ import Navigation from "./components/navbar/Navigation"
 import ProfileEdit from "./components/profile/ProfileEdit"
 import ProfileEditPass from "./components/profile/ProfileEditPass"
 import SingleEpi from "./components/single_episode/singleEpi"
-import LocaleContext from "./components/LocaleContext";
+import LocaleContext from "./helpers/LocaleContext";
 import Arrows from "./helpers/arrows"
-import { MainPage, Profile, EpisodesPage, OrgPage, Outgame, Chats, CreateCharacter, ResetPass, ModerPage, AdminPage, AboutUs } from './pages/index'
+import { MainPage, Profile, EpisodesPage, OrgPage, Outgame, Chats, CreateCharacter, ResetPass, ModerPage, AdminPage, AboutUs, GuestsPage } from './pages/index'
 import { addUserInfo } from "./store/usersSlice"
-import { RolesList, UsersList, News } from './pages/org_pages/org_index'
+import { News } from './pages/org_pages/org_index'
+import { RolesList, UsersList } from './pages/for_guests/guests_index'
 import i18n from "./services/i18n";
 import EditMessage from "./components/EditMesage"
 
@@ -60,6 +61,10 @@ function App() {
                         <Route path="/" exact element={<MainPage />} />
                         <Route path="/index" element={<MainPage />} />
 
+                        <Route path='/guestbook/list_of_users' element={<UsersList />} />
+                        <Route path='/guestbook/list_of_roles' element={<RolesList />} />
+                        <Route path="/guestbook" element={<GuestsPage />} />
+
                         <Route path="/episodes/:epiId" element={<SingleEpi />} />
                         <Route path="/episodes/template" element={<EpiNewCreate />} />
                         <Route path="/episodes" element={<EpisodesPage />} />
@@ -78,8 +83,8 @@ function App() {
                         <Route path="/char_app/:appId" element={<SingleApp />} />
                         <Route path="/char_app" element={<CharacterApplication />} />
 
-                        <Route path='/org/list_of_users' element={<UsersList />} />
-                        <Route path='/org/list_of_roles' element={<RolesList />} />
+                        {/* <Route path='/org/actions' element={<Actions />} />
+                        <Route path='/org/looking_for' element={<LookingFor />} /> */}
                         <Route path='/org/news' element={<News />} />
                         <Route path="/org" element={<OrgPage />} />
 

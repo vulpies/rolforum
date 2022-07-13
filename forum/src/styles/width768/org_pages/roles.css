@@ -6,10 +6,13 @@
         border-radius: 8px;
         width: 100%;
         padding: 5px 8px 20px;
-        margin-bottom: 15px;
         border-bottom: 2px solid #e0dada;
         border-radius: unset;
     }
+
+    /* .roles-wrapper:last-child {
+        border-bottom: unset;
+    } */
 
     .roles-common {
         margin-top: 17px;
@@ -34,6 +37,6 @@
 
 /* @media (min-width: 1280px) {
     .roles-wrapper:last-child {
-     border-bottom: unset;
+        border-bottom: 2px solid #e0dada;
     }
 } */

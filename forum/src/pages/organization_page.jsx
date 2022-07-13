@@ -4,6 +4,34 @@ import { useTranslation } from "react-i18next";
 
 const OrgPage = () => {
 	const { t } = useTranslation();
+
+	const orgs = [
+		{
+			name: t("pages.organization_page.news"),
+			link: '/org/news'
+		},
+		// {
+		// 	name: t("pages.organization_page.character_list"),
+		// 	link: '/org/list_of_roles'
+		// },
+		// {
+		// 	name: t("pages.organization_page.user_list"),
+		// 	link: '/org/list_of_users'
+		// },
+		// {
+		// 	name: t("pages.organization_page.actions"),
+		// 	link: '/org/actions'
+		// },
+		// {
+		// 	name: t("pages.organization_page.looking_for"),
+		// 	link: '/org/looking_for'
+		// },
+		{
+			name: 'Задать вопрос',
+			link: '/org/questions'
+		},
+	]
+
 	return (
 		<div className='wrapper'>
 
@@ -12,20 +40,12 @@ const OrgPage = () => {
 			</div>
 
 			<div className='org-wrapper'>
-				<div className='org-common'>
-					<a href='/org/news'>{t("pages.organization_page.news")}</a>
-				</div>
-
-				<div className='org-common'>
-					<a href='/org/list_of_roles'>{t("pages.organization_page.character_list")}</a>
-				</div>
-
-				<div className='org-common'>
-					<a href='/org/list_of_users'>{t("pages.organization_page.user_list")}</a>
-				</div>
-
+				{orgs.map((item, i) => {
+					return <div className='org-common' key={i}>
+						<a href={item.link}>{item.name}</a>
+					</div>
+				})}
 			</div>
-
 		</div>
 	)
 }

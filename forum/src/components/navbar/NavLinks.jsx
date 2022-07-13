@@ -66,6 +66,15 @@ const NavLinks = () => {
                         onClick={clickHandler}
                         name={t("components.navlinks.index")} />
 
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
+                        to='/guestbook'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name={t("components.navlinks.guestbook")} />
+
                     {adminRole ? <OneLink
                         className={`menu-link ${isMenuOpen}`}
                         to='/admin'
@@ -130,15 +139,6 @@ const NavLinks = () => {
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
-                        to='/piar'
-                        style={({ isActive }) =>
-                            isActive ? menunav : undefined
-                        }
-                        onClick={clickHandler}
-                        name={t("components.navlinks.partners")} />
-
-                    <OneLink
-                        className={`menu-link ${isMenuOpen}`}
                         to='/exit'
                         style={({ isActive }) =>
                             isActive ? menunav : undefined
@@ -159,12 +159,12 @@ const NavLinks = () => {
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
-                        to='/org'
+                        to='/guestbook'
                         style={({ isActive }) =>
                             isActive ? menunav : undefined
                         }
                         onClick={clickHandler}
-                        name={t("components.navlinks.organization")} />
+                        name="Гостевая" />
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}

@@ -1,17 +1,25 @@
 import React from 'react'
+import { useCallback } from 'react';
 import { useState } from 'react';
 import { BsFillSuitHeartFill, BsSuitHeart } from "react-icons/bs";
 
 const GetLike = () => {
-	const [like, setLike] = useState('')
+	const [liked, setLiked] = useState(false)
 
-	const handleLike = () => {
-		setLike(<p>Сердечки на ремонте х0</p>)
-	}
+	const handleLike = useCallback(() => {
+		setLiked(true)
+	}, [])
+
+	//<p>Сердечки на ремонте х0</p>
 
 	return (
 		<>
-			<span className='sepi-header-desc__items-like' onClick={handleLike}>{(like === 0 || like === null || like === '') ? <BsSuitHeart /> : <BsFillSuitHeartFill />}</span> {like}
+
+			{liked ?
+				<span className='sepi-header-desc__items-like sepi-items-liked'><BsFillSuitHeartFill /></span> : <span className='sepi-header-desc__items-like' onClick={handleLike}>
+					<BsSuitHeart />
+				</span>}
+
 		</>
 	)
 }

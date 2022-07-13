@@ -11,6 +11,7 @@
         },
         "navlinks": {
             "index": "Главная",
+            "guestbook": "Гостевая",
             "admin": "Админка",
             "moder": "Модерка",
             "profile": "Профиль",
@@ -175,6 +176,11 @@
             "load_episodes": "Показать список",
             "hide_episodes": "Скрыть список"
         },
+        "guests_page": {
+            "character_list": "Список ролей",
+            "user_list": "Список пользователей",
+            "guestbook": "Гостевая"
+        },
         "episodes_page": {
             "new_episode": "Новый эпизод",
             "episodes": "Эпизоды"
@@ -230,12 +236,12 @@
         "organization_page": {
             "new_episode": "Новый эпизод",
             "organization": "Орг. темы",
-            "character_list": "Список ролей",
-            "user_list": "Список пользователей",
-            "news": "Новости форума"
+            "news": "Новости форума",
+            "actions": "Акции",
+            "looking_for": "Нужные"
         },
         "roles_list": {
-            "organization": "Орг. темы",
+            "guestbook": "Гостевая",
             "character_list": "Список ролей"
         },
         "chats_page": {

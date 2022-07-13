@@ -18,6 +18,7 @@ const Flood = () => {
 	const [msg, setMsg] = useState([])
 	const [count, setCount] = useState(40)
 	const [isHide, setHide] = useState(true)
+	const [endMsgList, setEndMsgList] = useState(false)
 
 
 	function updMsgs(param) {
@@ -127,6 +128,10 @@ const Flood = () => {
 	function getAllMsg(param) {
 		param.forEach(p => p["isHide"] = true)
 		setMsg((msg) => param.concat(msg));
+
+		if (param.length < 40) {
+			setEndMsgList(true)
+		}
 	}
 
 	async function loadHistory() {
@@ -201,7 +206,7 @@ const Flood = () => {
 			</div>
 
 			<div className='flood-load-history'>
-				<button className='btns btns-load' onClick={loadHistory}>{t("components.flood.load_more")}</button>
+				<button className='btns btns-load' onClick={loadHistory} style={{ 'display': endMsgList ? 'none' : '' }}>{t("components.flood.load_more")}</button>
 			</div>
 
 			<div id="message-area" className='flood-rcvd-msg'>

@@ -108,9 +108,11 @@ const MainPage = () => {
 
                         <p>{t("pages.main_page.new_posts")} ({main?.posts.length})</p>
 
-                        <div className="main-new__show-btn">
+
+                        {main?.posts.length >= 3 ? <div className="main-new__show-btn">
                             <button className='btns btns-load' onClick={loadListOfEpies}>{showEpi ? t("pages.main_page.hide_episodes") : t("pages.main_page.load_episodes")}</button>
-                        </div>
+                        </div> : ''}
+
 
                         {showEpi ? <ul className='main-new__episodes-list'>
                             {main?.posts?.map((item, i) => {

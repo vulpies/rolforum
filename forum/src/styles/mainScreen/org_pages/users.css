@@ -15,6 +15,10 @@
     padding-bottom: 15px;
 }
 
+.users-wrapper:last-child {
+    border-bottom: unset;
+}
+
 .user-title {
     font-size: 1.2rem;
     padding-bottom: 6px;

@@ -11,6 +11,7 @@
         },
         "navlinks": {
             "index": "Home",
+            "guestbook": "Guestbook",
             "admin": "Admin",
             "moder": "Moderate",
             "profile": "Profile",
@@ -175,6 +176,11 @@
             "load_episodes": "Show episodes",
             "hide_episodes": "Hide episodes"
         },
+        "guests_page": {
+            "character_list": "Character list",
+            "user_list": "User list",
+            "guestbook": "Guestbook"
+        },
         "episodes_page": {
             "new_episode": "New episode",
             "episodes": "Episodes"
@@ -230,12 +236,12 @@
         "organization_page": {
             "new_episode": "New episode",
             "organization": "Organization",
-            "character_list": "Character list",
-            "user_list": "User list",
-            "news": "News"
+            "news": "News",
+            "actions": "Actions",
+            "looking_for": "Looking for"
         },
         "roles_list": {
-            "organization": "Organization",
+            "guestbook": "Guestbook",
             "character_list": "Character list"
         },
         "chats_page": {

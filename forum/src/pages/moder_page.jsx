@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import Breadcrumbs from '../components/breadcrumbs'
 import { commonFetch } from '../helpers/commonFetch'
-import ModerCards from '../helpers/moder_cards'
+import ModerCards from '../components/ModerCards'
 
 const ModerPage = () => {
 	const { t } = useTranslation();

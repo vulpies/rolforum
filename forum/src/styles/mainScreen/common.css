@@ -160,10 +160,20 @@ textarea:focus-visible {
     font-size: 0.8rem;
     text-align: center;
     margin-bottom: 10px;
+    border-top: 2px solid #e4e1db;
+    padding-top: 10px;
 }
 
 .footer span {
     font-weight: bold;
-    color: #520505;
     text-shadow: 1px 0px 1px #ffc200;
+}
+
+.footer span a {
+    color: #520505;
+}
+
+.footer span a:hover {
+    color: #d11313;
+    text-shadow: 1px 1px 1px #e2bb03;
 }

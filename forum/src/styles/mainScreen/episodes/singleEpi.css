@@ -91,8 +91,12 @@
 .sepi-header-desc__items-like {
     color: #c00a0a;
 }
-.sepi-header-desc__items-like:hover {
+.sepi-header-desc__items-like:hover:not(.sepi-items-liked) {
     color: red;
+}
+
+.sepi-items-liked {
+    cursor: default !important;
 }
 
 .sepi-header-desc__items > span {
@@ -104,6 +108,10 @@
 
 .sepi-post-wrapper {
     padding: 0 5px;
+}
+
+.sepi-post-wrapper:last-of-type > .hr-underline:last-of-type {
+    display: none;
 }
 
 .sepi-post-title {

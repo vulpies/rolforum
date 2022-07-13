@@ -13,7 +13,7 @@
 
     .users-wrapper {
         width: 24%;
-        border: 2px solid #c4ab91;
+        border: 2px solid #c4ab91 !important;
         border-radius: 13px;
         margin-bottom: 25px;
         padding: 4px 5px 10px;

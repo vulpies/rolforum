@@ -33,7 +33,7 @@ const UsersList = () => {
 		<div className='wrapper'>
 
 			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name={t("pages.users_list.user_list")} link='/org' extraName={t("pages.roles_list.organization")} />
+				<Breadcrumbs name={t("pages.users_list.user_list")} link='/guestbook' extraName={t("pages.roles_list.guestbook")} />
 			</div>
 
 			{usersList}

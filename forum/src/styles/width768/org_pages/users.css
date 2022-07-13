@@ -17,7 +17,7 @@
         margin-bottom: 30px;
         margin: 0 4px 15px;
         justify-content: space-evenly;
-        min-height: 319px;
+        min-height: 343px;
     }
 
     .user-avatar {
@@ -39,6 +39,10 @@
 }
 
 @media (min-width: 1024px) {
+    .users-wrapper {
+        min-height: 319px;
+    }
+
     .user-statistics:last-of-type {
         width: 82%;
     }
