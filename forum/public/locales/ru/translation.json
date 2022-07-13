@@ -34,7 +34,8 @@
             "created_at": "Создано:"
         },
         "breadcrumbs": {
-            "index": "Главная"
+            "index": "Главная",
+            "news": "Новости"
         },
         "charinfo": {
             "all_characters": "Все персонажи",
@@ -237,6 +238,7 @@
             "new_episode": "Новый эпизод",
             "organization": "Орг. темы",
             "news": "Новости форума",
+            "create_news": "Создать новость",
             "actions": "Акции",
             "looking_for": "Нужные"
         },

@@ -1,0 +1,31 @@
+@media (min-width: 768px) {
+    .news-wrapper {
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .news-single {
+        width: 47%;
+        margin: 0 20px 20px 10px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .news-single__date {
+        width: 104%;
+    }
+}
+
+@media (min-width: 1280px) {
+    .news-wrapper {
+        margin-top: 30px;
+    }
+
+    .news-single {
+        width: 46%;
+    }
+
+    .news-single__content p {
+        line-height: unset;
+    }
+}

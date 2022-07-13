@@ -134,3 +134,9 @@
     box-shadow: 3px 3px 1px rgb(252 164 21 / 74%),
         -1px -1px 3px rgb(240 204 46 / 84%) !important;
 }
+
+.btns-read {
+    font-size: 1rem;
+    padding: 5px 10px;
+    min-width: 100px;
+}

@@ -85,6 +85,7 @@ function App() {
 
                         {/* <Route path='/org/actions' element={<Actions />} />
                         <Route path='/org/looking_for' element={<LookingFor />} /> */}
+                        <Route path='/org/news/:newsId' element={<News />} />
                         <Route path='/org/news' element={<News />} />
                         <Route path="/org" element={<OrgPage />} />
 

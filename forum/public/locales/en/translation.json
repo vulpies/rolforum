@@ -34,7 +34,8 @@
             "created_at": "Created at:"
         },
         "breadcrumbs": {
-            "index": "Home"
+            "index": "Home",
+            "news": "News"
         },
         "charinfo": {
             "all_characters": "All characters",
@@ -237,6 +238,7 @@
             "new_episode": "New episode",
             "organization": "Organization",
             "news": "News",
+            "create_news": "Create news",
             "actions": "Actions",
             "looking_for": "Looking for"
         },

@@ -1,4 +1,4 @@
-import News from "./news";
+import News from "./news/news";
 import Actions from "./actions";
 import LookingFor from "./looking_for";
 
