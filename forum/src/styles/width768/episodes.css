@@ -43,7 +43,7 @@
     }
 
     .epi-text-info {
-        width: 51%;
+        max-width: 51%;
     }
 
     .send-post-form__btns {

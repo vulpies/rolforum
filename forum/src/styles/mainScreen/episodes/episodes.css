@@ -8,11 +8,17 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    box-shadow: 0 0 1px #473917;
+    background-color: #fffce0;
 }
 
-.epi-wrapper__desk {
-    display: none;
+.epi-wrapper:hover {
+    box-shadow: 0 0 4px #ffb000;
 }
+
+/* .epi-wrapper__desk {
+    display: none;
+} */
 
 .epi-text-info {
     margin-right: 10px;

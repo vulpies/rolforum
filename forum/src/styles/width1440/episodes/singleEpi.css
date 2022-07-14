@@ -20,7 +20,8 @@
     }
 
     .epi-text-info {
-        width: 64%;
+        max-width: 64%;
+        width: auto;
     }
 
     .epi-user-info__avatar {
