@@ -31,7 +31,8 @@
 
 @import "./main_page.css";
 
-@import "./news.css";
+@import "./news/news.css";
+@import "./news/single_news.css";
 
 @import "./org_pages/orgs.css";
 @import "./org_pages/roles.css";

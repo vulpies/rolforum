@@ -7,7 +7,6 @@
 @import "./moder.css";
 @import "./common.css";
 @import "./main_page.css";
-@import "./news.css";
 
 @import "./org_pages/orgs.css";
 @import "./org_pages/roles.css";
@@ -15,3 +14,6 @@
 
 @import "./characters.css/create_new_character.css";
 @import "./characters.css/characters.css";
+
+@import "./news/news.css";
+@import "./news/single_news.css";

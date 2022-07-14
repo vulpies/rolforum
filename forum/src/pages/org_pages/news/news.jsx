@@ -9,17 +9,14 @@ const News = () => {
 	const { t } = useTranslation();
 	const [user] = useSelector((state) => state.usersReducer.user)
 	const [news, setNews] = useState()
-	const [news111, setNews111] = useState()
 	const navigate = useNavigate()
 
 	console.log(news, 888)
 
 	useEffect(() => {
 		commonFetch('https://api.postscriptum.games/v1/news-list', setNews)
-		commonFetch(`https://api.postscriptum.games/v1/news-view/1`, setNews111)
 	}, [setNews])
 
-	console.log(news111, 1111)
 	return (
 		<div className='wrapper'>
 
