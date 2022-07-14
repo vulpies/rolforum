@@ -37,7 +37,7 @@ const News = () => {
 							__html: `${item.content?.replace(/\s-\s/gm, ' — ').slice(0, 150)}`
 						}} />
 
-						<button className="btns btns-read news-single-btn" onClick={() => navigate(`/org/news/${item.id}`)}>Читать</button>
+						<button className="btns btns-read news-single-btn" onClick={() => navigate(`/org/news/${item.id}`)}>{t("pages.main_page.read")}</button>
 					</div>
 				})}
 			</div>

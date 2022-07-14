@@ -104,15 +104,32 @@ const MainPage = () => {
 
                 <div className='main-new__wrapper'>
 
+                    {main?.news ?
+                        <div className='main-new__news-wrapper main-new__episodes'>
+                            <div className='main-new__news'>
+                                <p>{t("pages.main_page.latest_news")}</p>
+
+                                {main?.news.map(item => {
+                                    return <div className="main-new__news-common" key={item.id}>
+                                        <p className="single-news__date main-new__news-date"><a href={`/org/news/${item.id}`}>{item.created_at}</a></p>
+                                        <p className="main-new__news-title news-single__title">{item.title}</p>
+                                        <p className="main-new__news-content">{item.content.concat('...')}</p>
+                                        <button className="btns main-new__news-btn" onClick={() => navigate(`/org/news/${item.id}`)}>{t("pages.main_page.read")}</button>
+                                    </div>
+                                })}
+                            </div>
+
+                        </div> : <div className='main-new__no-news main-new__no-episodes'>
+                            <p>{t("pages.main_page.no_news")}</p></div>}
+
+
                     {main && main?.posts.length !== 0 ? <div className='main-new__episodes'>
 
                         <p>{t("pages.main_page.new_posts")} ({main?.posts.length})</p>
 
-
                         {main?.posts.length >= 3 ? <div className="main-new__show-btn">
                             <button className='btns btns-load' onClick={loadListOfEpies}>{showEpi ? t("pages.main_page.hide_episodes") : t("pages.main_page.load_episodes")}</button>
                         </div> : ''}
-
 
                         {showEpi ? <ul className='main-new__episodes-list'>
                             {main?.posts?.map((item, i) => {

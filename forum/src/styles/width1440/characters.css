@@ -38,4 +38,8 @@
         margin-top: 10px;
         margin-bottom: 10px;
     }
+
+    .chars {
+        margin: -20px 0 10px;
+    }
 }

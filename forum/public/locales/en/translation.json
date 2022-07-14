@@ -175,7 +175,10 @@
             "post_date": "Date:",
             "no_new_posts": "No new posts...",
             "load_episodes": "Show episodes",
-            "hide_episodes": "Hide episodes"
+            "hide_episodes": "Hide episodes",
+            "latest_news": "Latest news:",
+            "no_news": "No any news yet ~",
+            "read": "Read"
         },
         "guests_page": {
             "character_list": "Character list",

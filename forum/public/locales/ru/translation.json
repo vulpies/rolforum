@@ -175,7 +175,10 @@
             "post_date": "Дата:",
             "no_new_posts": "Новых постов нет...",
             "load_episodes": "Показать список",
-            "hide_episodes": "Скрыть список"
+            "hide_episodes": "Скрыть список",
+            "latest_news": "Последние новости:",
+            "no_news": "Пока что без новостей ~",
+            "read": "Читать"
         },
         "guests_page": {
             "character_list": "Список ролей",
