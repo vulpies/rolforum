@@ -1,75 +1,94 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../components/breadcrumbs'
+import { commonFetch, commonPostReq } from '../helpers/commonFetch'
 import CommonInputs from '../helpers/CommonInputs'
+import Swal from 'sweetalert2';
+import { useTranslation } from 'react-i18next'
 
 const ResetPass = () => {
+	const { t } = useTranslation();
 	const [newPass, setNewPass] = useState('')
 	const [confirmPass, setConfirmPass] = useState('')
 	const [err, setErr] = useState('')
+	const navigate = useNavigate()
+	const token = window.location.search.slice(7)
+
+
+	useEffect(() => {
+		commonFetch(`https://api.postscriptum.games/v1/password/confirm/${token}`)
+	}, [token])
 
 	useEffect(() => {
 		if (newPass !== confirmPass && confirmPass !== '') {
-			setErr('Пароли не совпадают!')
+			setErr(t("pages.reset_pass.different_pass"))
 		} else {
 			setErr('')
 		}
 
 		if (newPass !== '' && newPass.length < 5) {
-			setErr('Длина пароля не менее 5 символов!')
+			setErr(t("pages.registration.password_minimal_length"))
 		}
 
 		if (newPass.length > 20) {
-			setErr('Длина пароля не более 20 символов!')
+			setErr(t("pages.registration.password_maximal_length"))
 		}
 	}, [newPass, confirmPass])
 
 	function handleSubmit(e) {
 		e.preventDefault()
 
-		// Swal.fire({
-		// 	width: 350,
-		// 	position: 'top',
-		// 	text: 'Пароль изменен!',
-		// 	icon: 'success'
-		// })
-		// navigate(`/`)
+		if (token && !err) {
+			commonPostReq('https://api.postscriptum.games/v1/password/reset', {
+				"token": token,
+				"password": newPass
+			})
+		}
+
+		Swal.fire({
+			width: 350,
+			position: 'top',
+			text: t("pages.reset_pass.saved_pass"),
+			icon: 'success'
+		})
+		navigate(`/index`)
 	}
 
 	return (
 		<div className='wrapper'>
 
 			<div className='epi-links single-link'>
-				<Breadcrumbs name="Сброс пароля" />
+				<Breadcrumbs name={t("pages.reset_pass.reset_pass")} />
 			</div>
 
-			<div className='profile-input__wrapper'>
+			{token ? <div className='profile-input__wrapper'>
 				<CommonInputs
 					type='password'
-					inputName='Новый пароль:'
+					inputName={t("pages.reset_pass.new_pass")}
 					className='profile-input__input'
 					value={newPass}
 					onChange={(e) => setNewPass(e.target.value)}
 				/>
 				<CommonInputs
 					type='password'
-					inputName='Подтвердите пароль:'
+					inputName={t("pages.reset_pass.repeat_pass")}
 					className='profile-input__input'
 					value={confirmPass}
 					onChange={(e) => setConfirmPass(e.target.value)}
 				/>
 				<div className='login-error'>
 					{err ?
-						<p>{err || "Проверьте правильность ввода данных!"}</p>
+						<p>{err || t("pages.reset_pass.check_info")}</p>
 						: ''}
 				</div>
 
 				<input type="submit"
-					value="Сохранить"
+					value={t("pages.reset_pass.save_btn")}
 					className='btns btns-create btns-send'
 					disabled={err}
 					onClick={handleSubmit} />
-			</div>
+			</div> : ''}
 		</div>
 	)
 }

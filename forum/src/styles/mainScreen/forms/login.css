@@ -22,10 +22,10 @@
 
 .login-input > input {
     border: 1px solid #99220b;
-    font-size: 1.3rem;
+    font-size: 1.22rem;
     margin-top: 3px;
     position: relative;
-    padding: 7px 5px;
+    padding: 9px 5px;
     color: #99220b;
     width: 100%;
 }

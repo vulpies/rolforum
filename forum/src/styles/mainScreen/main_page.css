@@ -20,17 +20,27 @@
     border: 2px solid #c99e6c;
     border-radius: 7px;
     text-align: center;
-}
-
-.main-new__news > p {
-    text-align: center;
+    background-color: antiquewhite;
 }
 
 .main-new__news-title {
-    margin-top: 0px !important;
-    font-size: 1.25rem !important;
-    text-shadow: 0px 0px 2px #ffd406 !important;
-    color: #a02318 !important;
+    font-weight: bold;
+    font-family: Amaranth, sans-serif;
+    margin-bottom: 3px;
+    margin-top: 0px;
+    font-size: 1.25rem;
+    text-shadow: 0px 0px 2px #ffd406;
+    color: #a02318;
+}
+
+.main-new__news-date {
+    border-bottom: 2px solid #e1d09b;
+    color: #78553c;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: 0 -5px 8px;
+    padding-bottom: 4px;
+    width: 103%;
 }
 
 .main-new__news-content {
@@ -46,6 +56,16 @@
     height: 34px;
     margin-bottom: 5px;
     margin-top: 13px;
+}
+
+.main-new__news-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
 }
 
 .main-new__episodes,
@@ -66,7 +86,7 @@
     justify-content: center;
 }
 
-.main-new__news > p,
+.main-new__no-news > p,
 .main-new__no-episodes > p {
     color: #81590f;
     text-shadow: unset;
@@ -93,6 +113,7 @@
     margin: 15px 0px 5px;
     border-radius: 4px;
     border: 2px solid #880f0f;
+    text-align: center;
 }
 
 .main-new__episodes-list {

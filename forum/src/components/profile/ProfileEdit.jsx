@@ -1,7 +1,6 @@
-import React from 'react'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsPencil } from 'react-icons/bs'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 import CommonInputs from '../../helpers/CommonInputs'
@@ -15,20 +14,22 @@ import Loading from '../../helpers/loading'
 
 const ProfileEdit = () => {
 	const { t } = useTranslation();
-	const [user] = useSelector((state) => state.usersReducer.user)
-	const [name, setName] = useState(user?.user_name)
-	const [email, setEmail] = useState(user?.user_name)
-	const [avatar, setAvatar] = useState(user?.user_avatar)
+	const [prof, setProf] = useState()
+	const [avatar, setAvatar] = useState(prof?.user_avatar)
 	const [timeZone, setTimeZone] = useState([])
 	const [getUserTime, setGetUserTime] = useState({})
-	const [language, setLanguage] = useState(user?.language)
+	const [language, setLanguage] = useState(prof?.language)
 
+
+	useEffect(() => {
+		commonFetch('https://api.postscriptum.games/v1/profile/edit-data', setProf)
+	}, [setProf])
 
 	const dispatch = useDispatch()
 
 	const time = {
-		"value": user?.timezone,
-		"label": user?.timezone
+		"value": prof?.timezone,
+		"label": prof?.timezone
 	}
 
 	const languages = [
@@ -47,12 +48,10 @@ const ProfileEdit = () => {
 		e.preventDefault()
 
 		const updUserInfo = {
-			id: user.user_id,
-			name,
-			email,
+			id: prof.user_id,
 			avatar: avatar || '',
-			timeZone: getUserTime.value || time.value,
-			language: language.value
+			timeZone: getUserTime?.value || time.value,
+			language: language?.value || prof.language
 		}
 
 		dispatch(updateUserInfo(updUserInfo))
@@ -71,39 +70,37 @@ const ProfileEdit = () => {
 			text: t("components.profileEdit.information_saved"),
 			icon: 'success'
 		})
-		navigate(`/profile/${user?.user_id}`)
+		navigate(`/profile/${prof?.user_id}`)
 	}
 
 	return (
 		<div className='wrapper wrapper-profile'>
 			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name={t("components.profileEdit.edit")} link={`/profile/${user?.user_id}`} extraName={t("components.profileEdit.profile")} />
+				<Breadcrumbs name={t("components.profileEdit.edit")} link={`/profile/${prof?.user_id}`} extraName={t("components.profileEdit.profile")} />
 			</div>
 
-			{user ?
+			{prof ? prof &&
 				<form className='profile-input__wrapper'>
 					<CommonInputs
 						type='text'
 						inputName={t("components.profileEdit.username")}
 						className='profile-input__input'
-						value={name}
+						value={prof?.user_name}
 						disabled
-						onChange={(e) => setName(e.target.value)}
-						placeholder={user?.user_name}
+						placeholder={prof?.user_name}
 					/>
 
 					<CommonInputs
 						type='email'
 						inputName={t("components.profileEdit.email")}
 						className='profile-input__input'
-						value={email}
+						value={prof?.email}
 						disabled
-						onChange={(e) => setEmail(e.target.value)}
-						placeholder={user?.user_name}
+						placeholder={prof?.user_name}
 					/>
 
 					<div className='profile-input__pass'>
-						<p>{t("components.profileEdit.change_password")}</p> <button className='btns profile-edit' onClick={() => navigate(`/profile/${user.user_id}/edit/pass`)}>
+						<p>{t("components.profileEdit.change_password")}</p> <button className='btns profile-edit' onClick={() => navigate(`/profile/${prof.user_id}/edit/pass`)}>
 							<BsPencil />
 						</button>
 					</div>
@@ -112,7 +109,7 @@ const ProfileEdit = () => {
 						type='text'
 						inputName={t("components.profileEdit.avatar")}
 						className='profile-input__input'
-						value={avatar ?? ''}
+						defaultValue={prof?.user_avatar}
 						onChange={(e) => setAvatar(e.target.value)}
 						placeholder={t("components.profileEdit.enter_image_link")}
 					/>

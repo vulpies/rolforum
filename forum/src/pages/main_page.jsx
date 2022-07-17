@@ -8,7 +8,7 @@ import CommonInputs from '../helpers/CommonInputs'
 import CommonBigBtn from "../helpers/big_btn"
 import { useTranslation } from "react-i18next";
 import stanger from '../images/stranger.jpg'
-import { commonFetch } from "../helpers/commonFetch"
+import { commonFetch, commonPostReqThen } from "../helpers/commonFetch"
 
 const MainPage = () => {
     const { t } = useTranslation();
@@ -49,7 +49,25 @@ const MainPage = () => {
         setShowEpi(!showEpi)
     }
 
-    console.log(main, 8888)
+
+    const resetPass = () => {
+
+        try {
+            commonPostReqThen('https://api.postscriptum.games/v1/password/reset-email', { "email": email })
+                .then(res => {
+                    console.log(res, '99999')
+
+                    if (res.code === 404) throw Error
+                })
+
+        } catch (error) {
+            console.log(error);
+        }
+
+        console.log(email)
+        console.log(1111)
+    }
+
 
     return (
         <div className="wrapper">
@@ -88,6 +106,7 @@ const MainPage = () => {
                                 type="submit"
                                 className='btns btns-common btns-log'
                                 value={t("pages.main_page.submit")}
+                                onClick={resetPass}
                             />
                         </div>
                     }
@@ -105,14 +124,14 @@ const MainPage = () => {
                 <div className='main-new__wrapper'>
 
                     {main?.news ?
-                        <div className='main-new__news-wrapper main-new__episodes'>
+                        <div className='main-new__news-wrapper'>
                             <div className='main-new__news'>
                                 <p>{t("pages.main_page.latest_news")}</p>
 
                                 {main?.news.map(item => {
                                     return <div className="main-new__news-common" key={item.id}>
-                                        <p className="single-news__date main-new__news-date"><a href={`/org/news/${item.id}`}>{item.created_at}</a></p>
-                                        <p className="main-new__news-title news-single__title">{item.title}</p>
+                                        <p className="main-new__news-date"><a href={`/org/news/${item.id}`}>{item.created_at}</a></p>
+                                        <p className="main-new__news-title">{item.title}</p>
                                         <p className="main-new__news-content">{item.content.concat('...')}</p>
                                         <button className="btns main-new__news-btn" onClick={() => navigate(`/org/news/${item.id}`)}>{t("pages.main_page.read")}</button>
                                     </div>

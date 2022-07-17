@@ -19,8 +19,6 @@ const Profile = () => {
 	}, [setInfo, search.profId])
 
 
-	console.log(info, 8888)
-
 	return (
 		<div className='wrapper'>
 			<div className='epi-links single-link'>

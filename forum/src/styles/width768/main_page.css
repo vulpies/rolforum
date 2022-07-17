@@ -20,12 +20,6 @@
         margin-top: -6.5px !important;
     }
 
-    /* .main-new__news,
-    .main-new__episodes,
-    .main-new__no-episodes {
-        width: 48%;
-    } */
-
     .main-new__episodes > p,
     .main-new__no-episodes > p {
         width: 96%;
@@ -65,19 +59,21 @@
 }
 
 @media (min-width: 1280px) {
+    .main-new__wrapper {
+        margin-top: 26px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
     .main-new__news {
-        width: 86%;
+        margin: unset;
     }
 
-    .main-new__episodes > p,
-    .main-new__no-episodes > p {
-        width: 71%;
-    }
-
-    .main-new__news-wrapper,
-    .main-new__episodes,
-    .main-new__no-news,
-    .main-new__no-episodes {
+    .main-new__news-wrapper {
+        width: 47%;
         margin-top: 15px;
     }
 
@@ -85,17 +81,34 @@
         padding: 7px 10px;
     }
 
-    .main-new__wrapper {
-        margin-top: 26px;
-        margin-bottom: 20px;
+    .main-new__news-date {
+        width: 105%;
+        margin: 0px -10px 8px;
     }
 
-    .main-new__news-date {
-        width: 105% !important;
-        margin: 0px -10px 8px !important;
+    .main-new__episodes,
+    .main-new__no-episodes {
+        width: 42%;
+        margin-top: 15px;
+        justify-content: center;
+        margin-left: 39px;
+    }
+
+    .main-new__no-episodes > p {
+        width: 90%;
+    }
+
+    .main-new__episodes > p {
+        width: 100%;
     }
 
     .main-new__show-btn {
         width: 69%;
+    }
+
+    .main-new__no-news,
+    .main-new__no-episodes {
+        margin-left: unset;
+        width: 46%;
     }
 }
