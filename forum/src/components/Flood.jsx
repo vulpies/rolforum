@@ -9,7 +9,9 @@ import { AiOutlineUnorderedList, AiOutlineMore } from "react-icons/ai";
 import mainPic from '../images/static.gif'
 import { useTranslation } from "react-i18next";
 import Loading from '../helpers/loading';
-import {useParams} from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { BsPencil, BsTrash } from "react-icons/bs";
+import { RiQuestionAnswerLine } from "react-icons/ri";
 
 const Flood = () => {
 	const { t } = useTranslation();
@@ -38,7 +40,6 @@ const Flood = () => {
 		if (!data.tokenUpdate) {
 			data.isHide = true
 			setMsg((msg) => [...msg, data]);
-			// console.log(msg, '333')
 		}
 	}, []);
 
@@ -56,8 +57,6 @@ const Flood = () => {
 
 		socket.onmessage = function (event) {
 			const data = JSON.parse(event.data);
-			console.log(data, 'data')
-
 			addMsg(data)
 		}
 
@@ -72,24 +71,6 @@ const Flood = () => {
 
 	useEffect(() => {
 		startChat()
-		// const wrapper = document.querySelector('.wrapper')
-		// wrapper.addEventListener('click', () => {
-		// 	// console.log(1111)
-		// 	// console.log(msg, 777)
-
-		// 	for (let index = 0; index < msg.length; ++index) {
-		// 		msg[index].isHide = true
-		// 	}
-
-		// 	// msg.map(item => {
-		// 	// 	item.isHide = true
-		// 	// 	console.log(item, '9999')
-		// 	// })
-		// 	console.log(isHide, 777)
-		// 	setHide(9)
-		// 	console.log(isHide, 9999)
-		// })
-
 	}, [startChat])
 
 	function sendMessage() {
@@ -113,19 +94,12 @@ const Flood = () => {
 	}
 
 	function msgSet(id) {
-		// const wrapper = document.querySelector('.wrapper')
 		const msgId = msg.find(m => m.id === id)
 		if (msgId.id === id) {
 			msgId.isHide = !msgId.isHide
 			setHide(prevState => !prevState)
 			console.log(isHide, 8888)
 		}
-
-		// if (msgId.id === id && wrapper) {
-		// 	wrapper.addEventListener('click', () => {
-		// 		msgId.isHide = true
-		// 	})
-		// }
 	}
 
 	function getAllMsg(param) {
@@ -148,6 +122,10 @@ const Flood = () => {
 			setMsg(msg.filter(item => item.id !== id)))
 	}
 
+	function answerOnMsg(author, id) {
+		setText(prevstate => prevstate + `[quote][b]${author}[/b] </br> ${id}[/quote]`)
+	}
+
 	const allMsg = msg?.map(m => {
 
 		const owner = m.user_name === user?.user_name
@@ -156,10 +134,11 @@ const Flood = () => {
 		const topLine = owner ? 'flood-message__top-line flood-message__top-line-owner' : 'flood-message__top-line';
 		const textTime = owner ? 'flood-message__text-time flood-message__text-time-owner' : 'flood-message__text-time';
 		const textContent = owner ? 'flood-message__text-content-owner flood-message__text-content' : 'flood-message__text-content';
+		const desktopIcons = owner ? 'flood-message__edit-desktop-owner flood-message__edit-desktop' : "flood-message__edit-desktop"
 
 		const setBtn = owner ? <div className={'flood-message__edit-options-owner flood-message__edit-options'}>
 			<p>{t("components.flood.edit")}</p>
-			<p>{t("components.flood.quote")}</p>
+			<p onClick={() => answerOnMsg(m.user_name, m.content)}>{t("components.flood.quote")}</p>
 			<p onClick={() => deleteMsg(m.id)}>{t("components.flood.delete")}</p>
 		</div>
 			: <div className='flood-message__edit-options'>
@@ -189,10 +168,24 @@ const Flood = () => {
 							{m.isHide ? '' : setBtn}
 						</div>
 
-						<div className={textContent} dangerouslySetInnerHTML={{
-							__html: `${m.content?.replace(/\n/g, `</br>`)}`
-						}} />
+
+						<div className={desktopIcons}>
+
+							{m.user_name === localStorage.getItem('username') ?
+								<>
+									<span className='btns btns-editor sepi-header-desc__items-trash' onClick={() => deleteMsg(m.id)}><BsTrash /></span>
+									<span className='btns btns-editor sepi-header-desc__items-edit' onClick={() => { }}><BsPencil /></span>
+									<span className='btns btns-editor sepi-header-desc__items-answer' onClick={() => answerOnMsg(m.user_name, m.content)}><RiQuestionAnswerLine /></span>
+								</> :
+
+								<span className='btns btns-editor sepi-header-desc__items-answer' onClick={() => answerOnMsg(m.user_name, m.content)}><RiQuestionAnswerLine /></span>}
+
+						</div>
 					</div>
+
+					<div className={textContent} dangerouslySetInnerHTML={{
+						__html: `${m.content?.replace(/\n/g, `</br>`)}`
+					}} />
 				</div>
 			</div>
 		)

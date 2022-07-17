@@ -85,6 +85,10 @@
     position: relative;
 }
 
+.flood-message__edit-desktop {
+    display: none;
+}
+
 .flood-message__edit-options {
     border-radius: 4px;
     position: absolute;

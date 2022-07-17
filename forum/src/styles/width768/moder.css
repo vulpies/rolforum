@@ -6,11 +6,16 @@
 
     .cards-common {
         width: 31%;
+        margin: 10px 8px;
     }
 }
 
 @media (min-width: 1280px) {
     .cards-wrapper {
-        margin-top: 17px;
+        margin-top: 25px;
+    }
+
+    .cards-common {
+        margin: 10px 11px;
     }
 }

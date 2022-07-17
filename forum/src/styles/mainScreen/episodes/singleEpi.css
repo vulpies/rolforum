@@ -79,12 +79,14 @@
 }
 
 .sepi-header-desc__items-trash,
-.sepi-header-desc__items-edit {
+.sepi-header-desc__items-edit,
+.sepi-header-desc__items-answer {
     color: #90723d;
 }
 
 .sepi-header-desc__items-trash:hover,
-.sepi-header-desc__items-edit:hover {
+.sepi-header-desc__items-edit:hover,
+.sepi-header-desc__items-answer:hover {
     color: #f2211c;
 }
 

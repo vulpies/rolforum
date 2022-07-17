@@ -71,6 +71,7 @@
     max-height: 200px;
     margin-bottom: 10px;
     border: 1px dashed #e08b40;
+    /* border-radius: 5px; */
 }
 
 .profile-chars {
