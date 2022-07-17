@@ -52,43 +52,51 @@ const ResetPass = () => {
 			text: t("pages.reset_pass.saved_pass"),
 			icon: 'success'
 		})
+
 		navigate(`/index`)
 	}
 
 	return (
 		<div className='wrapper'>
 
-			<div className='epi-links single-link'>
-				<Breadcrumbs name={t("pages.reset_pass.reset_pass")} />
-			</div>
-
-			{token ? <div className='profile-input__wrapper'>
-				<CommonInputs
-					type='password'
-					inputName={t("pages.reset_pass.new_pass")}
-					className='profile-input__input'
-					value={newPass}
-					onChange={(e) => setNewPass(e.target.value)}
-				/>
-				<CommonInputs
-					type='password'
-					inputName={t("pages.reset_pass.repeat_pass")}
-					className='profile-input__input'
-					value={confirmPass}
-					onChange={(e) => setConfirmPass(e.target.value)}
-				/>
-				<div className='login-error'>
-					{err ?
-						<p>{err || t("pages.reset_pass.check_info")}</p>
-						: ''}
+			{token ? <>
+				<div className='epi-links single-link'>
+					<Breadcrumbs name={t("pages.reset_pass.reset_pass")} />
 				</div>
 
-				<input type="submit"
-					value={t("pages.reset_pass.save_btn")}
-					className='btns btns-create btns-send'
-					disabled={err}
-					onClick={handleSubmit} />
-			</div> : ''}
+				<div className='profile-input__wrapper'>
+
+					<CommonInputs
+						type='password'
+						inputName={t("pages.reset_pass.new_pass")}
+						className='profile-input__input'
+						value={newPass}
+						onChange={(e) => setNewPass(e.target.value)}
+					/>
+					<CommonInputs
+						type='password'
+						inputName={t("pages.reset_pass.repeat_pass")}
+						className='profile-input__input'
+						value={confirmPass}
+						onChange={(e) => setConfirmPass(e.target.value)}
+					/>
+					<div className='login-error'>
+						{err ?
+							<p>{err || t("pages.reset_pass.check_info")}</p>
+							: ''}
+					</div>
+
+					<input type="submit"
+						value={t("pages.reset_pass.save_btn")}
+						className='btns btns-create btns-send'
+						disabled={err}
+						onClick={handleSubmit} />
+				</div>
+			</> : <p style={{ textAlign: 'center', marginTop: 20 }}>Информация на странице видна только при смене пароля</p>}
+
+
+
+
 		</div>
 	)
 }

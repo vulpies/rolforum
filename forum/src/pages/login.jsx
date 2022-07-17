@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux"
 import authService from "../services/auth.service"
 import { addUserInfo } from '../store/usersSlice'
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai"
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import i18n from "../services/i18n";
 
 const Login = () => {
@@ -57,8 +57,8 @@ const Login = () => {
 				}
 			})
 			.catch(err => {
-				console.log(err.response, '777')
-				if (err.response.data.message === 'Invalid JWT Token') {
+				console.log(err?.response, '777')
+				if (err?.response?.data?.message === 'Invalid JWT Token') {
 					setServerErr('Проверьте правильность ввода данных!')
 				}
 			})

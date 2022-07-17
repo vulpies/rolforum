@@ -9,6 +9,7 @@ import CommonBigBtn from "../helpers/big_btn"
 import { useTranslation } from "react-i18next";
 import stanger from '../images/stranger.jpg'
 import { commonFetch, commonPostReqThen } from "../helpers/commonFetch"
+import Swal from "sweetalert2"
 
 const MainPage = () => {
     const { t } = useTranslation();
@@ -52,20 +53,16 @@ const MainPage = () => {
 
     const resetPass = () => {
 
-        try {
-            commonPostReqThen('https://api.postscriptum.games/v1/password/reset-email', { "email": email })
-                .then(res => {
-                    console.log(res, '99999')
+        commonPostReqThen('https://api.postscriptum.games/v1/password/reset-email', { "email": email })
 
-                    if (res.code === 404) throw Error
-                })
+        setEmail('')
 
-        } catch (error) {
-            console.log(error);
-        }
-
-        console.log(email)
-        console.log(1111)
+        Swal.fire({
+            width: 350,
+            position: 'top',
+            text: "Письмо было отправлено на указанный адрес. На всякий случай не забудьте проверить папку 'Спам'",
+            icon: 'success'
+        })
     }
 
 
@@ -137,16 +134,16 @@ const MainPage = () => {
                                     </div>
                                 })}
                             </div>
-
-                        </div> : <div className='main-new__no-news main-new__no-episodes'>
+                        </div>
+                        : <div className='main-new__no-news main-new__no-episodes'>
                             <p>{t("pages.main_page.no_news")}</p></div>}
 
 
                     {main && main?.posts.length !== 0 ? <div className='main-new__episodes'>
 
-                        <p>{t("pages.main_page.new_posts")} ({main?.posts.length})</p>
+                        <p>{t("pages.main_page.new_posts")} ({main?.posts?.length})</p>
 
-                        {main?.posts.length >= 3 ? <div className="main-new__show-btn">
+                        {main?.posts?.length >= 3 ? <div className="main-new__show-btn">
                             <button className='btns btns-load' onClick={loadListOfEpies}>{showEpi ? t("pages.main_page.hide_episodes") : t("pages.main_page.load_episodes")}</button>
                         </div> : ''}
 
