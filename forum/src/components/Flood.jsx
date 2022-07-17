@@ -9,6 +9,7 @@ import { AiOutlineUnorderedList, AiOutlineMore } from "react-icons/ai";
 import mainPic from '../images/static.gif'
 import { useTranslation } from "react-i18next";
 import Loading from '../helpers/loading';
+import {useParams} from "react-router-dom";
 
 const Flood = () => {
 	const { t } = useTranslation();
@@ -19,14 +20,14 @@ const Flood = () => {
 	const [count, setCount] = useState(40)
 	const [isHide, setHide] = useState(true)
 	const [endMsgList, setEndMsgList] = useState(false)
-
+	const search = useParams();
 
 	function updMsgs(param) {
-		param.forEach(p => p["isHide"] = true)
-		setMsg(param)
+		param.messages.forEach(p => p["isHide"] = true)
+		setMsg(param.messages)
 	}
 
-	const url = 'https://api.postscriptum.games/v1/chat-message-list';
+	const url = `https://api.postscriptum.games/v1/chat-message-list/${search.chatId}`;
 	useEffect(() => {
 		commonFetch(url, updMsgs)
 	}, [setMsg, url])
@@ -48,7 +49,7 @@ const Flood = () => {
 		const socket = new WebSocket("wss://5r9ld0bvs5.execute-api.us-east-1.amazonaws.com/Prod")
 
 		socket.onopen = function () {
-			socket.send(JSON.stringify({ action: "sendmessage", data: { updateToken: true, token: localStorage.getItem('token') } }));
+			socket.send(JSON.stringify({ action: "sendmessage", data: { updateToken: true, token: localStorage.getItem('token'), chatId: search.chatId } }));
 		};
 
 		socket.onmessage = function (event) {

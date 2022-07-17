@@ -96,7 +96,7 @@ function App() {
 
                         <Route path="/outgame" element={<Outgame />} />
 
-                        <Route path="/chats" element={<Chats />} />
+                        <Route path="/chats/:chatId" element={<Chats />} />
 
                         <Route path="/exit" element={<Navigate to="/" replace />}
                         />
