@@ -20,10 +20,12 @@ const Flood = () => {
 	const [count, setCount] = useState(40)
 	const [isHide, setHide] = useState(true)
 	const [endMsgList, setEndMsgList] = useState(false)
+	const [chatName, setChatName] = useState('')
 	const search = useParams();
 
 	function updMsgs(param) {
 		param.messages.forEach(p => p["isHide"] = true)
+		setChatName(param.chat.name)
 		setMsg(param.messages)
 	}
 
@@ -201,7 +203,7 @@ const Flood = () => {
 			<div className='flood-name__wrapper'>
 				<div className='flood-name'>
 					<button className='btns btns-flood'><AiOutlineUnorderedList /></button>
-					<p className='flood-title'>{t("components.flood.general_chat")}</p>
+					<p className='flood-title'>{chatName}</p>
 					<button className='btns btns-flood'><AiOutlineMore /></button>
 				</div>
 			</div>
