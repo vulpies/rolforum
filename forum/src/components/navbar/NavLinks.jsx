@@ -130,7 +130,7 @@ const NavLinks = () => {
                         name={t("components.navlinks.offgame")} />
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
-                        to='/chats'
+                        to='/chats/1'
                         style={({ isActive }) =>
                             isActive ? menunav : undefined
                         }
