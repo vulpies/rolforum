@@ -23,8 +23,7 @@
         "react-scripts": "5.0.0",
         "react-select": "^5.2.2",
         "styled-components": "^5.3.3",
-        "sweetalert2": "^11.4.14",
-        "web-vitals": "^2.1.4"
+        "sweetalert2": "^11.4.14"
     },
     "scripts": {
         "start": "react-scripts start",
