@@ -1,4 +1,8 @@
 @media (min-width: 768px) {
+    .flood-chats-list-wrapper {
+        width: 60%;
+    }
+
     .flood-name__wrapper {
         border-bottom: 1px solid #b83c10;
     }
@@ -75,5 +79,36 @@
     .flood-message__edit-desktop-owner {
         width: 20%;
         font-size: 1.2rem;
+    }
+
+    .flood-chats-list-common::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    .flood-chats-list-common::-webkit-scrollbar-track {
+        box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+        background-color: #fffdde;
+        border-radius: 10px;
+    }
+
+    .flood-chats-list-common::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #f2bf93;
+        background-image: -webkit-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.25) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.25) 50%,
+            rgba(255, 255, 255, 0.25) 75%,
+            transparent 75%,
+            transparent
+        );
+    }
+}
+
+@media (min-width: 1024px) {
+    .flood-chats-list-wrapper {
+        width: 50%;
     }
 }

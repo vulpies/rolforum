@@ -29,12 +29,77 @@
         width: 100px;
     }
 
+    .flood-message__profile-owner {
+        margin-right: 16px;
+        margin-left: 0px;
+    }
+
+    .flood-message__text {
+        margin-right: 15px;
+    }
+
     .flood-message__text-content p {
         line-height: 1.2;
     }
 
     .flood-message__edit-desktop-owner {
-        width: 17%;
+        width: 18%;
         font-size: 1.3rem;
+    }
+
+    .flood-load-history {
+        margin-bottom: 15px;
+    }
+
+    .flood-chats-common {
+        position: unset;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .flood-chats-list-wrapper {
+        margin-left: -18px;
+        margin-right: 20px;
+        position: unset;
+        width: 50%;
+        height: 700px;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .flood-rcvd-msg {
+        margin-right: 10px;
+        overflow-y: auto;
+        height: 700px;
+        overflow-x: hidden;
+        width: 97%;
+    }
+
+    .flood-rcvd-msg::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    .flood-rcvd-msg::-webkit-scrollbar-track {
+        box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+        background-color: #fffdde;
+        border-radius: 10px;
+    }
+
+    .flood-rcvd-msg::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: #f2bf93;
+        background-image: -webkit-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.25) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.25) 50%,
+            rgba(255, 255, 255, 0.25) 75%,
+            transparent 75%,
+            transparent
+        );
     }
 }

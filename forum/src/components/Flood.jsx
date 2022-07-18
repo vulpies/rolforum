@@ -24,6 +24,21 @@ const Flood = () => {
 	const [endMsgList, setEndMsgList] = useState(false)
 	const [chatName, setChatName] = useState('')
 	const search = useParams();
+	const [chatsList, setChatsList] = useState()
+	const [showChatsList, setShowChatsList] = useState(false)
+
+	useEffect(() => {
+
+	}, [showChatsList])
+
+	useEffect(() => {
+		commonFetch(`https://api.postscriptum.games/v1/chat-message-list/${search.chatId}`, updMsgs)
+	}, [setMsg])
+
+	useEffect(() => {
+		commonFetch(`https://api.postscriptum.games/v1/chat-room-list-user`, setChatsList)
+	}, [setMsg])
+
 
 	function updMsgs(param) {
 		param.messages.forEach(p => p["isHide"] = true)
@@ -31,10 +46,8 @@ const Flood = () => {
 		setMsg(param.messages)
 	}
 
-	const url = `https://api.postscriptum.games/v1/chat-message-list/${search.chatId}`;
-	useEffect(() => {
-		commonFetch(url, updMsgs)
-	}, [setMsg, url])
+
+	console.log(document.offsetWidth)
 
 	const addMsg = useCallback((data) => {
 		if (!data.tokenUpdate) {
@@ -195,7 +208,7 @@ const Flood = () => {
 		<>
 			<div className='flood-name__wrapper'>
 				<div className='flood-name'>
-					<button className='btns btns-flood'><AiOutlineUnorderedList /></button>
+					<button className='btns btns-flood' onClick={() => setShowChatsList(!showChatsList)}><AiOutlineUnorderedList /></button>
 					<p className='flood-title'>{chatName}</p>
 					<button className='btns btns-flood'><AiOutlineMore /></button>
 				</div>
@@ -205,8 +218,24 @@ const Flood = () => {
 				<button className='btns btns-load' onClick={loadHistory} style={{ 'display': endMsgList ? 'none' : '' }}>{t("components.flood.load_more")}</button>
 			</div>
 
-			<div id="message-area" className='flood-rcvd-msg'>
-				{allMsg ? allMsg : <Loading />}
+			<div className='flood-chats-common'>
+
+				{showChatsList ? <div className="flood-chats-list-wrapper">
+
+
+					<p className='flood-chats__list-title'>Список чатов:</p>
+					<div className='flood-chats-list-common'>
+						{chatsList?.map(item => {
+							return <li className='flood-chats__list-item' key={item.id}><a href={`/chats/${item.id}`}>{item.name}</a></li>
+						})}
+					</div>
+
+				</div> : ''}
+
+				<div id="message-area" className='flood-rcvd-msg'>
+					{allMsg ? allMsg : <Loading />}
+				</div>
+
 			</div>
 
 			<div className='flood-wrapper__send'>
