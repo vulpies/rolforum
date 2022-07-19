@@ -141,7 +141,7 @@ const Flood = () => {
 
 	async function loadHistory() {
 		setCount(count => count + 40)
-		const url = `https://api.postscriptum.games/v1/chat-message-list?offset=${count}`
+		const url = `https://api.postscriptum.games/v1/chat-message-list/${search.chatId}?offset=${count}`
 		commonFetch(url, getAllMsg)
 	}
 
