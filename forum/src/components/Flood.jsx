@@ -77,6 +77,8 @@ const Flood = () => {
 		socket.onmessage = function (event) {
 			const data = JSON.parse(event.data);
 			addMsg(data)
+			const element = document.getElementById('m'+data.id)
+			element.scrollIntoView()
 		}
 
 		socket.onclose = function (event) {
@@ -163,7 +165,7 @@ const Flood = () => {
 			</div>
 
 		return (
-			<div className={message} key={m.id}>
+			<div className={message} key={m.id} id={`m${m.id}`}>
 				<div className={profile} >
 					<span className="user">
 						<a href={`/profile/${m.user_id}`}>{m.user_name}</a></span>
