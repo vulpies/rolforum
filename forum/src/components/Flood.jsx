@@ -78,7 +78,9 @@ const Flood = () => {
 			const data = JSON.parse(event.data);
 			addMsg(data)
 			const element = document.getElementById('m'+data.id)
-			element.scrollIntoView()
+			if (element) {
+				element.scrollIntoView()
+			}
 		}
 
 		socket.onclose = function (event) {
