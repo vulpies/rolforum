@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import SendOrRemove from '../buttons/send_or_remove'
-import Swal from 'sweetalert2'
 import Editors from '../../helpers/editors'
 import { useSelector } from 'react-redux'
 import { useTranslation } from "react-i18next";
 import { commonPostReqThen } from '../../helpers/commonFetch'
+import { SwallError } from '../../helpers/swall_notifications'
 
 const EpiSendPostFrom = ({ updatePosts }) => {
 	const { t } = useTranslation();
@@ -29,12 +29,7 @@ const EpiSendPostFrom = ({ updatePosts }) => {
 			setText('')
 
 		} else {
-			Swal.fire({
-				width: 350,
-				position: 'top',
-				icon: 'error',
-				text: t("components.epiSendPostForm.empty_message")
-			})
+			SwallError(t("components.epiSendPostForm.empty_message"))
 		}
 	}
 

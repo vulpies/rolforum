@@ -4,13 +4,12 @@ import { commonFetch, commonPostReq, commonPostReqThen } from '../../helpers/com
 import Breadcrumbs from '../breadcrumbs'
 import { FcApproval } from "react-icons/fc";
 import Editors from '../../helpers/editors'
-import Swal from 'sweetalert2'
 import SendOrRemove from '../buttons/send_or_remove'
-import { BsPencil, BsTrash } from "react-icons/bs";
-import { MdModeEditOutline } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { useCallback } from 'react'
 import Loading from '../../helpers/loading';
+import { DeleteMsgBtn, EditMsgBtn, ModerEditMsgBtn } from '../../helpers/editOrRemove';
+import { SwallError } from '../../helpers/swall_notifications';
 
 const SingleApp = () => {
 	const { t } = useTranslation();
@@ -54,12 +53,7 @@ const SingleApp = () => {
 			commonPostReqThen('https://api.postscriptum.games/v1/profile/character-app-comment-post', newComment, newCom)
 			handleClear()
 		} else {
-			Swal.fire({
-				width: 350,
-				position: 'top',
-				icon: 'error',
-				text: t("components.singleApp.empty_message")
-			})
+			SwallError(t("components.singleApp.empty_message"))
 		}
 	}
 
@@ -77,11 +71,11 @@ const SingleApp = () => {
 		navigate(`/characters/${appData.id}`)
 	}
 
-	const deleteCom = appData?.show_delete_button ? <span className='sepi-header-desc__items-trash'><BsTrash /></span> : ''
+	const deleteCom = appData?.show_delete_button ? <DeleteMsgBtn className='sepi-header-desc__items-trash' /> : ''
 
-	const userEdit = appData?.user_name === localStorage.getItem('username') ? <span className='sepi-header-desc__items-edit'> <BsPencil /></span> : ''
+	const userEdit = appData?.user_name === localStorage.getItem('username') ? <EditMsgBtn className='sepi-header-desc__items-trash' /> : ''
 
-	const moderEdit = appData?.show_edit_button ? <span className='sepi-header-desc__items-edit moder-edit-btn' moder-edit-btn> <MdModeEditOutline /></span> : ''
+	const moderEdit = appData?.show_edit_button ? <ModerEditMsgBtn className='sepi-header-desc__items-edit moder-edit-btn' /> : ''
 
 
 	return (

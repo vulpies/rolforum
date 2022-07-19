@@ -130,7 +130,11 @@
             "delete": "Delete",
             "general_chat": "General chat",
             "load_more": "Load more",
-            "type_message": "Enter your message"
+            "type_message": "Enter your message",
+            "remove_msg": "Are you sure you want to delete this message?",
+            "confirm_dlt_msg": "Message was deleted",
+            "chats_list": "Chats list:",
+            "create_chat": "Create a new chat"
         },
         "chooseFandom": {
             "new_fandom": "Add new fandom",
@@ -178,7 +182,8 @@
             "hide_episodes": "Hide episodes",
             "latest_news": "Latest news:",
             "no_news": "No any news yet ~",
-            "read": "Read"
+            "read": "Read",
+            "send_msg": "The link to reset password was sent to your email. Don't forget to check Spam folder."
         },
         "guests_page": {
             "character_list": "Character list",

@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../components/breadcrumbs'
 import { commonFetch, commonPostReq } from '../helpers/commonFetch'
 import CommonInputs from '../helpers/CommonInputs'
-import Swal from 'sweetalert2';
 import { useTranslation } from 'react-i18next'
+import { SwallSuccess } from '../helpers/swall_notifications'
 
 const ResetPass = () => {
 	const { t } = useTranslation();
@@ -14,7 +14,6 @@ const ResetPass = () => {
 	const [err, setErr] = useState('')
 	const navigate = useNavigate()
 	const token = window.location.search.slice(7)
-
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/password/confirm/${token}`)
@@ -46,12 +45,7 @@ const ResetPass = () => {
 			})
 		}
 
-		Swal.fire({
-			width: 350,
-			position: 'top',
-			text: t("pages.reset_pass.saved_pass"),
-			icon: 'success'
-		})
+		SwallSuccess(t("pages.reset_pass.saved_pass"))
 
 		navigate(`/index`)
 	}

@@ -7,10 +7,10 @@ import CommonInputs from '../../helpers/CommonInputs'
 import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
 import { updateUserInfo } from '../../store/usersSlice'
-import Swal from 'sweetalert2'
 import { useTranslation } from "react-i18next";
 import i18n from "../../services/i18n";
 import Loading from '../../helpers/loading'
+import { SwallSuccess } from '../../helpers/swall_notifications'
 
 const ProfileEdit = () => {
 	const { t } = useTranslation();
@@ -64,12 +64,7 @@ const ProfileEdit = () => {
 		}
 		console.log(updUserInfo)
 
-		Swal.fire({
-			width: 350,
-			position: 'top',
-			text: t("components.profileEdit.information_saved"),
-			icon: 'success'
-		})
+		SwallSuccess(t("components.profileEdit.information_saved"))
 		navigate(`/profile/${prof?.user_id}`)
 	}
 

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { commonDelete } from '../../helpers/commonFetch'
-import EditOrRemove from '../../helpers/editOrRemove'
+import { EditOrRemove } from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
-import Swal from 'sweetalert2';
 import { useTranslation } from 'react-i18next'
+import { SwallDeleteMsg } from '../../helpers/swall_notifications'
 
 const SingleEpiPost = ({ posts }) => {
 	const { t } = useTranslation();
@@ -15,29 +14,6 @@ const SingleEpiPost = ({ posts }) => {
 		setMsg(posts);
 	}, [posts])
 
-	function deleteMsg(id) {
-		Swal.fire({
-			title: t("components.singleEpiPost.delete_post"),
-			width: 350,
-			cancelButtonText: t("components.singleEpiPost.cancel_btn"),
-			position: 'top',
-			icon: 'warning',
-			showCancelButton: true,
-			confirmButtonColor: '#1aae26',
-			cancelButtonColor: '#d33',
-			confirmButtonText: t("components.singleEpiPost.confirm_delete")
-		}).then((result) => {
-			if (result.isConfirmed) {
-				commonDelete(`https://api.postscriptum.games/v1/post-delete/${id}`)
-				setMsg(msg.filter(item => item.id !== id))
-				Swal.fire({
-					width: 350,
-					title: t("components.singleEpiPost.was_deleted"),
-					icon: 'success'
-				})
-			}
-		})
-	}
 
 	return (
 		<>
@@ -66,7 +42,7 @@ const SingleEpiPost = ({ posts }) => {
 						<div className='sepi-header-desc__items' >
 							{p.can_edit ?
 								<EditOrRemove
-									onDelete={() => deleteMsg(p.id)}
+									onDelete={() => SwallDeleteMsg(t("components.singleEpiPost.delete_post"), t("components.singleEpiPost.cancel_btn"), t("components.singleEpiPost.confirm_delete"), t("components.singleEpiPost.was_deleted"), `https://api.postscriptum.games/v1/post-delete/${p.id}`, setMsg, msg, p.id)}
 									onEdit={() => navigate(`/edit_msg`)}
 								/> : ''}
 

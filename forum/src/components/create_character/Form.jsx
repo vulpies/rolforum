@@ -3,9 +3,9 @@ import CharacterInfo from "./CharacterInfo"
 import ChooseFandom from "./ChooseFandom"
 import PreviewInfo from "./PreviewInfo"
 import { useNavigate } from 'react-router-dom'
-import Swal from "sweetalert2";
 import { commonPostReq } from "../../helpers/commonFetch"
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
+import { SwallSuccess } from "../../helpers/swall_notifications";
 
 function Form() {
 	const { t } = useTranslation();
@@ -28,12 +28,7 @@ function Form() {
 			console.log(err)
 		}
 		console.log(formData)
-		Swal.fire({
-			width: 350,
-			position: 'top',
-			text: t("components.createCharacter.accepted"),
-			icon: 'success'
-		})
+		SwallSuccess(t("components.createCharacter.accepted"))
 		navigate(`/index`)
 	}
 

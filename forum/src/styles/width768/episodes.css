@@ -61,7 +61,7 @@
     }
 
     .send-post-form__text::-webkit-scrollbar {
-        width: 10px;
+        width: 11px;
     }
 
     .send-post-form__text::-webkit-scrollbar-track {

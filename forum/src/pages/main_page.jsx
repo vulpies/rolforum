@@ -9,7 +9,7 @@ import CommonBigBtn from "../helpers/big_btn"
 import { useTranslation } from "react-i18next";
 import stanger from '../images/stranger.jpg'
 import { commonFetch, commonPostReqThen } from "../helpers/commonFetch"
-import Swal from "sweetalert2"
+import { SwallSuccess } from "../helpers/swall_notifications"
 
 const MainPage = () => {
     const { t } = useTranslation();
@@ -52,17 +52,11 @@ const MainPage = () => {
 
 
     const resetPass = () => {
-
         commonPostReqThen('https://api.postscriptum.games/v1/password/reset-email', { "email": email })
 
         setEmail('')
 
-        Swal.fire({
-            width: 350,
-            position: 'top',
-            text: "Письмо было отправлено на указанный адрес. На всякий случай не забудьте проверить папку 'Спам'",
-            icon: 'success'
-        })
+        SwallSuccess(t("pages.main_page.send_msg"))
     }
 
 

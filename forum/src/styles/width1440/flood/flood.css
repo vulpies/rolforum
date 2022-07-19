@@ -79,7 +79,7 @@
     }
 
     .flood-rcvd-msg::-webkit-scrollbar {
-        width: 7px;
+        width: 10px;
     }
 
     .flood-rcvd-msg::-webkit-scrollbar-track {

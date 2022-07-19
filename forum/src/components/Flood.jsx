@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, useCallback, useRef } from 'react'
 import { AiOutlineSetting } from "react-icons/ai";
 import { useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
-import { commonDelete, commonFetch } from '../helpers/commonFetch';
+import { commonFetch } from '../helpers/commonFetch';
 import Editors from '../helpers/editors';
 import SendOrRemove from './buttons/send_or_remove';
 import { AiOutlineUnorderedList, AiOutlineMore } from "react-icons/ai";
@@ -10,8 +9,8 @@ import mainPic from '../images/static.gif'
 import { useTranslation } from "react-i18next";
 import Loading from '../helpers/loading';
 import { useParams } from "react-router-dom";
-import { BsPencil, BsTrash } from "react-icons/bs";
-import { RiQuestionAnswerLine } from "react-icons/ri";
+import { DeleteMsgBtn, EditMsgBtn, AnswerMsgBtn } from '../helpers/editOrRemove';
+import { SwallDeleteMsg, SwallSuccess } from '../helpers/swall_notifications';
 
 const Flood = () => {
 	const { t } = useTranslation();
@@ -26,14 +25,24 @@ const Flood = () => {
 	const search = useParams();
 	const [chatsList, setChatsList] = useState()
 	const [showChatsList, setShowChatsList] = useState(false)
+	const refFocus = useRef(null)
+
+	const floodDown = document.getElementById("message-area");
+	if (floodDown) {
+		floodDown.scrollTop = floodDown.scrollHeight;
+		// window.scrollTo(0, floodDown?.scrollHeight)
+	}
+
 
 	useEffect(() => {
 
 	}, [showChatsList])
 
+
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/chat-message-list/${search.chatId}`, updMsgs)
-	}, [setMsg])
+
+	}, [setMsg, search.chatId])
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/chat-room-list-user`, setChatsList)
@@ -45,9 +54,6 @@ const Flood = () => {
 		setChatName(param.chat.name)
 		setMsg(param.messages)
 	}
-
-
-	console.log(document.offsetWidth)
 
 	const addMsg = useCallback((data) => {
 		if (!data.tokenUpdate) {
@@ -86,17 +92,18 @@ const Flood = () => {
 		startChat()
 	}, [startChat])
 
+
+
 	function sendMessage() {
 		if (text.trim() !== '') {
 			socket_con.send(JSON.stringify({ action: "sendmessage", data: floodData }));
 			setText('')
+
+			const floodDown = document.getElementById("message-area");
+			floodDown.scrollTop = floodDown.scrollHeight;
+
 		} else {
-			Swal.fire({
-				width: 350,
-				position: 'top',
-				icon: 'error',
-				text: t("components.flood.empty_message"),
-			})
+			SwallSuccess(t("components.flood.empty_message"))
 		}
 	}
 
@@ -111,7 +118,6 @@ const Flood = () => {
 		if (msgId.id === id) {
 			msgId.isHide = !msgId.isHide
 			setHide(prevState => !prevState)
-			console.log(isHide, 8888)
 		}
 	}
 
@@ -130,16 +136,14 @@ const Flood = () => {
 		commonFetch(url, getAllMsg)
 	}
 
-	function deleteMsg(id) {
-		commonDelete(`https://api.postscriptum.games/v1/chat-message-delete/${id}`,
-			setMsg(msg.filter(item => item.id !== id)))
-	}
-
 	function answerOnMsg(author, id) {
+		refFocus.current.focus()
 		setText(prevstate => prevstate + `[quote][b]${author}[/b] </br> ${id}[/quote]`)
 	}
 
 	const allMsg = msg?.map(m => {
+
+		const dltUrl = `https://api.postscriptum.games/v1/chat-message-delete/${m.id}`
 
 		const owner = m.user_name === user?.user_name
 		const message = owner ? 'flood-message flood-message-owner' : 'flood-message';
@@ -152,7 +156,7 @@ const Flood = () => {
 		const setBtn = owner ? <div className={'flood-message__edit-options-owner flood-message__edit-options'}>
 			<p>{t("components.flood.edit")}</p>
 			<p onClick={() => answerOnMsg(m.user_name, m.content)}>{t("components.flood.quote")}</p>
-			<p onClick={() => deleteMsg(m.id)}>{t("components.flood.delete")}</p>
+			<p onClick={() => SwallDeleteMsg(t("components.flood.remove_msg"), t("components.singleEpiPost.cancel_btn"), t("components.singleEpiPost.confirm_delete"), t("components.flood.confirm_dlt_msg"), dltUrl, setMsg, msg, m.id)}>{t("components.flood.delete")}</p>
 		</div>
 			: <div className='flood-message__edit-options'>
 				<p>{t("components.flood.quote")}</p>
@@ -186,12 +190,17 @@ const Flood = () => {
 
 							{m.user_name === localStorage.getItem('username') ?
 								<>
-									<span className='btns btns-editor sepi-header-desc__items-trash' onClick={() => deleteMsg(m.id)}><BsTrash /></span>
-									<span className='btns btns-editor sepi-header-desc__items-edit' onClick={() => { }}><BsPencil /></span>
-									<span className='btns btns-editor sepi-header-desc__items-answer' onClick={() => answerOnMsg(m.user_name, m.content)}><RiQuestionAnswerLine /></span>
-								</> :
+									<DeleteMsgBtn
+										className='btns btns-editor sepi-header-desc__items-trash'
+										onDelete={() => SwallDeleteMsg(t("components.flood.remove_msg"), t("components.singleEpiPost.cancel_btn"), t("components.singleEpiPost.confirm_delete"), t("components.flood.confirm_dlt_msg"), dltUrl, setMsg, msg, m.id)} />
 
-								<span className='btns btns-editor sepi-header-desc__items-answer' onClick={() => answerOnMsg(m.user_name, m.content)}><RiQuestionAnswerLine /></span>}
+									<EditMsgBtn className='btns btns-editor sepi-header-desc__items-edit' />
+
+									<AnswerMsgBtn className='btns btns-editor sepi-header-desc__items-answer' onAnswer={() => answerOnMsg(m.user_name, m.content)} />
+
+								</> :
+								<AnswerMsgBtn className='btns btns-editor sepi-header-desc__items-answer' onAnswer={() => answerOnMsg(m.user_name, m.content)} />
+							}
 
 						</div>
 					</div>
@@ -222,8 +231,8 @@ const Flood = () => {
 
 				{showChatsList ? <div className="flood-chats-list-wrapper">
 
-
-					<p className='flood-chats__list-title'>Список чатов:</p>
+					<p className='flood-chats__list-create'><a href=''>{t("components.flood.create_chat")}</a></p>
+					<p className='flood-chats__list-title'>{t("components.flood.chats_list")}</p>
 					<div className='flood-chats-list-common'>
 						{chatsList?.map(item => {
 							return <li className='flood-chats__list-item' key={item.id}><a href={`/chats/${item.id}`}>{item.name}</a></li>
@@ -247,6 +256,7 @@ const Flood = () => {
 					value={text}
 					onChange={(e) => setText(e.target.value)}
 					onKeyDown={onKeyDown}
+					ref={refFocus}
 					className='flood-wrapper__send-msg'></textarea>
 
 				{socket_con ? <SendOrRemove sendBtn={(e) => sendMessage()} removeBtn={() => setText('')} /> : ""}

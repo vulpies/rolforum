@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import Breadcrumbs from '../../../components/breadcrumbs'
 import { commonFetch } from '../../../helpers/commonFetch'
 import Loading from '../../../helpers/loading'
-import { BsPencil } from "react-icons/bs";
+import { EditMsgBtn } from '../../../helpers/editOrRemove'
 
 const SingleNews = () => {
 	const { t } = useTranslation();
@@ -31,7 +31,8 @@ const SingleNews = () => {
 					<div className='single-news-top'>
 						<p className="single-news__date">{news.created_at}</p>
 						{user?.roles.find(role => role === "ROLE_MODERATOR") ?
-							<span className='single-news-edit sepi-header-desc__items-edit' onClick={() => { }}><BsPencil /></span> : ''}
+							<EditMsgBtn className='single-news-edit sepi-header-desc__items-edit' />
+							: ''}
 					</div>
 					<p className="single-news__title news-single__title">{news.title}</p>
 					<p className="single-news__content" dangerouslySetInnerHTML={{
