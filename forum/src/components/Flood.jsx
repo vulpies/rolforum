@@ -53,6 +53,11 @@ const Flood = () => {
 		param.messages.forEach(p => p["isHide"] = true)
 		setChatName(param.chat.name)
 		setMsg(param.messages)
+		const id = param.messages[param.messages.length - 1].id
+		const element = document.getElementById('m'+id)
+		if (element) {
+			element.scrollIntoView()
+		}
 	}
 
 	const addMsg = useCallback((data) => {
