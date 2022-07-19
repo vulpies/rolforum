@@ -131,10 +131,10 @@ const Flood = () => {
 	}
 
 	function getAllMsg(param) {
-		param.forEach(p => p["isHide"] = true)
-		setMsg((msg) => param.concat(msg));
+		param.messages.forEach(p => p["isHide"] = true)
+		setMsg((msg) => param.messages.concat(msg));
 
-		if (param.length < 40) {
+		if (param.messages.length < 40) {
 			setEndMsgList(true)
 		}
 	}
