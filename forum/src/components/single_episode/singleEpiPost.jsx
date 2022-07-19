@@ -14,6 +14,17 @@ const SingleEpiPost = ({ posts }) => {
 		setMsg(posts);
 	}, [posts])
 
+	useEffect(() => {
+		const hash = window.location.hash;
+		if (hash) {
+			const element = document.getElementById(hash.substring(1));
+			console.log(element)
+			if (element) {
+				element.scrollIntoView();
+			}
+		}
+	}, [msg])
+
 
 	return (
 		<>
@@ -22,7 +33,7 @@ const SingleEpiPost = ({ posts }) => {
 
 					<div className='sepi-post-title'>
 						<div className='sepi-post-title__author'>{p.character_name}</div>
-						<div className='sepi-post-title__date' id={p.id}>{p.created_at} <span className='sepi-post-title__number'>#{i + 1}</span></div>
+						<div className='sepi-post-title__date' id={`p${p.id}`}>{p.created_at} <span className='sepi-post-title__number'>#{i + 1}</span></div>
 					</div>
 					<hr className='hr-underline' />
 

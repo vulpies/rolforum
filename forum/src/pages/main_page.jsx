@@ -144,7 +144,7 @@ const MainPage = () => {
                         {showEpi ? <ul className='main-new__episodes-list'>
                             {main?.posts?.map((item, i) => {
                                 return <li key={i + 1}>
-                                    <a href={`/episodes/${item.episode_id}`}>{item.episode_title}</a><br />
+                                    <a href={`/episodes/${item.episode_id}#p${item.id}`}>{item.episode_title}</a><br />
                                     <p><span>{t("pages.main_page.written_by")}</span> {item.character_name}</p>
                                     <p><span>{t("pages.main_page.post_date")}</span> {item.created_at}</p>
                                 </li>
