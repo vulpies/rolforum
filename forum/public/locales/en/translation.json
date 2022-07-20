@@ -3,6 +3,10 @@
         "loading_info": {
             "loading": "Loading..."
         },
+        "textarea": {
+            "type_message": "Enter your message",
+            "appeal": "enter your message"
+        },
         "slider": {
             "hello": "Hello,",
             "guest": "stranger",
@@ -76,8 +80,7 @@
         },
         "singleApp": {
             "empty_message": "You cannot post empty message",
-            "comments": "Comments",
-            "type_message": "Enter your message"
+            "comments": "Comments"
         },
         "epiSendPostForm": {
             "empty_message": "You cannot post empty message",
@@ -130,7 +133,6 @@
             "delete": "Delete",
             "general_chat": "General chat",
             "load_more": "Load more",
-            "type_message": "Enter your message",
             "remove_msg": "Are you sure you want to delete this message?",
             "confirm_dlt_msg": "Message was deleted",
             "chats_list": "Chats list:",

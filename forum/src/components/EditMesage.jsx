@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { commonPostReq } from '../helpers/commonFetch'
-import Editors from '../helpers/editors'
 import Breadcrumbs from './breadcrumbs'
-import SendOrRemove from './buttons/send_or_remove'
+import TextArea from './TextArea'
 
 const EditMessage = ({ id, text, epiId }) => {
 	const navigate = useNavigate()
@@ -24,14 +23,18 @@ const EditMessage = ({ id, text, epiId }) => {
 				<Breadcrumbs name='Редактирование сообщения' link={`/episodes/${epiId}`} extraName='Назад' />
 			</div>
 
-			<div className='send-post-form edit-msg'>
-
-				<Editors className='editor-line' param={update} setParam={setUpdate} id='epi_textarea' />
-
-				<textarea id='epi_textarea' className='send-post-form__text' value={update} onChange={(e) => setUpdate(e.target.value)}></textarea>
-
-				<SendOrRemove sendBtn={editMsg} removeBtn={() => setUpdate('')} />
-			</div>
+			<TextArea
+				className='send-post-form edit-msg'
+				areaClassName='send-post-form__text'
+				param={update}
+				setParam={setUpdate}
+				editorLine='editor-line'
+				id='edit_msg'
+				value={update}
+				onChange={(e) => setUpdate(e.target.value)}
+				sendBtn={editMsg}
+				removeBtn={() => setUpdate('')}
+			/>
 
 		</div>
 	)

@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import SendOrRemove from '../buttons/send_or_remove'
-import Editors from '../../helpers/editors'
 import { useSelector } from 'react-redux'
 import { useTranslation } from "react-i18next";
 import { commonPostReqThen } from '../../helpers/commonFetch'
 import { SwallError } from '../../helpers/swall_notifications'
+import TextArea from '../TextArea'
 
 const EpiSendPostFrom = ({ updatePosts }) => {
 	const { t } = useTranslation();
@@ -34,15 +33,20 @@ const EpiSendPostFrom = ({ updatePosts }) => {
 	}
 
 	return (
-		<div className='send-post-form'>
-			<p><b>{user?.current_character?.name}</b>, {t("components.epiSendPostForm.type_message")}</p>
 
-			<Editors className='editor-line' param={text} setParam={setText} id='epi_textarea' />
-
-			<textarea id='epi_textarea' className='send-post-form__text' value={text} onChange={(e) => setText(e.target.value)}></textarea>
-
-			<SendOrRemove sendBtn={sendPost} removeBtn={handleClear} />
-		</div>
+		<TextArea
+			className='send-post-form'
+			name={user?.current_character?.name}
+			editorLine='editor-line'
+			param={text}
+			setParam={setText}
+			id='epi_textarea'
+			areaClassName='send-post-form__text'
+			value={text}
+			onChange={(e) => setText(e.target.value)}
+			sendBtn={sendPost}
+			removeBtn={handleClear}
+		/>
 	)
 }
 

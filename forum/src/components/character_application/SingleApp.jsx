@@ -3,13 +3,12 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { commonFetch, commonPostReq, commonPostReqThen } from '../../helpers/commonFetch'
 import Breadcrumbs from '../breadcrumbs'
 import { FcApproval } from "react-icons/fc";
-import Editors from '../../helpers/editors'
-import SendOrRemove from '../buttons/send_or_remove'
 import { useTranslation } from "react-i18next";
 import { useCallback } from 'react'
 import Loading from '../../helpers/loading';
 import { DeleteMsgBtn, EditMsgBtn, ModerEditMsgBtn } from '../../helpers/editOrRemove';
 import { SwallError } from '../../helpers/swall_notifications';
+import TextArea from '../TextArea';
 
 const SingleApp = () => {
 	const { t } = useTranslation();
@@ -153,20 +152,19 @@ const SingleApp = () => {
 
 						</> : ''}
 
-					<div className='char-app__send-form'>
-						<p>{t("components.singleApp.type_message")}</p>
+					<TextArea
+						className='char-app__send-form'
+						editorLine='editor-line'
+						param={text}
+						setParam={setText}
+						id='single_app'
+						areaClassName='send-post-form__text'
+						value={text}
+						onKeyDown={onKeyDown}
+						onChange={(e) => setText(e.target.value)}
+						sendBtn={sendPost} removeBtn={handleClear}
+					/>
 
-						<Editors className='editor-line' param={text} setParam={setText} id='epi_textarea' />
-
-						<textarea id='epi_textarea'
-							className='send-post-form__text'
-							value={text}
-							onKeyDown={onKeyDown}
-							onChange={(e) => setText(e.target.value)}></textarea>
-
-						<SendOrRemove sendBtn={sendPost} removeBtn={handleClear} />
-
-					</div>
 				</div> : <Loading />
 			}
 

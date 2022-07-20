@@ -1,16 +1,15 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react'
 import { AiOutlineSetting } from "react-icons/ai";
 import { useSelector } from 'react-redux';
-import { commonFetch } from '../helpers/commonFetch';
-import Editors from '../helpers/editors';
-import SendOrRemove from './buttons/send_or_remove';
+import { commonFetch } from '../../helpers/commonFetch';
 import { AiOutlineUnorderedList, AiOutlineMore } from "react-icons/ai";
-import mainPic from '../images/static.gif'
+import mainPic from '../../images/static.gif'
 import { useTranslation } from "react-i18next";
-import Loading from '../helpers/loading';
+import Loading from '../../helpers/loading';
 import { useParams } from "react-router-dom";
-import { DeleteMsgBtn, EditMsgBtn, AnswerMsgBtn } from '../helpers/editOrRemove';
-import { SwallDeleteMsg, SwallSuccess } from '../helpers/swall_notifications';
+import { DeleteMsgBtn, EditMsgBtn, AnswerMsgBtn } from '../../helpers/editOrRemove';
+import { SwallDeleteMsg, SwallSuccess } from '../../helpers/swall_notifications';
+import TextArea from '../TextArea';
 
 const Flood = () => {
 	const { t } = useTranslation();
@@ -30,12 +29,9 @@ const Flood = () => {
 	const floodDown = document.getElementById("message-area");
 	if (floodDown) {
 		floodDown.scrollTop = floodDown.scrollHeight;
-		// window.scrollTo(0, floodDown?.scrollHeight)
 	}
 
-
 	useEffect(() => {
-
 	}, [showChatsList])
 
 
@@ -77,7 +73,7 @@ const Flood = () => {
 		socket.onmessage = function (event) {
 			const data = JSON.parse(event.data);
 			addMsg(data)
-			const element = document.getElementById('m'+data.id)
+			const element = document.getElementById('m' + data.id)
 			if (element) {
 				element.scrollIntoView()
 			}
@@ -102,10 +98,6 @@ const Flood = () => {
 		if (text.trim() !== '') {
 			socket_con.send(JSON.stringify({ action: "sendmessage", data: floodData }));
 			setText('')
-
-			const floodDown = document.getElementById("message-area");
-			floodDown.scrollTop = floodDown.scrollHeight;
-
 		} else {
 			SwallSuccess(t("components.flood.empty_message"))
 		}
@@ -235,7 +227,7 @@ const Flood = () => {
 
 				{showChatsList ? <div className="flood-chats-list-wrapper">
 
-					<p className='flood-chats__list-create'><a href=''>{t("components.flood.create_chat")}</a></p>
+					<p className='flood-chats__list-create'><a href='/chats/create_chat'>{t("components.flood.create_chat")}</a></p>
 					<p className='flood-chats__list-title'>{t("components.flood.chats_list")}</p>
 					<div className='flood-chats-list-common'>
 						{chatsList?.map(item => {
@@ -251,21 +243,21 @@ const Flood = () => {
 
 			</div>
 
-			<div className='flood-wrapper__send'>
-				<p>{t("components.flood.type_message")}</p>
+			<TextArea
+				className='flood-wrapper__send'
+				param={text}
+				setParam={setText}
+				id='message'
+				value={text}
+				editorLine='editor-line__flood'
+				onChange={(e) => setText(e.target.value)}
+				onKeyDown={onKeyDown}
+				ref={refFocus}
+				areaClassName='flood-wrapper__send-msg'
+				sendBtn={(e) => sendMessage()}
+				removeBtn={() => setText('')}
+			/>
 
-				<Editors className='editor-line__flood' param={text.trim()} setParam={setText} id='message' />
-
-				<textarea id="message"
-					value={text}
-					onChange={(e) => setText(e.target.value)}
-					onKeyDown={onKeyDown}
-					ref={refFocus}
-					className='flood-wrapper__send-msg'></textarea>
-
-				{socket_con ? <SendOrRemove sendBtn={(e) => sendMessage()} removeBtn={() => setText('')} /> : ""}
-
-			</div>
 		</>
 	)
 }

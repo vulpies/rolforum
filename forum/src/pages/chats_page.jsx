@@ -1,6 +1,6 @@
 import React from 'react'
 import Breadcrumbs from '../components/breadcrumbs'
-import Flood from '../components/Flood'
+import Flood from '../components/flood/Flood'
 import { useTranslation } from "react-i18next";
 
 const Chats = () => {

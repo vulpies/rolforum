@@ -18,7 +18,6 @@
 }
 
 .send-post-form__text {
-    min-height: 180px;
     font-size: 1.1rem;
     margin: 10px 0;
     border-color: #8a0b0a;
