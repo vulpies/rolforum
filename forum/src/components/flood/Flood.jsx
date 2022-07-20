@@ -49,6 +49,11 @@ const Flood = () => {
 		param.messages.forEach(p => p["isHide"] = true)
 		setChatName(param.chat.name)
 		setMsg(param.messages)
+		const id = param.messages[param.messages.length - 1].id
+		const element = document.getElementById('m'+id)
+		if (element) {
+			element.scrollIntoView()
+		}
 	}
 
 	const addMsg = useCallback((data) => {
@@ -118,17 +123,17 @@ const Flood = () => {
 	}
 
 	function getAllMsg(param) {
-		param.forEach(p => p["isHide"] = true)
-		setMsg((msg) => param.concat(msg));
+		param.messages.forEach(p => p["isHide"] = true)
+		setMsg((msg) => param.messages.concat(msg));
 
-		if (param.length < 40) {
+		if (param.messages.length < 40) {
 			setEndMsgList(true)
 		}
 	}
 
 	async function loadHistory() {
 		setCount(count => count + 40)
-		const url = `https://api.postscriptum.games/v1/chat-message-list?offset=${count}`
+		const url = `https://api.postscriptum.games/v1/chat-message-list/${search.chatId}?offset=${count}`
 		commonFetch(url, getAllMsg)
 	}
 
