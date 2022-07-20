@@ -18,6 +18,29 @@
             cover fixed;
     }
 
+    body::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    body::-webkit-scrollbar-track {
+        box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+        background-color: #fffdde;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #a56028d0;
+        background-image: -webkit-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.25) 25%,
+            transparent 25%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.25) 50%,
+            rgba(255, 255, 255, 0.25) 75%,
+            transparent 75%,
+            transparent
+        );
+    }
+
     #root {
         /* width: 1170px;
         background-color: #fff9dcd1; */

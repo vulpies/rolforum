@@ -3,7 +3,6 @@
 @import "./profile.css";
 @import "./modal.css";
 @import "./episodes.css";
-@import "./flood.css";
 @import "./moder.css";
 @import "./common.css";
 @import "./main_page.css";
@@ -17,3 +16,6 @@
 
 @import "./news/news.css";
 @import "./news/single_news.css";
+
+@import "./flood/flood.css";
+@import "./flood/create_chat.css";

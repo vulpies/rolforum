@@ -4,6 +4,7 @@
 @import "./flood/flood.css";
 @import "./flood/flood-msg.css";
 @import "./flood/flood-msg-owner.css";
+@import "./flood/create_chat.css";
 
 @import "./buttons/burger.css";
 @import "./buttons/buttons.css";

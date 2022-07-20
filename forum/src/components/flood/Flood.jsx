@@ -50,7 +50,7 @@ const Flood = () => {
 		setChatName(param.chat.name)
 		setMsg(param.messages)
 		const id = param.messages[param.messages.length - 1].id
-		const element = document.getElementById('m'+id)
+		const element = document.getElementById('m' + id)
 		if (element) {
 			element.scrollIntoView()
 		}
@@ -224,9 +224,10 @@ const Flood = () => {
 				</div>
 			</div>
 
-			<div className='flood-load-history'>
-				<button className='btns btns-load' onClick={loadHistory} style={{ 'display': endMsgList ? 'none' : '' }}>{t("components.flood.load_more")}</button>
-			</div>
+			{msg?.length < 40 ? "" :
+				<div className='flood-load-history'>
+					<button className='btns btns-load' onClick={loadHistory} style={{ 'display': endMsgList ? 'none' : '' }}>{t("components.flood.load_more")}</button>
+				</div>}
 
 			<div className='flood-chats-common'>
 
