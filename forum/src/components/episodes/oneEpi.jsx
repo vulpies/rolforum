@@ -70,7 +70,11 @@ const OneEpi = () => {
 						<div className='epi-user-info__avatar'>
 							<img src={item?.last_author?.avatar} alt='' onClick={() => navigate(`/characters/${item.last_author.id}`)} />
 						</div>
-						<p>{item?.last_updated_at}</p>
+						{item.last_post_id ?
+							<p><a href={`/episodes/${item.id}#p${item.last_post_id}`}>{item?.last_updated_at}</a></p>
+							:
+							<p>{item?.last_updated_at}</p>
+						}
 					</div>
 				</div>
 			))}
