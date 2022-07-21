@@ -12,6 +12,13 @@
         margin-right: 25px;
     }
 
+    .main-new__news,
+    .main-new__no-news,
+    .main-new__episodes,
+    .main-new__no-episodes {
+        margin-top: 11px;
+    }
+
     .main-new__no-news {
         margin-top: unset;
     }
@@ -40,7 +47,8 @@
 
     .main-new__news {
         width: 90%;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .main-new__news-date {

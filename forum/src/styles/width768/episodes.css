@@ -17,6 +17,10 @@
         font-size: 0.9rem;
     }
 
+    .epi-wrapper {
+        padding: 9px 7px 5px 9px;
+    }
+
     .epi-user-info {
         width: 300px;
         display: flex;

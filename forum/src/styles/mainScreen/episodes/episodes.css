@@ -1,7 +1,7 @@
 .epi-wrapper {
     margin: 15px 0;
     border: 1px solid #e3a714;
-    padding: 10px 5px 3px;
+    padding: 9px 9px 5px 9px;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
@@ -22,6 +22,7 @@
 
 .epi-text-info {
     margin-right: 10px;
+    width: 78%;
 }
 
 .epi-text-info a:hover span {
@@ -40,6 +41,18 @@
 
 .epi-user-info > p {
     text-align: right;
+}
+
+.epi-user-info a {
+    color: #000;
+    font-weight: 400;
+    margin-bottom: -2px;
+}
+
+.epi-user-info a:hover {
+    color: #cc5b0e;
+    font-weight: 600;
+    text-shadow: unset;
 }
 
 .epi-user-info__avatar {

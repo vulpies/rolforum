@@ -1,4 +1,8 @@
 @media (min-width: 768px) {
+    .chars {
+        margin: -11px 0 26px;
+    }
+
     .chars-active {
         width: 100%;
         display: flex;

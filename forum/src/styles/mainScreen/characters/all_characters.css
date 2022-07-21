@@ -129,11 +129,11 @@ font-family: 'Satisfy', cursive; */
 }
 
 .chars {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     align-content: center;
-    margin: -10px 0 10px;
+    align-items: center;
+    display: flex;
+    margin: 25px 0 22px;
+    justify-content: center;
 }
 
 .chars-pending {

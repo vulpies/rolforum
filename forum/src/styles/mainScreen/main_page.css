@@ -9,8 +9,9 @@
     margin-bottom: 10px;
 }
 
+.main-new__news,
 .main-new__no-news {
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .main-new__news-common {
@@ -103,8 +104,8 @@
 
 .main-new__news > p,
 .main-new__episodes > p {
-    color: #680606;
-    text-shadow: 1px 1px 1px #ff9696;
+    color: #894510;
+    /* text-shadow: 1px 1px 1px #ff9696; */
     font-size: 1.2rem;
     background-color: #fcfbc7;
     width: 100%;
@@ -112,7 +113,7 @@
     font-weight: 600;
     margin: 15px 0px 5px;
     border-radius: 4px;
-    border: 2px solid #880f0f;
+    border: 2px solid #894510;
     text-align: center;
 }
 

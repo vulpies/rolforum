@@ -18,8 +18,9 @@ import { addUserInfo } from "./store/usersSlice"
 import { News, SingleNews } from './pages/org_pages/org_index'
 import { RolesList, UsersList } from './pages/for_guests/guests_index'
 import i18n from "./services/i18n";
-import EditMessage from "./components/EditMesage"
 import CreateChat from "./components/flood/CreateChat"
+import { EditPost, EditFloodMsg, EditAppCom } from './components/edit_forms/edit_index'
+
 
 function App() {
     const [locale, setLocale] = useState(i18n.language);
@@ -66,6 +67,7 @@ function App() {
                         <Route path='/guestbook/list_of_roles' element={<RolesList />} />
                         <Route path="/guestbook" element={<GuestsPage />} />
 
+                        <Route path="/episodes/edit/:epiPostId" element={<EditPost />} />
                         <Route path="/episodes/:epiId" element={<SingleEpi />} />
                         <Route path="/episodes/template" element={<EpiNewCreate />} />
                         <Route path="/episodes" element={<EpisodesPage />} />
@@ -75,12 +77,13 @@ function App() {
                         <Route path="/profile/:profId" element={<Profile />} />
 
                         <Route path="/resetPass" element={<ResetPass />} />
-                        <Route path="/edit_msg" element={<EditMessage />} />
+                        {/* <Route path="/edit_msg" element={<EditMessage />} /> */}
 
                         <Route path="/characters/:charId" element={<CharInfo />} />
                         <Route path="/characters" element={<Characters />} />
 
                         <Route path="/create" element={<CreateCharacter />} />
+                        <Route path="/char_app/edit/:appComId" element={<EditAppCom />} />
                         <Route path="/char_app/:appId" element={<SingleApp />} />
                         <Route path="/char_app" element={<CharacterApplication />} />
 
@@ -98,6 +101,7 @@ function App() {
                         <Route path="/outgame" element={<Outgame />} />
 
                         <Route path="/chats/create_chat" element={<CreateChat />} />
+                        <Route path="/chats/edit/:chatMsgId" element={<EditFloodMsg />} />
                         <Route path="/chats/:chatId" element={<Chats />} />
 
                         <Route path="/exit" element={<Navigate to="/" replace />}

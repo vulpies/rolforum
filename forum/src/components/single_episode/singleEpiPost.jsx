@@ -54,7 +54,7 @@ const SingleEpiPost = ({ posts }) => {
 							{p.can_edit ?
 								<EditOrRemove
 									onDelete={() => SwallDeleteMsg(t("components.singleEpiPost.delete_post"), t("components.singleEpiPost.cancel_btn"), t("components.singleEpiPost.confirm_delete"), t("components.singleEpiPost.was_deleted"), `https://api.postscriptum.games/v1/post-delete/${p.id}`, setMsg, msg, p.id)}
-									onEdit={() => navigate(`/edit_msg`)}
+									onEdit={() => navigate(`/episodes/edit/${p.id}`)}
 								/> : ''}
 
 							<GetLike />
