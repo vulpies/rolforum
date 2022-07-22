@@ -12,7 +12,7 @@ const EditPost = () => {
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/post-edit-data/${postId}`, setPostInfo)
-	}, [setPostInfo])
+	}, [setPostInfo, postId])
 
 	console.log(postInfo)
 
