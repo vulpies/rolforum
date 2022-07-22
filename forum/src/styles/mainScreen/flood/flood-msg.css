@@ -78,6 +78,9 @@
 .flood-message__text-content p {
     margin-bottom: 13px;
     line-height: 1.1;
+    font-family: "LinikSansRegular";
+    letter-spacing: 0.1px;
+    font-size: 0.95rem;
 }
 
 .flood-message__text-content p:last-child {

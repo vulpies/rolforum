@@ -11,6 +11,11 @@
         margin: 10px 0 20px;
     }
 
+    .flood-message__top-line {
+        align-items: flex-end;
+        margin-bottom: 4px;
+    }
+
     .flood-message__profile,
     .flood-message__profile-owner {
         width: 100px;
@@ -34,6 +39,7 @@
 
     .flood-message__text-content p {
         margin-bottom: 13px;
+        line-height: normal;
     }
 
     .flood-message__profile span,

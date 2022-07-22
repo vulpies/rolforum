@@ -39,7 +39,7 @@
     }
 
     .flood-message__text-content p {
-        line-height: 1.2;
+        font-size: 1.05rem;
     }
 
     .flood-message__edit-desktop-owner {

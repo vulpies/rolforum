@@ -71,8 +71,10 @@
 }
 
 .flood-wrapper__send-msg {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 6px;
+    font-family: "LinikSansRegular";
+    letter-spacing: 0.2px;
 }
 
 .flood-btns-block {
