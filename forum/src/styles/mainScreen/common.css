@@ -178,3 +178,7 @@ textarea:focus-visible {
     color: #d11313;
     text-shadow: 1px 1px 1px #e2bb03;
 }
+
+.not-found {
+    margin: 10px auto 20px;
+}

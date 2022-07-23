@@ -102,6 +102,7 @@ const Flood = () => {
 
 	useEffect(() => {
 		startChat()
+		openChat()
 	}, [])
 
 
@@ -145,7 +146,7 @@ const Flood = () => {
 	}
 
 	function answerOnMsg(author, id) {
-		const element = document.getElementById(id)
+		const element = document.getElementById('message')
 		if (element) {
 			element.scrollIntoView()
 		}
@@ -170,7 +171,7 @@ const Flood = () => {
 			<p onClick={() => SwallDeleteMsg(t("components.flood.remove_msg"), t("components.singleEpiPost.cancel_btn"), t("components.singleEpiPost.confirm_delete"), t("components.flood.confirm_dlt_msg"), dltUrl, setMsg, msg, m.id)}>{t("components.flood.delete")}</p>
 		</div>
 			: <div className='flood-message__edit-options'>
-				<p>{t("components.flood.quote")}</p>
+				<p onClick={() => answerOnMsg(m.user_name, m.content)}>{t("components.flood.quote")}</p>
 			</div>
 
 		return (

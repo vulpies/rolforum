@@ -36,6 +36,10 @@
         width: 310px;
     }
 
+    .epi-user-info a:hover {
+        color: #ff9b05;
+    }
+
     .epi-text-info {
         max-width: 64%;
         width: auto;

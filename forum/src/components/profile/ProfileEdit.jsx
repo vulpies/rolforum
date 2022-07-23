@@ -6,7 +6,6 @@ import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 import CommonInputs from '../../helpers/CommonInputs'
 import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
-import { updateUserInfo } from '../../store/usersSlice'
 import { useTranslation } from "react-i18next";
 import i18n from "../../services/i18n";
 import Loading from '../../helpers/loading'
@@ -19,12 +18,13 @@ const ProfileEdit = () => {
 	const [timeZone, setTimeZone] = useState([])
 	const [getUserTime, setGetUserTime] = useState({})
 	const [language, setLanguage] = useState(prof?.language)
+	const [formatDate, setFormatDate] = useState(prof?.dateFormat)
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		commonFetch('https://api.postscriptum.games/v1/profile/edit-data', setProf)
 	}, [setProf])
 
-	const dispatch = useDispatch()
 
 	const time = {
 		"value": prof?.timezone,
@@ -36,13 +36,18 @@ const ProfileEdit = () => {
 		{ "value": "ru", "label": "Russian" }
 	]
 
-	const navigate = useNavigate()
+	const dateFormat = [
+		{ 'value': 1, "label": 'YYYY-MM-DD' },
+		{ 'value': 2, "label": 'DD.MM.YYYY' },
+		{ 'value': 3, "label": 'DD/MM/YYYY' },
+		{ 'value': 4, "label": 'DD-MM-YYYY' },
+		{ 'value': 5, "label": 'MM-DD-YYYY' },
+		{ 'value': 6, "label": 'MM/DD/YYYY' },
+	]
 
 	useEffect(() => {
 		commonFetch('https://api.postscriptum.games/v1/timezones', setTimeZone)
 	}, [])
-
-	console.log(prof, 'prof')
 
 
 	function handleSubmit(e) {
@@ -52,10 +57,9 @@ const ProfileEdit = () => {
 			id: prof.user_id,
 			avatar: avatar || prof.user_avatar,
 			timeZone: getUserTime?.value || time.value,
-			language: language?.value || prof.language
+			language: language?.value || prof.language,
+			dateFormat: formatDate?.value || prof.dateFormat,
 		}
-
-		dispatch(updateUserInfo(updUserInfo))
 
 		try {
 			commonPostReq('https://api.postscriptum.games/v1/profile/edit', updUserInfo)
@@ -124,12 +128,23 @@ const ProfileEdit = () => {
 					<CustomSelect
 						styleDiv='profile-input__input'
 						label={t("components.profileEdit.language")}
-						onChange={(e) => setLanguage(e)}
-						options={[{ "value": "en", "label": "English" }, { "value": "ru", "label": "Russian" }]}
+						onChange={(e) => setFormatDate(e)}
+						options={languages}
 						closeMenuOnSelect={true}
 						isMulti={false}
 						defaultValue={languages.filter((item) => { return item.value === prof.language })[0]}
 						placeholder={t("components.profileEdit.choose_language")}
+					/>
+
+					<CustomSelect
+						styleDiv='profile-input__input'
+						label={t("components.profileEdit.date_format")}
+						onChange={(e) => setFormatDate(e)}
+						options={dateFormat}
+						defaultValue={dateFormat.filter((item) => { return item.value === prof.dateFormat })[0]}
+						closeMenuOnSelect={true}
+						isMulti={false}
+						placeholder={t("components.profileEdit.choose_date_format")}
 					/>
 
 					<input type="submit" value={t("components.profileEdit.submit")} className='btns btns-create btns-send' onClick={handleSubmit} />

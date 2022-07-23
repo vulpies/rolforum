@@ -112,7 +112,9 @@
             "choose_timezone": "Выберите пояс",
             "language": "Язык интерфейса:",
             "choose_language": "Выберите язык",
-            "submit": "Сохранить"
+            "submit": "Сохранить",
+            "date_format": "Формат даты:",
+            "choose_date_format": "Выберите формат даты"
         },
         "profileEditPass": {
             "passwords_not_match": "Пароли не совпадают!",

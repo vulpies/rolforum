@@ -112,7 +112,9 @@
             "choose_timezone": "Choose timezone",
             "language": "Language:",
             "choose_language": "Choose language",
-            "submit": "Submit"
+            "submit": "Submit",
+            "date_format": "Date format:",
+            "choose_date_format": "Choose date format"
         },
         "profileEditPass": {
             "passwords_not_match": "Passwords do not match",

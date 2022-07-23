@@ -20,6 +20,7 @@ import { RolesList, UsersList } from './pages/for_guests/guests_index'
 import i18n from "./services/i18n";
 import CreateChat from "./components/flood/CreateChat"
 import { EditPost, EditFloodMsg, EditAppCom } from './components/edit_forms/edit_index'
+import PageNotFound from "./pages/404"
 
 
 function App() {
@@ -106,6 +107,7 @@ function App() {
 
                         <Route path="/exit" element={<Navigate to="/" replace />}
                         />
+                        <Route path="*" element={<PageNotFound />} />
                     </Routes>
                     <Arrows className='main-page__arrow' />
                 </BrowserRouter>

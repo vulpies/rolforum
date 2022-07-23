@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 import Breadcrumbs from '../breadcrumbs'
 import TextArea from '../TextArea'
 
 const EditPost = () => {
 	const [update, setUpdate] = useState()
-	const postId = window.location.pathname.slice(15)
+	const params = useParams()
 	const [postInfo, setPostInfo] = useState()
 	const navigate = useNavigate()
 
+
 	useEffect(() => {
-		commonFetch(`https://api.postscriptum.games/v1/post-edit-data/${postId}`, setPostInfo)
-	}, [postId])
+		commonFetch(`https://api.postscriptum.games/v1/post-edit-data/${params.epiPostId}`, setPostInfo)
+	}, [params.epiPostId])
 
 	console.log(postInfo)
 
 	const editPost = () => {
 		commonPostReq('https://api.postscriptum.games/v1/post-edit', {
-			post_id: postId,
+			post_id: params.epiPostId,
 			content: update
 		})
 		navigate(`/episodes/${postInfo?.episode_id}`)
