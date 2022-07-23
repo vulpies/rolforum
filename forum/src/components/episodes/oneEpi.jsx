@@ -12,14 +12,11 @@ const OneEpi = () => {
 	const [info, setInfo] = useState([])
 	const navigate = useNavigate()
 	const [value, setValue] = useState(info)
-
 	const [show, setShow] = useState(false)
 
-	const url = 'https://api.postscriptum.games/v1/episode-list-view'
 	useEffect(() => {
-		commonFetch(url, setInfo)
-	}, [setInfo, url])
-
+		commonFetch('https://api.postscriptum.games/v1/episode-list-view', setInfo)
+	}, [])
 
 	const filteredEpies = info.filter(epi => (epi.title.toLowerCase().includes(value)))
 

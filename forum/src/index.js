@@ -1,5 +1,5 @@
 import React from "react"
-import ReactDOM from "react-dom"
+import ReactDOM from "react-dom/client"
 import "./styles/index.css"
 import App from "./App"
 import { createStore } from "redux"
@@ -12,13 +12,14 @@ const store = createStore(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-ReactDOM.render(
-    <React.StrictMode>
-        <React.Suspense fallback="Loading...">
-            <Provider store={store}>
-                <App className="container" />
-            </Provider>
-        </React.Suspense>
-    </React.StrictMode>,
-    document.getElementById("root")
-)
+
+ReactDOM.createRoot(document.getElementById("root"))
+    .render(
+        <React.StrictMode>
+            <React.Suspense fallback="Loading...">
+                <Provider store={store}>
+                    <App className="container" />
+                </Provider>
+            </React.Suspense>
+        </React.StrictMode>
+    )

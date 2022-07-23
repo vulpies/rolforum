@@ -27,11 +27,10 @@ const SingleApp = () => {
 	}, [appId])
 
 	const updMsgs = useCallback((param) => {
-		console.log(param, 'paramparam')
 		setAppData(param)
 		setComments(param.comments)
 		setNewMsg(!newMsg)
-	}, [newMsg])
+	}, [])
 
 	const newCom = (res) => {
 		setComments([...comments, res.data.comment[0]])
