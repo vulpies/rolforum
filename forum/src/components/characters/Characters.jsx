@@ -15,7 +15,7 @@ const Characters = () => {
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/profile/character-list/${user?.user_id}`, setInfo)
-	}, [setInfo, user])
+	}, [user])
 
 
 	return (

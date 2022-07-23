@@ -44,7 +44,7 @@ const MainPage = () => {
 
     useEffect(() => {
         commonFetch('https://api.postscriptum.games/v1/index', setMain)
-    }, [setMain])
+    }, [])
 
     const loadListOfEpies = () => {
         setShowEpi(!showEpi)
@@ -53,9 +53,7 @@ const MainPage = () => {
 
     const resetPass = () => {
         commonPostReqThen('https://api.postscriptum.games/v1/password/reset-email', { "email": email })
-
         setEmail('')
-
         SwallSuccess(t("pages.main_page.send_msg"))
     }
 
@@ -119,7 +117,7 @@ const MainPage = () => {
                             <div className='main-new__news'>
                                 <p>{t("pages.main_page.latest_news")}</p>
 
-                                {main?.news.map(item => {
+                                {main?.news?.map(item => {
                                     return <div className="main-new__news-common" key={item.id}>
                                         <p className="main-new__news-date"><a href={`/org/news/${item.id}`}>{item.created_at}</a></p>
                                         <p className="main-new__news-title">{item.title}</p>
@@ -133,9 +131,9 @@ const MainPage = () => {
                             <p>{t("pages.main_page.no_news")}</p></div>}
 
 
-                    {main && main?.posts.length !== 0 ? <div className='main-new__episodes'>
+                    {main && main?.posts?.length ? <div className='main-new__episodes'>
 
-                        <p>{t("pages.main_page.new_posts")} ({main?.posts?.length})</p>
+                        <p>{t("pages.main_page.new_posts")} ({main?.posts?.length ?? 0})</p>
 
                         {main?.posts?.length >= 3 ? <div className="main-new__show-btn">
                             <button className='btns btns-load' onClick={loadListOfEpies}>{showEpi ? t("pages.main_page.hide_episodes") : t("pages.main_page.load_episodes")}</button>

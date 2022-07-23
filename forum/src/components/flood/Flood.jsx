@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useRef } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { AiOutlineSetting } from "react-icons/ai";
 import { useSelector } from 'react-redux';
 import { commonFetch } from '../../helpers/commonFetch';
@@ -6,7 +6,7 @@ import { AiOutlineUnorderedList, AiOutlineMore } from "react-icons/ai";
 import mainPic from '../../images/static.gif'
 import { useTranslation } from "react-i18next";
 import Loading from '../../helpers/loading';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { DeleteMsgBtn, EditMsgBtn, AnswerMsgBtn } from '../../helpers/editOrRemove';
 import { SwallDeleteMsg, SwallSuccess } from '../../helpers/swall_notifications';
 import TextArea from '../TextArea';
@@ -24,7 +24,7 @@ const Flood = () => {
 	const search = useParams();
 	const [chatsList, setChatsList] = useState()
 	const [showChatsList, setShowChatsList] = useState(false)
-	const refFocus = useRef(null)
+	const navigate = useNavigate()
 
 	const floodDown = document.getElementById("message-area");
 	if (floodDown) {
@@ -35,14 +35,14 @@ const Flood = () => {
 	}, [showChatsList])
 
 
-	useEffect(() => {
-		commonFetch(`https://api.postscriptum.games/v1/chat-message-list/${search.chatId}`, updMsgs)
+	// useEffect(() => {
+	// 	commonFetch(`https://api.postscriptum.games/v1/chat-message-list/${search.chatId}`, updMsgs)
 
-	}, [setMsg, search.chatId])
+	// }, [setMsg, search.chatId])
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/chat-room-list-user`, setChatsList)
-	}, [setMsg])
+	}, [])
 
 
 	function updMsgs(param) {
@@ -55,6 +55,13 @@ const Flood = () => {
 			element.scrollIntoView()
 		}
 	}
+
+
+	const openChat = useCallback((id = 1) => {
+		commonFetch(`https://api.postscriptum.games/v1/chat-message-list/${id}`, updMsgs)
+		setShowChatsList(false)
+	}, [])
+
 
 	const addMsg = useCallback((data) => {
 		if (!data.tokenUpdate) {
@@ -91,11 +98,11 @@ const Flood = () => {
 			alert(`[error] ${error.message}`);
 		};
 		setSocket(socket)
-	}, [setSocket])
+	}, [addMsg, setSocket, search.chatId])
 
 	useEffect(() => {
 		startChat()
-	}, [startChat])
+	}, [])
 
 
 
@@ -138,8 +145,11 @@ const Flood = () => {
 	}
 
 	function answerOnMsg(author, id) {
-		refFocus.current.focus()
-		setText(prevstate => prevstate + `[quote][b]${author}[/b] </br> ${id}[/quote]`)
+		const element = document.getElementById(id)
+		if (element) {
+			element.scrollIntoView()
+		}
+		setText(prevstate => prevstate + `[quote][b]${author}[/b] \n ${id}[/quote]`)
 	}
 
 	const allMsg = msg?.map(m => {
@@ -195,7 +205,7 @@ const Flood = () => {
 										className='btns btns-editor sepi-header-desc__items-trash'
 										onDelete={() => SwallDeleteMsg(t("components.flood.remove_msg"), t("components.singleEpiPost.cancel_btn"), t("components.singleEpiPost.confirm_delete"), t("components.flood.confirm_dlt_msg"), dltUrl, setMsg, msg, m.id)} />
 
-									<EditMsgBtn className='btns btns-editor sepi-header-desc__items-edit' />
+									<EditMsgBtn className='btns btns-editor sepi-header-desc__items-edit' onEdit={() => navigate(`/chats/edit/${m.id}`)} />
 
 									<AnswerMsgBtn className='btns btns-editor sepi-header-desc__items-answer' onAnswer={() => answerOnMsg(m.user_name, m.content)} />
 
@@ -207,7 +217,7 @@ const Flood = () => {
 					</div>
 
 					<div className={textContent} dangerouslySetInnerHTML={{
-						__html: `${m.content?.replace(/\n/g, `</br>`)}`
+						__html: `${m.content?.replace(/\n/g, `</br>`).replace(/\s-\s/gm, ' — ')}`
 					}} />
 				</div>
 			</div>
@@ -237,7 +247,7 @@ const Flood = () => {
 					<p className='flood-chats__list-title'>{t("components.flood.chats_list")}</p>
 					<div className='flood-chats-list-common'>
 						{chatsList?.map(item => {
-							return <li className='flood-chats__list-item' key={item.id}><a href={`/chats/${item.id}`}>{item.name}</a></li>
+							return <li className='flood-chats__list-item' key={item.id} onClick={() => openChat(item.id)}>{item.name}</li>
 						})}
 					</div>
 
@@ -258,7 +268,6 @@ const Flood = () => {
 				editorLine='editor-line__flood'
 				onChange={(e) => setText(e.target.value)}
 				onKeyDown={onKeyDown}
-				ref={refFocus}
 				areaClassName='flood-wrapper__send-msg'
 				sendBtn={(e) => sendMessage()}
 				removeBtn={() => setText('')}

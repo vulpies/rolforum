@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Editors from '../helpers/editors'
 import SendOrRemove from './buttons/send_or_remove'
 
-const TextArea = ({ className, areaClassName, editorLine, name, id, param, setParam, sendBtn, removeBtn, value, defaultValue, onChange, onKeyDown, ref }) => {
+const TextArea = ({ className, areaClassName, editorLine, name, id, param, setParam, sendBtn, removeBtn, value, defaultValue, onChange, onKeyDown }) => {
 	const { t } = useTranslation();
 
 	return (
@@ -21,7 +21,6 @@ const TextArea = ({ className, areaClassName, editorLine, name, id, param, setPa
 				defaultValue={defaultValue}
 				onChange={onChange}
 				onKeyDown={onKeyDown}
-				ref={ref}
 			>
 			</textarea>
 

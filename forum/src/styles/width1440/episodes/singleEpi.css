@@ -23,6 +23,13 @@
 
     .epi-wrapper {
         padding: 9px 4px 5px 9px;
+        background-color: #dfd1bd4f;
+        border: 1px solid #a05f0d;
+        box-shadow: 0 0 1px #86620b;
+    }
+
+    .epi-wrapper:hover {
+        box-shadow: 0 0 4px #6e0808;
     }
 
     .epi-user-info {

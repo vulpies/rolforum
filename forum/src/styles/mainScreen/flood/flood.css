@@ -123,6 +123,13 @@
     list-style-type: disclosure-closed;
     font-size: 1.1rem;
     margin-left: 6px;
+    cursor: pointer;
+}
+
+.flood-chats__list-item:hover {
+    color: #50330d;
+    font-weight: 600;
+    text-shadow: 0 0 1px #ff0404;
 }
 
 .flood-chats__list-create {

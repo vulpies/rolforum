@@ -8,18 +8,22 @@ const CreateChat = () => {
 	const { t } = useTranslation();
 	const [title, setTitle] = useState()
 	const [usersList, setUsersList] = useState()
-	const [value, setRadioValue] = useState('common');
-	// const [participants, setParticipants] = useState([])
+	const [value, setRadioValue] = useState('public');
+	const [participants, setParticipants] = useState([])
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/user-list`, setUsersList)
 	}, [setUsersList])
 
-	// const getParticipants = useCallback((usersList) => {
-	// 	setParticipants(usersList.map(item => ({ "value": item.value, "label": item.label })))
-	// }, [])
+	const getParticipants = useCallback((usersList) => {
+		setParticipants(usersList.map(item => ({ "value": item.value, "label": item.label })))
+	}, [])
 
-	// console.log(participants)
+	console.log(value)
+	//'name', 'character_id', 'is_public'
+	// /v1/chat-room-create
+
+	console.log(participants)
 
 
 	return (
@@ -42,7 +46,7 @@ const CreateChat = () => {
 				<CustomSelect
 					styleDiv='creacte-chat__form create-new-epi__form'
 					label="Участники:"
-					// onChange={getParticipants}
+					onChange={getParticipants}
 					styleSelect='create-new-epi__select'
 					options={usersList?.map(item => ({ "value": item.id, "label": item.user_name }))}
 					isMulti={true}
@@ -57,8 +61,8 @@ const CreateChat = () => {
 							type='radio'
 							id='common'
 							name='chats'
-							value='common'
-							checked={value === 'common' ? true : false}
+							value='public'
+							checked={value === 'public' ? true : false}
 							onChange={(e) => setRadioValue(e.target.value)}
 						/>
 						<label htmlFor='common'>Общий</label>

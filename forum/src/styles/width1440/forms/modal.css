@@ -1,6 +1,9 @@
 @media (min-width: 1280px) {
     .epi-modal {
-        left: 33%;
-        top: 115px;
+        left: 35%;
+        top: 150px;
+        box-shadow: 0px 0px 8px #6b4515;
+        border-radius: 10px;
+        background-color: rgb(221 196 156);
     }
 }

@@ -13,7 +13,7 @@ const CharInfo = () => {
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/character-view/${search.charId}`, setChar)
-	}, [setChar, search.charId])
+	}, [search.charId])
 
 
 	console.log(char, 'char')

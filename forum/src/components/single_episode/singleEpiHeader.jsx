@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { EditOrRemove } from '../../helpers/editOrRemove'
+import { EditMsgBtn, EditOrRemove } from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
 
 const SingleEpiHeader = ({ header }) => {
@@ -45,7 +45,7 @@ const SingleEpiHeader = ({ header }) => {
 			</div>
 
 			<div className='sepi-header-desc__items' >
-				{header.can_edit ? <EditOrRemove /> : ''}
+				{header.can_edit ? <EditMsgBtn className='sepi-header-desc__items-edit' /> : ''}
 				<GetLike />
 			</div>
 

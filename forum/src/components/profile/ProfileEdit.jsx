@@ -20,7 +20,6 @@ const ProfileEdit = () => {
 	const [getUserTime, setGetUserTime] = useState({})
 	const [language, setLanguage] = useState(prof?.language)
 
-
 	useEffect(() => {
 		commonFetch('https://api.postscriptum.games/v1/profile/edit-data', setProf)
 	}, [setProf])
@@ -43,13 +42,15 @@ const ProfileEdit = () => {
 		commonFetch('https://api.postscriptum.games/v1/timezones', setTimeZone)
 	}, [])
 
+	console.log(prof, 'prof')
+
 
 	function handleSubmit(e) {
 		e.preventDefault()
 
 		const updUserInfo = {
 			id: prof.user_id,
-			avatar: avatar || '',
+			avatar: avatar || prof.user_avatar,
 			timeZone: getUserTime?.value || time.value,
 			language: language?.value || prof.language
 		}
@@ -127,7 +128,7 @@ const ProfileEdit = () => {
 						options={[{ "value": "en", "label": "English" }, { "value": "ru", "label": "Russian" }]}
 						closeMenuOnSelect={true}
 						isMulti={false}
-						defaultValue={languages.filter((item) => { return item.value === language })[0]}
+						defaultValue={languages.filter((item) => { return item.value === prof.language })[0]}
 						placeholder={t("components.profileEdit.choose_language")}
 					/>
 

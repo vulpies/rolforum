@@ -26,8 +26,7 @@ const SingleEpi = () => {
 				setEpiData(data);
 				setPostData(data.posts);
 			})
-
-	}, [setEpiData, setPostData])
+	}, [])
 
 	return (
 		<>

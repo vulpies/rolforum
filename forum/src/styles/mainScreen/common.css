@@ -125,7 +125,7 @@ input:focus-visible {
 textarea {
     width: 100%;
     resize: vertical;
-    padding: 5px 10px;
+    padding: 8px 10px;
     font-family: "AnelizaRegular";
     font-weight: normal;
     font-style: normal;
