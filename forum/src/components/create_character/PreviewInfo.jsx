@@ -15,7 +15,7 @@ const PreviewInfo = ({ formData }) => {
 				</div>
 
 				<div className='create-char-desc' dangerouslySetInnerHTML={{
-					__html: `${formData?.description.replace(/\n/g, `</br>`)}`
+					__html: `${formData?.description.replace(/\n/g, `</br>`).replace(/\s-\s/gm, ' — ')}`
 				}} />
 
 			</div>

@@ -21,24 +21,14 @@ const Flood = () => {
 	const [isHide, setHide] = useState(true)
 	const [endMsgList, setEndMsgList] = useState(false)
 	const [chatName, setChatName] = useState('')
-	const search = useParams();
+	const { chatId } = useParams();
 	const [chatsList, setChatsList] = useState()
 	const [showChatsList, setShowChatsList] = useState(false)
 	const navigate = useNavigate()
 
-	const floodDown = document.getElementById("message-area");
-	if (floodDown) {
-		floodDown.scrollTop = floodDown.scrollHeight;
-	}
 
 	useEffect(() => {
 	}, [showChatsList])
-
-
-	// useEffect(() => {
-	// 	commonFetch(`https://api.postscriptum.games/v1/chat-message-list/${search.chatId}`, updMsgs)
-
-	// }, [setMsg, search.chatId])
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/chat-room-list-user`, setChatsList)
@@ -79,13 +69,13 @@ const Flood = () => {
 		const socket = new WebSocket("wss://5r9ld0bvs5.execute-api.us-east-1.amazonaws.com/Prod")
 
 		socket.onopen = function () {
-			socket.send(JSON.stringify({ action: "sendmessage", data: { updateToken: true, token: localStorage.getItem('token'), chatId: search.chatId } }));
+			socket.send(JSON.stringify({ action: "sendmessage", data: { updateToken: true, token: localStorage.getItem('token'), chatId: chatId } }));
 		};
 
 		socket.onmessage = function (event) {
 			const data = JSON.parse(event.data);
 			addMsg(data)
-			const element = document.getElementById('m' + data.id)
+			const element = document.getElementById('message-area')
 			if (element) {
 				element.scrollIntoView()
 			}
@@ -98,7 +88,7 @@ const Flood = () => {
 			alert(`[error] ${error.message}`);
 		};
 		setSocket(socket)
-	}, [addMsg, setSocket, search.chatId])
+	}, [addMsg, setSocket, chatId])
 
 	useEffect(() => {
 		startChat()
@@ -141,7 +131,7 @@ const Flood = () => {
 
 	async function loadHistory() {
 		setCount(count => count + 40)
-		const url = `https://api.postscriptum.games/v1/chat-message-list/${search.chatId}?offset=${count}`
+		const url = `https://api.postscriptum.games/v1/chat-message-list/${chatId}?offset=${count}`
 		commonFetch(url, getAllMsg)
 	}
 

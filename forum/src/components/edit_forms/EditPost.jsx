@@ -6,20 +6,17 @@ import TextArea from '../TextArea'
 
 const EditPost = () => {
 	const [update, setUpdate] = useState()
-	const params = useParams()
+	const { epiPostId } = useParams()
 	const [postInfo, setPostInfo] = useState()
 	const navigate = useNavigate()
 
-
 	useEffect(() => {
-		commonFetch(`https://api.postscriptum.games/v1/post-edit-data/${params.epiPostId}`, setPostInfo)
-	}, [params.epiPostId])
-
-	console.log(postInfo)
+		commonFetch(`https://api.postscriptum.games/v1/post-edit-data/${epiPostId}`, setPostInfo)
+	}, [])
 
 	const editPost = () => {
 		commonPostReq('https://api.postscriptum.games/v1/post-edit', {
-			post_id: params.epiPostId,
+			post_id: epiPostId,
 			content: update
 		})
 		navigate(`/episodes/${postInfo?.episode_id}`)

@@ -9,14 +9,13 @@ import { EditMsgBtn } from '../../../helpers/editOrRemove'
 
 const SingleNews = () => {
 	const { t } = useTranslation();
-	const search = useParams();
+	const { newsId } = useParams();
 	const [user] = useSelector((state) => state.usersReducer.user)
 	const [news, setNews] = useState()
 
-	console.log(news, 9999)
 
 	useEffect(() => {
-		commonFetch(`https://api.postscriptum.games/v1/news-view/${search.newsId}`, setNews)
+		commonFetch(`https://api.postscriptum.games/v1/news-view/${newsId}`, setNews)
 	}, [setNews])
 
 	return (
@@ -41,8 +40,6 @@ const SingleNews = () => {
 					<p className="single-news__author">Автор: <a href={`/profile/${news.user_id}`}>{news.user_name}</a></p>
 				</div>
 				: <Loading />}
-
-
 		</div>
 	)
 }

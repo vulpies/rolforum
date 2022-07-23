@@ -9,11 +9,11 @@ import Loading from '../../helpers/loading';
 const CharInfo = () => {
 	const { t } = useTranslation();
 	const [char, setChar] = useState()
-	const search = useParams();
+	const { charId } = useParams();
 
 	useEffect(() => {
-		commonFetch(`https://api.postscriptum.games/v1/character-view/${search.charId}`, setChar)
-	}, [search.charId])
+		commonFetch(`https://api.postscriptum.games/v1/character-view/${charId}`, setChar)
+	}, [charId])
 
 
 	console.log(char, 'char')
@@ -37,7 +37,7 @@ const CharInfo = () => {
 						</div>
 
 						<div className='create-char-desc' dangerouslySetInnerHTML={{
-							__html: `${char?.description}`
+							__html: `${char?.description.replace(/\s-\s/gm, ' — ')}`
 						}} />
 
 						<div className='char-info__user'>

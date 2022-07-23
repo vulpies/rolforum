@@ -6,17 +6,20 @@ import Breadcrumbs from '../components/breadcrumbs'
 import { commonFetch } from '../helpers/commonFetch'
 import { useTranslation } from "react-i18next";
 import Loading from '../helpers/loading'
+import mainPic from '../images/static.gif'
 
 const Profile = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate()
 
-	const search = useParams();
+	const { profId } = useParams();
 	const [info, setInfo] = useState([])
 
 	useEffect(() => {
-		commonFetch(`https://api.postscriptum.games/v1/profile/view/${search.profId}`, setInfo)
-	}, [setInfo, search.profId])
+		commonFetch(`https://api.postscriptum.games/v1/profile/view/${profId}`, setInfo)
+	}, [])
+
+	console.log(info)
 
 
 	return (
@@ -40,7 +43,7 @@ const Profile = () => {
 						</div>
 
 						<div className='profile-avatar'>
-							<img src={info?.user_avatar} className='profile-avatar-img' alt='' />
+							<img src={info?.user_avatar ?? mainPic} className='profile-avatar-img' alt='' />
 							<div className='profile-chars'>
 								{info?.characters ?
 									<>

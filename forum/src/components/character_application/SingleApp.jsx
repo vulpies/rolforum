@@ -24,7 +24,7 @@ const SingleApp = () => {
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/character-application-view/${appId}`, updMsgs)
-	}, [appId])
+	}, [])
 
 	const updMsgs = useCallback((param) => {
 		setAppData(param)
@@ -101,7 +101,7 @@ const SingleApp = () => {
 						</div>
 
 						<div className='create-char-desc' dangerouslySetInnerHTML={{
-							__html: `${appData?.description}`
+							__html: `${appData?.description.replace(/\s-\s/gm, ' — ')}`
 						}} />
 					</div>
 
