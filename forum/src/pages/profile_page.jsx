@@ -39,7 +39,7 @@ const Profile = () => {
 									<BsPencil />
 								</button>
 								: ''}
-							<button className='btns profile-chat'><BsChatText /></button>
+							{localStorage.getItem('token') ? <button className='btns profile-chat'><BsChatText /></button> : ''}
 						</div>
 
 						<div className='profile-avatar'>

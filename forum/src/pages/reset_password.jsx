@@ -35,6 +35,7 @@ const ResetPass = () => {
 		}
 	}, [newPass, confirmPass])
 
+
 	function handleSubmit(e) {
 		e.preventDefault()
 

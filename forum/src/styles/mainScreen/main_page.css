@@ -7,11 +7,8 @@
 .main-new__news,
 .main-new__no-news {
     margin-bottom: 10px;
-}
-
-.main-new__news,
-.main-new__no-news {
     margin-top: 15px;
+    width: 100%;
 }
 
 .main-new__news-common {

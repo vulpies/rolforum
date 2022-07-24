@@ -41,7 +41,6 @@ const MainPage = () => {
         setLostPass(prevState => !prevState)
     }
 
-
     useEffect(() => {
         commonFetch('https://api.postscriptum.games/v1/index', setMain)
     }, [])
@@ -50,12 +49,14 @@ const MainPage = () => {
         setShowEpi(!showEpi)
     }
 
-
     const resetPass = () => {
         commonPostReqThen('https://api.postscriptum.games/v1/password/reset-email', { "email": email })
         setEmail('')
         SwallSuccess(t("pages.main_page.send_msg"))
     }
+
+
+    console.log(main)
 
 
     return (
@@ -112,7 +113,7 @@ const MainPage = () => {
 
                 <div className='main-new__wrapper'>
 
-                    {main?.news ?
+                    {main?.news?.length ?
                         <div className='main-new__news-wrapper'>
                             <div className='main-new__news'>
                                 <p>{t("pages.main_page.latest_news")}</p>

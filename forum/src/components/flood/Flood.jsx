@@ -75,7 +75,7 @@ const Flood = () => {
 		socket.onmessage = function (event) {
 			const data = JSON.parse(event.data);
 			addMsg(data)
-			const element = document.getElementById('message-area')
+			const element = document.getElementById('m' + data.id)
 			if (element) {
 				element.scrollIntoView()
 			}
@@ -136,7 +136,7 @@ const Flood = () => {
 	}
 
 	function answerOnMsg(author, id) {
-		const element = document.getElementById('message')
+		const element = document.getElementById('message-area')
 		if (element) {
 			element.scrollIntoView()
 		}

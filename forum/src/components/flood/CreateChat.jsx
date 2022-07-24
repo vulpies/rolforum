@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { commonFetch } from '../../helpers/commonFetch'
+import { useNavigate } from 'react-router-dom'
+import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
+import { SwallSuccess } from '../../helpers/swall_notifications'
 
 const CreateChat = () => {
 	const { t } = useTranslation();
@@ -10,20 +12,28 @@ const CreateChat = () => {
 	const [usersList, setUsersList] = useState()
 	const [value, setRadioValue] = useState('public');
 	const [participants, setParticipants] = useState([])
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/user-list`, setUsersList)
-	}, [setUsersList])
+	}, [])
 
 	const getParticipants = useCallback((usersList) => {
 		setParticipants(usersList.map(item => ({ "value": item.value, "label": item.label })))
 	}, [])
 
-	console.log(value)
-	//'name', 'character_id', 'is_public'
-	// /v1/chat-room-create
+	const chatInfo = {
+		name: title,
+		character_id: participants.map(item => (item.value)),
+		is_public: value
+	}
 
-	console.log(participants)
+	const createNewChat = () => {
+		// commonPostReq(`https://api.postscriptum.games/v1/chat-room-create`, chatInfo)
+		// SwallSuccess('Новый чат был успешно создан! Вы можете найти его в списке чатов.')
+		// navigate(`/chats/1`)
+		console.log(chatInfo)
+	}
 
 
 	return (
@@ -80,11 +90,13 @@ const CreateChat = () => {
 
 						<label htmlFor='private'>Личный</label>
 					</div>
-
 				</div>
 
-
-				<input type="submit" value={t("components.epiNewCreate.create")} className='btns btns-create' onClick={() => { }} />
+				<input
+					type="submit"
+					value={t("components.epiNewCreate.create")}
+					className='btns btns-create'
+					onClick={createNewChat} />
 			</form>
 		</div>
 	)
