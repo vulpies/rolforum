@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
+import { commonFetch, commonPostReqThen } from '../../helpers/commonFetch'
 import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
 import { SwallSuccess } from '../../helpers/swall_notifications'
@@ -13,10 +13,11 @@ const CreateChat = () => {
 	const [value, setRadioValue] = useState('public');
 	const [participants, setParticipants] = useState([])
 	const navigate = useNavigate()
+	const [newId, setNewId] = useState()
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/user-list`, setUsersList)
-	}, [])
+	}, [setUsersList])
 
 	const getParticipants = useCallback((usersList) => {
 		setParticipants(usersList.map(item => ({ "value": item.value, "label": item.label })))
@@ -28,10 +29,11 @@ const CreateChat = () => {
 		is_public: value
 	}
 
-	const createNewChat = () => {
-		// commonPostReq(`https://api.postscriptum.games/v1/chat-room-create`, chatInfo)
-		// SwallSuccess('Новый чат был успешно создан! Вы можете найти его в списке чатов.')
-		// navigate(`/chats/1`)
+	const createNewChat = (e) => {
+		e.preventDefault()
+		commonPostReqThen(`https://api.postscriptum.games/v1/chat-room-create`, chatInfo, setNewId)
+		SwallSuccess('Новый чат был успешно создан! Вы можете найти его в списке чатов.')
+		navigate(`/chats/${newId?.chat_room_id}`)
 		console.log(chatInfo)
 	}
 

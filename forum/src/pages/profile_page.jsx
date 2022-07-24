@@ -64,11 +64,11 @@ const Profile = () => {
 						<div className='profile-common__info'>
 							<p>{t("pages.profile_page.registered")} <span>{info?.registered_at?.split(' ')[0]}</span></p>
 							<p>{t("pages.profile_page.reputation")} <span>999999999</span></p>
-							<p>{t("pages.profile_page.episode_count")} <span>{info?.episode_count}</span></p>
+							<p>{t("pages.profile_page.episode_count")} <span>{info?.episode_count ?? 0}</span></p>
 							<p>{t("pages.profile_page.post_count")} <span>{info?.post_count ?? 0}</span></p>
 							<p>{t("pages.profile_page.last_post")} <br /><span>{info?.last_post ? info?.last_post : t("pages.profile_page.no_post")}</span></p>
-							<p>{t("pages.profile_page.last_visit")} <br /><span>{info?.last_page_load_at}</span></p>
-							<p>{t("pages.profile_page.last_activity")} <br /><span>{info?.last_activity_at}</span></p>
+							<p>{t("pages.profile_page.last_visit")} <br /><span>{info?.last_page_load_at ?? t("pages.users_list.no_activity")}</span></p>
+							<p>{t("pages.profile_page.last_activity")} <br /><span>{info?.last_activity_at ?? '- - -'}</span></p>
 						</div>
 
 					</div>
@@ -88,7 +88,7 @@ const Profile = () => {
 
 							<div className='profile-wrapper__common-left'>
 								<div className='profile-avatar'>
-									<img src={info?.user_avatar} className='profile-avatar-img' alt='' />
+									<img src={info?.user_avatar ?? mainPic} className='profile-avatar-img' alt='' />
 
 									<div className='profile-chars'>
 										<p>{t("pages.profile_page.characters")}</p>
@@ -106,11 +106,11 @@ const Profile = () => {
 								<div className='profile-common__info'>
 									<p>{t("pages.profile_page.registered")} <span>{info?.registered_at?.split(' ')[0]}</span></p>
 									<p>{t("pages.profile_page.reputation")} <span>999999999</span></p>
-									<p>{t("pages.profile_page.episode_count")} <span>{info?.episode_count}</span></p>
+									<p>{t("pages.profile_page.episode_count")} <span>{info?.episode_count ?? 0}</span></p>
 									<p>{t("pages.profile_page.post_count")} <span>{info?.post_count ?? 0}</span></p>
 									<p>{t("pages.profile_page.last_post")} <span>{info?.last_post ? info?.last_post : t("pages.profile_page.no_post")}</span></p>
-									<p>{t("pages.profile_page.last_visit")} <span>{info?.last_page_load_at}</span></p>
-									<p>{t("pages.profile_page.last_activity")} <span>{info?.last_activity_at}</span></p>
+									<p>{t("pages.profile_page.last_visit")} <span>{info?.last_page_load_at ?? t("pages.users_list.no_activity")}</span></p>
+									<p>{t("pages.profile_page.last_activity")} <span>{info?.last_activity_at ?? '- - -'}</span></p>
 								</div>
 							</div>
 						</div>

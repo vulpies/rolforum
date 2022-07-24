@@ -26,6 +26,10 @@ const Flood = () => {
 	const [showChatsList, setShowChatsList] = useState(false)
 	const navigate = useNavigate()
 
+	const floodDown = document.getElementById("message-area");
+	if (floodDown) {
+		floodDown.scrollTop = floodDown.scrollHeight;
+	}
 
 	useEffect(() => {
 	}, [showChatsList])
@@ -135,12 +139,12 @@ const Flood = () => {
 		commonFetch(url, getAllMsg)
 	}
 
-	function answerOnMsg(author, id) {
+	function answerOnMsg(author, text) {
 		const element = document.getElementById('message-area')
 		if (element) {
 			element.scrollIntoView()
 		}
-		setText(prevstate => prevstate + `[quote][b]${author}[/b] \n ${id}[/quote]`)
+		setText(prevstate => prevstate + `[quote][b]${author}[/b] \n${text}[/quote]`)
 	}
 
 	const allMsg = msg?.map(m => {

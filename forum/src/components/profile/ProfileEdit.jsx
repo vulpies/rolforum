@@ -25,6 +25,8 @@ const ProfileEdit = () => {
 		commonFetch('https://api.postscriptum.games/v1/profile/edit-data', setProf)
 	}, [setProf])
 
+	console.log(prof, 'prof')
+
 
 	const time = {
 		"value": prof?.timezone,
