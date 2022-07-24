@@ -31,7 +31,11 @@ const CreateChat = () => {
 
 	const createNewChat = (e) => {
 		e.preventDefault()
-		commonPostReqThen(`https://api.postscriptum.games/v1/chat-room-create`, chatInfo, setNewId)
+		commonPostReqThen(`https://api.postscriptum.games/v1/chat-room-create`, {
+			name: title,
+			character_id: participants.map(item => (item.value)),
+			is_public: value
+		}, setNewId)
 		SwallSuccess('Новый чат был успешно создан! Вы можете найти его в списке чатов.')
 		navigate(`/chats/${newId?.chat_room_id}`)
 		console.log(chatInfo)
@@ -94,11 +98,13 @@ const CreateChat = () => {
 					</div>
 				</div>
 
-				<input
-					type="submit"
-					value={t("components.epiNewCreate.create")}
+				<button
+					// type="submit"
+					// value={t("components.epiNewCreate.create")}
 					className='btns btns-create'
-					onClick={createNewChat} />
+					onClick={createNewChat}>
+					{t("components.epiNewCreate.create")}
+				</button>
 			</form>
 		</div>
 	)

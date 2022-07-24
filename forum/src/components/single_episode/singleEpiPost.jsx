@@ -17,16 +17,12 @@ const SingleEpiPost = ({ posts }) => {
 	useEffect(() => {
 		const hash = window.location.hash;
 		if (hash) {
-			console.log(window.location.hash, '99999')
 			const element = document.getElementById(hash.substring(1));
-			console.log(element)
 			if (element) {
 				element.scrollIntoView();
 			}
 		}
 	}, [msg])
-
-	console.log(msg, '8888')
 
 
 	return (

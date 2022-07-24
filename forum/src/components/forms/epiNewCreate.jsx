@@ -29,7 +29,6 @@ const EpiNewCreate = () => {
 
 	const [multiListValue, setMultiListValue] = useState([])
 
-
 	// console.log(cross, 'cross')
 	// console.log(multiListValue, 'multiListValue')
 
@@ -45,9 +44,8 @@ const EpiNewCreate = () => {
 
 		} else if (type && type.value === 'au') {
 			commonFetch('https://api.postscriptum.games/v1/character-list-short-view', setAllUsersList)
-
 		} else {
-			return ''
+
 		}
 	}, [setCross, type, fandom.value, multiListValue])
 

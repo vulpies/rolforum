@@ -7,8 +7,10 @@ import { commonFetch } from '../helpers/commonFetch'
 import { useTranslation } from "react-i18next";
 import Loading from '../helpers/loading'
 import mainPic from '../images/static.gif'
+import { useSelector } from 'react-redux'
 
 const Profile = () => {
+	const [user] = useSelector((state) => state.usersReducer.user)
 	const { t } = useTranslation();
 	const navigate = useNavigate()
 
@@ -20,6 +22,7 @@ const Profile = () => {
 	}, [])
 
 	console.log(info)
+	console.log(user, 'user')
 
 
 	return (
@@ -39,7 +42,7 @@ const Profile = () => {
 									<BsPencil />
 								</button>
 								: ''}
-							{localStorage.getItem('token') ? <button className='btns profile-chat'><BsChatText /></button> : ''}
+							{user ? <button className='btns profile-chat'><BsChatText /></button> : ''}
 						</div>
 
 						<div className='profile-avatar'>
@@ -81,7 +84,7 @@ const Profile = () => {
 									<BsPencil />
 								</button>
 								: ''}
-							<button className='btns profile-chat'><BsChatText /></button>
+							{user ? <button className='btns profile-chat'><BsChatText /></button> : ''}
 						</div>
 
 						<div className='profile-wrapper__common'>
