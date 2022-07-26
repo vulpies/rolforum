@@ -31,6 +31,7 @@ const EpiNewCreate = () => {
 
 	// console.log(cross, 'cross')
 	// console.log(multiListValue, 'multiListValue')
+	console.log(fandomChars)
 
 	useEffect(() => {
 		if (type && type.value === 'fandom') {
@@ -40,18 +41,25 @@ const EpiNewCreate = () => {
 		} else if (type && type.value === 'crossover') {
 			commonFetch('https://api.postscriptum.games/v1/fandom-list-short-view', setCross)
 
-			commonFetch(`https://api.postscriptum.games/v1/character-list-short-view?fandom_id=${multiListValue.map(v => (v.value)).join('- ')}`, setFandomChars)
+			// commonFetch(`https://api.postscriptum.games/v1/character-list-short-view?fandom_id=${multiListValue.map(v => (v.value)).join('- ')}`, setFandomChars)
 
 		} else if (type && type.value === 'au') {
 			commonFetch('https://api.postscriptum.games/v1/character-list-short-view', setAllUsersList)
 		} else {
 
 		}
-	}, [setCross, type, fandom.value, multiListValue])
+	}, [type, fandom.value])
 
-	const getMultiListValue = useCallback((cross) => {
-		setMultiListValue(cross.map(item => ({ "value": item.value, "label": item.label })))
-	}, [])
+	const getMultiListValue = (cross) => {
+		console.log(cross, 'cross')
+		setMultiListValue(cross)
+
+		console.log(multiListValue, 'multiListValue')
+		// console.log(first
+
+		commonFetch(`https://api.postscriptum.games/v1/character-list-short-view?fandom_id=${cross.map(v => (v.value)).join('- ')}`, setFandomChars)
+
+	}
 
 	const options = [
 		{ value: 'fandom', label: t("components.epiNewCreate.label_fandom") },
@@ -91,10 +99,10 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			commonPostReq('https://api.postscriptum.games/v1/episode-create', crossList)
+			// commonPostReq('https://api.postscriptum.games/v1/episode-create', crossList)
 			// .then(data => navigate(`/episodes/${data.episode_id}`))
 			console.log(crossList)
-			navigate(`/episodes/`)
+			// navigate(`/episodes/`)
 
 
 		} else if (type && type.value === 'au') {
@@ -179,7 +187,7 @@ const EpiNewCreate = () => {
 							<CustomSelect
 								styleDiv='create-new-epi__form'
 								label={t("components.epiNewCreate.characters")}
-								onChange={getMultiListValue}
+								// onChange={getMultiListValue}
 								styleSelect='create-new-epi__select'
 								options={fandomChars && fandomChars.map(item => ({ "value": item.id, "label": item.name }))}
 								closeMenuOnSelect={false}

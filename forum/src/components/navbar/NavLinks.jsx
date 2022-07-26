@@ -168,6 +168,15 @@ const NavLinks = () => {
 
                     <OneLink
                         className={`menu-link ${isMenuOpen}`}
+                        to='/episodes'
+                        style={({ isActive }) =>
+                            isActive ? menunav : undefined
+                        }
+                        onClick={clickHandler}
+                        name={t("components.navlinks.episodes")} />
+
+                    <OneLink
+                        className={`menu-link ${isMenuOpen}`}
                         to='/piar'
                         style={({ isActive }) =>
                             isActive ? menunav : undefined
