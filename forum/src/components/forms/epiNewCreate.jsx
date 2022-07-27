@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../breadcrumbs'
@@ -21,6 +21,7 @@ const EpiNewCreate = () => {
 		"value": userInfo?.current_character?.fandom_id,
 		"label": userInfo?.current_character?.fandom_name
 	}
+
 	const [check, setCheck] = useState(true);
 	const [allUsersList, setAllUsersList] = useState()
 
@@ -28,20 +29,15 @@ const EpiNewCreate = () => {
 	const [fandomChars, setFandomChars] = useState()
 
 	const [multiListValue, setMultiListValue] = useState([])
+	const [newListOfChars, setNewList] = useState()
 
-	// console.log(cross, 'cross')
-	// console.log(multiListValue, 'multiListValue')
-	console.log(fandomChars)
 
 	useEffect(() => {
 		if (type && type.value === 'fandom') {
-
 			commonFetch(`https://api.postscriptum.games/v1/character-list-short-view?fandom_id=${fandom.value}`, setFandomChars)
 
 		} else if (type && type.value === 'crossover') {
 			commonFetch('https://api.postscriptum.games/v1/fandom-list-short-view', setCross)
-
-			// commonFetch(`https://api.postscriptum.games/v1/character-list-short-view?fandom_id=${multiListValue.map(v => (v.value)).join('- ')}`, setFandomChars)
 
 		} else if (type && type.value === 'au') {
 			commonFetch('https://api.postscriptum.games/v1/character-list-short-view', setAllUsersList)
@@ -50,22 +46,18 @@ const EpiNewCreate = () => {
 		}
 	}, [type, fandom.value])
 
-	const getMultiListValue = (cross) => {
-		console.log(cross, 'cross')
-		setMultiListValue(cross)
-
-		console.log(multiListValue, 'multiListValue')
-		// console.log(first
-
-		commonFetch(`https://api.postscriptum.games/v1/character-list-short-view?fandom_id=${cross.map(v => (v.value)).join('- ')}`, setFandomChars)
-
-	}
 
 	const options = [
 		{ value: 'fandom', label: t("components.epiNewCreate.label_fandom") },
 		{ value: 'crossover', label: t("components.epiNewCreate.label_crossover") },
 		{ value: 'au', label: t("components.epiNewCreate.label_au") },
 	]
+
+	const getMultiListValue = (cross) => {
+		setMultiListValue(cross)
+		commonFetch(`https://api.postscriptum.games/v1/character-list-short-view?fandom_id=${cross.map(v => (v.value)).join('- ')}`, setFandomChars)
+	}
+
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -93,8 +85,8 @@ const EpiNewCreate = () => {
 				type: type.value,
 				title,
 				image,
-				fandom_id: [],
-				character_id: multiListValue.map(c => ({ value: c.value, label: c.label })),
+				fandom_id: multiListValue.map(c => c.value),
+				character_id: newListOfChars.map(c => ({ value: c.value, label: c.label })),
 				desc,
 				forGuests: check
 			}
@@ -134,7 +126,7 @@ const EpiNewCreate = () => {
 			</div>
 
 			{userInfo?.current_character ?
-				<form className='create-new-epi'>
+				<form className='create-new-epi' id='epiCreateForm'>
 					<label className='create-new-epi__title'>{t("components.epiNewCreate.episode_name")}
 						<input type="text" className='create-new-epi__input' placeholder={t("components.epiNewCreate.episode")} value={title} onChange={(e) => setTitle(e.target.value)} />
 					</label>
@@ -187,10 +179,11 @@ const EpiNewCreate = () => {
 							<CustomSelect
 								styleDiv='create-new-epi__form'
 								label={t("components.epiNewCreate.characters")}
-								// onChange={getMultiListValue}
+								onChange={setNewList}
 								styleSelect='create-new-epi__select'
 								options={fandomChars && fandomChars.map(item => ({ "value": item.id, "label": item.name }))}
 								closeMenuOnSelect={false}
+								name='crossCharacters'
 								isMulti={true}
 								placeholder={t("components.epiNewCreate.choose_characters")}
 							/>
@@ -229,7 +222,11 @@ const EpiNewCreate = () => {
 						<p>{t("components.epiNewCreate.guest_visible")}</p>
 					</div>
 
-					<input type="submit" value={t("components.epiNewCreate.create")} className='btns btns-create' onClick={handleSubmit} />
+					<input
+						type="submit"
+						value={t("components.epiNewCreate.create")}
+						className='btns btns-create'
+						onClick={handleSubmit} />
 				</form> : <Loading />}
 
 		</div >

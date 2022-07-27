@@ -21,11 +21,16 @@
     .main-new__no-news,
     .main-new__episodes,
     .main-new__no-episodes {
-        margin-top: 11px;
+        margin-top: 15px;
     }
 
     .main-new__news-title {
         margin-top: -6.5px !important;
+    }
+
+    .main-new__no-news,
+    .main-new__no-episodes {
+        align-items: center;
     }
 
     .main-new__episodes > p,
@@ -72,7 +77,7 @@
         margin-top: 26px;
         margin-bottom: 20px;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         flex-direction: row;
         flex-wrap: wrap;
     }
@@ -100,7 +105,8 @@
         width: 42%;
         margin-top: 15px;
         justify-content: center;
-        margin-left: 39px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .main-new__no-episodes > p {
@@ -117,7 +123,6 @@
 
     .main-new__no-news,
     .main-new__no-episodes {
-        margin-left: unset;
         width: 46%;
     }
 }

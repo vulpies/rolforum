@@ -108,10 +108,19 @@
     width: 100%;
     padding: 5px 0 5px 8px;
     font-weight: 600;
-    margin: 15px 0px 5px;
+    margin: 0px 0px 5px;
     border-radius: 4px;
     border: 2px solid #894510;
     text-align: center;
+}
+
+.main-new__no-news > p,
+.main-new__news > p {
+    margin-top: 15px;
+}
+
+.main-new__episodes > p {
+    margin-top: 10px;
 }
 
 .main-new__episodes-list {
