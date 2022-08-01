@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next";
 import stanger from '../images/stranger.jpg'
 import { commonFetch, commonPostReqThen } from "../helpers/commonFetch"
 import { SwallSuccess } from "../helpers/swall_notifications"
+import { Helmet } from "react-helmet";
 
 const MainPage = () => {
     const { t } = useTranslation();
@@ -56,11 +57,13 @@ const MainPage = () => {
     }
 
 
-    console.log(main)
-
-
     return (
         <div className="wrapper">
+            <Helmet>
+                <meta name="description" content="Play-by-post role playing game" />
+                <title>Post Scriptum</title>
+            </Helmet>
+
             <ProfileSlider />
             {!userAuth ?
                 <div className='slider-ghost'>

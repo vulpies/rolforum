@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
-import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
+import { commonFetch, commonPostReqThen } from '../../helpers/commonFetch'
 import { useTranslation } from "react-i18next";
 import Loading from '../../helpers/loading'
 
@@ -58,6 +58,10 @@ const EpiNewCreate = () => {
 		commonFetch(`https://api.postscriptum.games/v1/character-list-short-view?fandom_id=${cross.map(v => (v.value)).join('- ')}`, setFandomChars)
 	}
 
+	const getNewId = (param) => {
+		navigate(`/episodes/${param.data.episode_id}`)
+	}
+
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
@@ -74,11 +78,7 @@ const EpiNewCreate = () => {
 			}
 			console.log(fandomList, '8888')
 
-			commonPostReq('https://api.postscriptum.games/v1/episode-create', fandomList)
-			navigate(`/episodes/`)
-
-			// navigate(`/episodes/${data.episode_id}`)
-
+			commonPostReqThen('https://api.postscriptum.games/v1/episode-create', fandomList, getNewId)
 		} else if (type && type.value === 'crossover') {
 
 			const crossList = {
@@ -91,12 +91,7 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			// commonPostReq('https://api.postscriptum.games/v1/episode-create', crossList)
-			// .then(data => navigate(`/episodes/${data.episode_id}`))
-			console.log(crossList)
-			// navigate(`/episodes/`)
-
-
+			commonPostReqThen('https://api.postscriptum.games/v1/episode-create', crossList, getNewId)
 		} else if (type && type.value === 'au') {
 			const auList = {
 				type: type.value,
@@ -108,11 +103,7 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			commonPostReq('https://api.postscriptum.games/v1/episode-create', auList)
-			// .then(data => navigate(`/episodes/${data.episode_id}`))
-			navigate(`/episodes/`)
-
-			console.log(auList)
+			commonPostReqThen('https://api.postscriptum.games/v1/episode-create', auList, getNewId)
 		} else {
 			return ''
 		}

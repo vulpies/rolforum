@@ -17,7 +17,7 @@
         border-radius: 13px;
         margin-bottom: 25px;
         padding: 4px 5px 10px;
-        min-height: 300px;
+        min-height: 303px;
         margin: 0 5px 15px;
     }
 
@@ -25,6 +25,10 @@
         border: 2px solid #7d0505;
         background-color: #ffeed7;
         box-shadow: 0px 0px 4px #e78e0f;
+    }
+
+    .user-title {
+        margin-top: 3px;
     }
 
     .user-avatar {

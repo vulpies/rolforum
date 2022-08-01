@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { Helmet } from "react-helmet";
 import { BsPencil } from 'react-icons/bs'
-import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 import CommonInputs from '../../helpers/CommonInputs'
@@ -77,6 +77,12 @@ const ProfileEdit = () => {
 
 	return (
 		<div className='wrapper wrapper-profile'>
+
+			<Helmet>
+				<meta name="description" content="Edit profile" />
+				<title>Edit profile</title>
+			</Helmet>
+
 			<div className='sepi-bread-header extra'>
 				<Breadcrumbs name={t("components.profileEdit.edit")} link={`/profile/${prof?.user_id}`} extraName={t("components.profileEdit.profile")} />
 			</div>

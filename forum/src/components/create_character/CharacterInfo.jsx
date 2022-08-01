@@ -1,6 +1,6 @@
 import React from 'react'
 import CommonInputs from '../../helpers/CommonInputs'
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const CharacterInfo = ({ formData, setFormData }) => {
 	const { t } = useTranslation();
@@ -17,7 +17,7 @@ const CharacterInfo = ({ formData, setFormData }) => {
 					}}
 					placeholder={t("components.characterInfo.en_english")}
 				/>
-				<p dangerouslySetInnerHTML={{__html: t("components.characterInfo.character_name_description")}} />
+				<p dangerouslySetInnerHTML={{ __html: t("components.characterInfo.character_name_description") }} />
 			</div>
 
 			<div className='create-new-epi__title create-new-epi__character-desc'>
@@ -31,7 +31,7 @@ const CharacterInfo = ({ formData, setFormData }) => {
 					}}
 					placeholder={t("components.characterInfo.avatar_placeholder")}
 				/>
-				<p dangerouslySetInnerHTML={{__html: t("components.characterInfo.avatar_description")}} />
+				<p dangerouslySetInnerHTML={{ __html: t("components.characterInfo.avatar_description") }} />
 			</div>
 
 			<div className='create-new-epi__title create-new-epi__character-desc'>
@@ -43,7 +43,7 @@ const CharacterInfo = ({ formData, setFormData }) => {
 						setFormData({ ...formData, description: e.target.value });
 					}}>
 				</textarea>
-				<p dangerouslySetInnerHTML={{__html: t("components.characterInfo.description_description")}} />
+				<p dangerouslySetInnerHTML={{ __html: t("components.characterInfo.description_description") }} />
 			</div>
 
 		</>

@@ -39,6 +39,7 @@
     max-height: 150px;
     border: 6px double #f1ad35;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .slider-main__image:hover {

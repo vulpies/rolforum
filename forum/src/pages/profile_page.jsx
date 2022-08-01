@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from "react-helmet";
 import { useEffect, useState } from 'react'
 import { BsPencil, BsChatText } from 'react-icons/bs'
 import { useParams, useNavigate } from 'react-router-dom'
@@ -6,7 +7,7 @@ import Breadcrumbs from '../components/breadcrumbs'
 import { commonFetch } from '../helpers/commonFetch'
 import { useTranslation } from "react-i18next";
 import Loading from '../helpers/loading'
-import mainPic from '../images/static.gif'
+import mainPic from '../images/stranger.jpg'
 import { useSelector } from 'react-redux'
 
 const Profile = () => {
@@ -21,12 +22,17 @@ const Profile = () => {
 		commonFetch(`https://api.postscriptum.games/v1/profile/view/${profId}`, setInfo)
 	}, [])
 
-	console.log(info)
-	console.log(user, 'user')
-
+	console.log(user, '999')
+	console.log(info, 'info')
 
 	return (
 		<div className='wrapper'>
+
+			<Helmet>
+				<meta name="description" content="Profile page" />
+				<title>Profile page: {info?.user_name}</title>
+			</Helmet>
+
 			<div className='epi-links single-link'>
 				<Breadcrumbs name={t("pages.profile_page.breadcrumbs_profile")} />
 			</div>
@@ -42,7 +48,9 @@ const Profile = () => {
 									<BsPencil />
 								</button>
 								: ''}
-							{user ? <button className='btns profile-chat'><BsChatText /></button> : ''}
+
+							{user && info?.user_id !== user?.user_id ? <button className='btns profile-chat'><BsChatText /></button> : ''}
+
 						</div>
 
 						<div className='profile-avatar'>
@@ -84,7 +92,8 @@ const Profile = () => {
 									<BsPencil />
 								</button>
 								: ''}
-							{user ? <button className='btns profile-chat'><BsChatText /></button> : ''}
+							{user && info?.user_id !== user?.user_id ? <button className='btns profile-chat'><BsChatText /></button> : ''}
+
 						</div>
 
 						<div className='profile-wrapper__common'>

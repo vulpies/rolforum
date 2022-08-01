@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { commonFetch } from '../../helpers/commonFetch'
 import CommonInputs from '../../helpers/CommonInputs'
 import CustomSelect from '../CustomSelect'
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 const ChooseFandom = ({ formData, setFormData }) => {
 	const { t } = useTranslation();
@@ -34,6 +34,7 @@ const ChooseFandom = ({ formData, setFormData }) => {
 
 	}, [type, setFandomList, formData.fandom_id])
 
+
 	return (
 		<>
 			<CustomSelect
@@ -42,6 +43,7 @@ const ChooseFandom = ({ formData, setFormData }) => {
 				onChange={setType}
 				styleSelect='create-new-epi__select'
 				options={options}
+				defaultValue={formData.fandom_name !== '' ? { value: '', label: formData.fandom_name } : ''}
 				closeMenuOnSelect={true}
 				placeholder={t("components.chooseFandom.choose_fandom_type")}
 			/>

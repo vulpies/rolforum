@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react'
+import { Helmet } from "react-helmet";
 import { AiOutlineSetting } from "react-icons/ai";
 import { useSelector } from 'react-redux';
 import { commonFetch } from '../../helpers/commonFetch';
@@ -222,6 +223,12 @@ const Flood = () => {
 	return (
 		<>
 			<div className='flood-name__wrapper'>
+
+				<Helmet>
+					<meta name="description" content="Post Scriptum — Flood" />
+					<title>Post Scriptum — Flood</title>
+				</Helmet>
+
 				<div className='flood-name'>
 					<button className='btns btns-flood' onClick={() => setShowChatsList(!showChatsList)}><AiOutlineUnorderedList /></button>
 					<p className='flood-title'>{chatName}</p>

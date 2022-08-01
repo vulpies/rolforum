@@ -1,32 +1,20 @@
-import React, { useState } from 'react'
-import Breadcrumbs from '../breadcrumbs'
-import TextArea from '../TextArea'
+import { useParams } from 'react-router-dom'
+import CommonEditTextForm from './CommonEditTextForm'
 
-const EditFloodMsg = () => {
-	const [update, setUpdate] = useState()
+const EditFloodPost = () => {
+	const { chatMsgId } = useParams()
 
 	return (
-		<div className='wrapper'>EditFloodMsg
-
-			<div className='sepi-bread-header extra'>
-				<Breadcrumbs name='Редактирование сообщения' link='' extraName='Назад' />
-			</div>
-
-			<TextArea
-				className='send-post-form edit-msg'
-				areaClassName='send-post-form__text'
-				param={update}
-				setParam={setUpdate}
-				editorLine='editor-line'
-				id='edit_msg'
-				value={update}
-				onChange={(e) => setUpdate(e.target.value)}
-				// sendBtn={editMsg}
-				removeBtn={() => setUpdate('')}
-			/>
-
-		</div>
+		<CommonEditTextForm
+			postId={chatMsgId}
+			getInfo='https://api.postscriptum.games/v1/chat-message-edit-data/'
+			sendUpdInfo='https://api.postscriptum.games/v1/chat-message-edit'
+			text='message_id'
+			partOne='chats'
+			partTwo='chat_id'
+			id='edit_flood_msg'
+		/>
 	)
 }
 
-export default EditFloodMsg
+export default EditFloodPost

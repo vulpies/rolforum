@@ -6,6 +6,10 @@
         top: 133px;
     }
 
+    .epi-modal-footer {
+        bottom: 4px;
+    }
+
     .epi-modal-content {
         max-height: 360px;
     }
