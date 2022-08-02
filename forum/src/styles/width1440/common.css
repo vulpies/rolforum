@@ -125,6 +125,7 @@
     textarea {
         border: 1px solid #885353;
         min-height: 220px;
+        background-color: #fff9f0 !important;
     }
 
     .extra {

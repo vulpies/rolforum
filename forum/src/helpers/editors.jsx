@@ -47,8 +47,6 @@ const alignIcons = [
 	}
 ]
 
-//BsImages
-
 const others = [
 	{
 		name: 'quote',
@@ -94,22 +92,21 @@ const Editors = ({ className, param, setParam, id }) => {
 		}
 	}
 
+	const forSimpleTegs = (selector) => {
+		return selector.map((item) => {
+			return <button className='btns btns-editor' onClick={() => styleEditor(param, setParam, item.teg)} key={item.name}>{item.icon}</button>
+		})
+	}
 
-	const styleTextBtns = fontStyleIcons.map((item) => {
-		return <button className='btns btns-editor' onClick={() => styleEditor(param, setParam, item.teg)} key={item.name}>{item.icon}</button>
-	})
-
-	const alignTextBtns = alignIcons.map((item) => {
-		return <button className='btns btns-editor' onClick={() => alignEditor(param, setParam, item.teg)} key={item.name}>{item.icon}</button>
-	})
-
-	const othersTextBtns = others.map((item) => {
-		return <button className='btns btns-editor' onClick={() => styleEditor(param, setParam, item.teg)} key={item.name}>{item.icon}</button>
-	})
+	const forComplexTegs = (selector) => {
+		return selector.map((item) => {
+			return <button className='btns btns-editor' onClick={() => alignEditor(param, setParam, item.teg)} key={item.name}>{item.icon}</button>
+		})
+	}
 
 	return (
 		<div className={className}>
-			{styleTextBtns} {alignTextBtns} {othersTextBtns}
+			{forSimpleTegs(fontStyleIcons)} {forComplexTegs(alignIcons)} {forSimpleTegs(others)}
 		</div>
 	)
 }

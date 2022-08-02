@@ -26,20 +26,15 @@ const Flood = () => {
 	const [chatsList, setChatsList] = useState()
 	const [showChatsList, setShowChatsList] = useState(false)
 	const navigate = useNavigate()
-	const [editOptionCloseBtn, setEditOptionCloseBtn] = useState(true)
+	const [editOptionClose, setEditOptionClose] = useState(true)
 
-	// const floodDown = document.getElementById("message-area");
-	// if (floodDown) {
-	// 	floodDown.scrollTop = floodDown.scrollHeight;
-	// }
 
 	useEffect(() => {
-	}, [showChatsList])
+	}, [showChatsList, editOptionClose])
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/chat-room-list-user`, setChatsList)
 	}, [])
-
 
 	function updMsgs(param) {
 		param.messages.forEach(p => p["isHide"] = true)
@@ -52,12 +47,10 @@ const Flood = () => {
 		}
 	}
 
-
 	const openChat = useCallback((id = 1) => {
 		commonFetch(`https://api.postscriptum.games/v1/chat-message-list/${id}`, updMsgs)
 		setShowChatsList(false)
 	}, [])
-
 
 	const addMsg = useCallback((data) => {
 		if (!data.tokenUpdate) {
@@ -121,13 +114,15 @@ const Flood = () => {
 	function msgSet(id) {
 		const msgId = msg.find(m => m.id === id)
 		if (msgId.id === id) {
-			// console.log(msgId, 'msgId')
+			console.log(msgId, 'msgId')
 			msgId.isHide = !msgId.isHide
+
 			setHide(prevState => !prevState)
-			setEditOptionCloseBtn(prevState => !prevState)
-			// console.log(editOptionCloseBtn)
+			setEditOptionClose(!editOptionClose)
+			console.log(editOptionClose, 'editOptionClose')
+
 			const outOfText = document.getElementById('message-area')
-			outOfText.addEventListener('click', () => setEditOptionCloseBtn(true))
+			outOfText.addEventListener('click', () => setEditOptionClose(true))
 		}
 	}
 
@@ -152,7 +147,7 @@ const Flood = () => {
 			element.scrollIntoView({ block: "end", inline: "nearest", behavior: "smooth" })
 		}
 		setText(prevstate => prevstate + `[quote][b]${author}[/b] \n${text}[/quote]`)
-		setEditOptionCloseBtn(true)
+		setEditOptionClose(true)
 	}
 
 	const allMsg = msg?.map(m => {
@@ -167,7 +162,7 @@ const Flood = () => {
 		const textContent = owner ? 'flood-message__text-content-owner flood-message__text-content' : 'flood-message__text-content';
 		const desktopIcons = owner ? 'flood-message__edit-desktop-owner flood-message__edit-desktop' : "flood-message__edit-desktop"
 
-		const setBtn = owner ? <div className={'flood-message__edit-options-owner flood-message__edit-options'} style={editOptionCloseBtn ? { "display": "none" } : { 'display': "block" }}>
+		const setBtn = owner ? <div className={'flood-message__edit-options-owner flood-message__edit-options'} style={editOptionClose ? { "display": "none" } : { 'display': "initial" }}>
 			<p onClick={() => navigate(`/chats/edit/${m.id}`)}>{t("components.flood.edit")}</p>
 			<p onClick={() => answerOnMsg(m.user_name, m.content)}>{t("components.flood.quote")}</p>
 			<p onClick={() => SwallDeleteMsg(t("components.flood.remove_msg"), t("components.singleEpiPost.cancel_btn"), t("components.singleEpiPost.confirm_delete"), t("components.flood.confirm_dlt_msg"), dltUrl, setMsg, msg, m.id)}>{t("components.flood.delete")}</p>
