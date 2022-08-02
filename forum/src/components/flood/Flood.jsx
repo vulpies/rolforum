@@ -28,13 +28,25 @@ const Flood = () => {
 	const navigate = useNavigate()
 	const [editOptionClose, setEditOptionClose] = useState(true)
 
+	// const floodDown = document.getElementById("message-area");
+	// if (floodDown) {
+	// 	floodDown.scrollIntoView({ block: "end", inline: "nearest" })
+	// }
 
 	useEffect(() => {
-	}, [showChatsList, editOptionClose])
+	}, [showChatsList])
 
 	useEffect(() => {
 		commonFetch(`https://api.postscriptum.games/v1/chat-room-list-user`, setChatsList)
 	}, [])
+
+	useEffect(() => {
+		startChat()
+		openChat()
+	}, [])
+
+	const publicChats = chatsList?.filter(item => item.is_public)
+	const privateChats = chatsList?.filter(item => !item.is_public)
 
 	function updMsgs(param) {
 		param.messages.forEach(p => p["isHide"] = true)
@@ -89,12 +101,6 @@ const Flood = () => {
 		};
 		setSocket(socket)
 	}, [addMsg, setSocket, chatId])
-
-	useEffect(() => {
-		startChat()
-		openChat()
-	}, [])
-
 
 	function sendMessage() {
 		if (text.trim() !== '') {
@@ -248,9 +254,16 @@ const Flood = () => {
 				{showChatsList ? <div className="flood-chats-list-wrapper">
 
 					<p className='flood-chats__list-create'><a href='/chats/create_chat'>{t("components.flood.create_chat")}</a></p>
-					<p className='flood-chats__list-title'>{t("components.flood.chats_list")}</p>
+					<p className='flood-chats__list-title'>{t("components.flood.public_chats_list")}</p>
 					<div className='flood-chats-list-common'>
-						{chatsList?.map(item => {
+						{publicChats?.map(item => {
+							return <li className='flood-chats__list-item' key={item.id} onClick={() => openChat(item.id)}>{item.name}</li>
+						})}
+					</div>
+
+					<p className='flood-chats__list-title'>{t("components.flood.private_chats_list")}</p>
+					<div className='flood-chats-list-common'>
+						{privateChats?.map(item => {
 							return <li className='flood-chats__list-item' key={item.id} onClick={() => openChat(item.id)}>{item.name}</li>
 						})}
 					</div>

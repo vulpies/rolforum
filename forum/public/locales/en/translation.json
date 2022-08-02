@@ -137,7 +137,8 @@
             "load_more": "Load more",
             "remove_msg": "Are you sure you want to delete this message?",
             "confirm_dlt_msg": "Message was deleted",
-            "chats_list": "Chats list:",
+            "public_chats_list": "Chats list:",
+            "private_chats_list": "Private chats:",
             "create_chat": "Create a new chat"
         },
         "chooseFandom": {

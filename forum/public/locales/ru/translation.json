@@ -137,7 +137,8 @@
             "load_more": "Загрузить еще",
             "remove_msg": "Вы уверены, что хотите удалить сообщение?",
             "confirm_dlt_msg": "Сообщение успешно удалено",
-            "chats_list": "Список чатов:",
+            "public_chats_list": "Список чатов:",
+            "private_chats_list": "Приватные чаты:",
             "create_chat": "Создать чат"
         },
         "chooseFandom": {

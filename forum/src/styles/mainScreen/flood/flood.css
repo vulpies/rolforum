@@ -94,6 +94,10 @@
     margin: 10px;
 }
 
+.flood-chats-list-common:first-of-type {
+    margin-bottom: 20px;
+}
+
 .flood-chats-list-wrapper {
     position: absolute;
     top: -55px;
@@ -111,11 +115,15 @@
 
 .flood-chats__list-title {
     text-align: center;
-    margin: 10px;
+    margin: 10px auto -8px;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #d81818;
-    text-shadow: 1px 1px 1px black;
+    color: #f38a05;
+    text-shadow: 1px 1px 1px #000000;
+
+    /* color: #d81818; */
+    /* text-decoration: underline; */
+    /* text-shadow: 1px 1px 1px black; */
 }
 
 .flood-chats__list-item {
