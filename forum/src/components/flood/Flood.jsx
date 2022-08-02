@@ -26,11 +26,12 @@ const Flood = () => {
 	const [chatsList, setChatsList] = useState()
 	const [showChatsList, setShowChatsList] = useState(false)
 	const navigate = useNavigate()
+	const [editOptionCloseBtn, setEditOptionCloseBtn] = useState(true)
 
-	const floodDown = document.getElementById("message-area");
-	if (floodDown) {
-		floodDown.scrollTop = floodDown.scrollHeight;
-	}
+	// const floodDown = document.getElementById("message-area");
+	// if (floodDown) {
+	// 	floodDown.scrollTop = floodDown.scrollHeight;
+	// }
 
 	useEffect(() => {
 	}, [showChatsList])
@@ -60,6 +61,7 @@ const Flood = () => {
 
 	const addMsg = useCallback((data) => {
 		if (!data.tokenUpdate) {
+			console.log(data, 'data8888')
 			data.isHide = true
 			setMsg((msg) => [...msg, data]);
 		}
@@ -101,7 +103,6 @@ const Flood = () => {
 	}, [])
 
 
-
 	function sendMessage() {
 		if (text.trim() !== '') {
 			socket_con.send(JSON.stringify({ action: "sendmessage", data: floodData }));
@@ -120,8 +121,13 @@ const Flood = () => {
 	function msgSet(id) {
 		const msgId = msg.find(m => m.id === id)
 		if (msgId.id === id) {
+			// console.log(msgId, 'msgId')
 			msgId.isHide = !msgId.isHide
 			setHide(prevState => !prevState)
+			setEditOptionCloseBtn(prevState => !prevState)
+			// console.log(editOptionCloseBtn)
+			const outOfText = document.getElementById('message-area')
+			outOfText.addEventListener('click', () => setEditOptionCloseBtn(true))
 		}
 	}
 
@@ -141,11 +147,12 @@ const Flood = () => {
 	}
 
 	function answerOnMsg(author, text) {
-		const element = document.getElementById('message-area')
+		const element = document.querySelector('.flood-wrapper__send')
 		if (element) {
-			element.scrollIntoView()
+			element.scrollIntoView({ block: "end", inline: "nearest", behavior: "smooth" })
 		}
 		setText(prevstate => prevstate + `[quote][b]${author}[/b] \n${text}[/quote]`)
+		setEditOptionCloseBtn(true)
 	}
 
 	const allMsg = msg?.map(m => {
@@ -160,8 +167,8 @@ const Flood = () => {
 		const textContent = owner ? 'flood-message__text-content-owner flood-message__text-content' : 'flood-message__text-content';
 		const desktopIcons = owner ? 'flood-message__edit-desktop-owner flood-message__edit-desktop' : "flood-message__edit-desktop"
 
-		const setBtn = owner ? <div className={'flood-message__edit-options-owner flood-message__edit-options'}>
-			<p>{t("components.flood.edit")}</p>
+		const setBtn = owner ? <div className={'flood-message__edit-options-owner flood-message__edit-options'} style={editOptionCloseBtn ? { "display": "none" } : { 'display': "block" }}>
+			<p onClick={() => navigate(`/chats/edit/${m.id}`)}>{t("components.flood.edit")}</p>
 			<p onClick={() => answerOnMsg(m.user_name, m.content)}>{t("components.flood.quote")}</p>
 			<p onClick={() => SwallDeleteMsg(t("components.flood.remove_msg"), t("components.singleEpiPost.cancel_btn"), t("components.singleEpiPost.confirm_delete"), t("components.flood.confirm_dlt_msg"), dltUrl, setMsg, msg, m.id)}>{t("components.flood.delete")}</p>
 		</div>

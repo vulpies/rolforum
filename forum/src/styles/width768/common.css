@@ -28,4 +28,15 @@
             transparent
         );
     }
+
+    .btns-editor {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .editor-line__flood {
+        width: 96%;
+    }
 }

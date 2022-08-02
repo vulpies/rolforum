@@ -3,11 +3,11 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     width: 100%;
     border: 1px solid #e4e4e3;
-    padding: 0 3px;
+    padding: 4px 6px;
     border-radius: 5px;
     background-color: #fff5e8;
 }
@@ -17,8 +17,7 @@
 }
 
 .editor-line__flood {
-    margin-top: -5px;
-    margin-bottom: 8px;
+    margin-bottom: 11px;
 }
 
 .edit-msg {
