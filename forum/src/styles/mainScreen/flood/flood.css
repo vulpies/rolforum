@@ -118,10 +118,14 @@
     margin: 10px auto -8px;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #f38a05;
-    text-shadow: 1px 1px 1px #000000;
 
-    /* color: #d81818; */
+    /* color: #ff0000; */
+    text-shadow: 1px 1px 0px #000000;
+
+    /* color: #f38a05; */
+    /* text-shadow: 1px 1px 1px #000000; */
+
+    color: #d81818;
     /* text-decoration: underline; */
     /* text-shadow: 1px 1px 1px black; */
 }
@@ -135,16 +139,33 @@
 }
 
 .flood-chats__list-item:hover {
-    color: #50330d;
+    /* color: #f77d2a; */
+    /* color: #c17e51; */
+    color: #c18964;
     font-weight: 600;
-    text-shadow: 0 0 1px #ff0404;
+    /* text-shadow: 1px 1px 0px #6c3809; */
+
+    /* color: #50330d;
+    font-weight: 600;
+    text-shadow: 0 0 1px #ff0404; */
 }
 
 .flood-chats__list-create {
     width: 100%;
     text-align: center;
-    margin: 10px 0;
+    margin: 10px 0 17px;
     font-size: 1.2rem;
     padding-bottom: 10px;
     border-bottom: 2px solid #a11313;
+}
+
+.flood-chats__list-create a {
+    /* color: black; */
+    color: #9c0000;
+    text-shadow: 0px 0px 1px #000;
+}
+
+.flood-chats__list-create a:hover {
+    /* color: #d11313; */
+    color: #ff0000;
 }

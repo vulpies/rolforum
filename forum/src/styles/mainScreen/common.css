@@ -37,7 +37,7 @@ a {
     font-weight: 600;
     color: #df8807;
     outline-color: #bd4305;
-    padding: 2px;
+    padding: 2px 5px;
 }
 
 a:hover {

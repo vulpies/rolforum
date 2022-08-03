@@ -28,10 +28,14 @@ const Flood = () => {
 	const navigate = useNavigate()
 	const [editOptionClose, setEditOptionClose] = useState(true)
 
-	// const floodDown = document.getElementById("message-area");
-	// if (floodDown) {
-	// 	floodDown.scrollIntoView({ block: "end", inline: "nearest" })
-	// }
+
+	const floodDown = document.getElementById("message-area");
+	useEffect(() => {
+		if (floodDown && !editOptionClose) {
+			floodDown.scrollIntoView({ block: "end", inline: "nearest" })
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	useEffect(() => {
 	}, [showChatsList])
