@@ -22,14 +22,21 @@
     }
 
     .epi-wrapper {
-        padding: 9px 4px 5px 9px;
+        /* padding: 9px 4px 5px 9px;
         background-color: #dfd1bd4f;
         border: 1px solid #a05f0d;
-        box-shadow: 0 0 1px #86620b;
+        box-shadow: 0 0 1px #86620b; */
+
+        background-color: #f6e7d14f;
+        border: 2px solid #dbbe9b;
+        box-shadow: 0 0 2px #f9cb86;
+        padding: 9px 4px 5px 9px;
     }
 
     .epi-wrapper:hover {
-        box-shadow: 0 0 4px #6e0808;
+        /* box-shadow: 0 0 4px #6e0808; */
+        box-shadow: 0 0 2px #f59e0ae0;
+        border: 2px solid #de8e0d;
     }
 
     .epi-user-info {

@@ -10,9 +10,10 @@ if (localStorage.getItem('token')) {
 	}
 }
 
-export const commonFetch = (url, setParam) => {
+export const commonFetch = (url, setParam, smthFunc) => {
 	axios.get(url, options)
 		.then(res => setParam(res.data))
+		.then(() => smthFunc)
 		.catch(err => console.log(err))
 }
 

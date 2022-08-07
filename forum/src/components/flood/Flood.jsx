@@ -28,14 +28,7 @@ const Flood = () => {
 	const navigate = useNavigate()
 	const [editOptionClose, setEditOptionClose] = useState(true)
 
-
-	const floodDown = document.getElementById("message-area");
-	useEffect(() => {
-		if (floodDown && !editOptionClose) {
-			floodDown.scrollIntoView({ block: "end", inline: "nearest" })
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 
 	useEffect(() => {
 	}, [showChatsList])
@@ -64,9 +57,14 @@ const Flood = () => {
 	}
 
 	const openChat = useCallback((id = 1) => {
-		commonFetch(`https://api.postscriptum.games/v1/chat-message-list/${id}`, updMsgs)
+		commonFetch(`https://api.postscriptum.games/v1/chat-message-list/${id}`, updMsgs, () => {
+			const floodDown = document.getElementById("message-area");
+			if (floodDown && !editOptionClose) {
+				floodDown.scrollIntoView({ block: "end", inline: "nearest" })
+			}
+		})
 		setShowChatsList(false)
-	}, [])
+	}, [editOptionClose])
 
 	const addMsg = useCallback((data) => {
 		if (!data.tokenUpdate) {
@@ -83,6 +81,11 @@ const Flood = () => {
 
 	const startChat = useCallback(() => {
 		const socket = new WebSocket("wss://5r9ld0bvs5.execute-api.us-east-1.amazonaws.com/Prod")
+
+		const floodDown = document.getElementById("message-area");
+		if (floodDown && !editOptionClose) {
+			floodDown.scrollIntoView({ block: "end", inline: "nearest" })
+		}
 
 		socket.onopen = function () {
 			socket.send(JSON.stringify({ action: "sendmessage", data: { updateToken: true, token: localStorage.getItem('token'), chatId: chatId } }));
