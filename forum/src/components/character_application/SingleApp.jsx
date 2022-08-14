@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { commonFetch, commonPostReq, commonPostReqThen } from '../../helpers/commonFetch'
+import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 import Breadcrumbs from '../breadcrumbs'
 import { FcApproval } from "react-icons/fc";
 import { useTranslation } from "react-i18next";
@@ -33,7 +33,7 @@ const SingleApp = () => {
 	}, [])
 
 	const newCom = (res) => {
-		setComments([...comments, res.data.comment[0]])
+		setComments([...comments, res.comment[0]])
 		setNewMsg(!newMsg)
 	}
 
@@ -48,7 +48,7 @@ const SingleApp = () => {
 		}
 
 		if (text !== '') {
-			commonPostReqThen('https://api.postscriptum.games/v1/profile/character-app-comment-post', newComment, newCom)
+			commonPostReq('https://api.postscriptum.games/v1/profile/character-app-comment-post', newComment, newCom)
 			handleClear()
 		} else {
 			SwallError(t("components.singleApp.empty_message"))

@@ -8,7 +8,7 @@ import CommonInputs from '../helpers/CommonInputs'
 import CommonBigBtn from "../helpers/big_btn"
 import { useTranslation } from "react-i18next";
 import stanger from '../images/stranger.jpg'
-import { commonFetch, commonPostReqThen } from "../helpers/commonFetch"
+import { commonFetch, commonPostReq } from "../helpers/commonFetch"
 import { SwallSuccess } from "../helpers/swall_notifications"
 import { Helmet } from "react-helmet";
 
@@ -51,7 +51,7 @@ const MainPage = () => {
     }
 
     const resetPass = () => {
-        commonPostReqThen('https://api.postscriptum.games/v1/password/reset-email', { "email": email })
+        commonPostReq('https://api.postscriptum.games/v1/password/reset-email', { "email": email })
         setEmail('')
         SwallSuccess(t("pages.main_page.send_msg"))
     }

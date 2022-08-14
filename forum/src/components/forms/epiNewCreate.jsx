@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
-import { commonFetch, commonPostReqThen } from '../../helpers/commonFetch'
+import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 import { useTranslation } from "react-i18next";
 import Loading from '../../helpers/loading'
 
@@ -59,7 +59,7 @@ const EpiNewCreate = () => {
 	}
 
 	const getNewId = (param) => {
-		navigate(`/episodes/${param.data.episode_id}`)
+		navigate(`/episodes/${param.episode_id}`)
 	}
 
 
@@ -78,7 +78,7 @@ const EpiNewCreate = () => {
 			}
 			console.log(fandomList, '8888')
 
-			commonPostReqThen('https://api.postscriptum.games/v1/episode-create', fandomList, getNewId)
+			commonPostReq('https://api.postscriptum.games/v1/episode-create', fandomList, getNewId)
 		} else if (type && type.value === 'crossover') {
 
 			const crossList = {
@@ -91,7 +91,7 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			commonPostReqThen('https://api.postscriptum.games/v1/episode-create', crossList, getNewId)
+			commonPostReq('https://api.postscriptum.games/v1/episode-create', crossList, getNewId)
 		} else if (type && type.value === 'au') {
 			const auList = {
 				type: type.value,
@@ -103,7 +103,7 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			commonPostReqThen('https://api.postscriptum.games/v1/episode-create', auList, getNewId)
+			commonPostReq('https://api.postscriptum.games/v1/episode-create', auList, getNewId)
 		} else {
 			return ''
 		}
