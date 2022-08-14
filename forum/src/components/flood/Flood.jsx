@@ -85,16 +85,6 @@ const Flood = () => {
 	const startChat = useCallback(() => {
 		const socket = new WebSocket("wss://5r9ld0bvs5.execute-api.us-east-1.amazonaws.com/Prod")
 
-		const messages = document.getElementById("message-area")
-
-		messages.addEventListener('onload', () => {
-			console.log(111)
-			const floodDown = document.getElementById("message-area");
-			if (floodDown && !editOptionClose) {
-				floodDown.scrollIntoView({ block: "end", inline: "nearest" })
-			}
-		})
-
 		socket.onopen = function () {
 			socket.send(JSON.stringify({ action: "sendmessage", data: { updateToken: true, token: localStorage.getItem('token'), chatId: chatId } }));
 		};
@@ -191,6 +181,16 @@ const Flood = () => {
 			: <div className='flood-message__edit-options'>
 				<p onClick={() => answerOnMsg(m.user_name, m.content)}>{t("components.flood.quote")}</p>
 			</div>
+
+		const messages = document.getElementById("message-area")
+
+		messages.addEventListener('onload', () => {
+			console.log(111)
+			const floodDown = document.getElementById("message-area");
+			if (floodDown && !editOptionClose) {
+				floodDown.scrollIntoView({ block: "end", inline: "nearest" })
+			}
+		})
 
 		return (
 			<div className={message} key={m.id} id={`m${m.id}`}>
