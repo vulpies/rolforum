@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { EditMsgBtn, EditOrRemove } from '../../helpers/editOrRemove'
+import { EditMsgBtn } from '../../helpers/editOrRemove'
 import GetLike from '../../helpers/getLike'
 
 const SingleEpiHeader = ({ header }) => {

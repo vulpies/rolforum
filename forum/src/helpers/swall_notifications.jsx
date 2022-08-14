@@ -47,3 +47,27 @@ export const SwallDeleteMsg = (questionTitle, cancelBtnText, confirmBtnText, con
 		}
 	})
 }
+
+export const SwallDeleteMsgSimple = (questionTitle, cancelBtnText, confirmBtnText, confirmDeletedText, url) => {
+	Swal.fire({
+		title: questionTitle,
+		width: 350,
+		cancelButtonText: cancelBtnText,
+		position: 'top',
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#1aae26',
+		cancelButtonColor: '#d33',
+		confirmButtonText: confirmBtnText
+	}).then((result) => {
+		if (result.isConfirmed) {
+			commonDelete(url)
+			Swal.fire({
+				width: 350,
+				position: 'top',
+				title: confirmDeletedText,
+				icon: 'success'
+			})
+		}
+	})
+}

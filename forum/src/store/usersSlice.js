@@ -10,19 +10,19 @@ const usersSlice = createSlice({
 	name: "users",
 	initialState,
 	reducers: {
-		addNewUser: (state, action) => {
-			state.allUsers.push(action.payload)
-			state.auth = true
-		},
+		// addNewUser: (state, action) => {
+		// 	state.allUsers.push(action.payload)
+		// 	state.auth = true
+		// },
 		addUserInfo: (state, action) => {
 			state.user = [...state.user, action.payload]
 			state.auth = true
 		},
-		updateUserInfo: (state, action) => {
-			const a = state.user.filter((n) => n.user_id === action.payload.id) || []
-			state.user = [...a, action.payload]
-			state.auth = true
-		},
+		// updateUserInfo: (state, action) => {
+		// 	const a = state.user.filter((n) => n.user_id === action.payload.id) || []
+		// 	state.user = [...a, action.payload]
+		// 	state.auth = true
+		// },
 		// getUserInfo: (state) => {
 		// 	state.user = [...state.user]
 		// 	state.auth = true
@@ -36,9 +36,9 @@ const usersSlice = createSlice({
 
 const { actions, reducer } = usersSlice
 
-export const fullSliceState = (state) => state.usersReducer
+export const fullSliceState = (state) => state.usersSlice.user
 
 export default reducer
-export const { addNewUser, addUserInfo, updateUserInfo, userLogout } = actions
+export const { addUserInfo, userLogout } = actions
 
 

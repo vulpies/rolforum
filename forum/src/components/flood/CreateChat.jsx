@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { commonFetch, commonPostReqThen } from '../../helpers/commonFetch'
+import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 import Breadcrumbs from '../breadcrumbs'
 import CustomSelect from '../CustomSelect'
 import { SwallSuccess } from '../../helpers/swall_notifications'
@@ -31,7 +31,7 @@ const CreateChat = () => {
 
 	const createNewChat = (e) => {
 		e.preventDefault()
-		commonPostReqThen(`https://api.postscriptum.games/v1/chat-room-create`, {
+		commonPostReq(`https://api.postscriptum.games/v1/chat-room-create`, {
 			name: title,
 			character_id: participants.map(item => (item.value)),
 			is_public: value

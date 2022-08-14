@@ -10,6 +10,8 @@ const AdminPage = () => {
 			<div className='epi-links single-link'>
 				<Breadcrumbs name={t("components.navlinks.admin")} />
 			</div>
+
+
 			Admin_page</div>
 	)
 }

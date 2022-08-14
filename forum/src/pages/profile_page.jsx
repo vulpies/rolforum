@@ -30,7 +30,7 @@ const Profile = () => {
 
 			<Helmet>
 				<meta name="description" content="Profile page" />
-				<title>Profile page: {info?.user_name}</title>
+				<title>Profile page: {user?.user_name || ''}</title>
 			</Helmet>
 
 			<div className='epi-links single-link'>
