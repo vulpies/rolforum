@@ -37,6 +37,7 @@
 .char-info__epies-list a {
     font-weight: normal;
     color: #000;
+    margin-left: -5px;
 }
 
 .char-info__epies-list a:hover {
