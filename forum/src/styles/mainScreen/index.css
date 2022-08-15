@@ -1,5 +1,6 @@
 @import "./common.css";
 @import "./slider.css";
+@import "./pagination.css";
 
 @import "./flood/flood.css";
 @import "./flood/flood-msg.css";

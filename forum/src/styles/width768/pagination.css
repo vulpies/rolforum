@@ -1,0 +1,28 @@
+@media (min-width: 768px) {
+    .pagination__container {
+        margin: 25px auto 20px;
+        font-size: 1.05rem;
+    }
+
+    .pagination__active-page {
+        padding: 0 10px;
+    }
+
+    .pagination__active-page {
+        padding: 0px 10px;
+    }
+
+    .pagination__prev {
+        margin-right: 20px;
+        text-align: right;
+    }
+
+    .pagination__next {
+        margin-left: 20px;
+        text-align: left;
+    }
+
+    .pagination__page {
+        margin: 0 4px;
+    }
+}
