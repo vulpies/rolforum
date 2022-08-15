@@ -6,6 +6,7 @@ import CustomSelect from '../CustomSelect'
 import { commonFetch, commonPostReq } from '../../helpers/commonFetch'
 import { useTranslation } from "react-i18next";
 import Loading from '../../helpers/loading'
+import { useCreateNewEpiMutation } from '../../store/apiSlice'
 
 const EpiNewCreate = () => {
 	const { t } = useTranslation();
@@ -31,6 +32,7 @@ const EpiNewCreate = () => {
 	const [multiListValue, setMultiListValue] = useState([])
 	const [newListOfChars, setNewList] = useState()
 
+	const [createNewEpi] = useCreateNewEpiMutation()
 
 	useEffect(() => {
 		if (type && type.value === 'fandom') {
@@ -78,7 +80,11 @@ const EpiNewCreate = () => {
 			}
 			console.log(fandomList, '8888')
 
-			commonPostReq('https://api.postscriptum.games/v1/episode-create', fandomList, getNewId)
+			createNewEpi(fandomList)
+				.unwrap()
+				.then(res => navigate(`/episodes/${res.episode_id}`))
+
+			// commonPostReq('https://api.postscriptum.games/v1/episode-create', fandomList, getNewId)
 		} else if (type && type.value === 'crossover') {
 
 			const crossList = {
@@ -91,7 +97,10 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			commonPostReq('https://api.postscriptum.games/v1/episode-create', crossList, getNewId)
+			// commonPostReq('https://api.postscriptum.games/v1/episode-create', crossList, getNewId)
+			createNewEpi(crossList)
+				.unwrap()
+				.then(res => navigate(`/episodes/${res.episode_id}`))
 		} else if (type && type.value === 'au') {
 			const auList = {
 				type: type.value,
@@ -103,7 +112,12 @@ const EpiNewCreate = () => {
 				forGuests: check
 			}
 
-			commonPostReq('https://api.postscriptum.games/v1/episode-create', auList, getNewId)
+			createNewEpi(auList)
+				.unwrap()
+				.then(res => {
+					navigate(`/episodes/${res.episode_id}`)
+				})
+			// commonPostReq('https://api.postscriptum.games/v1/episode-create', auList, getNewId)
 		} else {
 			return ''
 		}

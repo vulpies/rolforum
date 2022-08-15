@@ -1,15 +1,9 @@
-
 import { configureStore } from "@reduxjs/toolkit"
-// import { combineReducers } from "redux"
+import { setupListeners } from "@reduxjs/toolkit/dist/query"
 import { apiSlice } from "./apiSlice"
 import usersReducer from "./usersSlice"
 
-// const rootReducer = combineReducers({
-// 	usersReducer,
-// 	[apiSlice.reducerPath]: apiSlice.reducer
-// })
-
-const store = configureStore({
+export const store = configureStore({
 	reducer: {
 		usersReducer,
 		[apiSlice.reducerPath]: apiSlice.reducer
@@ -18,4 +12,4 @@ const store = configureStore({
 	devTools: process.env.NODE_ENV !== 'production'
 })
 
-export default store
+setupListeners(store.dispatch)

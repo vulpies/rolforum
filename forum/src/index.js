@@ -6,7 +6,7 @@ import App from "./App"
 import { Provider } from "react-redux"
 // import rootReducer from "./store/reducers"
 import "./services/i18n";
-import store from './store/reducers'
+import { store } from './store/reducers'
 
 // const store = createStore(
 //     rootReducer,

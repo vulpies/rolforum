@@ -46,7 +46,8 @@ const CharInfo = () => {
 
 						{char?.episodes.length !== 0 ? <div className='char-info__epies'><p>{t("components.charinfo.episodes")}</p>
 							<ul className='char-info__epies-list'>
-								{char?.episodes?.map(item => { return <li key={item.id}><a href={`/episodes/${item.id}`}>[{item.fandoms}] — {item.name}</a></li> })}
+
+								{char?.episodes?.map(item => { return <li key={item.id}><a href={`/episodes/${item.id}`}>[{item.fandoms.length > 1 ? item.fandoms.join(', ') : item.fandoms[0]}] — {item.name}</a></li> })}
 							</ul>
 						</div> : ""}
 

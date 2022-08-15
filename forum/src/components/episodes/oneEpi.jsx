@@ -6,19 +6,21 @@ import ModalEpi from '../forms/modalEpi'
 import { useTranslation } from "react-i18next";
 import { BsSearch } from "react-icons/bs";
 import { CgClose } from "react-icons/cg";
+import { useGetEpisodesListQuery } from '../../store/apiSlice'
+import Loading from '../../helpers/loading'
 
 const OneEpi = () => {
 	const { t } = useTranslation();
-	const [info, setInfo] = useState([])
 	const navigate = useNavigate()
-	const [value, setValue] = useState(info)
+	const [value, setValue] = useState('')
 	const [show, setShow] = useState(false)
 
-	useEffect(() => {
-		commonFetch('https://api.postscriptum.games/v1/episode-list-view', setInfo)
-	}, [])
+	const { data: episodes = [], isLoading } = useGetEpisodesListQuery()
+	console.log(episodes, 'data9999')
 
-	const filteredEpies = info.filter(epi => (epi.title.toLowerCase().includes(value)))
+	const filteredEpies = episodes?.filter(epi => (epi.title.toLowerCase().includes(value)))
+
+	if (isLoading) return <Loading />
 
 	return (
 		<>
@@ -35,7 +37,7 @@ const OneEpi = () => {
 				<button className='epi-search__btn-close' onClick={() => setValue('')}><CgClose /></button>
 			</div>
 
-			{info && filteredEpies?.map((item) => (
+			{filteredEpies?.map((item) => (
 				<div className='epi-wrapper' key={item.id}>
 					<div className='epi-text-info'>
 						<a href={`/episodes/${item.id}`} className='epi-title'>

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Helmet } from "react-helmet";
 import { useParams } from 'react-router-dom'
 import Breadcrumbs from '../breadcrumbs'
@@ -14,29 +14,31 @@ import { useGetPostsQuery } from '../../store/apiSlice';
 const SingleEpi = () => {
 	const { t } = useTranslation();
 	const { epiId } = useParams()
-	const { data: epiData, isSuccess } = useGetPostsQuery(epiId)
+	const { data, isLoading, isFetching } = useGetPostsQuery(epiId)
 
-	console.log(epiData, 'epiData')
+	console.log(data, 'data')
+
+	const EpiData = data?.episode
+	const posts = data?.posts
+
+	if (isLoading || isFetching) return <Loading />
 
 	return (
 		<>
-			{isSuccess ?
-				<>
-					<Helmet>
-						<meta name="description" content={epiData?.episode?.title} />
-						<title>{`${epiData?.episode?.fandoms.length > 1 ? epiData?.episode?.fandoms.join(', ') : epiData?.episode?.fandoms[0]} — ${epiData?.episode?.title}`}</title>
-					</Helmet>
+			<Helmet>
+				<meta name="description" content={data.episode.title} />
+				<title>{`${EpiData.fandoms.length > 1 ? EpiData.fandoms.join(', ') : EpiData.fandoms[0]} — ${EpiData.title}`}</title>
+			</Helmet>
 
-					<div className="wrapper">
-						<div className='sepi-bread-header extra'>
-							<Breadcrumbs name={epiData.episode.title} link='/episodes' extraName={t("components.singleEpi.episodes")} />
-						</div>
-						<SingleEpiHeader header={epiData.episode} />
-						<hr className='hr-underline' />
-						<SingleEpiPost />
-						{epiData.can_reply ? <EpiSendPostFrom /> : ''}
-					</div>
-				</> : <Loading />}
+			<div className="wrapper">
+				<div className='sepi-bread-header extra'>
+					<Breadcrumbs name={EpiData.title} link='/episodes' extraName={t("components.singleEpi.episodes")} />
+				</div>
+				<SingleEpiHeader header={EpiData} />
+				<hr className='hr-underline' />
+				<SingleEpiPost posts={posts} />
+				{data.can_reply ? <EpiSendPostFrom /> : ''}
+			</div>
 		</>
 	)
 }
