@@ -23,20 +23,20 @@ const OneEpi = () => {
 
 	return (
 		<>
-			<Pagination data={filteredEpies}>
-				<div className='epi-search'>
-					<form className="epi-search__form">
-						<input type="text"
-							value={value}
-							placeholder="Поиск по названиям..."
-							className="epi-search__input"
-							onChange={(e) => setValue(e.target.value)}
-						/>
-					</form>
-					<p className='epi-search__btn-search'><BsSearch /></p>
-					<button className='epi-search__btn-close' onClick={() => setValue('')}><CgClose /></button>
-				</div>
+			<div className='epi-search'>
+				<form className="epi-search__form">
+					<input type="text"
+						value={value}
+						placeholder="Поиск по названиям..."
+						className="epi-search__input"
+						onChange={(e) => setValue(e.target.value)}
+					/>
+				</form>
+				<p className='epi-search__btn-search'><BsSearch /></p>
+				<button className='epi-search__btn-close' onClick={() => setValue('')}><CgClose /></button>
+			</div>
 
+			<Pagination data={filteredEpies}>
 				{info && filteredEpies?.map((item) => (
 					<div className='epi-wrapper' key={item.id}>
 						<div className='epi-text-info'>

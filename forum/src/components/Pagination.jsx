@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate';
-import OneEpi from './episodes/oneEpi';
 
 const Pagination = (props) => {
 	const [currentItems, setCurrentItems] = useState([]);
 	const [pageCount, setPageCount] = useState(0);
 	const [itemOffset, setItemOffset] = useState(0);
-	const itemsPerPage = 2
+	const itemsPerPage = 10
 
 	console.log(props, 'props')
 	console.log(pageCount, 'pageCount')
@@ -14,7 +13,7 @@ const Pagination = (props) => {
 
 	useEffect(() => {
 		const endOffset = itemOffset + itemsPerPage;
-		setCurrentItems(props.data.slice(itemOffset, endOffset));
+		setCurrentItems(props.children.slice(itemOffset, endOffset));
 		setPageCount(Math.ceil(props.data.length / itemsPerPage));
 	}, [itemOffset, itemsPerPage, props.data]);
 
@@ -25,7 +24,7 @@ const Pagination = (props) => {
 
 	return (
 		<>
-			{props.children}
+			{currentItems}
 
 			<ReactPaginate
 				breakLabel="..."
