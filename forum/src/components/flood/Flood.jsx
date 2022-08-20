@@ -11,8 +11,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import { DeleteMsgBtn, EditMsgBtn, AnswerMsgBtn } from '../../helpers/editOrRemove';
 import { SwallDeleteMsg, SwallSuccess } from '../../helpers/swall_notifications';
 import TextArea from '../TextArea';
+var CryptoJS = require("crypto-js");
 
 const Flood = () => {
+	// const CryptoJS = require("crypto-js");
 	const { t } = useTranslation();
 	const [user] = useSelector((state) => state.usersReducer.user)
 	const [text, setText] = useState('')
@@ -29,10 +31,7 @@ const Flood = () => {
 	const [editOptionClose, setEditOptionClose] = useState(true)
 	const [unreadMsgs, setUnreadMsgs] = useState()
 
-	console.log(unreadMsgs)
-	console.log(chatsList, 'chatsList')
-
-	// eslint-disable-next-line react-hooks/exhaustive-deps
+	let sockContent
 
 	useEffect(() => {
 	}, [showChatsList])
@@ -62,6 +61,7 @@ const Flood = () => {
 		if (element) {
 			element.scrollIntoView()
 		}
+
 	}
 
 	const openChat = useCallback((id = 1) => {
@@ -77,24 +77,28 @@ const Flood = () => {
 		}
 	}, []);
 
-	const floodData = {
-		text,
-		token: localStorage.getItem('token')
-	}
-
 	const startChat = useCallback(() => {
 		const socket = new WebSocket("wss://5r9ld0bvs5.execute-api.us-east-1.amazonaws.com/Prod")
 
 		socket.onopen = function () {
-			socket.send(JSON.stringify({ action: "sendmessage", data: { updateToken: true, token: localStorage.getItem('token'), chatId: chatId } }));
+			socket.send(JSON.stringify({ action: "sendmessage", data: { updateToken: true, token: localStorage.getItem('token'), chatId: chatId } }))
 		};
 
 		socket.onmessage = function (event) {
 			const data = JSON.parse(event.data);
-			addMsg(data)
-			const element = document.getElementById('m' + data.id)
-			if (element) {
-				element.scrollIntoView()
+			// console.log(window.location.pathname.slice(7))
+			console.log(data, 888888, 'data')
+			if (window.location.pathname.slice(7) === chatId) {
+				const bytes = CryptoJS.AES.decrypt(sockContent, 'secret key 123')
+				console.log(bytes, 'newText')
+				const newMsg = JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
+				addMsg(newMsg)
+				console.log(newMsg, '90909090')
+
+				const element = document.getElementById('m' + data.id)
+				if (element) {
+					element.scrollIntoView({ block: "end", inline: "nearest" })
+				}
 			}
 		}
 
@@ -109,8 +113,18 @@ const Flood = () => {
 
 	function sendMessage() {
 		if (text.trim() !== '') {
-			socket_con.send(JSON.stringify({ action: "sendmessage", data: floodData }));
+			sockContent = CryptoJS.AES.encrypt(JSON.stringify(text), 'secret key 123').toString()
+			socket_con.send(JSON.stringify({
+				action: "sendmessage", data: {
+					chat_id: chatId,
+					"content": sockContent,
+					token: localStorage.getItem('token')
+				}
+			}));
+
 			setText('')
+			const floodDown = document.getElementById("message-area");
+			floodDown.scrollTop = floodDown.scrollHeight;
 		} else {
 			SwallSuccess(t("components.flood.empty_message"))
 		}
@@ -155,7 +169,7 @@ const Flood = () => {
 	function answerOnMsg(author, text) {
 		const element = document.querySelector('.flood-wrapper__send')
 		if (element) {
-			element.scrollIntoView({ block: "end", inline: "nearest", behavior: "smooth" })
+			element.scrollIntoView({ block: "end", inline: "nearest" })
 		}
 		setText(prevstate => prevstate + `[quote][b]${author}[/b] \n${text}[/quote]`)
 		setEditOptionClose(true)
@@ -181,16 +195,6 @@ const Flood = () => {
 			: <div className='flood-message__edit-options'>
 				<p onClick={() => answerOnMsg(m.user_name, m.content)}>{t("components.flood.quote")}</p>
 			</div>
-
-		const messages = document.getElementById("message-area")
-
-		messages.addEventListener('onload', () => {
-			console.log(111)
-			const floodDown = document.getElementById("message-area");
-			if (floodDown && !editOptionClose) {
-				floodDown.scrollIntoView({ block: "end", inline: "nearest" })
-			}
-		})
 
 		return (
 			<div className={message} key={m.id} id={`m${m.id}`}>
@@ -242,6 +246,17 @@ const Flood = () => {
 			</div>
 		)
 	})
+
+	useEffect(() => {
+		console.log(44444444)
+		const floodDown = document.getElementById("message-area");
+
+		if (floodDown && !showChatsList) {
+			floodDown.scrollTop = floodDown.scrollHeight
+			window.scrollTo(0, document.body.scrollHeight)
+		}
+
+	}, [allMsg])
 
 	return (
 		<>

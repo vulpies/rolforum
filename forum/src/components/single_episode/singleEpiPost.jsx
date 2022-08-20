@@ -24,6 +24,8 @@ const SingleEpiPost = ({ posts }) => {
 		}
 	}, [msg])
 
+	console.log(msg, 'msg')
+
 
 	return (
 		<>
