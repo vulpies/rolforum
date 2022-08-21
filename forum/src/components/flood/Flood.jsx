@@ -56,7 +56,7 @@ const Flood = () => {
 		param.messages.forEach(p => p["isHide"] = true)
 		setChatName(param.chat.name)
 		setMsg(param.messages)
-		const id = param.messages[param.messages.length - 1].id
+		const id = param.messages[param.messages.length - 1]?.id
 		const element = document.getElementById('m' + id)
 		if (element) {
 			element.scrollIntoView()
@@ -175,6 +175,24 @@ const Flood = () => {
 		setEditOptionClose(true)
 	}
 
+	const msgOptionsBtns = (username, dltUrl, setMsg, msg, id, content) => {
+		return <>
+			{username === localStorage.getItem('username') ?
+				<>
+					<DeleteMsgBtn
+						className='btns btns-editor sepi-header-desc__items-trash'
+						onDelete={() => SwallDeleteMsg(t("components.flood.remove_msg"), t("components.singleEpiPost.cancel_btn"), t("components.singleEpiPost.confirm_delete"), t("components.flood.confirm_dlt_msg"), dltUrl, setMsg, msg, id)} />
+
+					<EditMsgBtn className='btns btns-editor sepi-header-desc__items-edit' onEdit={() => navigate(`/chats/edit/${id}`)} />
+
+					<AnswerMsgBtn className='btns btns-editor sepi-header-desc__items-answer' onAnswer={() => answerOnMsg(username, content)} />
+
+				</> :
+				<AnswerMsgBtn className='btns btns-editor sepi-header-desc__items-answer' onAnswer={() => answerOnMsg(username, content)} />
+			}
+		</>
+	}
+
 	const allMsg = msg?.map(m => {
 
 		const dltUrl = `https://api.postscriptum.games/v1/chat-message-delete/${m.id}`
@@ -187,14 +205,14 @@ const Flood = () => {
 		const textContent = owner ? 'flood-message__text-content-owner flood-message__text-content' : 'flood-message__text-content';
 		const desktopIcons = owner ? 'flood-message__edit-desktop-owner flood-message__edit-desktop' : "flood-message__edit-desktop"
 
-		const setBtn = owner ? <div className={'flood-message__edit-options-owner flood-message__edit-options'} style={editOptionClose ? { "display": "none" } : { 'display': "initial" }}>
-			<p onClick={() => navigate(`/chats/edit/${m.id}`)}>{t("components.flood.edit")}</p>
-			<p onClick={() => answerOnMsg(m.user_name, m.content)}>{t("components.flood.quote")}</p>
-			<p onClick={() => SwallDeleteMsg(t("components.flood.remove_msg"), t("components.singleEpiPost.cancel_btn"), t("components.singleEpiPost.confirm_delete"), t("components.flood.confirm_dlt_msg"), dltUrl, setMsg, msg, m.id)}>{t("components.flood.delete")}</p>
-		</div>
-			: <div className='flood-message__edit-options'>
-				<p onClick={() => answerOnMsg(m.user_name, m.content)}>{t("components.flood.quote")}</p>
-			</div>
+		// const setBtn = owner ? <div className={'flood-message__edit-options-owner flood-message__edit-options'} style={editOptionClose ? { "display": "none" } : { 'display': "initial" }}>
+		// 	<p onClick={() => navigate(`/chats/edit/${m.id}`)}>{t("components.flood.edit")}</p>
+		// 	<p onClick={() => answerOnMsg(m.user_name, m.content)}>{t("components.flood.quote")}</p>
+		// 	<p onClick={() => SwallDeleteMsg(t("components.flood.remove_msg"), t("components.singleEpiPost.cancel_btn"), t("components.singleEpiPost.confirm_delete"), t("components.flood.confirm_dlt_msg"), dltUrl, setMsg, msg, m.id)}>{t("components.flood.delete")}</p>
+		// </div>
+		// 	: <div className='flood-message__edit-options'>
+		// 		<p onClick={() => answerOnMsg(m.user_name, m.content)}>{t("components.flood.quote")}</p>
+		// 	</div>
 
 		return (
 			<div className={message} key={m.id} id={`m${m.id}`}>
@@ -210,32 +228,16 @@ const Flood = () => {
 					<div className={topLine}>
 						<span className={textTime}>{m.time}</span>
 
-						<div className='flood-message__edit-block'>
-							<span className='flood-message__edit'
-								id={m.id}
-								onClick={() => msgSet(m.id)}>
-								<AiOutlineSetting />
+						{/* <div className='flood-message__edit-block'>
+							<span className='flood-message__edit'>
+								{msgOptionsBtns(m.user_name, dltUrl, setMsg, msg, m.id, m.content)}
 							</span>
-							{m.isHide ? '' : setBtn}
-						</div>
+							{m.isHide ? '' : setBtn}}
+						</div> */}
 
 
 						<div className={desktopIcons}>
-
-							{m.user_name === localStorage.getItem('username') ?
-								<>
-									<DeleteMsgBtn
-										className='btns btns-editor sepi-header-desc__items-trash'
-										onDelete={() => SwallDeleteMsg(t("components.flood.remove_msg"), t("components.singleEpiPost.cancel_btn"), t("components.singleEpiPost.confirm_delete"), t("components.flood.confirm_dlt_msg"), dltUrl, setMsg, msg, m.id)} />
-
-									<EditMsgBtn className='btns btns-editor sepi-header-desc__items-edit' onEdit={() => navigate(`/chats/edit/${m.id}`)} />
-
-									<AnswerMsgBtn className='btns btns-editor sepi-header-desc__items-answer' onAnswer={() => answerOnMsg(m.user_name, m.content)} />
-
-								</> :
-								<AnswerMsgBtn className='btns btns-editor sepi-header-desc__items-answer' onAnswer={() => answerOnMsg(m.user_name, m.content)} />
-							}
-
+							{msgOptionsBtns(m.user_name, dltUrl, setMsg, msg, m.id, m.content)}
 						</div>
 					</div>
 
@@ -243,7 +245,7 @@ const Flood = () => {
 						__html: `${m.content?.replace(/\n/g, `</br>`).replace(/\s-\s/gm, ' — ')}`
 					}} />
 				</div>
-			</div>
+			</div >
 		)
 	})
 
@@ -256,7 +258,7 @@ const Flood = () => {
 			window.scrollTo(0, document.body.scrollHeight)
 		}
 
-	}, [allMsg])
+	}, [allMsg, showChatsList])
 
 	return (
 		<>
@@ -292,14 +294,20 @@ const Flood = () => {
 					<p className='flood-chats__list-title'>{t("components.flood.public_chats_list")}</p>
 					<div className='flood-chats-list-common'>
 						{publicChats?.map(item => {
-							return <li className='flood-chats__list-item' key={item.id} onClick={() => openChat(item.id)}>{item.name}</li>
+							return <li className='flood-chats__list-item' key={item.id} onClick={() => {
+								openChat(item.id)
+								window.history.pushState("", "", `/chats/${item.id}`);
+							}}>{item.name}</li>
 						})}
 					</div>
 
 					<p className='flood-chats__list-title'>{t("components.flood.private_chats_list")}</p>
 					<div className='flood-chats-list-common'>
 						{privateChats?.map(item => {
-							return <li className='flood-chats__list-item' key={item.id} onClick={() => openChat(item.id)}>{item.name}</li>
+							return <li className='flood-chats__list-item' key={item.id} onClick={() => {
+								openChat(item.id)
+								window.history.pushState("", "", `/chats/${item.id}`);
+							}}>{item.name}</li>
 						})}
 					</div>
 

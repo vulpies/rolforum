@@ -63,9 +63,9 @@
         width: 95%;
     }
 
-    .flood-message__edit-block {
+    /* .flood-message__edit-block {
         display: none;
-    }
+    } */
 
     .flood-message__edit-desktop,
     .flood-message__edit-desktop-owner {
@@ -75,6 +75,12 @@
         flex-direction: row;
         align-content: flex-end;
         align-items: flex-end;
+    }
+
+    .flood-message__edit-desktop > .btns-editor,
+    .flood-message__edit-desktop-owner > .btns-editor {
+        width: 35px !important;
+        height: 35px !important;
     }
 
     .flood-message__edit-desktop {
