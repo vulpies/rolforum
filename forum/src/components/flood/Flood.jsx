@@ -16,19 +16,22 @@ var CryptoJS = require("crypto-js");
 const Flood = () => {
 	// const CryptoJS = require("crypto-js");
 	const { t } = useTranslation();
+	const { chatId } = useParams();
 	const [user] = useSelector((state) => state.usersReducer.user)
+	const navigate = useNavigate()
+
 	const [text, setText] = useState('')
 	const [socket_con, setSocket] = useState(null)
+
 	const [msg, setMsg] = useState([])
 	const [count, setCount] = useState(40)
-	const [isHide, setHide] = useState(true)
+	// const [isHide, setHide] = useState(true)
+
 	const [endMsgList, setEndMsgList] = useState(false)
 	const [chatName, setChatName] = useState('')
-	const { chatId } = useParams();
 	const [chatsList, setChatsList] = useState()
 	const [showChatsList, setShowChatsList] = useState(false)
-	const navigate = useNavigate()
-	const [editOptionClose, setEditOptionClose] = useState(true)
+	// const [editOptionClose, setEditOptionClose] = useState(true)
 	const [unreadMsgs, setUnreadMsgs] = useState()
 
 	let sockContent
@@ -136,20 +139,20 @@ const Flood = () => {
 		}
 	}
 
-	function msgSet(id) {
-		const msgId = msg.find(m => m.id === id)
-		if (msgId.id === id) {
-			console.log(msgId, 'msgId')
-			msgId.isHide = !msgId.isHide
+	// function msgSet(id) {
+	// 	const msgId = msg.find(m => m.id === id)
+	// 	if (msgId.id === id) {
+	// 		console.log(msgId, 'msgId')
+	// 		msgId.isHide = !msgId.isHide
 
-			setHide(prevState => !prevState)
-			setEditOptionClose(!editOptionClose)
-			console.log(editOptionClose, 'editOptionClose')
+	// 		setHide(prevState => !prevState)
+	// 		setEditOptionClose(!editOptionClose)
+	// 		console.log(editOptionClose, 'editOptionClose')
 
-			const outOfText = document.getElementById('message-area')
-			outOfText.addEventListener('click', () => setEditOptionClose(true))
-		}
-	}
+	// 		const outOfText = document.getElementById('message-area')
+	// 		outOfText.addEventListener('click', () => setEditOptionClose(true))
+	// 	}
+	// }
 
 	function getAllMsg(param) {
 		param.messages.forEach(p => p["isHide"] = true)
@@ -172,7 +175,7 @@ const Flood = () => {
 			element.scrollIntoView({ block: "end", inline: "nearest" })
 		}
 		setText(prevstate => prevstate + `[quote][b]${author}[/b] \n${text}[/quote]`)
-		setEditOptionClose(true)
+		// setEditOptionClose(true)
 	}
 
 	const msgOptionsBtns = (username, dltUrl, setMsg, msg, id, content) => {

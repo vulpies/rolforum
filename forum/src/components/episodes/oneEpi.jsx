@@ -21,6 +21,8 @@ const OneEpi = () => {
 
 	const filteredEpies = info.filter(epi => (epi.title.toLowerCase().includes(value)))
 
+	console.log(filteredEpies, 'filteredEpies')
+
 	return (
 		<>
 			<div className='epi-search'>

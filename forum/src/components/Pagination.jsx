@@ -11,7 +11,7 @@ const Pagination = (props) => {
 		const endOffset = itemOffset + itemsPerPage;
 		setCurrentItems(props.children.slice(itemOffset, endOffset));
 		setPageCount(Math.ceil(props.data.length / itemsPerPage));
-	}, [props.data, props.children]);
+	}, [props.data, props.children, itemOffset]);
 
 	const handlePageClick = (event) => {
 		const newOffset = (event.selected * itemsPerPage) % props.data.length;
