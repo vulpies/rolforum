@@ -93,17 +93,20 @@
         font-size: 1.2rem;
     }
 
-    .flood-chats-list-common::-webkit-scrollbar {
+    .flood-chats-list-common::-webkit-scrollbar,
+    .flood-chats-list-wrapper::-webkit-scrollbar {
         width: 7px;
     }
 
-    .flood-chats-list-common::-webkit-scrollbar-track {
+    .flood-chats-list-common::-webkit-scrollbar-track,
+    .flood-chats-list-wrapper::-webkit-scrollbar-track {
         box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
         background-color: #fffdde;
         border-radius: 10px;
     }
 
-    .flood-chats-list-common::-webkit-scrollbar-thumb {
+    .flood-chats-list-common::-webkit-scrollbar-thumb,
+    .flood-chats-list-wrapper::-webkit-scrollbar-thumb {
         border-radius: 10px;
         background-color: #f2bf93;
         background-image: -webkit-linear-gradient(

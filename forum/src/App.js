@@ -21,6 +21,7 @@ import i18n from "./services/i18n";
 import CreateChat from "./components/flood/CreateChat"
 import { EditPost, EditFloodMsg, EditAppCom } from './components/edit_forms/edit_index'
 import PageNotFound from "./pages/404"
+import FAQ from "./pages/faq"
 
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
 
                         <Route path='/guestbook/list_of_users' element={<UsersList />} />
                         <Route path='/guestbook/list_of_roles' element={<RolesList />} />
+                        <Route path='/guestbook/faq' element={<FAQ />} />
                         <Route path="/guestbook" element={<GuestsPage />} />
 
                         <Route path="/episodes/edit/:epiPostId" element={<EditPost />} />

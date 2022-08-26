@@ -3,4 +3,8 @@
         width: 80%;
         margin: 15px auto 20px auto;
     }
+
+    .create-new-epi__text {
+        background-color: #fff !important;
+    }
 }
