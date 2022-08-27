@@ -25,9 +25,6 @@ const ProfileEdit = () => {
 		commonFetch('https://api.postscriptum.games/v1/profile/edit-data', setProf)
 	}, [setProf])
 
-	console.log(prof, 'prof')
-
-
 	const time = {
 		"value": prof?.timezone,
 		"label": prof?.timezone
@@ -69,8 +66,6 @@ const ProfileEdit = () => {
 		} catch (err) {
 			console.log(err)
 		}
-		console.log(updUserInfo)
-
 		SwallSuccess(t("components.profileEdit.information_saved"))
 		navigate(`/profile/${prof?.user_id}`)
 	}
@@ -136,7 +131,7 @@ const ProfileEdit = () => {
 					<CustomSelect
 						styleDiv='profile-input__input'
 						label={t("components.profileEdit.language")}
-						onChange={(e) => setFormatDate(e)}
+						onChange={(e) => setLanguage(e)}
 						options={languages}
 						closeMenuOnSelect={true}
 						isMulti={false}

@@ -22,15 +22,12 @@ const Profile = () => {
 		commonFetch(`https://api.postscriptum.games/v1/profile/view/${profId}`, setInfo)
 	}, [])
 
-	console.log(user, '999')
-	console.log(info, 'info')
-
 	return (
 		<div className='wrapper'>
 
 			<Helmet>
 				<meta name="description" content="Profile page" />
-				<title>Profile page: {info?.user_name}</title>
+				<title>{`Profile page: ${info?.user_name}`}</title>
 			</Helmet>
 
 			<div className='epi-links single-link'>

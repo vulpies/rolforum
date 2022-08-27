@@ -29,13 +29,16 @@
 
 .faq-text {
     margin-top: 3px;
-    margin-left: 30px;
 }
 
 @media (min-width: 1024px) {
     .faq-wrapper {
         margin: 26px auto 0px;
         padding: 0px 12px;
+    }
+
+    .faq-text {
+        margin-left: 31px;
     }
 }
 
