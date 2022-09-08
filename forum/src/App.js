@@ -16,12 +16,11 @@ import Arrows from "./helpers/arrows"
 import { MainPage, Profile, EpisodesPage, OrgPage, Outgame, Chats, CreateCharacter, ResetPass, ModerPage, AdminPage, AboutUs, GuestsPage } from './pages/index'
 import { addUserInfo } from "./store/usersSlice"
 import { News, SingleNews } from './pages/org_pages/org_index'
-import { RolesList, UsersList } from './pages/for_guests/guests_index'
+import { RolesList, UsersList, FAQ } from './pages/for_guests/guests_index'
 import i18n from "./services/i18n";
 import CreateChat from "./components/flood/CreateChat"
 import { EditPost, EditFloodMsg, EditAppCom } from './components/edit_forms/edit_index'
 import PageNotFound from "./pages/404"
-import FAQ from "./pages/faq"
 
 
 function App() {

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Breadcrumbs from '../components/breadcrumbs'
-import faqInfo from '../static_info/faq'
+import Breadcrumbs from '../../components/breadcrumbs'
 import { Helmet } from "react-helmet";
 import { useSelector } from 'react-redux';
-import faqEn from '../static_info/faq_en';
 import { useTranslation } from 'react-i18next';
+import faqInfo from '../../static_info/ru/faq'
+import faqEn from '../../static_info/eng/faq_en'
 
 const FAQ = () => {
 	const language = useSelector((state) => state.usersReducer?.user[0]?.language)

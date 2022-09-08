@@ -30,6 +30,10 @@ const ProfileEdit = () => {
 		"label": prof?.timezone
 	}
 
+
+	console.log(prof, 'prof')
+	console.log(formatDate, 'formatDate')
+
 	const languages = [
 		{ "value": "en", "label": "English" },
 		{ "value": "ru", "label": "Russian" }
@@ -57,7 +61,7 @@ const ProfileEdit = () => {
 			avatar: avatar || prof.user_avatar,
 			timeZone: getUserTime?.value || time.value,
 			language: language?.value || prof.language,
-			dateFormat: formatDate?.value || prof.dateFormat,
+			date_format: formatDate?.value || prof.date_format,
 		}
 
 		try {
@@ -144,7 +148,7 @@ const ProfileEdit = () => {
 						label={t("components.profileEdit.date_format")}
 						onChange={(e) => setFormatDate(e)}
 						options={dateFormat}
-						defaultValue={dateFormat.filter((item) => { return item.value === prof.dateFormat })[0]}
+						defaultValue={dateFormat.filter((item) => item.value === prof.date_format)}
 						closeMenuOnSelect={true}
 						isMulti={false}
 						placeholder={t("components.profileEdit.choose_date_format")}
