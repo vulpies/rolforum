@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { Helmet } from "react-helmet";
-import { AiOutlineSetting } from "react-icons/ai";
+// import { AiOutlineSetting } from "react-icons/ai";
 import { useSelector } from 'react-redux';
 import { commonFetch } from '../../helpers/commonFetch';
 import { AiOutlineUnorderedList, AiOutlineMore } from "react-icons/ai";
@@ -11,10 +11,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { DeleteMsgBtn, EditMsgBtn, AnswerMsgBtn } from '../../helpers/editOrRemove';
 import { SwallDeleteMsg, SwallSuccess } from '../../helpers/swall_notifications';
 import TextArea from '../TextArea';
-var CryptoJS = require("crypto-js");
 
 const Flood = () => {
-	// const CryptoJS = require("crypto-js");
 	const { t } = useTranslation();
 	const { chatId } = useParams();
 	const [user] = useSelector((state) => state.usersReducer.user)
@@ -34,7 +32,6 @@ const Flood = () => {
 	// const [editOptionClose, setEditOptionClose] = useState(true)
 	const [unreadMsgs, setUnreadMsgs] = useState()
 
-	let sockContent
 
 	useEffect(() => {
 	}, [showChatsList])
@@ -72,6 +69,11 @@ const Flood = () => {
 		setShowChatsList(false)
 	}, [])
 
+	const floodData = {
+		text,
+		token: localStorage.getItem('token')
+	}
+
 	const addMsg = useCallback((data) => {
 		if (!data.tokenUpdate) {
 			console.log(data, 'data8888')
@@ -89,22 +91,12 @@ const Flood = () => {
 
 		socket.onmessage = function (event) {
 			const data = JSON.parse(event.data);
-			// console.log(window.location.pathname.slice(7))
-			console.log(data, 888888, 'data')
-			if (window.location.pathname.slice(7) === chatId) {
-				const bytes = CryptoJS.AES.decrypt(sockContent, 'secret key 123')
-				console.log(bytes, 'newText')
-				const newMsg = JSON.parse(bytes.toString(CryptoJS.enc.Utf8))
-				addMsg(newMsg)
-				console.log(newMsg, '90909090')
-
-				const element = document.getElementById('m' + data.id)
-				if (element) {
-					element.scrollIntoView({ block: "end", inline: "nearest" })
-				}
+			addMsg(data)
+			const element = document.getElementById('m' + data.id)
+			if (element) {
+				element.scrollIntoView()
 			}
 		}
-
 		socket.onclose = function (event) {
 		};
 
@@ -116,14 +108,7 @@ const Flood = () => {
 
 	function sendMessage() {
 		if (text.trim() !== '') {
-			sockContent = CryptoJS.AES.encrypt(JSON.stringify(text), 'secret key 123').toString()
-			socket_con.send(JSON.stringify({
-				action: "sendmessage", data: {
-					chat_id: chatId,
-					"content": sockContent,
-					token: localStorage.getItem('token')
-				}
-			}));
+			socket_con.send(JSON.stringify({ action: "sendmessage", data: floodData }));
 
 			setText('')
 			const floodDown = document.getElementById("message-area");
